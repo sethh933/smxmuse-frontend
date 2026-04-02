@@ -1,0 +1,190 @@
+import { useParams, Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+export default function RiderPoints() {
+  const { riderId } = useParams();
+  const location = useLocation();
+
+  const [points, setPoints] = useState([]);
+  const [riderData, setRiderData] = useState(null);
+  const [mode, setMode] = useState("Combined");
+
+  // Fetch rider header (same as results page)
+  useEffect(() => {
+    fetch(`http://localhost:8000/rider/${riderId}/race-results`)
+      .then((res) => res.json())
+      .then((data) => {
+        setRiderData(data.rider);
+      })
+      .catch((err) =>
+        console.error("Failed to fetch rider:", err)
+      );
+  }, [riderId]);
+
+  // 🔥 Fetch points standings
+  useEffect(() => {
+    fetch(`http://localhost:8000/rider/${riderId}/points`)
+      .then((res) => res.json())
+      .then((data) => {
+        setPoints(data);
+      })
+      .catch((err) =>
+        console.error("Failed to fetch points:", err)
+      );
+  }, [riderId]);
+
+  const getCountryCode = (country) => {
+    const map = {
+      "United States": "us",
+      "France": "fr",
+      "Australia": "au",
+      "Netherlands": "nl",
+      "Germany": "de",
+      "Italy": "it",
+      "Canada": "ca",
+      "Spain": "es",
+    };
+    return map[country] || "us";
+  };
+
+  const filteredPoints = points.filter((row) => {
+  if (mode === "Combined") return true;
+  if (mode === "SX") return row.Class.includes("SX");
+  if (mode === "MX") return row.Class.includes("MX");
+  return true;
+});
+
+  return (
+    <div className="rider-profile-page">
+      {!riderData ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          {/* HEADER */}
+          <div className="rider-header">
+            <img
+              src={riderData.image_url}
+              alt={riderData.full_name}
+              className="rider-profile-image"
+            />
+
+            <h1 className="rider-name">
+              {riderData.full_name}
+            </h1>
+
+            <img
+              src={`https://flagcdn.com/w40/${getCountryCode(
+                riderData.country
+              )}.png`}
+              alt={riderData.country}
+              className="rider-flag"
+            />
+          </div>
+
+          {/* NAV */}
+          <div className="rider-nav">
+            <Link
+              to={`/rider/${riderId}`}
+              className="rider-nav-button"
+            >
+              Career Stats
+            </Link>
+
+            <Link
+              to={`/rider/${riderId}/results`}
+              className="rider-nav-button"
+            >
+              Career Results
+            </Link>
+
+            <Link
+              to={`/rider/${riderId}/points`}
+              className={`rider-nav-button ${
+                location.pathname.includes("/points") ? "active" : ""
+              }`}
+            >
+              Points Standings
+            </Link>
+          </div>
+        </>
+      )}
+
+      <div className="toggle-buttons">
+  <button
+    className={mode === "Combined" ? "active" : ""}
+    onClick={() => setMode("Combined")}
+  >
+    Combined
+  </button>
+
+  <button
+    className={mode === "SX" ? "active" : ""}
+    onClick={() => setMode("SX")}
+  >
+    SX
+  </button>
+
+  <button
+    className={mode === "MX" ? "active" : ""}
+    onClick={() => setMode("MX")}
+  >
+    MX
+  </button>
+</div>
+
+      {/* TABLE */}
+      <div className="rider-results-table-wrapper">
+        <table className="rider-stats">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Result</th>
+              <th>Points</th>
+              <th>Class</th>
+              <th>Brand</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {filteredPoints.map((row, i) => (
+              <tr key={i}>
+                <td>
+  <Link
+    to={`/season/${
+      row.Class.includes("MX") ? "mx" : "sx"
+    }/${row.Year}/${
+      row.Class === "250SX W"
+        ? "250W"
+        : row.Class === "250SX E"
+        ? "250E"
+        : row.Class.includes("450")
+        ? "450"
+        : row.Class.includes("250")
+        ? "250"
+        : "500"
+    }`}
+    style={{ color: "#60a5fa", textDecoration: "none" }}
+  >
+    {row.Year}
+  </Link>
+</td>
+
+                <td>
+                  {row.Result === "1"
+                    ? "🏆 1"
+                    : row.Result}
+                </td>
+
+                <td>{row.Points}</td>
+
+                <td>{row.Class}</td>
+
+                <td>{row.Brand}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
