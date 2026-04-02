@@ -90,7 +90,7 @@ export function MainStatsTable({ data, sport }) {
             {columns.map(col => (
               <td key={col.key}>
   {col.key === "FullName" ? (
-    <Link to={`/rider/${row.RiderID}`} className="rider-link">
+    <Link to={`/rider/${row.RiderID}`}>
       {row.FullName}
     </Link>
   ) : (

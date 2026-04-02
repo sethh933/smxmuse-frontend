@@ -37,7 +37,7 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
       <p>Loading...</p>
     ) : (
       <div className="leaderboard-table-wrapper">
-        <table>
+        <table className="leaderboard-four-table">
           <thead>
             <tr>
               <th>#</th>
@@ -66,7 +66,7 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
                 >
                   <td>{idx + 1}</td>
                   <td>
-  <Link to={`/rider/${rider.riderid}`} className="leaderboard-link">
+  <Link to={`/rider/${rider.riderid}`}>
     {rider.fullname}
   </Link>
 </td>

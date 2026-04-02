@@ -61,7 +61,7 @@ function Leaderboard3({ sport, classId, selectedRider, setSelectedRider }) {
                 >
                   <td>{idx + 1}</td>
                   <td>
-  <Link to={`/rider/${rider.riderid}`} className="leaderboard-link">
+  <Link to={`/rider/${rider.riderid}`}>
     {rider.fullname}
   </Link>
 </td>

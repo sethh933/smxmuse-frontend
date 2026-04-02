@@ -63,7 +63,6 @@ function Leaderboard2({ sport, classId, selectedRider, setSelectedRider }) {
                   <td>
   <Link
     to={`/rider/${rider.riderid}`}
-    className="leaderboard-link"
     onClick={(e) => e.stopPropagation()}
   >
     {rider.fullname}

@@ -41,7 +41,7 @@ export default function MainEventTable({ results }) {
             <tr key={`${rider.fullname}-${rider.result}`}>
               <td className="pos">{rider.result}</td>
               <td className="rider">
-  <Link to={`/rider/${rider.riderid}`} className="rider-link">
+  <Link to={`/rider/${rider.riderid}`}>
     {rider.fullname}
   </Link>
 </td>

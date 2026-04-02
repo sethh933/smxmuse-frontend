@@ -78,21 +78,6 @@ export default function ResultsYear() {
           Open any round from the {year} {sportLabel.toLowerCase()} season, or start with the
           championship picture before diving into the schedule.
         </p>
-
-        <div className="results-home-summary results-year-summary">
-          <div className="results-home-summary-card">
-            <span>Sport</span>
-            <strong>{sportLabel}</strong>
-          </div>
-          <div className="results-home-summary-card">
-            <span>Rounds</span>
-            <strong>{races.length}</strong>
-          </div>
-          <div className="results-home-summary-card">
-            <span>Champions</span>
-            <strong>{championCards.length || "--"}</strong>
-          </div>
-        </div>
       </section>
 
       {championCards.length > 0 && (

@@ -84,7 +84,7 @@ const [sortDir, setSortDir] = useState("asc");
       {sport === "sx" ? (
         <>
           <td>
-  <Link to={`/riders/${r.RiderID}`} className="rider-link">
+  <Link to={`/rider/${r.RiderID}`}>
     {r.FullName}
   </Link>
 </td>
@@ -96,7 +96,7 @@ const [sortDir, setSortDir] = useState("asc");
       ) : (
         <>
           <td>
-  <Link to={`/riders/${r.RiderID}`} className="rider-link">
+  <Link to={`/rider/${r.RiderID}`}>
     {r.FullName}
   </Link>
 </td>

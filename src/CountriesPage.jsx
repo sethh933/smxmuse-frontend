@@ -191,16 +191,17 @@ function CountriesPage() {
 
               <div className="name-grid">
                 {groupedRiders[selectedLetter]?.map((rider) => (
-                  <div key={rider.RiderID} className="rider-row">
+                  <div
+                    key={rider.RiderID}
+                    className="rider-row rider-row-clickable"
+                    onClick={() => navigate(`/rider/${rider.RiderID}`)}
+                  >
                     <img
                       src={rider.ImageURL}
                       alt={rider.FullName}
                       className="rider-avatar"
                     />
-                    <span
-                      className="country-rider-name"
-                      onClick={() => navigate(`/rider/${rider.RiderID}`)}
-                    >
+                    <span className="country-rider-text">
                       {rider.FullName}
                     </span>
                   </div>

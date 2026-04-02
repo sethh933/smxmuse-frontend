@@ -19,7 +19,7 @@ function MXQualifyingTable({ data }) {
             <tr key={index}>
               <td>{row.result}</td>
               <td>
-  <Link to={`/rider/${row.riderid}`} className="rider-link">
+  <Link to={`/rider/${row.riderid}`}>
     {row.fullname}
   </Link>
 </td>

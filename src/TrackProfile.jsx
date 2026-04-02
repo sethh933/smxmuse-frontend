@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, useSearchParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./App.css";
 
 const API_BASE_URL = "http://localhost:8000";
@@ -16,103 +16,83 @@ function TrackProfile() {
   const [availableClasses, setAvailableClasses] = useState([]);
 
   useEffect(() => {
-  async function fetchClasses() {
-    try {
-      const res = await axios.get("http://localhost:8000/api/track-classes", {
-        params: {
-          track_id: track_id,
-          sport_id: sportId
-        }
-      });
+    async function fetchClasses() {
+      try {
+        const res = await axios.get("http://localhost:8000/api/track-classes", {
+          params: {
+            track_id,
+            sport_id: sportId,
+          },
+        });
 
-      setAvailableClasses(res.data.map(c => c.ClassID));
-    } catch (err) {
-      console.error(err);
+        setAvailableClasses(res.data.map((c) => c.ClassID));
+      } catch (err) {
+        console.error(err);
+      }
     }
-  }
 
-  fetchClasses();
-}, [track_id, sportId]);
+    fetchClasses();
+  }, [track_id, sportId]);
 
   useEffect(() => {
-  console.log("API_BASE_URL:", API_BASE_URL);
-  console.log("Params:", { track_id, sportId, classId });
-
-  axios
-    .get(`${API_BASE_URL}/api/track-profile`, {
-      params: {
-        track_id,
-        sport_id: sportId,
-        class_id: classId,
-      },
-    })
-    .then((res) => {
-      console.log("RESPONSE:", res.data);
-      setData(res.data);
-    })
-    .catch((err) => {
-      console.error("ERROR:", err);
-    });
-}, [track_id, sportId, classId]);
+    axios
+      .get(`${API_BASE_URL}/api/track-profile`, {
+        params: {
+          track_id,
+          sport_id: sportId,
+          class_id: classId,
+        },
+      })
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error("ERROR:", err);
+      });
+  }, [track_id, sportId, classId]);
 
   if (!data || !data.race_winners) {
-  return <div className="app-wrapper">Loading...</div>;
-}
+    return <div className="app-wrapper">Loading...</div>;
+  }
+
+  const trackName = data?.race_winners?.[0]?.TrackName || "Track Profile";
 
   return (
-    <div className="app-wrapper">
-      <h1 style={{ textAlign: "center" }}>
-  {data?.race_winners?.[0]?.TrackName || "Track Profile"}
-</h1>
+    <div className="track-profile-page">
+      <section className="track-profile-hero">
+        <h1>{trackName}</h1>
 
-      {/* Class Toggle */}
-      <div style={{ display: "flex", gap: "10px", justifyContent: "center", marginBottom: "20px" }}>
+        <div className="toggle-buttons track-profile-toggle-buttons">
+          {availableClasses.includes(1) && (
+            <button
+              onClick={() => setClassId(1)}
+              className={classId === 1 ? "active" : ""}
+            >
+              450
+            </button>
+          )}
 
-  {availableClasses.includes(1) && (
-    <button
-      onClick={() => setClassId(1)}
-      style={{
-        background: classId === 1 ? "#fff" : "#333",
-        color: classId === 1 ? "#000" : "#fff",
-        padding: "6px 12px",
-        borderRadius: "6px"
-      }}
-    >
-      450
-    </button>
-  )}
+          {availableClasses.includes(2) && (
+            <button
+              onClick={() => setClassId(2)}
+              className={classId === 2 ? "active" : ""}
+            >
+              250
+            </button>
+          )}
 
-  {availableClasses.includes(2) && (
-    <button
-      onClick={() => setClassId(2)}
-      style={{
-        background: classId === 2 ? "#fff" : "#333",
-        color: classId === 2 ? "#000" : "#fff",
-        padding: "6px 12px",
-        borderRadius: "6px"
-      }}
-    >
-      250
-    </button>
-  )}
+          {availableClasses.includes(3) && (
+            <button
+              onClick={() => setClassId(3)}
+              className={classId === 3 ? "active" : ""}
+            >
+              500
+            </button>
+          )}
+        </div>
+      </section>
 
-  {availableClasses.includes(3) && (
-    <button
-      onClick={() => setClassId(3)}
-      style={{
-        background: classId === 3 ? "#fff" : "#333",
-        color: classId === 3 ? "#000" : "#fff",
-        padding: "6px 12px",
-        borderRadius: "6px"
-      }}
-    >
-      500
-    </button>
-  )}
-
-</div>
-
-      <div className="grid-container">
+      <div className="grid-container track-profile-grid">
 
         {/* ===================== */}
         {/* Race Winners */}
@@ -137,10 +117,10 @@ function TrackProfile() {
                       </Link>
                     </td>
                     <td>
-  <Link to={`/rider/${row.RiderID}`}>
-    {row.Winner}
-  </Link>
-</td>
+                      <Link to={`/rider/${row.RiderID}`}>
+                        {row.Winner}
+                      </Link>
+                    </td>
                     <td>{row.Brand}</td>
                   </tr>
                 ))}

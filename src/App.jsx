@@ -37,84 +37,90 @@ function LeaderboardsPage() {
   const [selectedRider, setSelectedRider] = useState(null);
 
   return (
-    <div className="header">
-      <h1>🏁 All Time Leaderboards</h1>
+    <div className="leaderboards-page">
+      <section className="leaderboards-hero">
+        <h1>All Time Leaderboards</h1>
+        <p className="leaderboards-intro">
+          Switch between disciplines and classes to compare the riders who sit at the top of the
+          all-time stat categories.
+        </p>
 
-      <div className="toggle-buttons">
-  <button
-    onClick={() => {
-      setSport("supercross")
-      setClassId(1)
-    }}
-    className={sport === "supercross" ? "active" : ""}
-  >
-    SX
-  </button>
+        <div className="leaderboards-toggle-stack">
+          <div className="toggle-buttons leaderboards-toggle-buttons">
+            <button
+              onClick={() => {
+                setSport("supercross");
+                setClassId(1);
+              }}
+              className={sport === "supercross" ? "active" : ""}
+            >
+              SX
+            </button>
 
-  <button
-    onClick={() => {
-      setSport("motocross")
-      setClassId(1)
-    }}
-    className={sport === "motocross" ? "active" : ""}
-  >
-    MX
-  </button>
-</div>
+            <button
+              onClick={() => {
+                setSport("motocross");
+                setClassId(1);
+              }}
+              className={sport === "motocross" ? "active" : ""}
+            >
+              MX
+            </button>
+          </div>
 
-      <div className="toggle-buttons">
+          <div className="toggle-buttons leaderboards-toggle-buttons">
+            <button
+              onClick={() => setClassId(1)}
+              className={classId === 1 ? "active" : ""}
+            >
+              450
+            </button>
 
-  <button
-    onClick={() => setClassId(1)}
-    className={classId === 1 ? 'active' : ''}
-  >
-    450
-  </button>
+            <button
+              onClick={() => setClassId(2)}
+              className={classId === 2 ? "active" : ""}
+            >
+              250
+            </button>
 
-  <button
-    onClick={() => setClassId(2)}
-    className={classId === 2 ? 'active' : ''}
-  >
-    250
-  </button>
-
-  {sport === "motocross" && (
-    <button
-      onClick={() => setClassId(3)}
-      className={classId === 3 ? 'active' : ''}
-    >
-      500
-    </button>
-  )}
-
-</div>
-
-        <div className="grid-container">
-          <Leaderboard1
-  sport={sport}
-  classId={classId}
-  selectedRider={selectedRider}
-  setSelectedRider={setSelectedRider}
-/>
-          <Leaderboard2
-  sport={sport}
-  classId={classId}
-  selectedRider={selectedRider}
-  setSelectedRider={setSelectedRider}
-/>
-          <Leaderboard3
-  sport={sport}
-  classId={classId}
-  selectedRider={selectedRider}
-  setSelectedRider={setSelectedRider}
-/>
-          <Leaderboard4
-  sport={sport}
-  classId={classId}
-  selectedRider={selectedRider}
-  setSelectedRider={setSelectedRider}
-/>
+            {sport === "motocross" && (
+              <button
+                onClick={() => setClassId(3)}
+                className={classId === 3 ? "active" : ""}
+              >
+                500
+              </button>
+            )}
+          </div>
         </div>
+      </section>
+
+      <div className="grid-container leaderboards-grid">
+        <Leaderboard1
+          sport={sport}
+          classId={classId}
+          selectedRider={selectedRider}
+          setSelectedRider={setSelectedRider}
+        />
+        <Leaderboard2
+          sport={sport}
+          classId={classId}
+          selectedRider={selectedRider}
+          setSelectedRider={setSelectedRider}
+        />
+        <Leaderboard3
+          sport={sport}
+          classId={classId}
+          selectedRider={selectedRider}
+          setSelectedRider={setSelectedRider}
+        />
+        <Leaderboard4
+          sport={sport}
+          classId={classId}
+          selectedRider={selectedRider}
+          setSelectedRider={setSelectedRider}
+        />
+      </div>
     </div>
   );
 }
@@ -175,7 +181,6 @@ classes.sort((a, b) => order[a] - order[b]);
       <h1 style={{ textAlign: "center" }}>
         <Link 
   to={`/track/${raceHeader.SportID}/${raceHeader.TrackID}`}
-  className="track-link"
 >
           {raceHeader.TrackName}
         </Link>
