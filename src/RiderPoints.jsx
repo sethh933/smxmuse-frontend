@@ -59,8 +59,7 @@ export default function RiderPoints() {
       {!riderData ? (
         <div>Loading...</div>
       ) : (
-        <>
-          {/* HEADER */}
+        <section className="rider-profile-hero">
           <div className="rider-header">
             <img
               src={riderData.image_url}
@@ -81,7 +80,6 @@ export default function RiderPoints() {
             />
           </div>
 
-          {/* NAV */}
           <div className="rider-nav">
             <Link
               to={`/rider/${riderId}`}
@@ -106,31 +104,31 @@ export default function RiderPoints() {
               Points Standings
             </Link>
           </div>
-        </>
+
+          <div className="toggle-buttons rider-profile-toggle">
+            <button
+              className={mode === "Combined" ? "active" : ""}
+              onClick={() => setMode("Combined")}
+            >
+              Combined
+            </button>
+
+            <button
+              className={mode === "SX" ? "active" : ""}
+              onClick={() => setMode("SX")}
+            >
+              SX
+            </button>
+
+            <button
+              className={mode === "MX" ? "active" : ""}
+              onClick={() => setMode("MX")}
+            >
+              MX
+            </button>
+          </div>
+        </section>
       )}
-
-      <div className="toggle-buttons">
-  <button
-    className={mode === "Combined" ? "active" : ""}
-    onClick={() => setMode("Combined")}
-  >
-    Combined
-  </button>
-
-  <button
-    className={mode === "SX" ? "active" : ""}
-    onClick={() => setMode("SX")}
-  >
-    SX
-  </button>
-
-  <button
-    className={mode === "MX" ? "active" : ""}
-    onClick={() => setMode("MX")}
-  >
-    MX
-  </button>
-</div>
 
       {/* TABLE */}
       <div className="rider-results-table-wrapper">

@@ -99,8 +99,7 @@ export default function RiderResults() {
       {!riderData ? (
         <div>Loading...</div>
       ) : (
-        <>
-          {/* HEADER */}
+        <section className="rider-profile-hero">
           <div className="rider-header">
             <img
               src={riderData.image_url}
@@ -121,72 +120,68 @@ export default function RiderResults() {
             />
           </div>
 
-          {/* NAV */}
           <div className="rider-nav">
-  <Link
-    to={`/rider/${riderId}`}
-    className="rider-nav-button"
-  >
-    Career Stats
-  </Link>
+            <Link
+              to={`/rider/${riderId}`}
+              className="rider-nav-button"
+            >
+              Career Stats
+            </Link>
 
-  <Link
-    to={`/rider/${riderId}/results`}
-    className={`rider-nav-button ${
-      location.pathname.includes("/results") ? "active" : ""
-    }`}
-  >
-    Career Results
-  </Link>
+            <Link
+              to={`/rider/${riderId}/results`}
+              className={`rider-nav-button ${
+                location.pathname.includes("/results") ? "active" : ""
+              }`}
+            >
+              Career Results
+            </Link>
 
-  <Link
-    to={`/rider/${riderId}/points`}
-    className="rider-nav-button"
-  >
-    Points Standings
-  </Link>
-</div>
-        </>
+            <Link
+              to={`/rider/${riderId}/points`}
+              className="rider-nav-button"
+            >
+              Points Standings
+            </Link>
+          </div>
+
+          <div className="toggle-buttons rider-profile-toggle">
+            <button
+              className={mode === "Combined" ? "active" : ""}
+              onClick={() => setMode("Combined")}
+            >
+              Combined
+            </button>
+
+            <button
+              className={mode === "SX" ? "active" : ""}
+              onClick={() => setMode("SX")}
+            >
+              SX
+            </button>
+
+            <button
+              className={mode === "MX" ? "active" : ""}
+              onClick={() => setMode("MX")}
+            >
+              MX
+            </button>
+          </div>
+
+          <div className="track-filter rider-profile-track-filter">
+            <select
+              value={selectedTrack}
+              onChange={(e) => setSelectedTrack(e.target.value)}
+            >
+              {trackOptions.map((track, i) => (
+                <option key={i} value={track}>
+                  {track}
+                </option>
+              ))}
+            </select>
+          </div>
+        </section>
       )}
-
-      
-
-      {/* EXISTING TOGGLE (UNCHANGED) */}
-      <div className="toggle-buttons">
-        <button
-          className={mode === "Combined" ? "active" : ""}
-          onClick={() => setMode("Combined")}
-        >
-          Combined
-        </button>
-
-        <button
-          className={mode === "SX" ? "active" : ""}
-          onClick={() => setMode("SX")}
-        >
-          SX
-        </button>
-
-        <button
-          className={mode === "MX" ? "active" : ""}
-          onClick={() => setMode("MX")}
-        >
-          MX
-        </button>
-      </div>
-
-      <div className="track-filter">
-  <select
-    value={selectedTrack}
-    onChange={(e) => setSelectedTrack(e.target.value)}
-  >
-    {trackOptions.map((track, i) => (
-      <option key={i} value={track}>
-        {track}
-      </option>
-    ))}
-  </select>
-</div>
 
       {/* TABLE (UNCHANGED) */}
       <div className="rider-results-table-wrapper">

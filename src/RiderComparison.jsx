@@ -1,8 +1,27 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import debounce from "lodash.debounce";
+import { toBlob } from "html-to-image";
 
 const API_BASE_URL = "http://localhost:8000";
+
+function getComparisonImageSrc(url) {
+  if (!url) return "/smxmuselogo.png";
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return `${API_BASE_URL}/api/image-proxy?url=${encodeURIComponent(url)}`;
+  }
+
+  return url;
+}
+
+function blobToDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
 
 export default function RiderComparison() {
   const [data, setData] = useState(null);
@@ -19,8 +38,11 @@ export default function RiderComparison() {
   const [suggestions1, setSuggestions1] = useState([]);
   const [suggestions2, setSuggestions2] = useState([]);
   const [appliedClassId, setAppliedClassId] = useState(1);
+  const [imageStatus, setImageStatus] = useState("");
+  const [isExporting, setIsExporting] = useState(false);
   const searchRef1 = useRef(null);
   const searchRef2 = useRef(null);
+  const comparisonCaptureRef = useRef(null);
 
   useEffect(() => {
   const handleClickOutside = (event) => {
@@ -97,6 +119,84 @@ export default function RiderComparison() {
     const res = await fetch(url);
     const json = await res.json();
     setData(json);
+    setImageStatus("");
+  };
+
+  const handleCopyComparisonImage = async () => {
+    if (!comparisonCaptureRef.current) return;
+
+    setIsExporting(true);
+    setImageStatus("");
+
+    try {
+      const imageElements = Array.from(
+        comparisonCaptureRef.current.querySelectorAll(".comparison-rider-image")
+      );
+
+      await Promise.all(
+        imageElements.map(async (img) => {
+          const src = img.getAttribute("src");
+          if (!src) return;
+
+          const response = await fetch(src);
+          const imageBlob = await response.blob();
+          const dataUrl = await blobToDataUrl(imageBlob);
+          img.setAttribute("data-original-src", src);
+          img.setAttribute("src", dataUrl);
+        })
+      );
+
+      const blob = await toBlob(comparisonCaptureRef.current, {
+        cacheBust: true,
+        backgroundColor: "#121212",
+        pixelRatio: 2
+      });
+
+      if (!blob) {
+        throw new Error("Failed to generate image.");
+      }
+
+      if (
+        navigator.clipboard &&
+        window.ClipboardItem &&
+        typeof navigator.clipboard.write === "function"
+      ) {
+        await navigator.clipboard.write([
+          new window.ClipboardItem({
+            [blob.type]: blob
+          })
+        ]);
+
+        setImageStatus("Comparison copied to clipboard.");
+      } else {
+        const downloadUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(downloadUrl);
+        setImageStatus("Image downloaded because clipboard image copy is unavailable here.");
+      }
+    } catch (error) {
+      console.error("Failed to export comparison image", error);
+      setImageStatus("Could not create the comparison image.");
+    } finally {
+      const imageElements = Array.from(
+        comparisonCaptureRef.current?.querySelectorAll(".comparison-rider-image") || []
+      );
+
+      imageElements.forEach((img) => {
+        const originalSrc = img.getAttribute("data-original-src");
+        if (originalSrc) {
+          img.setAttribute("src", originalSrc);
+          img.removeAttribute("data-original-src");
+        }
+      });
+
+      setIsExporting(false);
+    }
   };
 
   const getRiderData = () => {
@@ -265,54 +365,57 @@ export default function RiderComparison() {
       </div>
 
       {data && (
-        <div className="comparison-results">
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th>
-  <div className="comparison-rider-header">
-    <img
-      src="/smxmuselogo.png"
-      alt="smxmuse"
-      className="comparison-logo"
-    />
-  </div>
-</th>
+        <>
+          <div className="comparison-results">
+            <div className="comparison-stage">
+              <div className="comparison-capture-target" ref={comparisonCaptureRef}>
+              <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>
+    <div className="comparison-rider-header">
+      <img
+        src="/smxmuselogo.png"
+        alt="smxmuse"
+        className="comparison-logo"
+      />
+    </div>
+  </th>
 
-                <th>
-                  <div className="comparison-rider-header">
-                    <img
-                      src={riderMap[r1]?.ImageURL}
-                      alt={riderMap[r1]?.FullName || "Rider 1"}
-                      className="comparison-rider-image"
-                    />
-                    <div className="comparison-rider-name">
-                      {riderMap[r1]?.FullName}
+                  <th>
+                    <div className="comparison-rider-header">
+                      <img
+                        src={getComparisonImageSrc(riderMap[r1]?.ImageURL)}
+                        alt={riderMap[r1]?.FullName || "Rider 1"}
+                        className="comparison-rider-image"
+                      />
+                      <div className="comparison-rider-name">
+                        {riderMap[r1]?.FullName}
+                      </div>
                     </div>
-                  </div>
-                </th>
+                  </th>
 
-                <th>
-                  <div className="comparison-rider-header">
-                    <img
-                      src={riderMap[r2]?.ImageURL}
-                      alt={riderMap[r2]?.FullName || "Rider 2"}
-                      className="comparison-rider-image"
-                    />
-                    <div className="comparison-rider-name">
-                      {riderMap[r2]?.FullName}
+                  <th>
+                    <div className="comparison-rider-header">
+                      <img
+                        src={getComparisonImageSrc(riderMap[r2]?.ImageURL)}
+                        alt={riderMap[r2]?.FullName || "Rider 2"}
+                        className="comparison-rider-image"
+                      />
+                      <div className="comparison-rider-name">
+                        {riderMap[r2]?.FullName}
+                      </div>
                     </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
+                  </th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr>
-                <td colSpan="3" className="comparison-section">
-                  {isMX ? "OVERALLS" : "MAIN EVENTS"}
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td colSpan="3" className="comparison-section">
+                    {isMX ? "OVERALLS" : "MAIN EVENTS"}
+                  </td>
+                </tr>
 
               <tr>
                 <td>Starts</td>
@@ -524,28 +627,45 @@ export default function RiderComparison() {
                 </td>
               </tr>
 
-              <tr>
-                <td>{titleLabel}</td>
-                <td
-                  style={getStyle(
-                    champs[r1]?.[appliedClassId],
-                    champs[r2]?.[appliedClassId]
-                  )}
-                >
-                  {champs[r1]?.[appliedClassId] ?? 0}
-                </td>
-                <td
-                  style={getStyle(
-                    champs[r2]?.[appliedClassId],
-                    champs[r1]?.[appliedClassId]
-                  )}
-                >
-                  {champs[r2]?.[appliedClassId] ?? 0}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                <tr>
+                  <td>{titleLabel}</td>
+                  <td
+                    style={getStyle(
+                      champs[r1]?.[appliedClassId],
+                      champs[r2]?.[appliedClassId]
+                    )}
+                  >
+                    {champs[r1]?.[appliedClassId] ?? 0}
+                  </td>
+                  <td
+                    style={getStyle(
+                      champs[r2]?.[appliedClassId],
+                      champs[r1]?.[appliedClassId]
+                    )}
+                  >
+                    {champs[r2]?.[appliedClassId] ?? 0}
+                  </td>
+                </tr>
+              </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+
+          <div className="comparison-floating-share">
+            <div className="comparison-share-rail">
+              <button
+                type="button"
+                className="compare-button comparison-share-button"
+                onClick={handleCopyComparisonImage}
+                disabled={isExporting}
+              >
+                {isExporting ? "Creating..." : "Share"}
+              </button>
+              {imageStatus && <div className="comparison-share-status">{imageStatus}</div>}
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

@@ -143,75 +143,76 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
 
   return (
     <div className="rider-profile-page">
-      {/* Header */}
-      <div className="rider-header">
-  <img
-    src={data.rider.image_url}
-    alt={data.rider.full_name}
-    className="rider-profile-image"
-  />
+      <section className="rider-profile-hero">
+        <div className="rider-header">
+          <img
+            src={data.rider.image_url}
+            alt={data.rider.full_name}
+            className="rider-profile-image"
+          />
 
-  <h1 className="rider-name">
-    {data.rider.full_name}
-  </h1>
+          <h1 className="rider-name">
+            {data.rider.full_name}
+          </h1>
 
-  <img
-    src={`https://flagcdn.com/w40/${getCountryCode(
-      data.rider.country
-    )}.png`}
-    alt={data.rider.country}
-    className="rider-flag"
-  />
-</div>
+          <img
+            src={`https://flagcdn.com/w40/${getCountryCode(
+              data.rider.country
+            )}.png`}
+            alt={data.rider.country}
+            className="rider-flag"
+          />
+        </div>
 
-<div className="rider-nav">
-  <Link
-    to={`/rider/${riderId}`}
-    className={`rider-nav-button ${
-      location.pathname === `/rider/${riderId}` ? "active" : ""
-    }`}
-  >
-    Career Stats
-  </Link>
+        <div className="rider-nav">
+          <Link
+            to={`/rider/${riderId}`}
+            className={`rider-nav-button ${
+              location.pathname === `/rider/${riderId}` ? "active" : ""
+            }`}
+          >
+            Career Stats
+          </Link>
 
-  <Link
-    to={`/rider/${riderId}/results`}
-    className={`rider-nav-button ${
-      location.pathname.includes("/results") ? "active" : ""
-    }`}
-  >
-    Career Results
-  </Link>
+          <Link
+            to={`/rider/${riderId}/results`}
+            className={`rider-nav-button ${
+              location.pathname.includes("/results") ? "active" : ""
+            }`}
+          >
+            Career Results
+          </Link>
 
-  <Link
-    to={`/rider/${riderId}/points`}
-    className={`rider-nav-button ${
-      location.pathname.includes("/points") ? "active" : ""
-    }`}
-  >
-    Points Standings
-  </Link>
-</div>
+          <Link
+            to={`/rider/${riderId}/points`}
+            className={`rider-nav-button ${
+              location.pathname.includes("/points") ? "active" : ""
+            }`}
+          >
+            Points Standings
+          </Link>
+        </div>
 
-<div className="toggle-buttons">
-  {hasSX && (
-    <button
-      className={mode === "SX" ? "active" : ""}
-      onClick={() => setMode("SX")}
-    >
-      SX
-    </button>
-  )}
+        <div className="toggle-buttons rider-profile-toggle">
+          {hasSX && (
+            <button
+              className={mode === "SX" ? "active" : ""}
+              onClick={() => setMode("SX")}
+            >
+              SX
+            </button>
+          )}
 
-  {hasMX && (
-    <button
-      className={mode === "MX" ? "active" : ""}
-      onClick={() => setMode("MX")}
-    >
-      MX
-    </button>
-  )}
-</div>
+          {hasMX && (
+            <button
+              className={mode === "MX" ? "active" : ""}
+              onClick={() => setMode("MX")}
+            >
+              MX
+            </button>
+          )}
+        </div>
+      </section>
 
       {/* ================= MAIN STATS TABLE ================= */}
       <h2 className="section-header">

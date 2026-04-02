@@ -136,7 +136,11 @@ function TrackProfile() {
                         {new Date(row.RaceDate).toLocaleDateString()}
                       </Link>
                     </td>
-                    <td>{row.Winner}</td>
+                    <td>
+  <Link to={`/rider/${row.RiderID}`}>
+    {row.Winner}
+  </Link>
+</td>
                     <td>{row.Brand}</td>
                   </tr>
                 ))}

@@ -37,62 +37,94 @@ export default function ResultsHome() {
       years: years.sort((a, b) => b - a)
     }));
 
+  const totalYears = years.length;
+  const newestYear = years.length > 0 ? Math.max(...years) : null;
+  const oldestYear = years.length > 0 ? Math.min(...years) : null;
+
   return (
-  <div className="results-container">
+    <div className="results-container results-home">
+      <section className="results-home-hero">
+        <p className="results-home-kicker">Archive browser</p>
+        <h1>Race Results</h1>
+        <p className="results-home-intro">
+          Pick a sport, then click a decade to dive into each year and open every round from the archive.
+        </p>
 
-    <h1>Race Results</h1>
+        <div className="results-home-toolbar">
+          <div className="toggle-buttons results-toggle-buttons">
+            <button
+              onClick={() => setSport("sx")}
+              className={sport === "sx" ? "active" : ""}
+            >
+              SX
+            </button>
 
-    {/* SX / MX Toggle */}
-    <div className="toggle-buttons">
-      <button
-        onClick={() => setSport("sx")}
-        className={sport === "sx" ? "active" : ""}
-      >
-        SX
-      </button>
-
-      <button
-        onClick={() => setSport("mx")}
-        className={sport === "mx" ? "active" : ""}
-      >
-        MX
-      </button>
-    </div>
-<div className="accordion-wrapper"></div>
-    {/* Accordion */}
-    {decades.map((decade) => (
-      <div
-  key={decade.label}
-  className={`decade-card ${openDecade === decade.label ? "open" : ""}`}
->
-
-        {/* Decade Header */}
-        <div
-  className="decade-header"
-  onClick={() =>
-    setOpenDecade(openDecade === decade.label ? null : decade.label)
-  }
->
-  {decade.label}
-</div>
-
-        {/* Years */}
-        {openDecade === decade.label && (
-          <div className="year-row">
-            {decade.years.map((year) => (
-              <button
-                key={year}
-                className="year-button"
-                onClick={() => navigate(`/results/${sport}/${year}`)}
-              >
-                {year}
-              </button>
-            ))}
+            <button
+              onClick={() => setSport("mx")}
+              className={sport === "mx" ? "active" : ""}
+            >
+              MX
+            </button>
           </div>
-        )}
 
+          <div className="results-home-summary">
+            <div className="results-home-summary-card">
+              <span>Sport</span>
+              <strong>{sport === "sx" ? "Supercross" : "Motocross"}</strong>
+            </div>
+            <div className="results-home-summary-card">
+              <span>Years</span>
+              <strong>{totalYears || "--"}</strong>
+            </div>
+            <div className="results-home-summary-card">
+              <span>Range</span>
+              <strong>
+                {oldestYear && newestYear ? `${oldestYear}-${newestYear}` : "--"}
+              </strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="accordion-wrapper results-accordion">
+        {decades.map((decade) => (
+          <div
+            key={decade.label}
+            className={`decade-card ${openDecade === decade.label ? "open" : ""}`}
+          >
+            <div
+              className="decade-header"
+              onClick={() =>
+                setOpenDecade(openDecade === decade.label ? null : decade.label)
+              }
+            >
+              <div className="decade-header-copy">
+                <span className="decade-label">{decade.label}</span>
+                <span className="decade-subtitle">
+                  {decade.years.length} {decade.years.length === 1 ? "season" : "seasons"}
+                </span>
+              </div>
+              <span className={`decade-chevron ${openDecade === decade.label ? "open" : ""}`}>
+                {openDecade === decade.label ? "−" : "+"}
+              </span>
+            </div>
+
+            {openDecade === decade.label && (
+              <div className="year-row">
+                {decade.years.map((year) => (
+                  <button
+                    key={year}
+                    className="year-button"
+                    onClick={() => navigate(`/results/${sport}/${year}`)}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-);
+    </div>
+  );
 }

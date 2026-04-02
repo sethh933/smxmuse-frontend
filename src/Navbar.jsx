@@ -9,14 +9,21 @@ function Navbar() {
         {/* LEFT SIDE (logo + links stay together) */}
         <div className="nav-left">
           <div className="nav-logo">
-            smxmuse
+            <Link to="/">
+              <img
+                src="/smxmuselogo.png"
+                alt="SMXmuse"
+                className="nav-logo-image"
+              />
+            </Link>
           </div>
 
           <div className="nav-links">
+            <Link to="/">Home</Link>
             <Link to="/countries">Riders</Link>
             <Link to="/season">Seasons</Link>
             <Link to="/results">Race Results</Link>
-            <Link to="/">Leaderboards</Link>
+            <Link to="/leaderboards">Leaderboards</Link>
             <Link to="/compare">Comparison Tool</Link>
           </div>
         </div>

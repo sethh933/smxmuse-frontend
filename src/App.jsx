@@ -26,6 +26,7 @@ import ResultsYear from "./ResultsYear";
 import RiderPoints from "./RiderPoints";
 import SeasonRedirect from "./SeasonRedirect";
 import { useLocation } from "react-router-dom";
+import LandingPage from "./LandingPage";
 
 
 
@@ -232,7 +233,8 @@ function App() {
         <Navbar />
         <div className="page-container">
           <Routes>
-            <Route path="/" element={<LeaderboardsPage />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/season" element={<SeasonRedirect />} />
             <Route
   path="/season/:sport/:year/:classId"

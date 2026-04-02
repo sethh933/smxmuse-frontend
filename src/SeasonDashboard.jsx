@@ -13,6 +13,17 @@ const YEARS = Array.from(
   (_, i) => CURRENT_YEAR - i
 );
 
+function getSeasonLabel(classId, sport) {
+  const classLabel =
+    classId === "250W"
+      ? "250 West"
+      : classId === "250E"
+      ? "250 East"
+      : classId;
+
+  return `${classLabel} ${sport === "sx" ? "Supercross" : "Motocross"}`;
+}
+
 export default function SeasonDashboard() {
   const { sport, year: yearParam, classId } = useParams();
   const navigate = useNavigate();
@@ -20,65 +31,47 @@ export default function SeasonDashboard() {
 
   const year = Number(yearParam);
 
-  // 🔥 Separate "form state" (unchanged)
   const [selectedSport, setSelectedSport] = useState(sport);
   const [selectedYear, setSelectedYear] = useState(year);
   const [selectedClass, setSelectedClass] = useState(classId);
   const [availableClasses, setAvailableClasses] = useState([]);
 
-  // 🔥 Sync URL → form state (KEEP THIS)
   useEffect(() => {
     setSelectedSport(sport);
     setSelectedYear(year);
     setSelectedClass(classId);
   }, [sport, year, classId]);
 
-  // 🔥 Dynamic class logic
-useEffect(() => {
-  async function loadClasses() {
-    const key = `${selectedSport}-${selectedYear}`;
+  useEffect(() => {
+    async function loadClasses() {
+      const key = `${selectedSport}-${selectedYear}`;
 
-    // ✅ Already cached → instant
-    if (classCache[key]) {
-      setAvailableClasses(classCache[key]);
-      return;
-    }
-
-    const sportId = selectedSport === "sx" ? 1 : 2;
-
-    const res = await fetch(
-      `/api/available-classes?sport_id=${sportId}&year=${selectedYear}`
-    );
-
-    const data = await res.json();
-
-const mapped = data
-  .map((c) => c.ClassID ?? c.classid)
-  .filter(Boolean)
-  .sort((a, b) => a - b)
-  .flatMap((id) => {
-    // 450
-    if (id === 1) return ["450"];
-
-    // 250
-    if (id === 2) {
-      if (selectedSport === "sx") {
-        return ["250W", "250E"];  // 🔥 KEY CHANGE
+      if (classCache[key]) {
+        setAvailableClasses(classCache[key]);
+        return;
       }
-      return ["250"];
+
+      const sportId = selectedSport === "sx" ? 1 : 2;
+      const res = await fetch(`/api/available-classes?sport_id=${sportId}&year=${selectedYear}`);
+      const data = await res.json();
+
+      const mapped = data
+        .map((c) => c.ClassID ?? c.classid)
+        .filter(Boolean)
+        .sort((a, b) => a - b)
+        .flatMap((id) => {
+          if (id === 1) return ["450"];
+          if (id === 2) return selectedSport === "sx" ? ["250W", "250E"] : ["250"];
+          if (id === 3) return ["500"];
+          return [];
+        });
+
+      setClassCache((prev) => ({ ...prev, [key]: mapped }));
+      setAvailableClasses(mapped);
     }
 
-    // 500
-    if (id === 3) return ["500"];
-
-    return [];
-  });
-
-    setAvailableClasses(mapped);
-  }
-
-  loadClasses();
-}, [selectedSport, selectedYear, classCache]);
+    loadClasses();
+  }, [selectedSport, selectedYear, classCache]);
 
   const [mainStats, setMainStats] = useState([]);
   const [startStats, setStartStats] = useState([]);
@@ -104,7 +97,10 @@ const mapped = data
         riderCoastId = 2;
       }
 
-      let mainUrl, startUrl, lapsUrl, pointsUrl;
+      let mainUrl;
+      let startUrl;
+      let lapsUrl;
+      let pointsUrl;
 
       if (sport === "sx") {
         mainUrl = `/api/season/main-stats?year=${year}&sportid=1&classid=${apiClassId}${riderCoastId ? `&ridercoastid=${riderCoastId}` : ""}`;
@@ -129,7 +125,6 @@ const mapped = data
       setStartStats(await startRes.json());
       setLapsLedStats(await lapsRes.json());
       setPointsData(await pointsRes.json());
-
       setLoading(false);
     }
 
@@ -138,116 +133,93 @@ const mapped = data
 
   return (
     <div className="season-dashboard">
+      <section className="season-dashboard-hero">
+        <p className="results-home-kicker">Season dashboard</p>
+        <h1>{year} {getSeasonLabel(classId, sport)}</h1>
+        <p className="season-dashboard-intro">
+          Track the totals and averages from each rider over the course of a season, then switch
+          sport, year, or class to jump into another season long deep dive.
+        </p>
 
-      {/* 🔥 Dynamic Header */}
-      <h1>
-        {year}{" "}
-        {classId === "250W"
-          ? "250 West"
-          : classId === "250E"
-          ? "250 East"
-          : classId}
-          {" "}
-        {sport === "sx" ? "Supercross" : "Motocross"}
-    
-        
-      </h1>
+        <div className="filters">
+          <div className="filters-inner">
+            <select
+              value={selectedSport}
+              onChange={(e) => {
+                const newSport = e.target.value;
+                setSelectedSport(newSport);
+                setSelectedClass("450");
+              }}
+            >
+              {selectedYear <= 1973 ? (
+                <option value="mx">MX</option>
+              ) : (
+                <>
+                  <option value="sx">SX</option>
+                  <option value="mx">MX</option>
+                </>
+              )}
+            </select>
 
-      {/* 🔥 NEW FILTERS */}
-      <div className="filters">
+            <select
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(Number(e.target.value))}
+            >
+              {YEARS.map((y) => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </select>
 
-        {/* SPORT */}
-        <select
-  value={selectedSport}
-  onChange={(e) => {
-    const newSport = e.target.value;
-    setSelectedSport(newSport);
+            <select
+              value={selectedClass}
+              onChange={(e) => setSelectedClass(e.target.value)}
+            >
+              {availableClasses.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
 
-    // 🔥 KEY FIX: reset class when switching sport
-    if (newSport === "mx") {
-      setSelectedClass("450"); // default MX class
-    } else {
-      setSelectedClass("450"); // default SX class (safe)
-    }
-  }}
->
-          {selectedYear <= 1973 ? (
-            <option value="mx">MX</option>
-          ) : (
-            <>
-              <option value="sx">SX</option>
-              <option value="mx">MX</option>
-            </>
-          )}
-        </select>
-
-        {/* YEAR */}
-        <select
-          value={selectedYear}
-          onChange={(e) => setSelectedYear(Number(e.target.value))}
-        >
-          {YEARS.map((y) => (
-            <option key={y} value={y}>{y}</option>
-          ))}
-        </select>
-
-    <select
-  value={selectedClass}
-  onChange={(e) => setSelectedClass(e.target.value)}
->
-  {availableClasses.map((c) => (
-    <option key={c} value={c}>{c}</option>
-  ))}
-</select>
-
-    <button
-      onClick={() => {
-  navigate(`/season/${selectedSport}/${selectedYear}/${selectedClass}`, {
-    replace: true
-  });
-}}
-    >
-      Go
-    </button>
-
-      </div>
+            <button
+              onClick={() =>
+                navigate(`/season/${selectedSport}/${selectedYear}/${selectedClass}`, {
+                  replace: true
+                })
+              }
+            >
+              Go
+            </button>
+          </div>
+        </div>
+      </section>
 
       {loading ? (
-        <p>Loading…</p>
+        <p>Loading...</p>
       ) : (
         <>
-          <section>
-            <h2>
-              {sport === "sx"
-                ? "Main Event Performance"
-                : "Overall Performance"}
-            </h2>
+          <section className="season-dashboard-section">
+            <h2>{sport === "sx" ? "Main Event Performance" : "Overall Performance"}</h2>
             <div className="stats-table-wrapper">
               <MainStatsTable data={mainStats} sport={sport} />
             </div>
           </section>
 
-          <section>
-            <h2>
-              {sport === "sx"
-                ? "Qualifying / Heats / LCQs"
-                : "Motos / Qualifying"}
-            </h2>
+          <section className="season-dashboard-section">
+            <h2>{sport === "sx" ? "Qualifying / Heats / LCQs" : "Motos / Qualifying"}</h2>
             <div className="stats-table-wrapper">
               <StartStatsTable data={startStats} sport={sport} />
             </div>
           </section>
 
-          <section>
+          <section className="season-dashboard-section">
             <h2>Race Control (Laps Led)</h2>
             <div className="laps-led-grid">
-              <LapsLedPie data={lapsLedStats} sport={sport} />
+              <LapsLedPie data={lapsLedStats} sport={sport} mainStats={mainStats} />
             </div>
           </section>
 
-          <section>
-            <h2>Championship Progression</h2>
-            <PointsProgressionChart data={pointsData} sport={sport} />
+          <section className="season-dashboard-section">
+            <h2>Championship Progression (Top Five in Points)</h2>
+            <PointsProgressionChart data={pointsData} sport={sport} mainStats={mainStats} />
           </section>
         </>
       )}

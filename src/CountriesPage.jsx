@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// reuse your flag logic
 const getCountryCode = (country) => {
   const map = {
     "United States": "us",
     "United Kingdom": "gb",
     "England": "gb",
     "Scotland": "gb",
-
     "Argentina": "ar",
     "Australia": "au",
     "Belgium": "be",
@@ -55,42 +53,195 @@ const getCountryCode = (country) => {
   return map[country] || null;
 };
 
+function FeaturedRiders({ riders, navigate }) {
+  if (!riders.length) return null;
+
+  return (
+    <section className="featured-riders-section">
+      <div className="featured-riders-header">
+        <h2>Featured Riders</h2>
+        <p>Quick access to a few of the names fans look for most often.</p>
+      </div>
+
+      <div className="featured-riders-grid">
+        {riders.map((rider) => (
+          <button
+            key={rider.RiderID}
+            type="button"
+            className="featured-rider-card"
+            onClick={() => navigate(`/rider/${rider.RiderID}`)}
+          >
+            <img
+              src={rider.ImageURL}
+              alt={rider.FullName}
+              className="featured-rider-image"
+            />
+            <span className="featured-rider-name">{rider.FullName}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function CountriesPage() {
+  const [view, setView] = useState("lastname");
   const [countries, setCountries] = useState([]);
+  const [allRiders, setAllRiders] = useState([]);
+  const [featuredRiders, setFeaturedRiders] = useState([]);
+  const [riderCount, setRiderCount] = useState(0);
+  const [selectedLetter, setSelectedLetter] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8000/countries")
-      .then(res => res.json())
-      .then(data => setCountries(data));
+    async function loadData() {
+      try {
+        const [countriesRes, ridersRes, featuredRes] = await Promise.all([
+          fetch("http://localhost:8000/countries"),
+          fetch("http://localhost:8000/api/riders/index"),
+          fetch("http://localhost:8000/api/riders/featured")
+        ]);
+
+        const countriesData = await countriesRes.json();
+        const ridersData = await ridersRes.json();
+        const featuredData = await featuredRes.json();
+
+        setCountries(countriesData);
+        setAllRiders(ridersData.riders || []);
+        setRiderCount(ridersData.riderCount || 0);
+        setFeaturedRiders(featuredData || []);
+      } catch (error) {
+        console.error("Failed to load riders hub:", error);
+      }
+    }
+
+    loadData();
   }, []);
 
-  return (
-    <div className="page-container">
-      <h1>Countries</h1>
+  const groupedRiders = useMemo(() => {
+    return allRiders.reduce((acc, rider) => {
+      const letter = rider.Last?.[0]?.toUpperCase() || "#";
 
-      <div className="countries-grid">
-       {countries.map(country => {
-  const code = getCountryCode(country);
+      if (!acc[letter]) acc[letter] = [];
+      acc[letter].push(rider);
+
+      return acc;
+    }, {});
+  }, [allRiders]);
+
+  const letters = useMemo(() => Object.keys(groupedRiders).sort(), [groupedRiders]);
+
+  useEffect(() => {
+    if (!letters.length) return;
+
+    if (!selectedLetter || !letters.includes(selectedLetter)) {
+      setSelectedLetter(letters[0]);
+    }
+  }, [letters, selectedLetter]);
 
   return (
-    <div
-      key={country}
-      className="country-item"
-      onClick={() => navigate(`/countries/${country}`)}
-    >
-      {code && (
-        <img
-          src={`https://flagcdn.com/w40/${code}.png`}
-          alt={country}
-          className="country-flag"
-        />
-      )}
-      <span>{country}</span>
-    </div>
-  );
-})}
+    <div className="page-container riders-hub">
+      <div className="riders-hub-header">
+        <h1>Riders</h1>
+        <div className="rider-count">{riderCount.toLocaleString()} Riders</div>
       </div>
+
+      <div className="rider-nav riders-hub-nav">
+        <button
+          type="button"
+          className={`rider-nav-button ${view === "lastname" ? "active" : ""}`}
+          onClick={() => setView("lastname")}
+        >
+          Last Name
+        </button>
+
+        <button
+          type="button"
+          className={`rider-nav-button ${view === "countries" ? "active" : ""}`}
+          onClick={() => setView("countries")}
+        >
+          Countries
+        </button>
+      </div>
+
+      <FeaturedRiders riders={featuredRiders} navigate={navigate} />
+
+      {view === "lastname" ? (
+        <section className="riders-panel">
+          <div className="riders-panel-header">
+            <h2>Browse by last name</h2>
+            <p>Jump into the archive alphabetically across every rider in the database.</p>
+          </div>
+
+          <div className="alphabet-nav">
+            {letters.map((letter) => (
+              <span
+                key={letter}
+                className={`alphabet-letter ${selectedLetter === letter ? "active" : ""}`}
+                onClick={() => setSelectedLetter(letter)}
+              >
+                {letter}
+              </span>
+            ))}
+          </div>
+
+          {selectedLetter ? (
+            <>
+              <div className="letter-header">{selectedLetter}</div>
+
+              <div className="name-grid">
+                {groupedRiders[selectedLetter]?.map((rider) => (
+                  <div key={rider.RiderID} className="rider-row">
+                    <img
+                      src={rider.ImageURL}
+                      alt={rider.FullName}
+                      className="rider-avatar"
+                    />
+                    <span
+                      className="country-rider-name"
+                      onClick={() => navigate(`/rider/${rider.RiderID}`)}
+                    >
+                      {rider.FullName}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="letter-placeholder">Select a letter to view riders.</div>
+          )}
+        </section>
+      ) : (
+        <section className="riders-panel">
+          <div className="riders-panel-header">
+            <h2>Browse by country</h2>
+            <p>Open a country page to get the same rider layout you already use on each nation page.</p>
+          </div>
+
+          <div className="countries-grid">
+            {countries.map((country) => {
+              const code = getCountryCode(country);
+
+              return (
+                <div
+                  key={country}
+                  className="country-item"
+                  onClick={() => navigate(`/countries/${country}`)}
+                >
+                  {code && (
+                    <img
+                      src={`https://flagcdn.com/w40/${code}.png`}
+                      alt={country}
+                      className="country-flag"
+                    />
+                  )}
+                  <span>{country}</span>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
