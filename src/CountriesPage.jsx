@@ -6,6 +6,7 @@ const getCountryCode = (country) => {
     "United States": "us",
     "United Kingdom": "gb",
     "England": "gb",
+    "Wales": "gb",
     "Scotland": "gb",
     "Argentina": "ar",
     "Australia": "au",
@@ -60,7 +61,7 @@ function FeaturedRiders({ riders, navigate }) {
     <section className="featured-riders-section">
       <div className="featured-riders-header">
         <h2>Featured Riders</h2>
-        <p>Quick access to a few of the names fans look for most often.</p>
+        <p>Quick access to a few of the riders who have been guessed the most in smxmuse grids during the past week.</p>
       </div>
 
       <div className="featured-riders-grid">
@@ -227,7 +228,7 @@ function CountriesPage() {
                 <div
                   key={country}
                   className="country-item"
-                  onClick={() => navigate(`/countries/${country}`)}
+                      onClick={() => navigate(`/riders/${country}`)}
                 >
                   {code && (
                     <img

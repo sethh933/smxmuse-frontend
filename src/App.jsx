@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams, Navigate } from "react-router-dom";
 import SeasonDashboard from "./SeasonDashboard";
 import Leaderboard1 from './Leaderboard1';
 import Leaderboard2 from './Leaderboard2';
@@ -231,6 +231,11 @@ function SeasonRouteWrapper() {
   return <SeasonDashboard key={location.pathname} />;
 }
 
+function LegacyCountryRedirect() {
+  const { country } = useParams();
+  return <Navigate to={`/riders/${country}`} replace />;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -250,8 +255,10 @@ function App() {
             <Route path="/rider/:riderId/results" element={<RiderResults />} />
             <Route path="/compare" element={<RiderComparison />} />
             <Route path="/track/:sport_id/:track_id" element={<TrackProfile />} />
-            <Route path="/countries" element={<CountriesPage />} />
-            <Route path="/countries/:country" element={<CountryPage />} />
+            <Route path="/riders" element={<CountriesPage />} />
+            <Route path="/riders/:country" element={<CountryPage />} />
+            <Route path="/countries" element={<Navigate to="/riders" replace />} />
+            <Route path="/countries/:country" element={<LegacyCountryRedirect />} />
             <Route path="/results" element={<ResultsHome />} />
             <Route path="/results/:sport/:year" element={<ResultsYear />} />
             <Route path="/rider/:riderId/points" element={<RiderPoints />} />

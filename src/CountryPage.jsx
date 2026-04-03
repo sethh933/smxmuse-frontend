@@ -6,6 +6,7 @@ const getCountryCode = (country) => {
     "United States": "us",
     "United Kingdom": "gb",
     "England": "gb",
+    "Wales": "gb",
     "Scotland": "gb",
 
     "Argentina": "ar",

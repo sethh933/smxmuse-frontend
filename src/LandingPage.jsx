@@ -19,8 +19,8 @@ const FEATURED_PATHS = [
   {
     title: "Rider Profiles",
     description:
-      "Browse rider careers, results, points trends, and country pages.",
-    to: "/countries",
+      "Browse rider profiles, results, points trends, and country pages.",
+    to: "/riders",
     eyebrow: "People"
   },
   {
@@ -191,8 +191,8 @@ export default function LandingPage() {
             Everything in one place, from the latest gate drop to all-time history.
           </h1>
           <p className="landing-intro">
-            SMXmuse is built for digging deeper: race results, rider careers, season dashboards,
-            comparison tools, and all-time leaderboards designed for fans who want more than a box score.
+            SMXmuse is built for digging deeper: race results, rider profiles, season dashboards,
+            comparison tools, and all-time leaderboards designed for fans who want to bench race with more knowledge than ever before.
           </p>
 
           <div className="landing-hero-actions">
@@ -223,9 +223,14 @@ export default function LandingPage() {
           <p className="landing-callout-label">Featured</p>
           <h2>SMXmuse Grids</h2>
           <p>
-            Daily-style trivia for moto fans. Test your knowledge, chase perfect boards,
-            and send players straight to the game on your main site.
+            A daily 3x3 grid trivia game powered by my database to test your knowledge about Supercross and Motocross.
+            Chase perfect scores or be daring and try some deep cuts!
           </p>
+          <div className="landing-grid-preview" aria-hidden="true">
+            {Array.from({ length: 9 }).map((_, index) => (
+              <span key={index} className="landing-grid-preview-cell" />
+            ))}
+          </div>
           <a
             href="https://smxmuse.com"
             target="_blank"
@@ -234,7 +239,6 @@ export default function LandingPage() {
           >
             Play on smxmuse.com
           </a>
-          <p className="landing-callout-footnote">Opens your game site in a new tab.</p>
         </aside>
       </section>
 
@@ -252,7 +256,7 @@ export default function LandingPage() {
       <section className="landing-live-grid">
         <div className="landing-section-heading">
           <p className="landing-kicker">Latest snapshot</p>
-          <h2>Recent podium-chasers, rider momentum, and where to click next.</h2>
+          <h2>Recent race results, rider of the day, and where to click next.</h2>
         </div>
 
         <div className="landing-live-layout">
@@ -361,27 +365,52 @@ export default function LandingPage() {
             to move through the archive without feeling lost.
           </p>
           <div className="landing-quick-links">
-            <Link to="/countries" className="landing-inline-link">Browse every rider</Link>
+            <Link to="/riders" className="landing-inline-link">Browse every rider</Link>
             <Link to="/season" className="landing-inline-link">Open current dashboards</Link>
             <Link to="/results" className="landing-inline-link">Jump into race results</Link>
           </div>
         </div>
 
         <div className="landing-path-card">
-          <p className="landing-panel-label">Fast paths</p>
-          <div className="landing-quick-links">
-            <Link to="/countries" className="landing-inline-link">Browse riders</Link>
-            <Link to="/compare" className="landing-inline-link">Compare two careers</Link>
-            <Link to="/leaderboards" className="landing-inline-link">Visit leaderboards</Link>
+          <p className="landing-panel-label">SMXmuse on social</p>
+          <h3>Follow SMXmuse outside the site.</h3>
+          <p>
+            Catch the latest SMXmuse updates, including pre-race notes, race recaps,
+            and unique stat pulls posted across Instagram and X.
+          </p>
+          <div className="landing-social-links">
             <a
-              href="https://smxmuse.com"
+              href="https://www.instagram.com/smxmuse/"
               target="_blank"
               rel="noreferrer"
-              className="landing-inline-link"
+              className="landing-social-link"
             >
-              Play SMXmuse Grids
+              <span className="landing-social-brand">
+                <span className="landing-social-logo landing-social-logo-instagram" aria-hidden="true">
+                  <span className="landing-social-logo-instagram-dot" />
+                </span>
+                Instagram
+              </span>
+              <span>@smxmuse</span>
+            </a>
+            <a
+              href="https://x.com/smxmuse"
+              target="_blank"
+              rel="noreferrer"
+              className="landing-social-link"
+            >
+              <span className="landing-social-brand">
+                <span className="landing-social-logo landing-social-logo-x" aria-hidden="true">
+                  X
+                </span>
+                X
+              </span>
+              <span>@smxmuse</span>
             </a>
           </div>
+          <p className="landing-callout-footnote">
+            Opens the latest SMXmuse social feed in a new tab.
+          </p>
         </div>
       </section>
     </div>
