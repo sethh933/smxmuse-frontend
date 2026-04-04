@@ -64,7 +64,7 @@ button {
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.06), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+
 }
 
 .leaderboards-hero h1 {
@@ -110,7 +110,6 @@ button {
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.06), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
 }
 
 .track-profile-hero h1 {
@@ -148,7 +147,6 @@ button {
     linear-gradient(180deg, rgba(30, 30, 30, 0.98), rgba(20, 20, 20, 0.98));
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.26);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -208,7 +206,6 @@ button {
   top: 0;
   z-index: 10;
   background-color: rgba(24, 24, 24, 0.98);
-  box-shadow: 0 2px 0 rgba(255,255,255,0.15);
   backface-visibility: hidden;  /* ADD */
 }
 
@@ -312,7 +309,7 @@ button {
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.06), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+
 }
 
 .rider-header {
@@ -433,7 +430,7 @@ button {
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.06), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  
 }
 
 .season-dashboard-intro {
@@ -455,7 +452,7 @@ button {
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.04), transparent 30%),
     linear-gradient(180deg, rgba(24, 24, 24, 0.98), rgba(15, 15, 15, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  
 }
 
 .season-dashboard-section h2 {
@@ -481,8 +478,6 @@ button {
   border-radius: 10px;
 
   padding: 12px 16px;
-
-  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
 }
 
 .filters-inner select {
@@ -1112,7 +1107,7 @@ a.country-rider-name:hover,
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.06), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+
 }
 
 .results-home-kicker {
@@ -1328,7 +1323,7 @@ a.country-rider-name:hover,
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.06), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  
 }
 
 .results-year-intro {
@@ -1508,7 +1503,7 @@ a.country-rider-name:hover,
   border: 1px solid #2a2a2a;
   border-radius: 10px;
   padding: 18px 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  
 }
 
 .comparison-inputs {
@@ -1818,6 +1813,235 @@ a.track-link:focus-visible {
   padding: 32px 0 48px;
 }
 
+.landing-layout-switcher {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.6fr);
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 22px;
+}
+
+.landing-layout-switcher h2 {
+  margin: 0;
+  text-align: left;
+  justify-content: flex-start;
+  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+}
+
+.landing-layout-switcher-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.landing-layout-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 116px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at top right, rgba(86, 141, 255, 0.05), transparent 34%),
+    radial-gradient(circle at top left, rgba(243, 93, 122, 0.04), transparent 30%),
+    linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
+  color: #f1f1f1;
+  text-align: left;
+}
+
+.landing-layout-option span {
+  color: #b8b8b8;
+  line-height: 1.45;
+}
+
+.landing-layout-option.active {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.landing-desktop-layout {
+  display: grid;
+  gap: 20px;
+}
+
+.landing-layout-balanced {
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.75fr);
+  align-items: stretch;
+}
+
+.landing-balanced-main .landing-hero-copy {
+  min-height: 100%;
+}
+
+.landing-balanced-side {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.landing-live-grid-top {
+  margin-top: 20px;
+}
+
+.landing-live-grid-top .landing-results-panel {
+  padding: 24px 26px;
+}
+
+.landing-layout-snapshot {
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.78fr);
+  align-items: start;
+}
+
+.landing-snapshot-side {
+  display: grid;
+  gap: 18px;
+}
+
+.landing-layout-snapshot-bottom {
+  margin-top: 20px;
+  grid-template-columns: 1fr;
+}
+
+.landing-layout-snapshot-bottom .landing-hero-copy {
+  padding: 30px 32px;
+}
+
+.landing-layout-split {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+  align-items: start;
+}
+
+.landing-layout-split-lower {
+  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+  margin-top: 20px;
+  align-items: start;
+}
+
+.landing-layout-narrow-top {
+  grid-template-columns: minmax(0, 1.52fr) minmax(320px, 0.78fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.landing-hero-copy-narrow {
+  padding: 16px 24px 18px;
+}
+
+.landing-title-narrow {
+  font-size: clamp(1.45rem, 1.9vw, 2.05rem);
+  max-width: 24ch;
+  line-height: 0.98;
+}
+
+.landing-intro-narrow {
+  max-width: 78ch;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.landing-hero-actions-narrow {
+  margin-top: 10px;
+}
+
+.landing-hero-grid-slot {
+  display: flex;
+}
+
+.landing-hero-grid-slot .landing-feature-callout {
+  width: 100%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.landing-hero-grid-slot .landing-feature-callout h2 {
+  font-size: 1.9rem;
+}
+
+.landing-hero-grid-slot .landing-feature-callout p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.landing-hero-grid-slot .landing-grid-preview {
+  width: min(100%, 220px);
+  margin: 16px 0 18px;
+}
+
+.landing-layout-narrow-live {
+  grid-template-columns: minmax(0, 1.52fr) minmax(320px, 0.78fr);
+  margin-top: 16px;
+  align-items: stretch;
+}
+
+.landing-narrow-results .landing-results-panel {
+  padding: 20px 22px;
+}
+
+.landing-narrow-results .landing-results-grid {
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.landing-narrow-results .landing-result-card {
+  padding: 15px;
+}
+
+.landing-narrow-side {
+  display: grid;
+  gap: 14px;
+}
+
+.landing-narrow-side .landing-feature-callout,
+.landing-narrow-side .landing-spotlight-panel {
+  padding: 18px;
+}
+
+.landing-narrow-side .landing-feature-callout {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-narrow-side .landing-spotlight-image {
+  max-width: 150px;
+}
+
+.landing-narrow-side .landing-grid-preview {
+  width: min(100%, 255px);
+  margin: 14px 0 16px;
+}
+
+.landing-narrow-side .landing-spotlight-summary,
+.landing-narrow-side .landing-feature-callout p,
+.landing-narrow-side .landing-spotlight-context {
+  font-size: 0.9rem;
+}
+
+.landing-narrow-side .landing-feature-callout p {
+  line-height: 1.5;
+}
+
+.landing-narrow-side .landing-callout-footnote {
+  margin-top: 10px;
+}
+
+.landing-split-lower-right {
+  display: grid;
+  gap: 18px;
+}
+
+.landing-split-lower-right .landing-features-five {
+  margin-top: 0;
+}
+
+.landing-section-heading-tight {
+  margin-bottom: 14px;
+}
+
 .landing-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.8fr) minmax(300px, 0.9fr);
@@ -1825,6 +2049,7 @@ a.track-link:focus-visible {
   align-items: stretch;
 }
 
+.landing-hero-copy,
 .landing-hero-copy,
 .landing-feature-callout,
 .landing-result-card,
@@ -1835,8 +2060,8 @@ a.track-link:focus-visible {
     radial-gradient(circle at top right, rgba(86, 141, 255, 0.06), transparent 32%),
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.045), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none !important;
   border-radius: 24px;
 }
 
@@ -1899,7 +2124,7 @@ a.track-link:focus-visible {
 .landing-button-primary {
   background: #f1f1f1;
   color: #101010;
-  box-shadow: 0 12px 26px rgba(255, 255, 255, 0.12);
+  
 }
 
 .landing-button-secondary {
@@ -1941,6 +2166,24 @@ a.track-link:focus-visible {
 .landing-path-card,
 .landing-results-panel {
   padding: 28px;
+}
+
+.landing-hero-grid-slot .landing-spotlight-panel {
+  padding: 16px 18px 18px;
+}
+
+.landing-hero-grid-slot .landing-spotlight-image {
+  max-width: 132px;
+  margin-bottom: 10px;
+}
+
+.landing-hero-grid-slot .landing-spotlight-summary,
+.landing-hero-grid-slot .landing-spotlight-context {
+  font-size: 0.88rem;
+}
+
+.landing-hero-grid-slot .landing-spotlight-actions {
+  margin-top: 12px;
 }
 
 .landing-feature-callout h2,
@@ -2019,6 +2262,7 @@ a.track-link:focus-visible {
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.045), transparent 28%),
     linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98)) !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
   color: inherit;
   text-decoration: none;
   transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
@@ -2129,7 +2373,6 @@ a.track-link:focus-visible {
     radial-gradient(circle at top right, rgba(86, 141, 255, 0.07), transparent 34%),
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.05), transparent 30%),
     linear-gradient(180deg, rgba(32, 32, 32, 0.98), rgba(19, 19, 19, 0.98)) !important;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .landing-result-pos {
@@ -2272,7 +2515,7 @@ a.track-link:focus-visible {
   position: relative;
   background:
     radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 8%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.16);
+ 
 }
 
 .landing-social-logo-instagram::before {
@@ -2431,12 +2674,30 @@ a.track-link:focus-visible {
 }
 
 @media (max-width: 1350px) {
+  .landing-layout-switcher {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-layout-switcher-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .landing-features-five {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 1150px) {
+  .landing-layout-switcher-options,
+  .landing-layout-balanced,
+  .landing-layout-snapshot,
+  .landing-layout-split,
+  .landing-layout-narrow-top,
+  .landing-layout-narrow-live,
+  .landing-layout-split-lower {
+    grid-template-columns: 1fr;
+  }
+
   .landing-style-switcher,
   .landing-hero,
   .landing-dashboard-top,
@@ -2561,7 +2822,8 @@ a.track-link:focus-visible {
   }
 
   .nav-mobile-shell {
-    display: block !important;
+    display: flex !important;
+    flex-direction: column;
     background: #111;
   }
 
@@ -2574,7 +2836,6 @@ a.track-link:focus-visible {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     gap: 10px;
-    margin-bottom: 0;
     padding: 10px 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
@@ -2607,12 +2868,12 @@ a.track-link:focus-visible {
   .nav-mobile-dropdown {
     display: grid;
     gap: 0;
-    margin: 10px 12px 0;
+    margin: 12px 12px 0;
     border: 1px solid #2f2f2f;
     border-radius: 10px;
     overflow: hidden;
     background: #151515;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  
   }
 
   .nav-mobile-dropdown-link {
@@ -2635,9 +2896,13 @@ a.track-link:focus-visible {
 
   .nav-mobile-search-row {
     display: block;
-    width: 100%;
-    padding: 10px 12px 12px;
-    background: #111;
+    width: auto;
+    margin: 12px 12px 12px;
+    padding: 0;
+  }
+
+  .nav-mobile-dropdown + .nav-mobile-search-row {
+    margin-top: 12px;
   }
 
   .nav-mobile-search-row .unified-search input {

@@ -103,7 +103,7 @@ function getCountryCode(country) {
   return countryMap[country] || null;
 }
 
-function getLatestCompletedRace(races) {
+function getSortedCandidateRaces(races) {
   const now = new Date();
   const completed = races.filter((race) => new Date(race.race_date) <= now);
   const pool = completed.length > 0 ? completed : races;
@@ -116,7 +116,7 @@ function getLatestCompletedRace(races) {
     }
 
     return (b.round ?? 0) - (a.round ?? 0);
-  })[0];
+  });
 }
 
 function ResultList({ rows, sport }) {
@@ -148,6 +148,187 @@ function ResultList({ rows, sport }) {
   );
 }
 
+function FeaturedPathsGrid() {
+  return (
+    <section className="landing-features landing-features-five">
+      {FEATURED_PATHS.map((feature) => (
+        <Link key={feature.title} to={feature.to} className="landing-feature-card">
+          <span className="landing-feature-eyebrow">{feature.eyebrow}</span>
+          <h2>{feature.title}</h2>
+          <p>{feature.description}</p>
+          <span className="landing-feature-link">Open section</span>
+        </Link>
+      ))}
+    </section>
+  );
+}
+
+function GridsCallout() {
+  return (
+    <aside className="landing-feature-callout">
+      <p className="landing-callout-label">Featured</p>
+      <h2>SMXmuse Grids</h2>
+      <p>
+        A daily 3x3 grid trivia game powered by my database to test your knowledge about Supercross and Motocross.
+        Chase perfect scores or be daring and try some deep cuts!
+      </p>
+      <div className="landing-grid-preview" aria-hidden="true">
+        {Array.from({ length: 9 }).map((_, index) => (
+          <span key={index} className="landing-grid-preview-cell" />
+        ))}
+      </div>
+      <a
+        href="https://smxmuse.com"
+        target="_blank"
+        rel="noreferrer"
+        className="landing-button landing-button-primary"
+      >
+        Play on smxmuse.com
+      </a>
+    </aside>
+  );
+}
+
+function RiderOfTheDayPanel({ riderOfTheDay }) {
+  return (
+    <aside className="landing-spotlight-panel">
+      <p className="landing-panel-label">Rider of the day</p>
+      {riderOfTheDay ? (
+        <>
+          <Link
+            to={`/rider/${riderOfTheDay.RiderID}`}
+            className="landing-spotlight-link"
+          >
+            <img
+              src={riderOfTheDay.ImageURL}
+              alt={riderOfTheDay.FullName}
+              className="landing-spotlight-image"
+            />
+          </Link>
+          <div className="landing-spotlight-name-row">
+            <h3>{riderOfTheDay.FullName}</h3>
+            {getCountryCode(riderOfTheDay.Country) && (
+              <img
+                src={`https://flagcdn.com/w40/${getCountryCode(riderOfTheDay.Country)}.png`}
+                alt={riderOfTheDay.Country}
+                className="landing-spotlight-flag"
+              />
+            )}
+          </div>
+          <p className="landing-spotlight-summary">A daily random pull from the SMXmuse rider archive.</p>
+          <p className="landing-spotlight-context">
+            This rider stays featured for the full day, then rotates to a new random archive pick.
+          </p>
+          <div className="landing-spotlight-actions">
+            <Link
+              to={`/rider/${riderOfTheDay.RiderID}`}
+              className="landing-button landing-button-primary"
+            >
+              Open rider profile
+            </Link>
+          </div>
+        </>
+      ) : (
+        <p className="landing-spotlight-context">
+          Loading today&apos;s random rider...
+        </p>
+      )}
+    </aside>
+  );
+}
+
+function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
+  return (
+    <div className="landing-results-panel">
+      <div className="landing-panel-header">
+        <div>
+          <p className="landing-panel-label">Most recent race</p>
+          <h3>
+            {loadingLatest
+              ? "Loading latest race..."
+              : latestRace
+              ? `${latestRace.track_name} ${latestRace.sportLabel}`
+              : "Latest race unavailable"}
+          </h3>
+        </div>
+
+        {latestRace && (
+          <Link to={`/race/${latestRace.race_id}`} className="landing-inline-link">
+            View full race page
+          </Link>
+        )}
+      </div>
+
+      {latestRace && (
+        <p className="landing-race-meta">
+          Round {latestRace.round} /{" "}
+          {new Date(latestRace.race_date).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+          })}
+        </p>
+      )}
+
+      <div className="landing-results-grid">
+        {latestResults.map((group) => (
+          <div key={group.classId} className="landing-result-card">
+            <div className="landing-result-card-header">
+              <h4>Top 5 in {CLASS_LABELS[group.classId] ?? group.classId}</h4>
+              <span>{latestRace?.sport === "sx" ? "Main Event" : "Overall"}</span>
+            </div>
+            <ResultList rows={group.rows} sport={latestRace?.sport} />
+          </div>
+        ))}
+
+        {!loadingLatest && latestResults.length === 0 && (
+          <div className="landing-empty-state">
+            Latest race results are not available right now.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ArchiveIntro() {
+  return (
+    <div className="landing-hero-copy">
+      <p className="landing-kicker">Supercross and Motocross Archive</p>
+      <h1 className="landing-title">
+        Everything in one place, from the latest gate drop to all-time history.
+      </h1>
+      <p className="landing-intro">
+        SMXmuse is built for digging deeper: race results, rider profiles, season dashboards,
+        comparison tools, and all-time leaderboards designed for fans who want to bench race with more knowledge than ever before.
+      </p>
+
+      <div className="landing-hero-actions">
+        <Link to="/results" className="landing-button landing-button-primary">
+          Explore results
+        </Link>
+        <Link to="/compare" className="landing-button landing-button-secondary">
+          Compare riders
+        </Link>
+        <Link to="/season" className="landing-button landing-button-secondary">
+          Open current season
+        </Link>
+      </div>
+
+      <div className="landing-stat-strip">
+        <div className="landing-stat-pill">
+          <span className="landing-stat-label">Best for</span>
+          <strong>Race-by-race deep dives</strong>
+        </div>
+        <div className="landing-stat-pill">
+          <span className="landing-stat-label">Quick jump</span>
+          <strong>Head-to-head rider comparison</strong>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function LandingPage() {
   const [latestRace, setLatestRace] = useState(null);
   const [latestResults, setLatestResults] = useState([]);
@@ -171,52 +352,67 @@ export default function LandingPage() {
           `/api/races?sport_id=${meta.sportId}&year=${currentSeason.year}`
         );
         const races = await racesRes.json();
-        const latest = getLatestCompletedRace(races);
+        const raceCandidates = getSortedCandidateRaces(races);
 
-        if (!latest) {
+        if (raceCandidates.length === 0) {
           throw new Error("No races found for current season");
         }
 
+        let selectedRace = null;
         let groupedResults = [];
 
-        if (meta.sportId === 1) {
-          const mainRes = await fetch(
-            `http://localhost:8000/api/race/main-event?raceid=${latest.race_id}`
-          );
-          const mainData = await mainRes.json();
+        for (const race of raceCandidates) {
+          let raceResults = [];
 
-          groupedResults = [
-            { classId: 1, rows: (mainData.class450 ?? []).slice(0, 5) },
-            { classId: 2, rows: (mainData.class250 ?? []).slice(0, 5) }
-          ].filter((group) => group.rows.length > 0);
-        } else {
-          const classesRes = await fetch(
-            `http://localhost:8000/api/race/mx-classes?raceid=${latest.race_id}`
-          );
-          const classesData = await classesRes.json();
-          const orderedClasses = classesData
-            .map((item) => item.ClassID)
-            .sort((a, b) => a - b);
+          if (meta.sportId === 1) {
+            const mainRes = await fetch(
+              `http://localhost:8000/api/race/main-event?raceid=${race.race_id}`
+            );
+            const mainData = await mainRes.json();
 
-          const resultsByClass = await Promise.all(
-            orderedClasses.map(async (classId) => {
-              const overallRes = await fetch(
-                `http://localhost:8000/api/race/overalls?raceid=${latest.race_id}&classid=${classId}`
-              );
-              const overallData = await overallRes.json();
+            raceResults = [
+              { classId: 1, rows: (mainData.class450 ?? []).slice(0, 5) },
+              { classId: 2, rows: (mainData.class250 ?? []).slice(0, 5) }
+            ].filter((group) => group.rows.length > 0);
+          } else {
+            const classesRes = await fetch(
+              `http://localhost:8000/api/race/mx-classes?raceid=${race.race_id}`
+            );
+            const classesData = await classesRes.json();
+            const orderedClasses = classesData
+              .map((item) => item.ClassID)
+              .sort((a, b) => a - b);
 
-              return { classId, rows: overallData.slice(0, 5) };
-            })
-          );
+            const resultsByClass = await Promise.all(
+              orderedClasses.map(async (classId) => {
+                const overallRes = await fetch(
+                  `http://localhost:8000/api/race/overalls?raceid=${race.race_id}&classid=${classId}`
+                );
+                const overallData = await overallRes.json();
 
-          groupedResults = resultsByClass.filter((group) => group.rows.length > 0);
+                return { classId, rows: overallData.slice(0, 5) };
+              })
+            );
+
+            raceResults = resultsByClass.filter((group) => group.rows.length > 0);
+          }
+
+          if (raceResults.length > 0) {
+            selectedRace = race;
+            groupedResults = raceResults;
+            break;
+          }
+        }
+
+        if (!selectedRace) {
+          selectedRace = raceCandidates[0];
         }
 
         if (!isMounted) {
           return;
         }
 
-        setLatestRace({ ...latest, sport: currentSeason.sport, sportLabel: meta.label });
+        setLatestRace({ ...selectedRace, sport: currentSeason.sport, sportLabel: meta.label });
         setLatestResults(groupedResults);
         setRiderOfTheDay(riderOfTheDayData);
       } catch (error) {
@@ -237,18 +433,17 @@ export default function LandingPage() {
 
   return (
     <div className="landing-page">
-      <section className="landing-hero">
-        <div className="landing-hero-copy">
+      <section className="landing-desktop-layout landing-layout-narrow-top">
+        <div className="landing-hero-copy landing-hero-copy-narrow">
           <p className="landing-kicker">Supercross and Motocross Archive</p>
-          <h1 className="landing-title">
+          <h1 className="landing-title landing-title-narrow">
             Everything in one place, from the latest gate drop to all-time history.
           </h1>
-          <p className="landing-intro">
-            SMXmuse is built for digging deeper: race results, rider profiles, season dashboards,
-            comparison tools, and all-time leaderboards designed for fans who want to bench race with more knowledge than ever before.
+          <p className="landing-intro landing-intro-narrow">
+            SMXmuse is built for race results, rider profiles, season dashboards, comparison tools,
+            and all-time leaderboards without making you dig to find the newest story first.
           </p>
-
-          <div className="landing-hero-actions">
+          <div className="landing-hero-actions landing-hero-actions-narrow">
             <Link to="/results" className="landing-button landing-button-primary">
               Explore results
             </Link>
@@ -259,155 +454,27 @@ export default function LandingPage() {
               Open current season
             </Link>
           </div>
-
-          <div className="landing-stat-strip">
-            <div className="landing-stat-pill">
-              <span className="landing-stat-label">Best for</span>
-              <strong>Race-by-race deep dives</strong>
-            </div>
-            <div className="landing-stat-pill">
-              <span className="landing-stat-label">Quick jump</span>
-              <strong>Head-to-head rider comparison</strong>
-            </div>
-          </div>
         </div>
 
-        <aside className="landing-feature-callout">
-          <p className="landing-callout-label">Featured</p>
-          <h2>SMXmuse Grids</h2>
-          <p>
-            A daily 3x3 grid trivia game powered by my database to test your knowledge about Supercross and Motocross.
-            Chase perfect scores or be daring and try some deep cuts!
-          </p>
-          <div className="landing-grid-preview" aria-hidden="true">
-            {Array.from({ length: 9 }).map((_, index) => (
-              <span key={index} className="landing-grid-preview-cell" />
-            ))}
-          </div>
-          <a
-            href="https://smxmuse.com"
-            target="_blank"
-            rel="noreferrer"
-            className="landing-button landing-button-primary"
-          >
-            Play on smxmuse.com
-          </a>
-        </aside>
-      </section>
-
-      <section className="landing-features landing-features-five">
-        {FEATURED_PATHS.map((feature) => (
-          <Link key={feature.title} to={feature.to} className="landing-feature-card">
-            <span className="landing-feature-eyebrow">{feature.eyebrow}</span>
-            <h2>{feature.title}</h2>
-            <p>{feature.description}</p>
-            <span className="landing-feature-link">Open section</span>
-          </Link>
-        ))}
-      </section>
-
-      <section className="landing-live-grid">
-        <div className="landing-section-heading">
-          <p className="landing-kicker">Latest snapshot</p>
-          <h2>Recent race results, rider of the day, and where to click next.</h2>
-        </div>
-
-        <div className="landing-live-layout">
-          <div className="landing-results-panel">
-            <div className="landing-panel-header">
-              <div>
-                <p className="landing-panel-label">Most recent race</p>
-                <h3>
-                  {loadingLatest
-                    ? "Loading latest race..."
-                    : latestRace
-                    ? `${latestRace.track_name} ${latestRace.sportLabel}`
-                    : "Latest race unavailable"}
-                </h3>
-              </div>
-
-              {latestRace && (
-                <Link to={`/race/${latestRace.race_id}`} className="landing-inline-link">
-                  View full race page
-                </Link>
-              )}
-            </div>
-
-            {latestRace && (
-              <p className="landing-race-meta">
-                Round {latestRace.round} /{" "}
-                {new Date(latestRace.race_date).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric"
-                })}
-              </p>
-            )}
-
-            <div className="landing-results-grid">
-              {latestResults.map((group) => (
-                <div key={group.classId} className="landing-result-card">
-                  <div className="landing-result-card-header">
-                    <h4>Top 5 in {CLASS_LABELS[group.classId] ?? group.classId}</h4>
-                    <span>{latestRace?.sport === "sx" ? "Main Event" : "Overall"}</span>
-                  </div>
-                  <ResultList rows={group.rows} sport={latestRace?.sport} />
-                </div>
-              ))}
-
-              {!loadingLatest && latestResults.length === 0 && (
-                <div className="landing-empty-state">
-                  Latest race results are not available right now.
-                </div>
-              )}
-            </div>
-          </div>
-
-          <aside className="landing-spotlight-panel">
-            <p className="landing-panel-label">Rider of the day</p>
-            {riderOfTheDay ? (
-              <>
-                <Link
-                  to={`/rider/${riderOfTheDay.RiderID}`}
-                  className="landing-spotlight-link"
-                >
-                  <img
-                    src={riderOfTheDay.ImageURL}
-                    alt={riderOfTheDay.FullName}
-                    className="landing-spotlight-image"
-                  />
-                </Link>
-                <div className="landing-spotlight-name-row">
-                  <h3>{riderOfTheDay.FullName}</h3>
-                  {getCountryCode(riderOfTheDay.Country) && (
-                    <img
-                      src={`https://flagcdn.com/w40/${getCountryCode(riderOfTheDay.Country)}.png`}
-                      alt={riderOfTheDay.Country}
-                      className="landing-spotlight-flag"
-                    />
-                  )}
-                </div>
-                <p className="landing-spotlight-summary">A daily random pull from the SMXmuse rider archive.</p>
-                <p className="landing-spotlight-context">
-                  This rider stays featured for the full day, then rotates to a new random archive pick.
-                </p>
-                <div className="landing-spotlight-actions">
-                  <Link
-                    to={`/rider/${riderOfTheDay.RiderID}`}
-                    className="landing-button landing-button-primary"
-                  >
-                    Open rider profile
-                  </Link>
-                </div>
-              </>
-            ) : (
-              <p className="landing-spotlight-context">
-                Loading today&apos;s random rider...
-              </p>
-            )}
-          </aside>
+        <div className="landing-hero-grid-slot">
+          <RiderOfTheDayPanel riderOfTheDay={riderOfTheDay} />
         </div>
       </section>
+
+      <section className="landing-desktop-layout landing-layout-narrow-live">
+        <div className="landing-narrow-results">
+          <LatestResultsPanel
+            loadingLatest={loadingLatest}
+            latestRace={latestRace}
+            latestResults={latestResults}
+          />
+        </div>
+        <div className="landing-narrow-side">
+          <GridsCallout />
+        </div>
+      </section>
+
+      <FeaturedPathsGrid />
 
       <section className="landing-bottom-grid">
         <div className="landing-path-card">
