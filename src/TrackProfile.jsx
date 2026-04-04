@@ -35,6 +35,14 @@ function TrackProfile() {
   }, [track_id, sportId]);
 
   useEffect(() => {
+    if (availableClasses.length === 0) return;
+
+    if (!availableClasses.includes(classId)) {
+      setClassId(availableClasses[0]);
+    }
+  }, [availableClasses, classId]);
+
+  useEffect(() => {
     axios
       .get(`${API_BASE_URL}/api/track-profile`, {
         params: {

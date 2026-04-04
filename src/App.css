@@ -2176,6 +2176,26 @@ a.track-link:focus-visible {
   margin-bottom: 16px;
 }
 
+.landing-spotlight-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.landing-spotlight-name-row h3 {
+  margin: 0;
+}
+
+.landing-spotlight-flag {
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+}
+
 .landing-spotlight-image {
   width: 100%;
   max-width: 260px;
@@ -2312,6 +2332,10 @@ a.track-link:focus-visible {
   display: block;
   height: 72px;
   width: auto;
+}
+
+.nav-mobile-shell {
+  display: none;
 }
 
 .riders-hub {
@@ -2514,5 +2538,112 @@ a.track-link:focus-visible {
   .laps-led-chart,
   .laps-led-breakdown {
     max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    position: relative;
+    z-index: 40;
+    background: #111;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .navbar-inner {
+    height: auto;
+    padding: 0;
+    display: block !important;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none !important;
+  }
+
+  .nav-mobile-shell {
+    display: block !important;
+    background: #111;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-mobile-topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-mobile-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .nav-mobile-logo .nav-logo-image {
+    height: 52px;
+    width: auto;
+  }
+
+  .nav-mobile-menu-button {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 8px;
+    background: #2b2b2b;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .nav-mobile-dropdown {
+    display: grid;
+    gap: 0;
+    margin: 10px 12px 0;
+    border: 1px solid #2f2f2f;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #151515;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  }
+
+  .nav-mobile-dropdown-link {
+    display: block;
+    padding: 13px 14px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 0.98rem;
+    font-weight: 600;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-mobile-dropdown-link:first-child {
+    border-top: none;
+  }
+
+  .nav-mobile-search-row .unified-search {
+    width: 100%;
+  }
+
+  .nav-mobile-search-row {
+    display: block;
+    width: 100%;
+    padding: 10px 12px 12px;
+    background: #111;
+  }
+
+  .nav-mobile-search-row .unified-search input {
+    height: 42px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #181818;
   }
 }

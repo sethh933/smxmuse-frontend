@@ -50,6 +50,59 @@ const CLASS_LABELS = {
   3: "500"
 };
 
+function getCountryCode(country) {
+  const countryMap = {
+    "United States": "us",
+    "United Kingdom": "gb",
+    "England": "gb",
+    "Wales": "gb",
+    "Scotland": "gb",
+    "Argentina": "ar",
+    "Australia": "au",
+    "Belgium": "be",
+    "Bolivia": "bo",
+    "Brazil": "br",
+    "Canada": "ca",
+    "Chile": "cl",
+    "Colombia": "co",
+    "Costa Rica": "cr",
+    "Czechia": "cz",
+    "Denmark": "dk",
+    "Dominican Republic": "do",
+    "Ecuador": "ec",
+    "Estonia": "ee",
+    "Finland": "fi",
+    "France": "fr",
+    "Germany": "de",
+    "Guatemala": "gt",
+    "Honduras": "hn",
+    "Ireland": "ie",
+    "Italy": "it",
+    "Japan": "jp",
+    "Latvia": "lv",
+    "Lithuania": "lt",
+    "Mexico": "mx",
+    "Mongolia": "mn",
+    "Netherlands": "nl",
+    "New Zealand": "nz",
+    "Norway": "no",
+    "Portugal": "pt",
+    "Puerto Rico": "pr",
+    "Russia": "ru",
+    "South Africa": "za",
+    "South Korea": "kr",
+    "Spain": "es",
+    "Sweden": "se",
+    "Switzerland": "ch",
+    "Uganda": "ug",
+    "Ukraine": "ua",
+    "Uruguay": "uy",
+    "Venezuela": "ve"
+  };
+
+  return countryMap[country] || null;
+}
+
 function getLatestCompletedRace(races) {
   const now = new Date();
   const completed = races.filter((race) => new Date(race.race_date) <= now);
@@ -324,7 +377,16 @@ export default function LandingPage() {
                     className="landing-spotlight-image"
                   />
                 </Link>
-                <h3>{riderOfTheDay.FullName}</h3>
+                <div className="landing-spotlight-name-row">
+                  <h3>{riderOfTheDay.FullName}</h3>
+                  {getCountryCode(riderOfTheDay.Country) && (
+                    <img
+                      src={`https://flagcdn.com/w40/${getCountryCode(riderOfTheDay.Country)}.png`}
+                      alt={riderOfTheDay.Country}
+                      className="landing-spotlight-flag"
+                    />
+                  )}
+                </div>
                 <p className="landing-spotlight-summary">A daily random pull from the SMXmuse rider archive.</p>
                 <p className="landing-spotlight-context">
                   This rider stays featured for the full day, then rotates to a new random archive pick.
