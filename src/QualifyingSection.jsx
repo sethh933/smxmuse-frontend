@@ -5,8 +5,8 @@ import QualifyingTable from "./QualifyingTable";
 /* -------------------------
    Coast label helper
 ------------------------- */
-function getCoastLabel(results) {
-  const coastId = results?.[0]?.coastid;
+function getCoastLabel(raceCoastId, results) {
+  const coastId = raceCoastId ?? results?.[0]?.coastid;
 
   if (coastId === 1) return "West";
   if (coastId === 2) return "East";
@@ -15,7 +15,7 @@ function getCoastLabel(results) {
   return "";
 }
 
-export default function QualifyingSection({ classid }) {
+export default function QualifyingSection({ classid, raceCoastId }) {
   const { raceid } = useParams();
   const [results, setResults] = useState([]);
 
@@ -43,7 +43,7 @@ export default function QualifyingSection({ classid }) {
   const heading =
     classid === 1
       ? "Premier Class Qualifying"
-      : `Lites Class Qualifying (${getCoastLabel(results)})`;
+      : `Lites Class Qualifying (${getCoastLabel(raceCoastId, results)})`;
 
   return (
     <div style={{ marginTop: 30 }}>

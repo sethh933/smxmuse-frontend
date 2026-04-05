@@ -15,7 +15,17 @@ function getCoastLabel(results) {
   return "";
 }
 
-export default function HeatRacesSection({ classid }) {
+function getRaceCoastLabel(raceCoastId, results) {
+  const coastId = raceCoastId ?? results?.[0]?.coastid;
+
+  if (coastId === 1) return "West";
+  if (coastId === 2) return "East";
+  if (coastId === 3) return "East/West";
+
+  return "";
+}
+
+export default function HeatRacesSection({ classid, raceCoastId }) {
   const { raceid } = useParams();
   const [heats, setHeats] = useState({});
 
@@ -43,7 +53,7 @@ export default function HeatRacesSection({ classid }) {
         const heading =
           classid === 1
             ? `Premier Class Heat ${heatNum}`
-            : `Lites Class Heat ${heatNum} (${getCoastLabel(results)})`;
+            : `Lites Class Heat ${heatNum} (${getRaceCoastLabel(raceCoastId, results)})`;
 
         return (
           <div key={heatNum} style={{ marginBottom: 24 }}>

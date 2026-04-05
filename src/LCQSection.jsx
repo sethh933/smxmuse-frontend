@@ -5,25 +5,17 @@ import HeatRaceTable from "./HeatRaceTable";
 /* -------------------------
    Coast label helper
 ------------------------- */
-function getCoastLabel(results) {
-  const coastIds = [
-    ...new Set(
-      results
-        .map(r => r.ridercoastid)
-        .filter(id => id !== null && id !== undefined)
-    )
-  ];
+function getCoastLabel(raceCoastId, results) {
+  const coastId = raceCoastId ?? results?.[0]?.coastid;
 
-  if (coastIds.length === 1) {
-    if (coastIds[0] === 1) return "West";
-    if (coastIds[0] === 2) return "East";
-    if (coastIds[0] === 3) return "East/West";
-  }
+  if (coastId === 1) return "West";
+  if (coastId === 2) return "East";
+  if (coastId === 3) return "East/West";
 
-  return "East/West";
+  return "";
 }
 
-export default function LCQSection({ classid }) {
+export default function LCQSection({ classid, raceCoastId }) {
   const { raceid } = useParams();
   const [lcqs, setLcqs] = useState([]);
 
@@ -48,7 +40,7 @@ export default function LCQSection({ classid }) {
   const heading =
     classid === 1
       ? "Premier Class LCQ"
-      : `Lites Class LCQ (${getCoastLabel(lcqs)})`;
+      : `Lites Class LCQ (${getCoastLabel(raceCoastId, lcqs)})`;
 
   return (
     <div style={{ marginTop: 30 }}>

@@ -3,13 +3,13 @@ import MainEventTable from "./MainEventTable";
 /* ---------------------------------------
    Helper: build the correct heading
 --------------------------------------- */
-function getMainEventHeading(classid, results) {
+function getMainEventHeading(classid, results, raceCoastId) {
   if (classid === 1) {
     return "Premier Class Main Event";
   }
 
   if (classid === 2) {
-    const coastId = results?.[0]?.coastid;
+    const coastId = raceCoastId ?? results?.[0]?.coastid;
 
     if (coastId === 1) return "Lites Class Main Event (West)";
     if (coastId === 2) return "Lites Class Main Event (East)";
@@ -24,24 +24,34 @@ function getMainEventHeading(classid, results) {
 /* ---------------------------------------
    Main Event Section Component
 --------------------------------------- */
-export default function MainEventSection({ class450, class250 }) {
+export default function MainEventSection({ class450, class250, raceCoastId, raceYear, sportId, tripleCrownId }) {
   return (
     <div className="main-event-section">
       {class450 && class450.length > 0 && (
         <>
           <h3 className="class-header">
-            {getMainEventHeading(1, class450)}
+            {getMainEventHeading(1, class450, raceCoastId)}
           </h3>
-          <MainEventTable results={class450} />
+          <MainEventTable
+            results={class450}
+            raceYear={raceYear}
+            sportId={sportId}
+            tripleCrownId={tripleCrownId}
+          />
         </>
       )}
 
       {class250 && class250.length > 0 && (
         <>
           <h3 className="class-header">
-            {getMainEventHeading(2, class250)}
+            {getMainEventHeading(2, class250, raceCoastId)}
           </h3>
-          <MainEventTable results={class250} />
+          <MainEventTable
+            results={class250}
+            raceYear={raceYear}
+            sportId={sportId}
+            tripleCrownId={tripleCrownId}
+          />
         </>
       )}
     </div>

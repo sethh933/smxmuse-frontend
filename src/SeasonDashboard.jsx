@@ -206,16 +206,18 @@ export default function SeasonDashboard() {
           <section className="season-dashboard-section">
             <h2>{sport === "sx" ? "Qualifying / Heats / LCQs" : "Motos / Qualifying"}</h2>
             <div className="stats-table-wrapper">
-              <StartStatsTable data={startStats} sport={sport} />
+              <StartStatsTable data={startStats} sport={sport} year={year} />
             </div>
           </section>
 
-          <section className="season-dashboard-section">
-            <h2>Race Control (Laps Led)</h2>
-            <div className="laps-led-grid">
-              <LapsLedPie data={lapsLedStats} sport={sport} mainStats={mainStats} />
-            </div>
-          </section>
+          {(sport !== "sx" || year >= 2003) && (
+            <section className="season-dashboard-section">
+              <h2>Race Control (Laps Led)</h2>
+              <div className="laps-led-grid">
+                <LapsLedPie data={lapsLedStats} sport={sport} mainStats={mainStats} />
+              </div>
+            </section>
+          )}
 
           <section className="season-dashboard-section">
             <h2>Championship Progression (Top Five in Points)</h2>

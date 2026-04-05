@@ -8,6 +8,7 @@ import Leaderboard3 from './Leaderboard3';
 import Leaderboard4 from './Leaderboard4';
 import RiderProfile from "./RiderProfile";
 import MainEventSection from "./MainEventSection";
+import TripleCrownMainsSection from "./TripleCrownMainsSection";
 import HeatRacesSection from "./HeatRacesSection";
 import LCQSection from "./LCQSection";
 import QualifyingSection from "./QualifyingSection";
@@ -130,6 +131,7 @@ function RacePage() {
   const [raceHeader, setRaceHeader] = useState(null);
   const [mainEvent450, setMainEvent450] = useState([]);
   const [mainEvent250, setMainEvent250] = useState([]);
+  const [tripleCrownMains, setTripleCrownMains] = useState(null);
   const [mxClasses, setMxClasses] = useState([]);
 
   // Fetch header (this determines SX vs MX)
@@ -171,6 +173,18 @@ classes.sort((a, b) => order[a] - order[b]);
       .catch(err => console.error(err));
   }, [raceHeader, raceid]);
 
+  useEffect(() => {
+    if (!raceHeader || raceHeader.SportID !== 1 || raceHeader.TripleCrownID !== 1) {
+      setTripleCrownMains(null);
+      return;
+    }
+
+    fetch(`http://localhost:8000/api/race/triple-crown-mains?raceid=${raceid}`)
+      .then(res => res.json())
+      .then(data => setTripleCrownMains(data))
+      .catch(err => console.error(err));
+  }, [raceHeader, raceid]);
+
   if (!raceHeader) return <p>Loading...</p>;
 
   const isSX = raceHeader.SportID === 1;
@@ -196,14 +210,26 @@ classes.sort((a, b) => order[a] - order[b]);
           <MainEventSection
             class450={mainEvent450}
             class250={mainEvent250}
+            raceCoastId={raceHeader.CoastID}
+            raceYear={raceHeader.Year}
+            sportId={raceHeader.SportID}
+            tripleCrownId={raceHeader.TripleCrownID}
           />
 
-          <HeatRacesSection classid={1} />
-          <HeatRacesSection classid={2} />
-          <LCQSection classid={1} />
-          <LCQSection classid={2} />
-          <QualifyingSection classid={1} sportId={1} />
-          <QualifyingSection classid={2} sportId={1} />
+          <HeatRacesSection classid={1} raceCoastId={raceHeader.CoastID} />
+          <HeatRacesSection classid={2} raceCoastId={raceHeader.CoastID} />
+          {raceHeader.TripleCrownID === 1 && (
+            <TripleCrownMainsSection
+              mains={tripleCrownMains}
+              raceCoastId={raceHeader.CoastID}
+              raceYear={raceHeader.Year}
+              sportId={raceHeader.SportID}
+            />
+          )}
+          <LCQSection classid={1} raceCoastId={raceHeader.CoastID} />
+          <LCQSection classid={2} raceCoastId={raceHeader.CoastID} />
+          <QualifyingSection classid={1} sportId={1} raceCoastId={raceHeader.CoastID} />
+          <QualifyingSection classid={2} sportId={1} raceCoastId={raceHeader.CoastID} />
         </>
       ) : (
         <>

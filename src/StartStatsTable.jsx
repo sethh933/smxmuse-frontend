@@ -1,19 +1,40 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export function StartStatsTable({ data, sport }) {
-  const defaultSortKey = sport === "sx" ? "AvgQualFinish" : "AvgMoto";
+export function StartStatsTable({ data, sport, year }) {
+  const getDisplayName = (row) => row.DisplayFullName || row.FullName;
+  const showSupercrossQualStats = sport !== "sx" || year >= 2007;
+  const defaultSortKey = sport === "sx"
+    ? showSupercrossQualStats
+      ? "AvgQualFinish"
+      : "HeatWins"
+    : "AvgMoto";
+  const defaultSortDir =
+    defaultSortKey === "AvgQualFinish" || defaultSortKey === "AvgMoto"
+      ? "asc"
+      : "desc";
 
 const [sortKey, setSortKey] = useState(defaultSortKey);
-const [sortDir, setSortDir] = useState("asc");
+const [sortDir, setSortDir] = useState(defaultSortDir);
+
+  useEffect(() => {
+    setSortKey(defaultSortKey);
+    setSortDir(defaultSortDir);
+  }, [defaultSortKey, defaultSortDir]);
 
   const columns = sport === "sx"
   ? [
       { key: "FullName", label: "Rider" },
-      { key: "AvgQualFinish", label: "Avg Qual" },
-      { key: "Poles", label: "Poles" },
+      ...(showSupercrossQualStats
+        ? [
+            { key: "AvgQualFinish", label: "Avg Qual" },
+            { key: "Poles", label: "Poles" }
+          ]
+        : []),
       { key: "HeatWins", label: "Heat Wins" },
-      { key: "LCQWins", label: "LCQ Wins" }
+      { key: "BestHeat", label: "Best Heat" },
+      { key: "LCQWins", label: "LCQ Wins" },
+      { key: "BestLCQ", label: "Best LCQ" }
     ]
   : [
       { key: "FullName", label: "Rider" },
@@ -32,8 +53,8 @@ const [sortDir, setSortDir] = useState("asc");
 
     return [...data]
       .sort((a, b) => {
-        const aVal = a[sortKey];
-        const bVal = b[sortKey];
+        const aVal = sortKey === "FullName" ? getDisplayName(a) : a[sortKey];
+        const bVal = sortKey === "FullName" ? getDisplayName(b) : b[sortKey];
 
         if (aVal == null) return 1;
         if (bVal == null) return -1;
@@ -53,7 +74,7 @@ const [sortDir, setSortDir] = useState("asc");
       setSortDir(sortDir === "asc" ? "desc" : "asc");
     } else {
       setSortKey(key);
-      setSortDir(key === "AvgQualFinish" ? "asc" : "desc");
+      setSortDir(key === "AvgQualFinish" || key === "AvgMoto" ? "asc" : "desc");
     }
   }
 
@@ -85,19 +106,21 @@ const [sortDir, setSortDir] = useState("asc");
         <>
           <td>
   <Link to={`/rider/${r.RiderID}`}>
-    {r.FullName}
+    {getDisplayName(r)}
   </Link>
 </td>
-          <td>{r.AvgQualFinish?.toFixed(2)}</td>
-          <td>{r.Poles}</td>
+          {showSupercrossQualStats && <td>{r.AvgQualFinish?.toFixed(2)}</td>}
+          {showSupercrossQualStats && <td>{r.Poles}</td>}
           <td>{r.HeatWins}</td>
+          <td>{r.BestHeat ?? "-"}</td>
           <td>{r.LCQWins}</td>
+          <td>{r.BestLCQ ?? "-"}</td>
         </>
       ) : (
         <>
           <td>
   <Link to={`/rider/${r.RiderID}`}>
-    {r.FullName}
+    {getDisplayName(r)}
   </Link>
 </td>
           <td>{r.MotoWins}</td>

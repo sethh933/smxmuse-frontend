@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 
 export function MainStatsTable({ data, sport }) {
+  const getDisplayName = (row) => row.DisplayFullName || row.FullName;
   const [sortKey, setSortKey] = useState("Points");
   const [sortDir, setSortDir] = useState("desc");
 
@@ -38,8 +39,8 @@ export function MainStatsTable({ data, sport }) {
 
     return [...data]
       .sort((a, b) => {
-        const aVal = a[sortKey];
-        const bVal = b[sortKey];
+        const aVal = sortKey === "FullName" ? getDisplayName(a) : a[sortKey];
+        const bVal = sortKey === "FullName" ? getDisplayName(b) : b[sortKey];
 
         if (aVal == null) return 1;
         if (bVal == null) return -1;
@@ -91,7 +92,7 @@ export function MainStatsTable({ data, sport }) {
               <td key={col.key}>
   {col.key === "FullName" ? (
     <Link to={`/rider/${row.RiderID}`}>
-      {row.FullName}
+      {getDisplayName(row)}
     </Link>
   ) : (
     row[col.key]
