@@ -21,6 +21,10 @@ function MXConsiSection({ raceId, classId }) {
       .catch((err) => console.error(err));
   }, [raceId, classId]);
 
+  if (!Array.isArray(consi) || consi.length === 0) {
+    return null;
+  }
+
   return (
     <div>
       <h2 className="section-header">

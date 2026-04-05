@@ -5,6 +5,7 @@ import {
   Tooltip,
   ResponsiveContainer
 } from "recharts";
+import { useEffect, useState } from "react";
 
 const BRAND_BASE_COLORS = {
   HON: "#CC0000",
@@ -92,6 +93,25 @@ function getBrandShade(baseColor, index) {
 }
 
 export function LapsLedPie({ data, sport, mainStats = [] }) {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth <= 640 : false
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const handleChange = (event) => setIsMobile(event.matches);
+
+    setIsMobile(mediaQuery.matches);
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
+
   const filtered = [...data]
     .filter((d) => d.LapsLed > 0)
     .sort((a, b) => b.LapsLed - a.LapsLed);
@@ -147,6 +167,9 @@ export function LapsLedPie({ data, sport, mainStats = [] }) {
     return [`${pct} (${payload.LapsLed} laps)`, `${payload.FullName} - ${payload.Brand}`];
   };
 
+  const innerRadius = isMobile ? 44 : 54;
+  const outerRadius = isMobile ? 96 : 122;
+
   return (
     <div className="laps-led-panel">
       <div className="laps-led-chart">
@@ -158,8 +181,8 @@ export function LapsLedPie({ data, sport, mainStats = [] }) {
               nameKey="FullName"
               cx="50%"
               cy="50%"
-              innerRadius={54}
-              outerRadius={122}
+              innerRadius={innerRadius}
+              outerRadius={outerRadius}
               paddingAngle={1}
               stroke="rgba(255, 255, 255, 0.7)"
               strokeWidth={1}
@@ -180,19 +203,21 @@ export function LapsLedPie({ data, sport, mainStats = [] }) {
               className="laps-led-swatch"
               style={{ backgroundColor: rider.ChartColor }}
             />
-            <span
-              className="laps-led-breakdown-name"
-              style={{ color: rider.TextColor }}
-            >
-              {rider.FullName}
-            </span>
-            <span className="laps-led-breakdown-meta">
-              {sport === "sx"
-                ? `${(rider.PctLapsLed * 100).toFixed(1)}%`
-                : `${((rider.LapsLed / total) * 100).toFixed(1)}%`}
-              {" | "}
-              {rider.LapsLed} laps
-            </span>
+            <div className="laps-led-breakdown-copy">
+              <span
+                className="laps-led-breakdown-name"
+                style={{ color: rider.TextColor }}
+              >
+                {rider.FullName}
+              </span>
+              <span className="laps-led-breakdown-meta">
+                {sport === "sx"
+                  ? `${(rider.PctLapsLed * 100).toFixed(1)}%`
+                  : `${((rider.LapsLed / total) * 100).toFixed(1)}%`}
+                {" | "}
+                {rider.LapsLed} laps
+              </span>
+            </div>
           </div>
         ))}
       </div>

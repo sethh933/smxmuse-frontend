@@ -22,6 +22,10 @@ function MXQualifyingSection({ raceId, classId, sportId }) {
     .catch((err) => console.error(err));
 }, [raceId, classId, sportId]);
 
+  if (!Array.isArray(qualifying) || qualifying.length === 0) {
+    return null;
+  }
+
   return (
   <div>
     <h2 className="section-header">

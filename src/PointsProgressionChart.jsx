@@ -7,6 +7,7 @@ import {
   Legend,
   ResponsiveContainer
 } from "recharts";
+import { useEffect, useState } from "react";
 
 const BRAND_BASE_COLORS = {
   HON: "#CC0000",
@@ -97,6 +98,25 @@ function getDisplayColor(color, brandKey) {
 }
 
 export function PointsProgressionChart({ data, sport, mainStats = [] }) {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth <= 640 : false
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const handleChange = (event) => setIsMobile(event.matches);
+
+    setIsMobile(mediaQuery.matches);
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
+
   const getPoints = (d) => d.CumulativePoints ?? d.Points;
 
   const finalByRider = {};
@@ -221,14 +241,42 @@ export function PointsProgressionChart({ data, sport, mainStats = [] }) {
     );
   };
 
+  const chartHeight = isMobile ? 420 : 350;
+  const chartMargin = isMobile
+    ? { top: 12, right: 8, left: -18, bottom: 8 }
+    : { top: 8, right: 18, left: 8, bottom: 8 };
+  const legendHeight = isMobile ? 88 : 36;
+
   return (
-    <div style={{ width: "100%", height: 350 }}>
+    <div style={{ width: "100%", height: chartHeight }}>
       <ResponsiveContainer>
-        <LineChart data={chartData} margin={{ top: 8, right: 18, left: 8, bottom: 8 }}>
-          <XAxis dataKey="round" />
-          <YAxis />
+        <LineChart data={chartData} margin={chartMargin}>
+          <XAxis
+            dataKey="round"
+            tick={{ fill: "#a9a9a9", fontSize: isMobile ? 11 : 12 }}
+            tickMargin={isMobile ? 6 : 8}
+            axisLine={{ stroke: "rgba(255, 255, 255, 0.2)" }}
+            tickLine={{ stroke: "rgba(255, 255, 255, 0.2)" }}
+          />
+          <YAxis
+            width={isMobile ? 28 : 40}
+            tick={{ fill: "#a9a9a9", fontSize: isMobile ? 11 : 12 }}
+            tickMargin={isMobile ? 4 : 8}
+            axisLine={{ stroke: "rgba(255, 255, 255, 0.2)" }}
+            tickLine={{ stroke: "rgba(255, 255, 255, 0.2)" }}
+          />
           <Tooltip content={<CustomTooltip />} />
-          <Legend formatter={legendFormatter} />
+          <Legend
+            formatter={legendFormatter}
+            verticalAlign="bottom"
+            align="center"
+            iconSize={isMobile ? 8 : 10}
+            wrapperStyle={{
+              paddingTop: isMobile ? "14px" : "8px",
+              lineHeight: isMobile ? "1.35" : "1.5"
+            }}
+            height={legendHeight}
+          />
 
           {topRiders.map((name) => (
             <Line
@@ -236,10 +284,10 @@ export function PointsProgressionChart({ data, sport, mainStats = [] }) {
               type="monotone"
               dataKey={name}
               stroke={displayColors.get(name)}
-              strokeWidth={3.5}
+              strokeWidth={isMobile ? 3 : 3.5}
               dot={false}
               activeDot={{
-                r: 5,
+                r: isMobile ? 4 : 5,
                 stroke: "#ffffff",
                 strokeWidth: 1,
                 fill: displayColors.get(name)

@@ -55,6 +55,25 @@ const getCountryCode = (country) => {
 };
 
 function FeaturedRiders({ riders, navigate }) {
+  const [isMobileFeaturedLayout, setIsMobileFeaturedLayout] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth <= 640 : false
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const handleChange = (event) => setIsMobileFeaturedLayout(event.matches);
+
+    setIsMobileFeaturedLayout(mediaQuery.matches);
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
+
   if (!riders.length) return null;
 
   return (
@@ -64,7 +83,14 @@ function FeaturedRiders({ riders, navigate }) {
         <p>Quick access to a few of the riders who have been guessed the most in smxmuse grids during the past week.</p>
       </div>
 
-      <div className="featured-riders-grid">
+      <div
+        className="featured-riders-grid"
+        style={
+          isMobileFeaturedLayout
+            ? undefined
+            : { gridTemplateColumns: `repeat(${riders.length}, minmax(0, 1fr))` }
+        }
+      >
         {riders.map((rider) => (
           <button
             key={rider.RiderID}

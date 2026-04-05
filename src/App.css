@@ -9,6 +9,12 @@
   min-height: 100vh;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Center page heading */
 h1 {
   text-align: center;
@@ -51,7 +57,11 @@ button {
 }
 
 .leaderboards-page {
-  padding: 18px 0 32px;
+  height: calc(100dvh - 61px);
+  overflow: clip;
+  padding: 18px 0 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .leaderboards-hero {
@@ -94,6 +104,7 @@ button {
 
 .leaderboards-grid {
   margin-top: 0;
+  flex: 1;
 }
 
 .track-profile-page {
@@ -125,6 +136,17 @@ button {
   margin-top: 0;
 }
 
+.track-profile-page .leaderboard thead,
+.track-profile-page .leaderboard thead tr,
+.track-profile-page .leaderboard thead th,
+.track-profile-page .leaderboard .race-winners-table thead,
+.track-profile-page .leaderboard .race-winners-table thead tr,
+.track-profile-page .leaderboard .race-winners-table thead th {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
 /* =========================
    GRID LAYOUT
 ========================= */
@@ -141,6 +163,8 @@ button {
    LEADERBOARD CARD
 ========================= */
 .leaderboard {
+  --leaderboard-columns: 50px minmax(0, 1fr) 70px;
+  --leaderboard-scrollbar-gap: 6px;
   background:
     radial-gradient(circle at top right, rgba(86, 141, 255, 0.045), transparent 34%),
     radial-gradient(circle at top left, rgba(243, 93, 122, 0.035), transparent 30%),
@@ -162,51 +186,86 @@ button {
 .leaderboard-table-wrapper {
   max-height: 550px;
   overflow-y: auto;
-  padding-right: 6px;
+  padding-right: var(--leaderboard-scrollbar-gap);
   transform: translateZ(0);      /* ADD HERE */
   will-change: scroll-position;  /* ADD THIS */
+}
+
+.leaderboard-table-head {
+  display: grid;
+  grid-template-columns: var(--leaderboard-columns);
+  width: calc(100% - var(--leaderboard-scrollbar-gap));
+  padding-right: var(--leaderboard-scrollbar-gap);
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.leaderboard-table-head-four {
+  --leaderboard-columns: 50px minmax(0, 1fr) 92px;
+}
+
+.race-winners-head {
+  --leaderboard-columns: 1fr 1fr 80px;
+}
+
+.race-winners-head span:nth-child(1),
+.race-winners-head span:nth-child(2) {
+  text-align: left;
+}
+
+.track-profile-page .race-winners-table tbody td:nth-child(1),
+.track-profile-page .race-winners-table tbody td:nth-child(2) {
+  text-align: left;
+}
+
+.leaderboard-table-head span {
+  padding: 0.6rem 0.75rem;
+  font-weight: 700;
+}
+
+.leaderboard-table-head span:nth-child(1) {
+  text-align: center;
+}
+
+.leaderboard-table-head span:nth-child(2) {
+  text-align: left;
+}
+
+.leaderboard-table-head span:nth-child(3) {
+  text-align: right;
+  white-space: nowrap;
 }
 
 /* =========================
    TABLE STRUCTURE
 ========================= */
-.leaderboard thead,
 .leaderboard tbody {
   display: block;
 }
 
+.leaderboard table,
+.leaderboard tbody tr {
+  background: transparent !important;
+}
+
 /* Grid rows */
-.leaderboard thead tr,
 .leaderboard tbody tr {
   display: grid;
-  grid-template-columns: 50px minmax(0, 1fr) 70px;
+  grid-template-columns: var(--leaderboard-columns);
 }
 
 /* Race winners override */
-.race-winners-table thead tr,
 .race-winners-table tbody tr {
   grid-template-columns: 1fr 1fr 80px;
 }
 
-.leaderboard-four-table thead tr,
 .leaderboard-four-table tbody tr {
-  grid-template-columns: 50px minmax(0, 1fr) 92px;
+  grid-template-columns: var(--leaderboard-columns);
 }
 
 .leaderboard-four-table th:nth-child(3),
 .leaderboard-four-table td:nth-child(3) {
   white-space: nowrap;
-}
-
-/* =========================
-   STICKY HEADER (FINAL FIX)
-========================= */
-.leaderboard thead {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: rgba(24, 24, 24, 0.98);
-  backface-visibility: hidden;  /* ADD */
 }
 
 /* =========================
@@ -269,6 +328,21 @@ button {
 }
 
 .highlighted td {
+  color: #ffffff;
+}
+
+.leaderboard tbody tr.highlighted,
+.leaderboard-four-table tbody tr.highlighted {
+  background-color: #444 !important;
+}
+
+.leaderboard tbody tr.highlighted:hover,
+.leaderboard-four-table tbody tr.highlighted:hover {
+  background-color: #444 !important;
+}
+
+.leaderboard tbody tr.highlighted td,
+.leaderboard-four-table tbody tr.highlighted td {
   color: #ffffff;
 }
 
@@ -579,9 +653,9 @@ button {
 
 .laps-led-breakdown-item {
   display: grid;
-  grid-template-columns: 12px minmax(0, 1fr) auto;
+  grid-template-columns: 12px minmax(0, 1fr);
   gap: 12px;
-  align-items: center;
+  align-items: start;
   padding: 10px 12px;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.035);
@@ -596,14 +670,21 @@ button {
 
 .laps-led-breakdown-name {
   min-width: 0;
+  display: block;
   font-weight: 600;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
 }
 
+.laps-led-breakdown-copy {
+  min-width: 0;
+}
+
 .laps-led-breakdown-meta {
+  display: block;
+  margin-top: 2px;
   color: #bcbcbc;
   font-size: 0.92rem;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .stats-table-wrapper {
@@ -712,6 +793,14 @@ button {
   max-width: 1700px;
   margin: 2rem auto;
   overflow-x: auto;
+}
+
+.rider-result-mobile-meta {
+  display: none;
+}
+
+.rider-points-mobile-meta {
+  display: none;
 }
 
 .rider-stats {
@@ -1476,6 +1565,50 @@ a.country-rider-name:hover,
   border-bottom: 1px solid #2a2a2a;
 }
 
+.schedule-header-mobile {
+  grid-template-columns: 24px minmax(0, 1fr) max-content;
+  gap: 8px;
+}
+
+.schedule-row-mobile {
+  grid-template-columns: 24px minmax(0, 1fr) max-content;
+  gap: 8px;
+  align-items: start;
+}
+
+.schedule-row-mobile .schedule-round {
+  text-align: left;
+}
+
+.schedule-row-mobile .schedule-venue {
+  min-width: 0;
+  width: 100%;
+  justify-self: stretch;
+}
+
+.schedule-row-mobile .schedule-track,
+.schedule-row-mobile .schedule-location {
+  display: block;
+  width: 100%;
+}
+
+.schedule-row-mobile .schedule-track {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.schedule-row-mobile .schedule-location {
+  margin-top: 4px;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.schedule-row-mobile .schedule-date {
+  justify-self: end;
+  text-align: right;
+  white-space: nowrap;
+}
+
 .schedule-container h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -1863,6 +1996,10 @@ a.track-link:focus-visible {
 .landing-desktop-layout {
   display: grid;
   gap: 20px;
+}
+
+.landing-desktop-layout > * {
+  min-width: 0;
 }
 
 .landing-layout-balanced {
@@ -2428,6 +2565,8 @@ a.track-link:focus-visible {
 
 .landing-spotlight-name-row h3 {
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .landing-spotlight-flag {
@@ -2624,7 +2763,7 @@ a.track-link:focus-visible {
 
 .featured-riders-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 14px;
   margin-top: 18px;
 }
@@ -2633,6 +2772,7 @@ a.track-link:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
   gap: 12px;
   padding: 14px;
   background: #202020;
@@ -2720,7 +2860,283 @@ a.track-link:focus-visible {
   }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1100px) {
+  .rider-profile-page,
+  .rider-results-page,
+  .rider-points-page {
+    padding: 14px;
+  }
+
+  .rider-profile-page .rider-profile-hero,
+  .rider-results-page .rider-profile-hero,
+  .rider-points-page .rider-profile-hero {
+    padding: 20px 18px;
+    margin-bottom: 20px;
+  }
+
+  .rider-profile-page .rider-header,
+  .rider-results-page .rider-header,
+  .rider-points-page .rider-header {
+    display: grid !important;
+    grid-template-columns: 88px minmax(0, 1fr);
+    align-items: center;
+    justify-content: stretch;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .rider-profile-page .rider-profile-image,
+  .rider-results-page .rider-profile-image,
+  .rider-points-page .rider-profile-image {
+    width: 88px;
+    height: 88px;
+    justify-self: center;
+  }
+
+  .rider-profile-page .rider-name,
+  .rider-results-page .rider-name,
+  .rider-points-page .rider-name {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 0.96;
+    text-align: left;
+  }
+
+  .rider-profile-page .rider-flag,
+  .rider-results-page .rider-flag,
+  .rider-points-page .rider-flag {
+    width: 32px;
+    height: 22px;
+    align-self: center;
+  }
+
+  .rider-profile-page .rider-nav,
+  .rider-results-page .rider-nav,
+  .rider-points-page .rider-nav {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 14px;
+  }
+
+  .rider-profile-page .rider-nav-button,
+  .rider-results-page .rider-nav-button,
+  .rider-points-page .rider-nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .rider-profile-page .rider-profile-toggle,
+  .rider-results-page .rider-profile-toggle,
+  .rider-points-page .rider-profile-toggle {
+    justify-content: center;
+  }
+
+  .rider-results-page .rider-results-table {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .rider-results-page .rider-results-table th,
+  .rider-results-page .rider-results-table td {
+    padding: 10px 8px;
+  }
+
+  .rider-results-page .rider-results-table .result-col {
+    width: 48px;
+    min-width: 48px;
+    max-width: 48px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .rider-results-page .rider-results-table .track-col {
+    min-width: 220px;
+    text-align: left;
+  }
+
+  .rider-results-page .rider-results-table .class-col {
+    width: 72px;
+    min-width: 72px;
+    max-width: 72px;
+    white-space: normal;
+  }
+
+  .rider-results-page .rider-results-table .date-col,
+  .rider-results-page .rider-results-table .brand-col {
+    display: none;
+  }
+
+  .rider-results-page .rider-results-table .track-col a {
+    display: inline-block;
+    line-height: 1.25;
+  }
+
+  .rider-results-page .rider-result-mobile-meta {
+    display: grid;
+    gap: 2px;
+    margin-top: 4px;
+    color: #b9b9b9;
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .rider-results-page .rider-result-mobile-date,
+  .rider-results-page .rider-result-mobile-date:visited {
+    color: #646cff;
+    text-decoration: none;
+  }
+
+  .rider-results-page .rider-result-mobile-date:hover {
+    color: #7c82ff;
+  }
+
+  .rider-results-page .rider-result-mobile-brand {
+    color: #ffffff;
+  }
+
+  .rider-points-page .rider-points-table {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .rider-points-page .rider-points-table th,
+  .rider-points-page .rider-points-table td {
+    padding: 10px 8px;
+  }
+
+  .rider-points-page .rider-points-table .year-col {
+    width: 64px;
+    min-width: 64px;
+    max-width: 64px;
+    white-space: nowrap;
+  }
+
+  .rider-points-page .rider-points-table .result-col {
+    width: 68px;
+    min-width: 68px;
+    max-width: 68px;
+    white-space: nowrap;
+  }
+
+  .rider-points-page .rider-points-table .points-col {
+    min-width: 110px;
+  }
+
+  .rider-points-page .rider-points-table .class-col,
+  .rider-points-page .rider-points-table .brand-col {
+    display: none;
+  }
+
+  .rider-points-page .rider-points-mobile-meta {
+    display: grid;
+    gap: 2px;
+    margin-top: 4px;
+    color: #b9b9b9;
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .rider-points-page .rider-points-mobile-brand {
+    color: #ffffff;
+  }
+
+  .track-profile-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px;
+  }
+
+  .track-profile-page .grid-container {
+    padding: 0 14px;
+  }
+
+  .track-profile-page {
+    padding: 14px 0 22px;
+  }
+
+  .track-profile-hero {
+    margin: 0 14px 16px;
+    padding: 20px 18px;
+  }
+
+  .track-profile-hero h1 {
+    font-size: clamp(2rem, 7.8vw, 3.2rem);
+    line-height: 1.02;
+    text-align: center;
+  }
+
+  .track-profile-toggle-buttons {
+    justify-content: center;
+  }
+
+  .track-profile-page .leaderboard {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .track-profile-page .leaderboard-table-wrapper {
+    max-height: 46vh;
+  }
+
+  .leaderboards-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px;
+  }
+
+  .leaderboards-page .grid-container {
+    padding: 0 14px;
+  }
+
+  .leaderboards-page .leaderboard {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .leaderboards-page {
+    height: auto;
+    min-height: calc(100dvh - 61px);
+    overflow-y: auto;
+    overflow-x: clip;
+    padding: 14px 0 22px;
+  }
+
+  .leaderboards-hero {
+    margin: 0 14px 16px;
+    padding: 20px 18px;
+  }
+
+  .leaderboards-hero h1 {
+    font-size: clamp(2.2rem, 8vw, 3.4rem);
+    line-height: 0.98;
+    text-align: center;
+  }
+
+  .leaderboards-intro {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .leaderboard {
+    padding: 0.9rem;
+  }
+
+  .leaderboard h2 {
+    font-size: 1.05rem;
+  }
+
+  .leaderboard-table-wrapper {
+    max-height: 46vh;
+  }
+
+  .laps-led-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .season-dashboard-hero {
     padding: 22px;
   }
@@ -2771,8 +3187,8 @@ a.track-link:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .name-grid,
-  .featured-riders-grid {
+  .name-grid {
+    display: grid;
     grid-template-columns: 1fr;
   }
 
@@ -2794,15 +3210,300 @@ a.track-link:focus-visible {
   .laps-led-panel {
     grid-template-columns: 1fr;
     min-height: 0;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .laps-led-chart {
+    height: 280px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .laps-led-chart,
   .laps-led-breakdown {
     max-height: none;
   }
+
+  .laps-led-breakdown {
+    gap: 8px;
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .laps-led-breakdown-item {
+    padding: 10px 12px;
+    border-radius: 12px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
+  .rider-profile-page,
+  .rider-results-page,
+  .rider-points-page {
+    padding: 12px;
+  }
+
+  .rider-profile-page .rider-profile-hero,
+  .rider-results-page .rider-profile-hero,
+  .rider-points-page .rider-profile-hero {
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  .rider-profile-page .rider-header,
+  .rider-results-page .rider-header,
+  .rider-points-page .rider-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .rider-profile-page .rider-profile-image,
+  .rider-results-page .rider-profile-image,
+  .rider-points-page .rider-profile-image {
+    width: 92px;
+    height: 92px;
+  }
+
+  .rider-profile-page .rider-name,
+  .rider-results-page .rider-name,
+  .rider-points-page .rider-name {
+    text-align: center;
+    font-size: clamp(2.2rem, 10vw, 3.4rem);
+  }
+
+  .rider-profile-page .rider-flag,
+  .rider-results-page .rider-flag,
+  .rider-points-page .rider-flag {
+    width: 36px;
+    height: 24px;
+  }
+
+  .rider-profile-page .rider-nav,
+  .rider-results-page .rider-nav,
+  .rider-points-page .rider-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .rider-profile-page .rider-nav-button,
+  .rider-results-page .rider-nav-button,
+  .rider-points-page .rider-nav-button {
+    min-height: 0;
+    padding: 10px 8px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .laps-led-panel {
+    gap: 14px;
+    align-items: stretch;
+  }
+
+  .laps-led-chart {
+    height: 252px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .laps-led-breakdown {
+    gap: 7px;
+    width: 100%;
+  }
+
+  .laps-led-breakdown-item {
+    grid-template-columns: 10px minmax(0, 1fr);
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  .laps-led-swatch {
+    width: 10px;
+    height: 10px;
+    margin-top: 4px;
+  }
+
+  .laps-led-breakdown-name {
+    font-size: 0.96rem;
+    line-height: 1.15;
+  }
+
+  .laps-led-breakdown-meta {
+    margin-top: 3px;
+    font-size: 0.84rem;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 640px) {
+  .results-year-page {
+    padding: 16px 0 40px;
+  }
+
+  .schedule-container {
+    padding: 0;
+  }
+
+  .results-year-schedule {
+    margin-left: -32px;
+    margin-right: -32px;
+  }
+
+  .results-year-schedule .results-year-section-heading {
+    padding: 0 32px;
+  }
+
+  .results-year-schedule .schedule-header,
+  .results-year-schedule .schedule-list {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .schedule-header {
+    display: grid;
+    gap: 4px;
+    padding: 8px 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  .schedule-list {
+    margin-top: 8px;
+  }
+
+  .schedule-row {
+    gap: 4px;
+    align-items: start;
+    padding: 10px 0;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    margin-bottom: 0;
+  }
+
+  .schedule-round {
+    font-size: 0.9rem;
+    line-height: 1.1;
+    text-align: left;
+    padding-right: 2px;
+  }
+
+  .schedule-track {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .schedule-location {
+    font-size: 0.82rem;
+    line-height: 1.2;
+  }
+
+  .schedule-date {
+    font-size: 0.8rem;
+  }
+
+  .rider-table-wrapper {
+    max-height: none;
+  }
+
+  .rider-stats {
+    min-width: 560px;
+    font-size: 0.83rem;
+  }
+
+  .rider-stats th,
+  .rider-stats td {
+    padding: 6px 6px;
+  }
+
+  .rider-stats th.pos,
+  .rider-stats td.pos {
+    width: 42px;
+    min-width: 42px;
+    max-width: 42px;
+    text-align: center;
+  }
+
+  .rider-stats th.rider,
+  .rider-stats td.rider {
+    min-width: 138px;
+    text-align: left;
+  }
+
+  .rider-stats th.rider a,
+  .rider-stats td.rider a {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
+
+  .rider-stats th:not(.pos):not(.rider),
+  .rider-stats td:not(.pos):not(.rider) {
+    min-width: 56px;
+  }
+
+  .rider-stats thead th {
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .rider-stats-content-fit {
+    display: inline-table;
+    width: auto !important;
+    min-width: max-content !important;
+    table-layout: auto !important;
+  }
+
+  .rider-stats-content-fit th.pos,
+  .rider-stats-content-fit td.pos {
+    width: 42px;
+    min-width: 42px;
+    max-width: 42px;
+  }
+
+  .rider-stats-content-fit th.rider,
+  .rider-stats-content-fit td.rider {
+    min-width: 0;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .rider-stats-content-fit th:not(.pos):not(.rider),
+  .rider-stats-content-fit td:not(.pos):not(.rider) {
+    min-width: 0;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .season-dashboard-section .laps-led-grid {
+    display: block !important;
+    width: 100%;
+  }
+
+  .season-dashboard-section .laps-led-panel {
+    display: block !important;
+    width: 100%;
+  }
+
+  .laps-led-grid {
+    gap: 14px;
+  }
+
   .navbar {
     position: relative;
     z-index: 40;
@@ -2825,6 +3526,7 @@ a.track-link:focus-visible {
     display: flex !important;
     flex-direction: column;
     background: #111;
+    min-width: 0;
   }
 
   .nav-links {
@@ -2838,6 +3540,7 @@ a.track-link:focus-visible {
     gap: 10px;
     padding: 10px 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    min-width: 0;
   }
 
   .nav-mobile-logo {
@@ -2892,6 +3595,8 @@ a.track-link:focus-visible {
 
   .nav-mobile-search-row .unified-search {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .nav-mobile-search-row {
@@ -2899,6 +3604,7 @@ a.track-link:focus-visible {
     width: auto;
     margin: 12px 12px 12px;
     padding: 0;
+    min-width: 0;
   }
 
   .nav-mobile-dropdown + .nav-mobile-search-row {
@@ -2906,9 +3612,100 @@ a.track-link:focus-visible {
   }
 
   .nav-mobile-search-row .unified-search input {
+    width: 100%;
+    max-width: 100%;
     height: 42px;
     font-size: 1rem;
     border-radius: 8px;
     background-color: #181818;
+  }
+
+  .landing-page {
+    overflow-x: clip;
+  }
+
+  .landing-hero-copy,
+  .landing-feature-callout,
+  .landing-results-panel,
+  .landing-spotlight-panel,
+  .landing-path-card,
+  .landing-feature-card,
+  .landing-result-row,
+  .landing-social-link {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .landing-title {
+    overflow-wrap: anywhere;
+  }
+
+  .landing-spotlight-name-row {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .season-dashboard-section .laps-led-panel .laps-led-chart {
+    width: 100% !important;
+    height: 260px;
+    margin: 0 0 14px;
+  }
+
+  .season-dashboard-section .laps-led-panel .laps-led-breakdown {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+  }
+
+  .season-dashboard-section .laps-led-panel .laps-led-breakdown-item {
+    display: grid;
+    grid-template-columns: 10px minmax(0, 1fr);
+    width: 100% !important;
+  }
+
+  .featured-riders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .featured-riders-section .featured-riders-grid .featured-rider-card {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    background: #2a2a2a;
+    border: 1px solid #2f2f2f;
+    text-align: left;
+  }
+
+  .featured-riders-section .featured-riders-grid .featured-rider-card:hover {
+    background: #3a3a3a;
+    border-color: #3a3a3a;
+    transform: none;
+  }
+
+  .featured-riders-section .featured-riders-grid .featured-rider-card .featured-rider-image {
+    width: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    display: block;
+    justify-self: start;
+    align-self: center;
+    border-radius: 3px;
+    object-fit: cover;
+    object-position: center top;
+    aspect-ratio: 1 / 1;
+  }
+
+  .featured-riders-section .featured-riders-grid .featured-rider-card .featured-rider-name {
+    font-size: 1rem;
+    line-height: 1.2;
+    min-width: 0;
   }
 }

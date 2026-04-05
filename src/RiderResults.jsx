@@ -95,7 +95,7 @@ export default function RiderResults() {
   };
 
   return (
-    <div className="rider-profile-page">
+    <div className="rider-profile-page rider-results-page">
       {!riderData ? (
         <div>Loading...</div>
       ) : (
@@ -185,44 +185,53 @@ export default function RiderResults() {
 
       {/* TABLE (UNCHANGED) */}
       <div className="rider-results-table-wrapper">
-       <table className="rider-stats">
+       <table className="rider-stats rider-results-table">
           <thead>
             <tr>
-              <th>Result</th>
-              <th>Track</th>
-              <th>Date</th>
-              <th>Class</th>
-              <th>Brand</th>
-              <th>Qual</th>
-              <th>Heat</th>
-              <th>LCQ</th>
+              <th className="result-col">Result</th>
+              <th className="track-col">Track</th>
+              <th className="date-col">Date</th>
+              <th className="class-col">Class</th>
+              <th className="brand-col">Brand</th>
+              <th className="qual-col">Qual</th>
+              <th className="heat-col">Heat</th>
+              <th className="lcq-col">LCQ</th>
             </tr>
           </thead>
 
           <tbody>
             {filteredResults.map((row, i) => (
               <tr key={i}>
-                <td>{row.Result}</td>
+                <td className="result-col">{row.Result}</td>
 
-                <td>
+                <td className="track-col">
                   <Link
   to={`/track/${row.Discipline === "SX" ? 1 : 2}/${row.TrackID}`}
 >
                     {row.TrackName}
                   </Link>
+                  <div className="rider-result-mobile-meta">
+                    <Link
+                      to={getRacePath(row)}
+                      className="rider-result-mobile-date"
+                    >
+                      {row.RaceDate}
+                    </Link>
+                    <span className="rider-result-mobile-brand">{row.Brand}</span>
+                  </div>
                 </td>
 
-                <td>
+                <td className="date-col">
                   <Link to={getRacePath(row)}>
                     {row.RaceDate}
                   </Link>
                 </td>
 
-                <td>{row.Class}</td>
-                <td>{row.Brand}</td>
-                <td>{row.QualResult}</td>
-                <td>{row.HeatResult}</td>
-                <td>{row.LCQResult}</td>
+                <td className="class-col">{row.Class}</td>
+                <td className="brand-col">{row.Brand}</td>
+                <td className="qual-col">{row.QualResult}</td>
+                <td className="heat-col">{row.HeatResult}</td>
+                <td className="lcq-col">{row.LCQResult}</td>
               </tr>
             ))}
           </tbody>

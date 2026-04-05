@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 function MXQualifyingTable({ data }) {
   return (
     <div className="rider-table-wrapper">
-      <table className="rider-stats">
+    <table className="rider-stats rider-stats-content-fit">
         <thead>
           <tr>
-            <th>Pos</th>
-            <th>Rider</th>
+            <th className="pos">Pos</th>
+            <th className="rider">Rider</th>
             <th>Brand</th>
             <th>Best Lap</th>
           </tr>
@@ -17,8 +17,8 @@ function MXQualifyingTable({ data }) {
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-              <td>{row.result}</td>
-              <td>
+              <td className="pos">{row.result}</td>
+              <td className="rider">
   <Link to={`/rider/${row.riderid}`}>
     {row.fullname}
   </Link>

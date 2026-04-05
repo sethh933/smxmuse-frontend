@@ -25,6 +25,9 @@ export default function ResultsYear() {
   const [loading, setLoading] = useState(true);
   const [races, setRaces] = useState([]);
   const [champions, setChampions] = useState([]);
+  const [isMobileSchedule, setIsMobileSchedule] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth <= 640 : false
+  );
 
   const sportId = sport === "sx" ? 1 : 2;
   const sportLabel = sport === "sx" ? "Supercross" : "Motocross";
@@ -46,6 +49,21 @@ export default function ResultsYear() {
         setLoading(false);
       });
   }, [sportId, year]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const handleChange = (event) => setIsMobileSchedule(event.matches);
+
+    setIsMobileSchedule(mediaQuery.matches);
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
 
   const championCards = useMemo(
     () =>
@@ -114,25 +132,46 @@ export default function ResultsYear() {
           <h2>Pick a round to view the full race page.</h2>
         </div>
 
-        <div className="schedule-header">
-          <div>Round</div>
-          <div>Track</div>
-          <div>Location</div>
-          <div>Date</div>
+        <div className={`schedule-header ${isMobileSchedule ? "schedule-header-mobile" : ""}`}>
+          {isMobileSchedule ? (
+            <>
+              <div>Round</div>
+              <div>Venue</div>
+              <div>Date</div>
+            </>
+          ) : (
+            <>
+              <div>Round</div>
+              <div>Track</div>
+              <div>Location</div>
+              <div>Date</div>
+            </>
+          )}
         </div>
 
         <div className="schedule-list">
           {races.map((race) => (
             <div
               key={race.race_id}
-              className="schedule-row"
+              className={`schedule-row ${isMobileSchedule ? "schedule-row-mobile" : ""}`}
               onClick={() => navigate(`/race/${race.race_id}`)}
             >
               <div className="schedule-round">{race.round}</div>
-              <div className="schedule-track">{race.track_name}</div>
-              <div className="schedule-location">
-                {race.city}, {race.state}
-              </div>
+              {isMobileSchedule ? (
+                <div className="schedule-venue">
+                  <div className="schedule-track">{race.track_name}</div>
+                  <div className="schedule-location">
+                    {race.city}, {race.state}
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="schedule-track">{race.track_name}</div>
+                  <div className="schedule-location">
+                    {race.city}, {race.state}
+                  </div>
+                </>
+              )}
               <div className="schedule-date">
                 {new Date(race.race_date).toLocaleDateString("en-US", {
                   month: "short",

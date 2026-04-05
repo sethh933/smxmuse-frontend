@@ -48,16 +48,14 @@ function Leaderboard1({ sport, classId, selectedRider, setSelectedRider }) {
     {loading ? (
       <p>Loading...</p>
     ) : (
-      <div className="leaderboard-table-wrapper" ref={containerRef}>
+      <>
+        <div className="leaderboard-table-head">
+          <span>#</span>
+          <span>Rider</span>
+          <span>Wins</span>
+        </div>
+        <div className="leaderboard-table-wrapper" ref={containerRef}>
         <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Rider</th>
-              <th>Wins</th>
-            </tr>
-          </thead>
-
           <tbody>
             {data.map((rider, idx) => {
               const isHighlighted = selectedRider === rider.riderid;
@@ -86,6 +84,7 @@ function Leaderboard1({ sport, classId, selectedRider, setSelectedRider }) {
           </tbody>
         </table>
       </div>
+      </>
     )}
   </div>
   );

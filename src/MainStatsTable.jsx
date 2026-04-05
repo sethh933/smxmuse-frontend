@@ -9,6 +9,7 @@ export function MainStatsTable({ data, sport }) {
   const columns = sport === "sx"
   ? [
       { key: "FullName", label: "Rider" },
+      { key: "Points", label: "Points" },
       { key: "Wins", label: "Wins" },
       { key: "Podiums", label: "Podiums" },
       { key: "Top5s", label: "Top 5" },
@@ -17,11 +18,12 @@ export function MainStatsTable({ data, sport }) {
       { key: "AvgFinish", label: "Avg Finish" },
       { key: "MainsMade", label: "Starts" },
       { key: "Holeshots", label: "Holeshots" },
-      { key: "AvgStartPosition", label: "Avg Start" },
-      { key: "Points", label: "Points" }
+      { key: "AvgStartPosition", label: "Avg Start" }
+      
     ]
   : [
       { key: "FullName", label: "Rider" },
+      { key: "Points", label: "Points" },
       { key: "Wins", label: "Wins" },
       { key: "Podiums", label: "Podiums" },
       { key: "Top5", label: "Top 5" },
@@ -30,8 +32,7 @@ export function MainStatsTable({ data, sport }) {
       { key: "AvgOverall", label: "Avg Overall" },
       { key: "Starts", label: "Starts" },
       { key: "Holeshots", label: "Holeshots" },
-      { key: "AvgStart", label: "Avg Start" },
-      { key: "Points", label: "Points" }
+      { key: "AvgStart", label: "Avg Start" }
     ];
 
   const sortedData = useMemo(() => {

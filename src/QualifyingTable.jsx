@@ -6,7 +6,7 @@ export default function QualifyingTable({ results }) {
 
   return (
     <div className="rider-table-wrapper">
-  <table className="rider-stats">
+  <table className="rider-stats rider-stats-content-fit">
         <thead>
           <tr>
             <th className="pos">Pos</th>

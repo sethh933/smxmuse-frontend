@@ -5,6 +5,7 @@ function Leaderboard2({ sport, classId, selectedRider, setSelectedRider }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const riderRefs = useRef({});
+  const containerRef = useRef(null);
 
   const title = sport === "motocross" ? "Overall Podiums" : "Main Event Podiums";
 
@@ -21,13 +22,22 @@ function Leaderboard2({ sport, classId, selectedRider, setSelectedRider }) {
   }, [classId, sport]);
 
   useEffect(() => {
-  if (selectedRider && riderRefs.current[selectedRider]) {
-    riderRefs.current[selectedRider].scrollIntoView({
+    if (!selectedRider || !containerRef.current || !riderRefs.current[selectedRider]) return;
+
+    const row = riderRefs.current[selectedRider];
+    const container = containerRef.current;
+
+    const rowTop = row.offsetTop;
+    const rowHeight = row.offsetHeight;
+    const containerHeight = container.clientHeight;
+
+    const targetScrollTop = rowTop - containerHeight / 2 + rowHeight / 2;
+
+    container.scrollTo({
+      top: Math.max(0, targetScrollTop),
       behavior: "smooth",
-      block: "center"
     });
-  }
-}, [selectedRider]);
+  }, [selectedRider, data]);
 
   return (
   <div className="leaderboard">
@@ -36,16 +46,14 @@ function Leaderboard2({ sport, classId, selectedRider, setSelectedRider }) {
     {loading ? (
       <p>Loading...</p>
     ) : (
-      <div className="leaderboard-table-wrapper">
+      <>
+        <div className="leaderboard-table-head">
+          <span>#</span>
+          <span>Rider</span>
+          <span>Podiums</span>
+        </div>
+      <div className="leaderboard-table-wrapper" ref={containerRef}>
         <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Rider</th>
-              <th>Podiums</th>
-            </tr>
-          </thead>
-
           <tbody>
             {data.map((rider, idx) => {
               const isHighlighted = selectedRider === rider.riderid;
@@ -75,6 +83,7 @@ function Leaderboard2({ sport, classId, selectedRider, setSelectedRider }) {
           </tbody>
         </table>
       </div>
+      </>
     )}
   </div>
   );

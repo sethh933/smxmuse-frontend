@@ -55,7 +55,7 @@ export default function RiderPoints() {
 });
 
   return (
-    <div className="rider-profile-page">
+    <div className="rider-profile-page rider-points-page">
       {!riderData ? (
         <div>Loading...</div>
       ) : (
@@ -132,21 +132,21 @@ export default function RiderPoints() {
 
       {/* TABLE */}
       <div className="rider-results-table-wrapper">
-        <table className="rider-stats">
+        <table className="rider-stats rider-points-table">
           <thead>
             <tr>
-              <th>Year</th>
-              <th>Result</th>
-              <th>Points</th>
-              <th>Class</th>
-              <th>Brand</th>
+              <th className="year-col">Year</th>
+              <th className="result-col">Result</th>
+              <th className="points-col">Points</th>
+              <th className="class-col">Class</th>
+              <th className="brand-col">Brand</th>
             </tr>
           </thead>
 
           <tbody>
             {filteredPoints.map((row, i) => (
               <tr key={i}>
-                <td>
+                <td className="year-col">
   <Link
     to={`/season/${
       row.Class.includes("MX") ? "mx" : "sx"
@@ -167,17 +167,23 @@ export default function RiderPoints() {
   </Link>
 </td>
 
-                <td>
+                <td className="result-col">
                   {row.Result === "1"
                     ? "🏆 1"
                     : row.Result}
                 </td>
 
-                <td>{row.Points}</td>
+                <td className="points-col">
+                  {row.Points}
+                  <div className="rider-points-mobile-meta">
+                    <span className="rider-points-mobile-class">{row.Class}</span>
+                    <span className="rider-points-mobile-brand">{row.Brand}</span>
+                  </div>
+                </td>
 
-                <td>{row.Class}</td>
+                <td className="class-col">{row.Class}</td>
 
-                <td>{row.Brand}</td>
+                <td className="brand-col">{row.Brand}</td>
               </tr>
             ))}
           </tbody>
