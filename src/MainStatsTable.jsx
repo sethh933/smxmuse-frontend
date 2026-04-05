@@ -77,6 +77,7 @@ export function MainStatsTable({ data, sport }) {
           {columns.map(col => (
             <th
               key={col.key}
+              className={col.key === "FullName" ? "rider-col" : undefined}
               onClick={() => handleSort(col.key)}
               style={{ cursor: "pointer" }}
             >
@@ -90,7 +91,7 @@ export function MainStatsTable({ data, sport }) {
         {sortedData.map(row => (
           <tr key={row.RiderID}>
             {columns.map(col => (
-              <td key={col.key}>
+              <td key={col.key} className={col.key === "FullName" ? "rider-col" : undefined}>
   {col.key === "FullName" ? (
     <Link to={`/rider/${row.RiderID}`}>
       {getDisplayName(row)}

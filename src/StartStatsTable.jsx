@@ -90,6 +90,7 @@ const [sortDir, setSortDir] = useState(defaultSortDir);
           {columns.map(col => (
             <th
               key={col.key}
+              className={col.key === "FullName" ? "rider-col" : undefined}
               onClick={() => handleSort(col.key)}
               style={{ cursor: "pointer" }}
             >
@@ -104,7 +105,7 @@ const [sortDir, setSortDir] = useState(defaultSortDir);
     <tr key={r.RiderID}>
       {sport === "sx" ? (
         <>
-          <td>
+          <td className="rider-col">
   <Link to={`/rider/${r.RiderID}`}>
     {getDisplayName(r)}
   </Link>
@@ -118,7 +119,7 @@ const [sortDir, setSortDir] = useState(defaultSortDir);
         </>
       ) : (
         <>
-          <td>
+          <td className="rider-col">
   <Link to={`/rider/${r.RiderID}`}>
     {getDisplayName(r)}
   </Link>

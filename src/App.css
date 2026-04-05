@@ -3045,6 +3045,112 @@ a.track-link:focus-visible {
     color: #ffffff;
   }
 
+  .rider-career-page .rider-stats {
+    --career-year-col-width: 56px;
+    --career-class-col-width: 64px;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .rider-career-page .rider-stats .year-col {
+    box-sizing: border-box;
+    min-width: var(--career-year-col-width);
+    width: var(--career-year-col-width);
+    max-width: var(--career-year-col-width);
+    white-space: nowrap;
+    padding-right: 4px;
+  }
+
+  .rider-career-page .rider-stats .class-col {
+    box-sizing: border-box;
+    min-width: var(--career-class-col-width);
+    width: var(--career-class-col-width);
+    max-width: var(--career-class-col-width);
+    white-space: nowrap;
+    padding-left: 4px;
+  }
+
+  .rider-career-page .rider-stats tbody td {
+    background-color: #1a1a1a;
+    background-clip: padding-box;
+  }
+
+  .rider-career-page .rider-stats tbody tr:nth-child(even) td,
+  .rider-career-page .rider-stats tbody tr.class-total-row td {
+    background-color: #2a2a2a;
+  }
+
+  .rider-career-page .rider-stats tbody tr.career-row td {
+    background-color: #3a3a3a;
+  }
+
+  .rider-career-page .rider-stats thead .year-col,
+  .rider-career-page .rider-stats thead .class-col {
+    position: sticky;
+    z-index: 8;
+    background-color: #111;
+    background-clip: padding-box;
+  }
+
+  .rider-career-page .rider-stats thead .year-col {
+    left: 0;
+    border-right: none;
+  }
+
+  .rider-career-page .rider-stats thead .class-col {
+    left: var(--career-year-col-width);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .rider-career-page .rider-stats tbody .year-col,
+  .rider-career-page .rider-stats tbody .class-col {
+    position: sticky;
+    z-index: 6;
+    background-clip: padding-box;
+    overflow: hidden;
+  }
+
+  .rider-career-page .rider-stats tbody .year-col {
+    left: 0;
+    background-color: #1a1a1a;
+  }
+
+  .rider-career-page .rider-stats tbody .class-col {
+    left: var(--career-year-col-width);
+    background-color: #1a1a1a;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .rider-career-page .rider-stats tbody tr:nth-child(even) .year-col,
+  .rider-career-page .rider-stats tbody tr:nth-child(even) .class-col,
+  .rider-career-page .rider-stats tbody tr.class-total-row .year-col,
+  .rider-career-page .rider-stats tbody tr.class-total-row .class-col {
+    background-color: #2a2a2a;
+  }
+
+  .rider-career-page .rider-stats tbody tr:nth-child(even) .class-col,
+  .rider-career-page .rider-stats tbody tr.class-total-row .class-col {
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .rider-career-page .rider-stats tbody tr:nth-child(even) .class-col,
+  .rider-career-page .rider-stats tbody tr.class-total-row .class-col {
+  }
+
+  .rider-career-page .rider-stats tbody tr.career-row .year-col,
+  .rider-career-page .rider-stats tbody tr.career-row .class-col {
+    background-color: #3a3a3a;
+  }
+
+  .rider-career-page .rider-stats tbody tr.career-row .class-col {
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .rider-career-page .rider-stats tbody tr.career-row .class-col {
+  }
+
   .track-profile-grid {
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 16px;
@@ -3240,6 +3346,48 @@ a.track-link:focus-visible {
 }
 
 @media (max-width: 640px) {
+  .season-dashboard-section .stats-table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .season-dashboard-section .stats-table .rider-col {
+    min-width: 138px;
+    width: 138px;
+    max-width: 138px;
+  }
+
+  .season-dashboard-section .stats-table tbody td {
+    background-color: #1a1a1a;
+    background-clip: padding-box;
+  }
+
+  .season-dashboard-section .stats-table thead .rider-col {
+    position: sticky;
+    left: 0;
+    z-index: 6;
+    background-color: #1a1a1a;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .season-dashboard-section .stats-table tbody .rider-col {
+    position: sticky;
+    left: 0;
+    z-index: 4;
+    background-color: #1a1a1a;
+    background-clip: padding-box;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .season-dashboard-section .stats-table .rider-col a,
+  .season-dashboard-section .stats-table .rider-col a:visited {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .rider-profile-page,
   .rider-results-page,
   .rider-points-page {

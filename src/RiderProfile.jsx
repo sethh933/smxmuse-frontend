@@ -142,7 +142,7 @@ const sortedMxCareerRows = [...mxCareerRows].sort((a, b) => {
 const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
 
   return (
-    <div className="rider-profile-page">
+    <div className="rider-profile-page rider-career-page">
       <section className="rider-profile-hero">
         <div className="rider-header">
           <img
@@ -224,8 +224,8 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
          <thead>
   {mode === "SX" ? (
     <tr>
-      <th>Year</th>
-      <th>Class</th>
+      <th className="year-col">Year</th>
+      <th className="class-col">Class</th>
       <th>Brand</th>
       <th>Starts</th>
       <th>Main Avg</th>
@@ -245,8 +245,8 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
     </tr>
   ) : (
     <tr>
-      <th>Year</th>
-      <th>Class</th>
+      <th className="year-col">Year</th>
+      <th className="class-col">Class</th>
       <th>Brand</th>
       <th>Starts</th>
       <th>Avg Overall</th>
@@ -286,7 +286,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
                       : ""
                   }
                 >
-                  <td>
+                  <td className="year-col">
   {row.Year ? (
     <Link
       to={`/season/sx/${row.Year}/${row.Class}`}
@@ -296,7 +296,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
     </Link>
   ) : "Career"}
 </td>
-                  <td>{row.Class ?? ""}</td>
+                  <td className="class-col">{row.Class ?? ""}</td>
                   <td>{row.Brand ?? ""}</td>
 
                   <td>{row.Starts}</td>
@@ -339,7 +339,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
           : ""
       }
     >
-      <td>
+      <td className="year-col">
         {row.Year ? (
           <Link
             to={`/season/mx/${row.Year}/${row.Class}`}
@@ -350,7 +350,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
         ) : "Career"}
       </td>
 
-      <td>{row.Class ?? ""}</td>
+      <td className="class-col">{row.Class ?? ""}</td>
       <td>{row.Brand ?? ""}</td>
 
       <td>{row.Starts}</td>
@@ -388,8 +388,8 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
   <table className="rider-stats">
           <thead>
   <tr>
-    <th>Year</th>
-    <th>Class</th>
+    <th className="year-col">Year</th>
+    <th className="class-col">Class</th>
     <th>Brand</th>
 
     <th>Qual Starts</th>
@@ -427,7 +427,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
             : ""
         }
       >
-        <td>
+        <td className="year-col">
           {row.Year ? (
             <Link
               to={`/season/sx/${row.Year}/${row.Class}`}
@@ -438,7 +438,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
           ) : "Career"}
         </td>
 
-        <td>{row.Class ?? ""}</td>
+        <td className="class-col">{row.Class ?? ""}</td>
         <td>{row.Brand ?? ""}</td>
 
         <td>{row.QualStarts}</td>
@@ -475,8 +475,8 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
       <table className="rider-stats">
         <thead>
           <tr>
-            <th>Year</th>
-            <th>Class</th>
+            <th className="year-col">Year</th>
+            <th className="class-col">Class</th>
             <th>Brand</th>
 
             <th>Qual Apps</th>
@@ -507,7 +507,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
                     : ""
                 }
               >
-                <td>
+                <td className="year-col">
   {row.Year ? (
     <Link
       to={`/season/mx/${row.Year}/${row.Class}`}
@@ -518,7 +518,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
   ) : "Career"}
 </td>
 
-                <td>{row.Class ?? ""}</td>
+                <td className="class-col">{row.Class ?? ""}</td>
 
                 <td>{row.Brand ?? ""}</td>
 
