@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MXOverallsTable from "./MXOverallsTable";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import { apiUrl } from "./api";
 
 function MXOverallsSection({ raceId, classId }) {
   const [overalls, setOveralls] = useState([]);
@@ -17,7 +16,7 @@ function MXOverallsSection({ raceId, classId }) {
     async function fetchOveralls() {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/race/overalls?raceid=${raceId}&classid=${classId}`
+          apiUrl(`/api/race/overalls?raceid=${raceId}&classid=${classId}`)
         );
 
         if (!res.ok) {

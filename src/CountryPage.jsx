@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { apiUrl } from "./api";
 
 const getCountryCode = (country) => {
   const map = {
@@ -62,7 +63,7 @@ function CountryPage() {
   const navigate = useNavigate();
   
   useEffect(() => {
-    fetch(`http://localhost:8000/countries/${country}`)
+    fetch(apiUrl(`/countries/${country}`))
       .then(res => res.json())
       .then(data => setData(data));
   }, [country]);

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiUrl } from "./api";
 
 const FEATURED_PATHS = [
   {
@@ -341,15 +342,15 @@ export default function LandingPage() {
     async function loadLatestRace() {
       try {
         const [currentRes, riderOfTheDayRes] = await Promise.all([
-          fetch("http://localhost:8000/season/current"),
-          fetch("http://localhost:8000/api/riders/rider-of-the-day")
+          fetch(apiUrl("/season/current")),
+          fetch(apiUrl("/api/riders/rider-of-the-day"))
         ]);
         const currentSeason = await currentRes.json();
         const riderOfTheDayData = await riderOfTheDayRes.json();
         const meta = SPORT_META[currentSeason.sport] ?? SPORT_META.sx;
 
         const racesRes = await fetch(
-          `/api/races?sport_id=${meta.sportId}&year=${currentSeason.year}`
+          apiUrl(`/api/races?sport_id=${meta.sportId}&year=${currentSeason.year}`)
         );
         const races = await racesRes.json();
         const raceCandidates = getSortedCandidateRaces(races);
@@ -366,7 +367,7 @@ export default function LandingPage() {
 
           if (meta.sportId === 1) {
             const mainRes = await fetch(
-              `http://localhost:8000/api/race/main-event?raceid=${race.race_id}`
+              apiUrl(`/api/race/main-event?raceid=${race.race_id}`)
             );
             const mainData = await mainRes.json();
 
@@ -376,7 +377,7 @@ export default function LandingPage() {
             ].filter((group) => group.rows.length > 0);
           } else {
             const classesRes = await fetch(
-              `http://localhost:8000/api/race/mx-classes?raceid=${race.race_id}`
+              apiUrl(`/api/race/mx-classes?raceid=${race.race_id}`)
             );
             const classesData = await classesRes.json();
             const orderedClasses = classesData
@@ -386,7 +387,7 @@ export default function LandingPage() {
             const resultsByClass = await Promise.all(
               orderedClasses.map(async (classId) => {
                 const overallRes = await fetch(
-                  `http://localhost:8000/api/race/overalls?raceid=${race.race_id}&classid=${classId}`
+                  apiUrl(`/api/race/overalls?raceid=${race.race_id}&classid=${classId}`)
                 );
                 const overallData = await overallRes.json();
 

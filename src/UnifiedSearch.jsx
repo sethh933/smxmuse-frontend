@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "./api";
 
 function UnifiedSearch() {
   const [query, setQuery] = useState("");
@@ -31,7 +32,7 @@ function UnifiedSearch() {
     const timeout = setTimeout(async () => {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/search?q=${encodeURIComponent(query)}`
+          apiUrl(`/api/search?q=${encodeURIComponent(query)}`)
         );
 
         const data = await res.json();

@@ -1,5 +1,6 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { apiUrl } from "./api";
 
 export default function RiderPoints() {
   const { riderId } = useParams();
@@ -11,7 +12,7 @@ export default function RiderPoints() {
 
   // Fetch rider header (same as results page)
   useEffect(() => {
-    fetch(`http://localhost:8000/rider/${riderId}/race-results`)
+    fetch(apiUrl(`/rider/${riderId}/race-results`))
       .then((res) => res.json())
       .then((data) => {
         setRiderData(data.rider);
@@ -23,7 +24,7 @@ export default function RiderPoints() {
 
   // 🔥 Fetch points standings
   useEffect(() => {
-    fetch(`http://localhost:8000/rider/${riderId}/points`)
+    fetch(apiUrl(`/rider/${riderId}/points`))
       .then((res) => res.json())
       .then((data) => {
         setPoints(data);

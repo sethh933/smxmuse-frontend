@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MXConsiTable from "./MXConsiTable";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import { apiUrl } from "./api";
 
 function MXConsiSection({ raceId, classId }) {
   const [consi, setConsi] = useState([]);
@@ -14,7 +13,7 @@ function MXConsiSection({ raceId, classId }) {
 
   useEffect(() => {
     fetch(
-  `http://localhost:8000/api/race/consi?raceid=${raceId}&classid=${classId}`
+  apiUrl(`/api/race/consi?raceid=${raceId}&classid=${classId}`)
 )
       .then((res) => res.json())
       .then((data) => setConsi(data))

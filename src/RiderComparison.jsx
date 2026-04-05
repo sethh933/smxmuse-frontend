@@ -2,13 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import debounce from "lodash.debounce";
 import { toBlob } from "html-to-image";
-
-const API_BASE_URL = "http://localhost:8000";
+import { apiUrl } from "./api";
 
 function getComparisonImageSrc(url) {
   if (!url) return "/smxmuselogo.png";
   if (url.startsWith("http://") || url.startsWith("https://")) {
-    return `${API_BASE_URL}/api/image-proxy?url=${encodeURIComponent(url)}`;
+    return apiUrl(`/api/image-proxy?url=${encodeURIComponent(url)}`);
   }
 
   return url;
@@ -72,7 +71,7 @@ export default function RiderComparison() {
     debounce(async (input, setSuggestions) => {
       try {
         const response = await axios.get(
-          `${API_BASE_URL}/api/riders/search?q=${input}`
+          apiUrl(`/api/riders/search?q=${input}`)
         );
         setSuggestions(response.data || []);
       } catch (error) {
@@ -115,7 +114,7 @@ export default function RiderComparison() {
     setAppliedRider2(rider2);
     setAppliedClassId(classId);
 
-    const url = `${API_BASE_URL}/compare?rider1=${rider1}&rider2=${rider2}&sport=${sport}&classid=${classId}`;
+    const url = apiUrl(`/compare?rider1=${rider1}&rider2=${rider2}&sport=${sport}&classid=${classId}`);
     const res = await fetch(url);
     const json = await res.json();
     setData(json);

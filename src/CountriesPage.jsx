@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "./api";
 
 const getCountryCode = (country) => {
   const map = {
@@ -124,9 +125,9 @@ function CountriesPage() {
     async function loadData() {
       try {
         const [countriesRes, ridersRes, featuredRes] = await Promise.all([
-          fetch("http://localhost:8000/countries"),
-          fetch("http://localhost:8000/api/riders/index"),
-          fetch("http://localhost:8000/api/riders/featured")
+          fetch(apiUrl("/countries")),
+          fetch(apiUrl("/api/riders/index")),
+          fetch(apiUrl("/api/riders/featured"))
         ]);
 
         const countriesData = await countriesRes.json();

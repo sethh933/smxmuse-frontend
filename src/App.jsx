@@ -28,6 +28,7 @@ import RiderPoints from "./RiderPoints";
 import SeasonRedirect from "./SeasonRedirect";
 import { useLocation } from "react-router-dom";
 import LandingPage from "./LandingPage";
+import { apiUrl } from "./api";
 
 
 
@@ -136,7 +137,7 @@ function RacePage() {
 
   // Fetch header (this determines SX vs MX)
   useEffect(() => {
-    fetch(`http://localhost:8000/api/race-header?raceid=${raceid}`)
+    fetch(apiUrl(`/api/race-header?raceid=${raceid}`))
       .then(res => res.json())
       .then(data => setRaceHeader(data))
       .catch(err => console.error(err));
@@ -145,7 +146,7 @@ function RacePage() {
   useEffect(() => {
   if (!raceHeader || raceHeader.SportID !== 2) return;
 
-  fetch(`http://localhost:8000/api/race/mx-classes?raceid=${raceid}`)
+  fetch(apiUrl(`/api/race/mx-classes?raceid=${raceid}`))
     .then(res => res.json())
     .then(data => {
       const classes = data.map(c => c.ClassID);
@@ -164,7 +165,7 @@ classes.sort((a, b) => order[a] - order[b]);
   useEffect(() => {
     if (!raceHeader || raceHeader.SportID !== 1) return;
 
-    fetch(`http://localhost:8000/api/race/main-event?raceid=${raceid}`)
+    fetch(apiUrl(`/api/race/main-event?raceid=${raceid}`))
       .then(res => res.json())
       .then(data => {
         setMainEvent450(data.class450 || []);
@@ -179,7 +180,7 @@ classes.sort((a, b) => order[a] - order[b]);
       return;
     }
 
-    fetch(`http://localhost:8000/api/race/triple-crown-mains?raceid=${raceid}`)
+    fetch(apiUrl(`/api/race/triple-crown-mains?raceid=${raceid}`))
       .then(res => res.json())
       .then(data => setTripleCrownMains(data))
       .catch(err => console.error(err));

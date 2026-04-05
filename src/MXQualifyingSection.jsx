@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MXQualifyingTable from "./MXQualifyingTable";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import { apiUrl } from "./api";
 
 function MXQualifyingSection({ raceId, classId, sportId }) {
   const [qualifying, setQualifying] = useState([]);
@@ -13,7 +12,7 @@ function MXQualifyingSection({ raceId, classId, sportId }) {
 };
 
   useEffect(() => {
-  fetch(`/api/race/qualifying?raceid=${raceId}&classid=${classId}&sport_id=${sportId}`)
+  fetch(apiUrl(`/api/race/qualifying?raceid=${raceId}&classid=${classId}&sport_id=${sportId}`))
     .then((res) => {
       if (!res.ok) throw new Error("API request failed");
       return res.json();

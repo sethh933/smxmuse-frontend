@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { apiUrl } from "./api";
 
 export default function RiderProfile() {
   const { riderId } = useParams();
@@ -12,7 +13,7 @@ export default function RiderProfile() {
 
   useEffect(() => {
 
-  fetch(`http://localhost:8000/rider/${riderId}/profile?sport=${mode}`)
+  fetch(apiUrl(`/rider/${riderId}/profile?sport=${mode}`))
     .then(res => res.json())
     .then(data => {
   setData(data);

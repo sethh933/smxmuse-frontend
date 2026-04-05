@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeatRaceTable from "./HeatRaceTable";
+import { apiUrl } from "./api";
 
 /* -------------------------
    Coast label helper
@@ -33,7 +34,7 @@ export default function HeatRacesSection({ classid, raceCoastId }) {
     async function fetchHeats() {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/race/heats?raceid=${raceid}&classid=${classid}`
+          apiUrl(`/api/race/heats?raceid=${raceid}&classid=${classid}`)
         );
         const data = await res.json();
         setHeats(data);

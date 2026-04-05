@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { apiUrl } from "./api";
 
 function Leaderboard3({ sport, classId, selectedRider, setSelectedRider }) {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ function Leaderboard3({ sport, classId, selectedRider, setSelectedRider }) {
   useEffect(() => {
     setLoading(true);
 
-    fetch(`http://127.0.0.1:8000/leaderboard3?class_ids=${classId}`)
+    fetch(apiUrl(`/leaderboard3?class_ids=${classId}`))
       .then((res) => res.json())
       .then((json) => {
         const dataset = sport === "motocross" ? json.motocross : json.supercross;

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import "./App.css";
-
-const API_BASE_URL = "http://localhost:8000";
+import { apiUrl } from "./api";
 
 function TrackProfile() {
   const { track_id, sport_id } = useParams();
@@ -18,7 +17,7 @@ function TrackProfile() {
   useEffect(() => {
     async function fetchClasses() {
       try {
-        const res = await axios.get("http://localhost:8000/api/track-classes", {
+        const res = await axios.get(apiUrl("/api/track-classes"), {
           params: {
             track_id,
             sport_id: sportId,
@@ -44,7 +43,7 @@ function TrackProfile() {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/api/track-profile`, {
+      .get(apiUrl("/api/track-profile"), {
         params: {
           track_id,
           sport_id: sportId,

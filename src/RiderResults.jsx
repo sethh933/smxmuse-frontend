@@ -1,5 +1,6 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { apiUrl } from "./api";
 
 export default function RiderResults() {
   const { riderId } = useParams();
@@ -19,7 +20,7 @@ export default function RiderResults() {
 
   // Fetch race results
   useEffect(() => {
-  fetch(`http://localhost:8000/rider/${riderId}/race-results`)
+  fetch(apiUrl(`/rider/${riderId}/race-results`))
     .then((res) => res.json())
     .then((data) => {
       setResults(data.results);     // ✅ correct

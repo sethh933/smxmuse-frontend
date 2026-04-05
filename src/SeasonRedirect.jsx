@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { apiUrl } from "./api";
 
 export default function SeasonRedirect() {
   const [redirectPath, setRedirectPath] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/season/current")
+    fetch(apiUrl("/season/current"))
       .then(res => res.json())
       .then(data => {
         if (data.sport && data.year) {
