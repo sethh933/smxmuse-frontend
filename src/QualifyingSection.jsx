@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QualifyingTable from "./QualifyingTable";
+import { apiUrl } from "./api";
 
 /* -------------------------
    Coast label helper
@@ -25,7 +26,7 @@ export default function QualifyingSection({ classid, raceCoastId }) {
       const sportId = 1; // 👈 this is SX
 
       const res = await fetch(
-        `/api/race/qualifying?raceid=${raceid}&classid=${classid}&sport_id=${sportId}`
+        apiUrl(`/api/race/qualifying?raceid=${raceid}&classid=${classid}&sport_id=${sportId}`)
       );
 
       const data = await res.json();
