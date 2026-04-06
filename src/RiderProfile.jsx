@@ -155,6 +155,30 @@ const sortedMxCareerRows = [...mxCareerRows].sort((a, b) => {
 
 const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
 
+const mxStatsYearlyRows = mxStats.filter(r => r.Year !== null);
+const mxStatsCareerRows = mxStats.filter(r => r.Year === null);
+
+const sortedMxStatsCareerRows = [...mxStatsCareerRows].sort((a, b) => {
+  const classOrder = {
+    2: 1,
+    1: 2,
+    3: 3,
+    0: 4
+  };
+
+  return (classOrder[a.ClassID] ?? 9) - (classOrder[b.ClassID] ?? 9);
+});
+
+const sortedMxStats = [...mxStatsYearlyRows, ...sortedMxStatsCareerRows];
+
+const getProfileClassLabel = (row) => {
+  if (row.Class) return row.Class;
+  if (row.ClassID === 1) return "450";
+  if (row.ClassID === 2) return "250";
+  if (row.ClassID === 3) return "500";
+  return "";
+};
+
   return (
     <div className="rider-profile-page rider-career-page">
       <section className="rider-profile-hero">
@@ -345,7 +369,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
       );
     })
   ) : (
-    mxStats.map((row, i) => {
+    sortedMxStats.map((row, i) => {
   const isCareer = row.Year === null && row.ClassID === 0;
   const isClassTotal = row.Year === null && row.ClassID !== 0;
 
@@ -371,7 +395,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
         ) : "Career"}
       </td>
 
-      <td className="class-col">{row.Class ?? ""}</td>
+      <td className="class-col">{getProfileClassLabel(row)}</td>
       <td>{row.Brand ?? ""}</td>
 
       <td>{row.Starts}</td>
@@ -459,7 +483,7 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
           ) : "Career"}
         </td>
 
-        <td className="class-col">{row.Class ?? ""}</td>
+                  <td className="class-col">{getProfileClassLabel(row)}</td>
         <td>{row.Brand ?? ""}</td>
 
         <td>{row.QualStarts}</td>
