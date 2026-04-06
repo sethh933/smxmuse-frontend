@@ -479,12 +479,20 @@ export default function LandingPage() {
 
       <section className="landing-bottom-grid">
         <div className="landing-path-card">
-          <p className="landing-panel-label">Start here</p>
-          <h3>Use the archive like a fan, a stat nerd, or both.</h3>
+          <p className="landing-panel-label">Contact</p>
+          <h3>Want to share feedback or get in touch?</h3>
           <p>
-            Follow a season week to week, jump into one rider&apos;s career, or zoom all the way out
-            to see who owns the record books.
+            I&apos;m always happy to hear feedback, answer questions, or fix anything that looks off.
+            If you want to talk partnerships or business, reach out below too.
           </p>
+          <div className="landing-quick-links">
+            <a href="mailto:feedback@smxmuse.com" className="landing-inline-link">
+              feedback@smxmuse.com
+            </a>
+            <a href="mailto:seth@smxmuse.com" className="landing-inline-link">
+              seth@smxmuse.com
+            </a>
+          </div>
         </div>
 
         <div className="landing-path-card">

@@ -169,13 +169,20 @@ const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
             {data.rider.full_name}
           </h1>
 
-          <img
-            src={`https://flagcdn.com/w40/${getCountryCode(
-              data.rider.country
-            )}.png`}
-            alt={data.rider.country}
-            className="rider-flag"
-          />
+          <span
+            className="rider-flag-tooltip"
+            tabIndex={0}
+            aria-label={data.rider.country}
+          >
+            <img
+              src={`https://flagcdn.com/w40/${getCountryCode(
+                data.rider.country
+              )}.png`}
+              alt={data.rider.country}
+              className="rider-flag"
+            />
+            <span className="rider-flag-tooltip-bubble">{data.rider.country}</span>
+          </span>
         </div>
 
         <div className="rider-nav">

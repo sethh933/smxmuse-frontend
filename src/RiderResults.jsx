@@ -112,13 +112,20 @@ export default function RiderResults() {
               {riderData.full_name}
             </h1>
 
-            <img
-              src={`https://flagcdn.com/w40/${getCountryCode(
-                riderData.country
-              )}.png`}
-              alt={riderData.country}
-              className="rider-flag"
-            />
+            <span
+              className="rider-flag-tooltip"
+              tabIndex={0}
+              aria-label={riderData.country}
+            >
+              <img
+                src={`https://flagcdn.com/w40/${getCountryCode(
+                  riderData.country
+                )}.png`}
+                alt={riderData.country}
+                className="rider-flag"
+              />
+              <span className="rider-flag-tooltip-bubble">{riderData.country}</span>
+            </span>
           </div>
 
           <div className="rider-nav">
