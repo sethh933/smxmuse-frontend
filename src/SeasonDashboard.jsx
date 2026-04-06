@@ -4,6 +4,7 @@ import { StartStatsTable } from "./StartStatsTable";
 import { LapsLedPie } from "./LapsLedPie";
 import { PointsProgressionChart } from "./PointsProgressionChart";
 import { useParams, useNavigate } from "react-router-dom";
+import { apiUrl } from "./api";
 
 const START_YEAR = 1972;
 const CURRENT_YEAR = new Date().getFullYear();
@@ -52,7 +53,7 @@ export default function SeasonDashboard() {
       }
 
       const sportId = selectedSport === "sx" ? 1 : 2;
-      const res = await fetch(`/api/available-classes?sport_id=${sportId}&year=${selectedYear}`);
+      const res = await fetch(apiUrl(`/api/available-classes?sport_id=${sportId}&year=${selectedYear}`));
       const data = await res.json();
 
       const mapped = data
@@ -115,10 +116,10 @@ export default function SeasonDashboard() {
       }
 
       const [mainRes, startRes, lapsRes, pointsRes] = await Promise.all([
-        fetch(mainUrl),
-        fetch(startUrl),
-        fetch(lapsUrl),
-        fetch(pointsUrl)
+        fetch(apiUrl(mainUrl)),
+        fetch(apiUrl(startUrl)),
+        fetch(apiUrl(lapsUrl)),
+        fetch(apiUrl(pointsUrl))
       ]);
 
       setMainStats(await mainRes.json());

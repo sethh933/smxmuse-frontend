@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
+import { apiUrl } from "./api";
 
 function getChampionLabel(sport, classId, coastId) {
   if (sport === "sx") {
@@ -36,8 +37,8 @@ export default function ResultsYear() {
     setLoading(true);
 
     Promise.all([
-      fetch(`/api/races?sport_id=${sportId}&year=${year}`).then((res) => res.json()),
-      fetch(`/api/season-champions?sport_id=${sportId}&year=${year}`).then((res) => res.json())
+      fetch(apiUrl(`/api/races?sport_id=${sportId}&year=${year}`)).then((res) => res.json()),
+      fetch(apiUrl(`/api/season-champions?sport_id=${sportId}&year=${year}`)).then((res) => res.json())
     ])
       .then(([raceData, championData]) => {
         setRaces(raceData);

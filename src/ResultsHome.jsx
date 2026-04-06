@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "./api";
 
 export default function ResultsHome() {
   const [sport, setSport] = useState("sx");
@@ -10,7 +11,7 @@ export default function ResultsHome() {
   useEffect(() => {
   const sportId = sport === "sx" ? 1 : 2;
 
-  fetch(`/api/years?sport_id=${sportId}`)
+  fetch(apiUrl(`/api/years?sport_id=${sportId}`))
     .then(res => res.json())
     .then(data => setYears(data))
     .catch(err => console.error(err));
