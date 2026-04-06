@@ -272,6 +272,15 @@ export default function RiderComparison() {
       ? `250 ${isMX ? "MX" : "SX"} Titles`
       : "500 MX Titles";
 
+  const selectedClassLabel =
+    appliedClassId === 1 ? "450" : appliedClassId === 2 ? "250" : "500";
+  const selectedSportLabel = isMX ? "MX" : "SX";
+  const mainSectionLabel = isMX
+    ? `OVERALLS: ${selectedClassLabel} ${selectedSportLabel}`
+    : `MAIN EVENTS: ${selectedClassLabel} ${selectedSportLabel}`;
+  const heatsSectionLabel = `HEATS: ${selectedClassLabel} ${selectedSportLabel}`;
+  const qualifyingSectionLabel = `QUALIFYING: ${selectedClassLabel} ${selectedSportLabel}`;
+
   return (
     <div className="comparison-page">
       <h1>Rider Comparison</h1>
@@ -416,7 +425,7 @@ export default function RiderComparison() {
               <tbody>
                 <tr>
                   <td colSpan="3" className="comparison-section">
-                    {isMX ? "OVERALLS" : "MAIN EVENTS"}
+                    {mainSectionLabel}
                   </td>
                 </tr>
 
@@ -538,7 +547,7 @@ export default function RiderComparison() {
                 <>
                   <tr>
                     <td colSpan="3" className="comparison-section">
-                      HEATS
+                      {heatsSectionLabel}
                     </td>
                   </tr>
 
@@ -588,7 +597,7 @@ export default function RiderComparison() {
 
               <tr>
                 <td colSpan="3" className="comparison-section">
-                  QUALIFYING
+                  {qualifyingSectionLabel}
                 </td>
               </tr>
 
