@@ -179,6 +179,16 @@ const getProfileClassLabel = (row) => {
   return "";
 };
 
+const getLapsLedDisplay = (row, sport) => {
+  if (row.Year === null) return row.LapsLed;
+  if (row.LapsLed !== 0) return row.LapsLed;
+
+  if (sport === "SX" && row.Year < 2003) return "-";
+  if (sport === "MX" && row.Year < 2004) return "-";
+
+  return row.LapsLed;
+};
+
   return (
     <div className="rider-profile-page rider-career-page">
       <section className="rider-profile-hero">
@@ -360,7 +370,7 @@ const getProfileClassLabel = (row) => {
                   <td>{row.Wins}</td>
                   <td>{row.WinPct}</td>
 
-                  <td>{row.LapsLed}</td>
+                  <td>{getLapsLedDisplay(row, "SX")}</td>
                   <td>{row.AvgStart ?? ""}</td>
                   <td>{row.Holeshots}</td>
 
@@ -413,7 +423,7 @@ const getProfileClassLabel = (row) => {
       <td>{row.PodiumPct}</td>
       <td>{row.Wins}</td>
       <td>{row.WinPct}</td>
-      <td>{row.LapsLed}</td>
+      <td>{getLapsLedDisplay(row, "MX")}</td>
       <td>{row.Holeshots}</td>
       <td>{row.TotalPoints}</td>
     </tr>

@@ -367,15 +367,15 @@ export default function RiderComparison() {
         </div>
       </div>
 
-      {data && (
-        <>
-          <div className="comparison-results">
-            <div className="comparison-stage">
-              <div className="comparison-capture-target" ref={comparisonCaptureRef}>
-              <table className="comparison-table">
-              <thead>
-                <tr>
-                  <th>
+        {data && (
+          <>
+            <div className="comparison-results">
+              <div className="comparison-stage">
+                <div className="comparison-capture-target" ref={comparisonCaptureRef}>
+                <table className="comparison-table">
+                <thead>
+                  <tr>
+                    <th>
     <div className="comparison-rider-header">
       <img
         src="/smxmuselogo.png"
@@ -652,23 +652,23 @@ export default function RiderComparison() {
               </tbody>
               </table>
               </div>
-            </div>
-          </div>
 
-          <div className="comparison-floating-share">
-            <div className="comparison-share-rail">
-              <button
-                type="button"
-                className="compare-button comparison-share-button"
-                onClick={handleCopyComparisonImage}
-                disabled={isExporting}
-              >
-                {isExporting ? "Creating..." : "Share"}
-              </button>
-              {imageStatus && <div className="comparison-share-status">{imageStatus}</div>}
+                <div className="comparison-floating-share">
+                  <div className="comparison-share-rail">
+                    <button
+                      type="button"
+                      className="compare-button comparison-share-button"
+                      onClick={handleCopyComparisonImage}
+                      disabled={isExporting}
+                    >
+                      {isExporting ? "Creating..." : "Share"}
+                    </button>
+                    {imageStatus && <div className="comparison-share-status">{imageStatus}</div>}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </>
+          </>
       )}
     </div>
   );
