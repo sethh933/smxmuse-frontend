@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import { Link } from "react-router-dom";
 
 export default function HeatRaceTable({ results }) {
