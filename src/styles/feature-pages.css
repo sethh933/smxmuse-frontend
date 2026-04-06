@@ -1,0 +1,700 @@
+.track-filter {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 1.5rem;      /* matches toggle-buttons */
+  margin-bottom: 1.5rem;   /* keeps spacing consistent below */
+}
+
+.track-filter select {
+  appearance: none; /* removes default browser styling */
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  min-width: 160px;
+  text-align: center;
+
+  transition: background-color 0.2s ease;
+}
+
+.track-filter select:hover {
+  background-color: var(--bg-hover-strong);
+}
+
+/* subtle arrow fix (optional but nice) */
+.track-filter select:focus {
+  outline: none;
+}
+
+.results-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.results-container h1 {
+  margin-bottom: 20px;
+}
+
+.results-home {
+  padding: 24px 0 48px;
+}
+
+.results-home-hero {
+  padding: 28px 30px;
+  border-radius: var(--radius-card);
+  background: var(--surface-gradient);
+  border: 1px solid var(--border-subtle);
+
+}
+
+.results-home-kicker {
+  margin: 0 0 10px;
+  color: #b8b8b8;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.results-home-intro {
+  max-width: 56ch;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+.results-home-toolbar {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.results-toggle-buttons {
+  margin-top: 0;
+}
+
+.results-home-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.results-home-summary-card {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.results-home-summary-card span {
+  display: block;
+  margin-bottom: 6px;
+  color: #9e9e9e;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.results-home-summary-card strong {
+  font-size: 1rem;
+}
+
+.decade-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.decade-header-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.decade-label {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.decade-subtitle {
+  color: #9e9e9e;
+  font-size: 0.88rem;
+}
+
+.decade-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #dcdcdc;
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.decade-header:hover {
+  color: #ccc;
+}
+
+.year-row {
+  margin-top: 12px;
+  margin-left: 30px;   /* 🔥 THIS creates the indentation */
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.year-button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #141414;
+  border: 1px solid #333;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.year-button:hover {
+  background: #333;
+  border-color: #555;
+}
+
+/* =========================
+   DECADE CARD (NEW)
+========================= */
+
+.decade-card {
+  width: 100%;
+  text-align: left;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 30px 0;
+  transition: background 0.2s ease;
+}
+
+.decade-card:hover {
+  background: #252525;
+}
+
+.accordion-wrapper {
+  margin-top: 40px;
+}
+
+.results-accordion {
+  margin-top: 22px;
+}
+
+.year-row {
+  margin-left: 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.year-button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.year-button:hover {
+  background: #262626;
+  border-color: #5a5a5a;
+}
+
+.decade-card {
+  background:
+    radial-gradient(circle at top right, rgba(86, 141, 255, 0.06), transparent 30%),
+    linear-gradient(180deg, rgba(30, 30, 30, 0.98), rgba(18, 18, 18, 0.98));
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin: 18px 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.decade-card:hover {
+  background:
+    radial-gradient(circle at top right, rgba(86, 141, 255, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(36, 36, 36, 0.98), rgba(20, 20, 20, 0.98));
+  border-color: #363636;
+  transform: translateY(-1px);
+}
+
+.decade-card.open {
+  border-color: #3c3c3c;
+}
+
+.decade-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #dcdcdc;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.decade-card.open .decade-chevron {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.results-year-page {
+  padding: 24px 0 48px;
+}
+
+.results-year-hero {
+  padding: 28px 30px;
+  border-radius: var(--radius-card);
+  background: var(--surface-gradient);
+  border: 1px solid var(--border-subtle);
+  
+}
+
+.results-year-intro {
+  max-width: 58ch;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+.results-year-summary {
+  margin-top: 22px;
+}
+
+.results-year-champions,
+.results-year-schedule {
+  margin-top: 26px;
+}
+
+.results-year-section-heading {
+  margin-bottom: 16px;
+}
+
+.results-year-section-heading h2 {
+  margin: 0;
+  text-align: left;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.results-year-champion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.results-year-champion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(86, 141, 255, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(30, 30, 30, 0.98), rgba(16, 16, 16, 0.98));
+  color: white;
+  text-align: center;
+  transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.results-year-champion-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.results-year-champion-label {
+  color: #a9a9a9;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.results-year-champion-image {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #2a2a2a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   SCHEDULE PAGE (NEW STYLE)
+========================= */
+
+.schedule-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.schedule-list {
+  margin-top: 20px;
+}
+
+/* =========================
+   ROW
+========================= */
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 50px 2fr 1.5fr 90px;
+  gap: 16px;                /* 🔥 ADD THIS */
+
+  align-items: center;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.schedule-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* =========================
+   COLUMNS
+========================= */
+
+.schedule-round {
+  font-weight: 600;
+  color: #fff;
+}
+
+.schedule-track {
+  font-weight: 500;
+}
+
+.schedule-location {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.schedule-date {
+  text-align: right;
+  color: #aaa;
+}
+
+.schedule-header {
+  display: grid;
+  grid-template-columns: 50px 2fr 1.5fr 90px;
+  gap: 16px;                /* 🔥 MATCH THIS */
+
+  padding: 10px 12px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #9ca3af;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.schedule-header-mobile {
+  grid-template-columns: 24px minmax(0, 1fr) max-content;
+  gap: 8px;
+}
+
+.schedule-row-mobile {
+  grid-template-columns: 24px minmax(0, 1fr) max-content;
+  gap: 8px;
+  align-items: start;
+}
+
+.schedule-row-mobile .schedule-round {
+  text-align: left;
+}
+
+.schedule-row-mobile .schedule-venue {
+  min-width: 0;
+  width: 100%;
+  justify-self: stretch;
+}
+
+.schedule-row-mobile .schedule-track,
+.schedule-row-mobile .schedule-location {
+  display: block;
+  width: 100%;
+}
+
+.schedule-row-mobile .schedule-track {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.schedule-row-mobile .schedule-location {
+  margin-top: 4px;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.schedule-row-mobile .schedule-date {
+  justify-self: end;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.schedule-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   RIDER COMPARISON (FINAL BALANCED)
+========================= */
+
+.comparison-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 16px;
+}
+
+/* =========================
+   INPUT CARD
+========================= */
+
+.comparison-card {
+  width: 100%;
+  max-width: 1000px;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 18px 20px;
+  
+}
+
+.comparison-inputs {
+  display: grid;
+  grid-template-columns: 1.6fr 1.6fr 140px 80px 140px;
+  gap: 12px;
+  align-items: center;
+}
+
+.compare-button {
+  width: 100%;
+}
+
+/* prevents overlap */
+.comparison-search,
+.comparison-inputs select {
+  min-width: 0;
+}
+
+.comparison-search {
+  width: 100%;
+}
+
+.comparison-search input,
+.comparison-inputs select {
+  width: 100%;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid #3a3a3a;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+/* handle long names cleanly */
+.comparison-search input {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comparison-search input:focus,
+.comparison-inputs select:focus {
+  outline: none;
+  border-color: #4da3ff;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.compare-button {
+  height: 34px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--accent-blue);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.compare-button:hover:not(:disabled) {
+  background-color: var(--accent-blue-hover);
+}
+
+.compare-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* =========================
+   RESULTS CONTAINER
+========================= */
+
+.comparison-results {
+  width: 100%;
+  max-width: 750px;
+  margin-top: 18px;
+  overflow: visible;
+}
+
+.comparison-stage {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.comparison-capture-target {
+  width: 100%;
+  max-width: 750px;
+  background-color: transparent;
+}
+
+.comparison-floating-share {
+  position: fixed;
+  right: calc(50% - 515px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.comparison-share-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px;
+  width: 120px;
+}
+
+.comparison-share-button {
+  width: 120px;
+}
+
+.comparison-share-status {
+  color: #bdbdbd;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.comparison-table {
+  width: 85%;              /* 🔥 key fix */
+  margin: 0 auto;           /* center it */
+  border-collapse: collapse;
+  background-color: #121212;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* tighter rows (keep your preferred height feel) */
+.comparison-table th,
+.comparison-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #222;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 13px;
+  white-space: nowrap;   /* 🔥 prevents stretching */
+}
+
+.comparison-table thead th {
+  background-color: #181818;
+  font-weight: 600;
+}
+
+/* stat labels column (tightened) */
+.comparison-table td:first-child,
+.comparison-table th:first-child {
+  text-align: left;
+  width: 28%;
+  font-weight: 500;
+}
+
+/* subtle hover */
+.comparison-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+/* =========================
+   RIDER HEADER
+========================= */
+
+.comparison-rider-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.comparison-rider-image {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  border: 1px solid #333;
+}
+
+.comparison-rider-name {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* =========================
+   SECTION HEADERS
+========================= */
+
+.comparison-section {
+  text-align: left !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 11px;
+  color: #ffffff;
+  background-color: #161616;
+  border-left: 4px solid #444;
+  padding: 6px 8px !important;
+}
+

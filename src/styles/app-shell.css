@@ -1,0 +1,1125 @@
+.app-wrapper {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Center page heading */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.grid-container {
+  margin-top: 1rem;
+}
+
+.toggle-buttons button {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+}
+
+.toggle-buttons button.active {
+  background-color: var(--text-primary);
+  color: #000;
+}
+
+.leaderboards-page {
+  height: calc(100dvh - 61px);
+  overflow: clip;
+  padding: 18px 0 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboards-hero {
+  max-width: 980px;
+  margin: 0 auto 18px;
+  padding: 18px 24px;
+  border-radius: var(--radius-card);
+  background: var(--surface-gradient);
+  border: 1px solid var(--border-subtle);
+
+}
+
+.leaderboards-hero h1 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.leaderboards-intro {
+  max-width: 48rem;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.leaderboards-toggle-stack {
+  display: grid;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.leaderboards-toggle-buttons {
+  margin-top: 0;
+}
+
+.leaderboards-grid {
+  margin-top: 0;
+  flex: 1;
+}
+
+.track-profile-page {
+  padding: 18px 0 32px;
+}
+
+.track-profile-hero {
+  max-width: 980px;
+  margin: 0 auto 18px;
+  padding: 18px 24px;
+  border-radius: var(--radius-card);
+  background: var(--surface-gradient);
+  border: 1px solid var(--border-subtle);
+}
+
+.track-profile-hero h1 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.track-profile-toggle-buttons {
+  margin-top: 0;
+}
+
+.track-profile-grid {
+  margin-top: 0;
+}
+
+.track-profile-page .leaderboard thead,
+.track-profile-page .leaderboard thead tr,
+.track-profile-page .leaderboard thead th,
+.track-profile-page .leaderboard .race-winners-table thead,
+.track-profile-page .leaderboard .race-winners-table thead tr,
+.track-profile-page .leaderboard .race-winners-table thead th {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* =========================
+   LEADERBOARD CARD
+========================= */
+.leaderboard {
+  --leaderboard-columns: 50px minmax(0, 1fr) 70px;
+  --leaderboard-scrollbar-gap: 6px;
+  background:
+    radial-gradient(circle at top right, rgba(86, 141, 255, 0.045), transparent 34%),
+    radial-gradient(circle at top left, rgba(243, 93, 122, 0.035), transparent 30%),
+    linear-gradient(180deg, rgba(30, 30, 30, 0.98), rgba(20, 20, 20, 0.98));
+  border-radius: var(--radius-panel);
+  border: 1px solid var(--border-subtle);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================
+   TABLE WRAPPER (SCROLL AREA)
+========================= */
+.leaderboard-table-wrapper {
+  max-height: 550px;
+  overflow-y: auto;
+  padding-right: var(--leaderboard-scrollbar-gap);
+  transform: translateZ(0);      /* ADD HERE */
+  will-change: scroll-position;  /* ADD THIS */
+}
+
+.leaderboard-table-head {
+  display: grid;
+  grid-template-columns: var(--leaderboard-columns);
+  width: calc(100% - var(--leaderboard-scrollbar-gap));
+  padding-right: var(--leaderboard-scrollbar-gap);
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.leaderboard-table-head-four {
+  --leaderboard-columns: 50px minmax(0, 1fr) 92px;
+}
+
+.race-winners-head {
+  --leaderboard-columns: 1fr 1fr 80px;
+}
+
+.race-winners-head span:nth-child(1),
+.race-winners-head span:nth-child(2) {
+  text-align: left;
+}
+
+.track-profile-page .race-winners-table tbody td:nth-child(1),
+.track-profile-page .race-winners-table tbody td:nth-child(2) {
+  text-align: left;
+}
+
+.leaderboard-table-head span {
+  padding: 0.6rem 0.75rem;
+  font-weight: 700;
+}
+
+.leaderboard-table-head span:nth-child(1) {
+  text-align: center;
+}
+
+.leaderboard-table-head span:nth-child(2) {
+  text-align: left;
+}
+
+.leaderboard-table-head span:nth-child(3) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* =========================
+   TABLE STRUCTURE
+========================= */
+.leaderboard tbody {
+  display: block;
+}
+
+.leaderboard table,
+.leaderboard tbody tr {
+  background: transparent !important;
+}
+
+/* Grid rows */
+.leaderboard tbody tr {
+  display: grid;
+  grid-template-columns: var(--leaderboard-columns);
+}
+
+/* Race winners override */
+.race-winners-table tbody tr {
+  grid-template-columns: 1fr 1fr 80px;
+}
+
+.leaderboard-four-table tbody tr {
+  grid-template-columns: var(--leaderboard-columns);
+}
+
+.leaderboard-four-table th:nth-child(3),
+.leaderboard-four-table td:nth-child(3) {
+  white-space: nowrap;
+}
+
+/* =========================
+   CELL STYLING
+========================= */
+.leaderboard th,
+.leaderboard td {
+  padding: 0.6rem 0.75rem;
+}
+
+/* ONLY rider column wraps */
+.leaderboard td:nth-child(2),
+.leaderboard th:nth-child(2) {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.leaderboard td:nth-child(2) {
+  line-height: 1.2;
+}
+
+/* Column alignment */
+.leaderboard td:nth-child(1),
+.leaderboard th:nth-child(1) {
+  text-align: center;
+}
+
+.leaderboard td:nth-child(2),
+.leaderboard th:nth-child(2) {
+  text-align: left;
+}
+
+.leaderboard td:nth-child(3),
+.leaderboard th:nth-child(3) {
+  text-align: right;
+}
+
+/* Row styling */
+.leaderboard tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transform: translateZ(0);   /* ADD */
+}
+
+.leaderboard tbody tr {
+  align-items: center;
+}
+
+.leaderboard tbody tr:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+.leaderboard {
+  contain: layout paint;
+}
+
+/* Highlighted row */
+.highlighted {
+  background-color: #444;
+  font-weight: bold;
+}
+
+.highlighted td {
+  color: #ffffff;
+}
+
+.leaderboard tbody tr.highlighted,
+.leaderboard-four-table tbody tr.highlighted {
+  background-color: #444 !important;
+}
+
+.leaderboard tbody tr.highlighted:hover,
+.leaderboard-four-table tbody tr.highlighted:hover {
+  background-color: #444 !important;
+}
+
+.leaderboard tbody tr.highlighted td,
+.leaderboard-four-table tbody tr.highlighted td {
+  color: #ffffff;
+}
+
+/* =========================
+   TITLE
+========================= */
+.leaderboard h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+.leaderboard-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leaderboard-table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 3px;
+}
+
+/* ================= Rider Profile Header ================= */
+
+.rider-profile-page {
+  padding: 30px;
+}
+
+.rider-profile-hero {
+  padding: 28px 30px;
+  margin-bottom: 28px;
+  border-radius: var(--radius-card);
+  background: var(--surface-gradient);
+  border: 1px solid var(--border-subtle);
+
+}
+
+.rider-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 22px;
+}
+
+.rider-profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+  background-color: #454242;
+}
+
+.rider-name {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.rider-flag {
+  width: 40px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+/* Rider Navigation Tabs */
+.rider-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.rider-nav-button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.rider-nav-button:hover {
+  background-color: var(--bg-hover-strong);
+}
+
+.rider-nav-button.active {
+  background-color: var(--text-primary);
+  color: #000;
+}
+
+.rider-profile-toggle {
+  margin-top: 0;
+}
+
+.rider-profile-track-filter {
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+.rider-table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;     /* horizontal scroll */
+  overflow-y: auto;     /* vertical scroll */
+  max-height: 65vh;     /* controls vertical scrolling */
+  margin: 0 auto;
+}
+
+.rider-stats {
+  min-width: 800px;     /* forces horizontal scroll when needed */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rider-stats th,
+.rider-stats td {
+  padding: 8px;
+  border-bottom: 1px solid #444;
+  text-align: center;
+}
+
+.class-total-row {
+  background-color: #2a2a2a;
+  font-weight: bold;
+}
+
+.career-row {
+  background-color: #3a3a3a;
+  font-weight: bold;
+}
+
+.rider-stats thead th {
+  position: sticky;
+  top: 0;
+  background-color: #111;
+  z-index: 2;
+}
+
+.season-dashboard {
+  padding: 24px 0 48px;
+}
+
+.season-dashboard-hero {
+  padding: 28px 30px;
+  margin-bottom: 28px;
+  border-radius: var(--radius-card);
+  background: var(--surface-gradient);
+  border: 1px solid var(--border-subtle);
+  
+}
+
+.season-dashboard-intro {
+  max-width: 52rem;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.season-dashboard-section {
+  margin-top: 20px;
+  padding: 24px;
+  border-radius: var(--radius-card);
+  background: var(--surface-gradient-soft);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  
+}
+
+.season-dashboard-section h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;   /* centers it */
+  margin: 24px 0 0;
+}
+
+.filters-inner {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+
+  padding: 12px 16px;
+}
+
+.filters-inner select {
+  background-color: #1a1a1a;
+  color: white;
+  border: 1px solid #3a3a3a;
+  max-height: 36px; /* keeps closed height clean */
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 6px;
+  overflow-y: auto;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* THIS is the key part */
+.filters-inner select[size] {
+  max-height: 200px;
+}
+
+/* This targets the dropdown menu itself */
+.filters-inner select option {
+  max-height: 200px;
+}
+
+.filters-inner select:focus {
+  outline: none;
+  border-color: #4da3ff;
+}
+
+.filters-inner button {
+  height: 34px;
+  padding: 0 14px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #4da3ff;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.filters-inner button:hover {
+  background-color: #2f8ef5;
+}
+
+
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.stats-table th {
+  text-align: left;
+  font-weight: 600;
+}
+
+.laps-led-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.laps-led-panel {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  min-height: 340px;
+}
+
+.laps-led-chart {
+  width: 100%;
+  height: 340px;
+}
+
+.laps-led-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.laps-led-breakdown-item {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.laps-led-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.laps-led-breakdown-name {
+  min-width: 0;
+  display: block;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+}
+
+.laps-led-breakdown-copy {
+  min-width: 0;
+}
+
+.laps-led-breakdown-meta {
+  display: block;
+  margin-top: 2px;
+  color: #bcbcbc;
+  font-size: 0.92rem;
+  white-space: normal;
+}
+
+.stats-table-wrapper {
+  max-height: 420px;          /* controls vertical scroll */
+  overflow-y: auto;
+  overflow-x: auto;           /* safety for wide tables */
+  margin-bottom: 16px;
+}
+
+/* Optional but HIGHLY recommended */
+.stats-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #1a1a1a;
+  z-index: 2;
+}
+
+/* Scrollbar styling (matches rest of site) */
+.stats-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.stats-table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 3px;
+}
+
+.stats-table-wrapper {
+  max-height: 420px;          /* controls visible rows */
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+/* Optional: smoother scroll */
+.stats-table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.stats-table-wrapper::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+.stats-table-wrapper::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+
+.results-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+}
+
+.results-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  background-color: #0f0f0f;
+  color: #eaeaea;
+  font-size: 14px;
+}
+
+.results-table th,
+.results-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #222;
+  white-space: nowrap;
+}
+
+.results-table thead th {
+  background-color: #161616;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.results-table tbody tr:hover {
+  background-color: #1c1c1c;
+}
+
+
+/* Holeshot dot */
+.holeshot {
+  text-align: center;
+  color: #00ff7f;
+  font-size: 18px;
+}
+
+/* Section headers */
+.class-header {
+  margin: 24px 0 10px;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-left: 4px solid #444;
+  padding-left: 10px;
+}
+
+.results-empty {
+  padding: 20px;
+  color: #999;
+}
+.rider-results-table-wrapper {
+  width: 100%;
+  max-width: 1700px;
+  margin: 2rem auto;
+  overflow-x: auto;
+}
+
+.rider-result-mobile-meta {
+  display: none;
+}
+
+.rider-points-mobile-meta {
+  display: none;
+}
+
+.rider-stats {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rider-stats th,
+.rider-stats td {
+  padding: 8px;
+  text-align: center;
+}
+
+.rider-stats tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 300px;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #1f1f1f;
+  border: 1px solid #444;
+  border-radius: 6px;
+  margin-top: 4px;
+  z-index: 1000;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.search-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+.search-item:hover {
+  background-color: #333;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1550px;   /* or 1500/1600 depending on your taste */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* COUNTRIES PAGE */
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2a2a2a;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.country-item:hover {
+  background: #3a3a3a;
+}
+
+.country-flag {
+  width: 28px;
+  border-radius: 3px;
+}
+
+/* ==============================
+   Individual country page
+============================== */
+
+.country-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.country-header-flag {
+  width: 60px;
+  border-radius: 4px;
+}
+
+.rider-count {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ==============================
+   Rider list layout
+============================== */
+
+.name-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 40px;
+}
+
+/* Each rider row */
+.rider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  height: 72px;              /* 🔥 key */
+  padding: 6px 0;
+}
+
+.rider-row-clickable {
+  cursor: pointer;
+}
+
+/* Rider image */
+.rider-avatar {
+  width: 52px;               /* slightly bigger like RacerX */
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #2a2a2a;
+  flex-shrink: 0;
+}
+
+/* Name */
+a.country-rider-name,
+a.country-rider-name:visited,
+.country-rider-name {
+  color: #5f63ff;
+  font-size: 1rem;   /* 🔥 tweak this freely now */
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+a.country-rider-name:hover,
+.country-rider-name:hover {
+  color: #7b7fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.country-rider-text {
+  color: #5f63ff;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: color 0.18s ease;
+}
+
+.rider-row-clickable:hover .country-rider-text {
+  color: #7b7fff;
+}
+
+.alphabet-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;        /* 🔥 spacing between letters */
+  margin: 20px 0 25px 0;
+  max-width: 700px;      /* keeps it from stretching too wide */
+}
+
+.alphabet-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  color: #aaa;
+  cursor: pointer;
+
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.alphabet-letter:hover {
+  color: white;
+  background-color: rgba(255,255,255,0.08);
+}
+
+.alphabet-letter.active {
+  color: white;
+  background-color: #1e7ad9;
+  font-weight: 600;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  background-color: #111;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.navbar-inner {
+  max-width: 1550px;
+  margin: 0 auto;
+  padding: 0 50px 0 20px;   /* extra room on the RIGHT side */
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+}
+
+/* left side stays grouped together */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 34px;               /* distance between logo and links */
+  flex-shrink: 0;
+}
+
+/* logo */
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* links sit directly to the right of the logo */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* this pushes search all the way to the right */
+.nav-right {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding-left: 40px;   /* optional breathing room between links and search */
+}
+
+/* search size */
+.unified-search {
+  position: relative;
+  width: 320px;
+}
+
+.unified-search input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid #3a3a3a;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.unified-search input:focus {
+  border-color: #4da3ff;
+}
+
+.unified-search-dropdown {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  background: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 2000;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.search-group-label {
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  color: #aaa;
+  background: #141414;
+  font-weight: 600;
+}
+
+.search-result-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.search-result-item:hover {
+  background-color: #2a2a2a;
+}
+
+.search-result-title {
+  font-size: 0.95rem;
+}
+
+.search-result-subtitle {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.no-search-results {
+  padding: 10px;
+  color: #999;
+}
+

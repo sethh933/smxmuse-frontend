@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import "./App.css";
 import { apiUrl } from "./api";
@@ -17,14 +16,17 @@ function TrackProfile() {
   useEffect(() => {
     async function fetchClasses() {
       try {
-        const res = await axios.get(apiUrl("/api/track-classes"), {
-          params: {
-            track_id,
-            sport_id: sportId,
-          },
+        const params = new URLSearchParams({
+          track_id,
+          sport_id: String(sportId),
         });
+        const res = await fetch(apiUrl(`/api/track-classes?${params.toString()}`));
+        if (!res.ok) {
+          throw new Error("Failed to load track classes.");
+        }
+        const json = await res.json();
 
-        setAvailableClasses(res.data.map((c) => c.ClassID));
+        setAvailableClasses(json.map((c) => c.ClassID));
       } catch (err) {
         console.error(err);
       }
@@ -42,16 +44,22 @@ function TrackProfile() {
   }, [availableClasses, classId]);
 
   useEffect(() => {
-    axios
-      .get(apiUrl("/api/track-profile"), {
-        params: {
-          track_id,
-          sport_id: sportId,
-          class_id: classId,
-        },
-      })
+    const params = new URLSearchParams({
+      track_id,
+      sport_id: String(sportId),
+      class_id: String(classId),
+    });
+
+    fetch(apiUrl(`/api/track-profile?${params.toString()}`))
       .then((res) => {
-        setData(res.data);
+        if (!res.ok) {
+          throw new Error("Failed to load track profile.");
+        }
+
+        return res.json();
+      })
+      .then((json) => {
+        setData(json);
       })
       .catch((err) => {
         console.error("ERROR:", err);

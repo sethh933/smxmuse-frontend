@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import axios from "axios";
 import debounce from "lodash.debounce";
 import { toBlob } from "html-to-image";
 import { apiUrl } from "./api";
@@ -70,10 +69,15 @@ export default function RiderComparison() {
   const debouncedFetch = useRef(
     debounce(async (input, setSuggestions) => {
       try {
-        const response = await axios.get(
-          apiUrl(`/api/riders/search?q=${input}`)
+        const response = await fetch(
+          apiUrl(`/api/riders/search?q=${encodeURIComponent(input)}`)
         );
-        setSuggestions(response.data || []);
+        if (!response.ok) {
+          throw new Error("Failed to load rider suggestions.");
+        }
+
+        const json = await response.json();
+        setSuggestions(json || []);
       } catch (error) {
         setSuggestions([]);
       }
