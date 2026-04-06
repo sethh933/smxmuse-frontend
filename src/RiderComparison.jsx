@@ -159,23 +159,38 @@ export default function RiderComparison() {
         throw new Error("Failed to generate image.");
       }
 
-      if (
-        navigator.clipboard &&
-        window.ClipboardItem &&
-        typeof navigator.clipboard.write === "function"
-      ) {
-        await navigator.clipboard.write([
-          new window.ClipboardItem({
-            [blob.type]: blob
-          })
-        ]);
+        const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
+        const imageMimeType = blob.type || "image/png";
 
-        setImageStatus("Comparison copied to clipboard.");
-      } else {
+        if (
+          navigator.clipboard &&
+          window.ClipboardItem &&
+          typeof navigator.clipboard.write === "function"
+        ) {
+          await navigator.clipboard.write([
+            new window.ClipboardItem({
+              [imageMimeType]: blob
+            })
+          ]);
+
+          setImageStatus("Comparison copied to clipboard.");
+        } else if (typeof navigator.share === "function") {
+          const shareFile = new File([blob], imageFileName, { type: imageMimeType });
+
+          if (!navigator.canShare || navigator.canShare({ files: [shareFile] })) {
+            await navigator.share({
+              files: [shareFile],
+              title: "SMXmuse Rider Comparison"
+            });
+            setImageStatus("Comparison image ready to share.");
+          } else {
+            throw new Error("Sharing files is not supported on this device.");
+          }
+        } else {
         const downloadUrl = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = downloadUrl;
-        link.download = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
+        link.download = imageFileName;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
