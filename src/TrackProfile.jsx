@@ -130,8 +130,8 @@ function TrackProfile() {
                       </Link>
                     </td>
                     <td>
-                      <Link to={`/rider/${row.RiderID}`}>
-                        {row.Winner}
+                      <Link to={`/rider/${row.RiderID}`} className="race-winner-name-link">
+                        <span className="race-winner-name-text">{row.Winner}</span>
                       </Link>
                     </td>
                     <td>{row.Brand}</td>

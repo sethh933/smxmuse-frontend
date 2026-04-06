@@ -57,8 +57,7 @@ button {
 }
 
 .leaderboards-page {
-  height: calc(100dvh - 61px);
-  overflow: clip;
+  min-height: calc(100dvh - 61px);
   padding: 18px 0 18px;
   display: flex;
   flex-direction: column;
@@ -205,7 +204,7 @@ button {
 }
 
 .race-winners-head {
-  --leaderboard-columns: 1fr 1fr 80px;
+  --leaderboard-columns: 96px minmax(0, 1fr) 72px;
 }
 
 .race-winners-head span:nth-child(1),
@@ -256,7 +255,40 @@ button {
 
 /* Race winners override */
 .race-winners-table tbody tr {
-  grid-template-columns: 1fr 1fr 80px;
+  grid-template-columns: 96px minmax(0, 1fr) 72px;
+}
+
+.track-profile-page .race-winners-table tbody td:nth-child(2),
+.track-profile-page .race-winners-head span:nth-child(2) {
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+.track-profile-page .race-winners-table tbody td:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+
+.track-profile-page .race-winners-table tbody td:nth-child(1),
+.track-profile-page .race-winners-head span:nth-child(1) {
+  font-size: 0.95rem;
+}
+
+.track-profile-page .race-winners-table tbody td:nth-child(2) a.race-winner-name-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.4em;
+}
+
+.track-profile-page .race-winners-table tbody td:nth-child(2) .race-winner-name-text {
+  display: -webkit-box;
+  line-height: 1.2;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .leaderboard-four-table tbody tr {

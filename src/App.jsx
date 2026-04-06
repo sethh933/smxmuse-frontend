@@ -258,6 +258,21 @@ function SeasonRouteWrapper() {
   return <SeasonDashboard key={location.pathname} />;
 }
 
+function RiderProfileRouteWrapper() {
+  const { riderId } = useParams();
+  return <RiderProfile key={riderId} />;
+}
+
+function RiderResultsRouteWrapper() {
+  const { riderId } = useParams();
+  return <RiderResults key={riderId} />;
+}
+
+function RiderPointsRouteWrapper() {
+  const { riderId } = useParams();
+  return <RiderPoints key={riderId} />;
+}
+
 function LegacyCountryRedirect() {
   const { country } = useParams();
   return <Navigate to={`/riders/${country}`} replace />;
@@ -278,8 +293,8 @@ function App() {
   element={<SeasonRouteWrapper />}
 />
             <Route path="/race/:raceid" element={<RacePage />} />
-            <Route path="/rider/:riderId" element={<RiderProfile />} />
-            <Route path="/rider/:riderId/results" element={<RiderResults />} />
+            <Route path="/rider/:riderId" element={<RiderProfileRouteWrapper />} />
+            <Route path="/rider/:riderId/results" element={<RiderResultsRouteWrapper />} />
             <Route path="/compare" element={<RiderComparison />} />
             <Route path="/track/:sport_id/:track_id" element={<TrackProfile />} />
             <Route path="/riders" element={<CountriesPage />} />
@@ -288,7 +303,7 @@ function App() {
             <Route path="/countries/:country" element={<LegacyCountryRedirect />} />
             <Route path="/results" element={<ResultsHome />} />
             <Route path="/results/:sport/:year" element={<ResultsYear />} />
-            <Route path="/rider/:riderId/points" element={<RiderPoints />} />
+            <Route path="/rider/:riderId/points" element={<RiderPointsRouteWrapper />} />
           </Routes>
         </div>
       </div>
