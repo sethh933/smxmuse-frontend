@@ -564,6 +564,10 @@ button {
   font-weight: bold;
 }
 
+.rider-stats tbody tr:not(.class-total-row):not(.career-row) + tr.class-total-row td {
+  border-top: 3px solid rgba(255, 255, 255, 0.18);
+}
+
 .rider-stats thead th {
   position: sticky;
   top: 0;
