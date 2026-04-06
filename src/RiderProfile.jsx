@@ -10,16 +10,29 @@ export default function RiderProfile() {
   const [hasSX, setHasSX] = useState(true);
   const [hasMX, setHasMX] = useState(true);
 
-
   useEffect(() => {
+    setData(null);
+    setHasSX(true);
+    setHasMX(true);
+    setMode("SX");
+  }, [riderId]);
+
+
+useEffect(() => {
+  let isCancelled = false;
 
   fetch(apiUrl(`/rider/${riderId}/profile?sport=${mode}`))
     .then(res => res.json())
     .then(data => {
-  setData(data);
-  setHasSX(data.hasSX);
-  setHasMX(data.hasMX);
-});
+      if (isCancelled) return;
+      setData(data);
+      setHasSX(data.hasSX);
+      setHasMX(data.hasMX);
+    });
+
+  return () => {
+    isCancelled = true;
+  };
 }, [riderId, mode]);
 
 useEffect(() => {
