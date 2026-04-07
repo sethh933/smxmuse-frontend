@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import debounce from "lodash.debounce";
-import { toBlob } from "html-to-image";
+import { toBlob, toPng } from "html-to-image";
 import { apiUrl } from "./api";
 
 function getComparisonImageSrc(url) {
@@ -18,6 +18,28 @@ function blobToDataUrl(blob) {
     reader.onloadend = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(blob);
+  });
+}
+
+function waitForImageReady(img) {
+  return new Promise((resolve) => {
+    if (!img) {
+      resolve();
+      return;
+    }
+
+    const finish = () => resolve();
+    img.addEventListener("load", finish, { once: true });
+    img.addEventListener("error", finish, { once: true });
+
+    if (img.complete) {
+      resolve();
+      return;
+    }
+
+    if (typeof img.decode === "function") {
+      img.decode().then(finish).catch(finish);
+    }
   });
 }
 
@@ -132,31 +154,59 @@ export default function RiderComparison() {
     setImageStatus("");
 
     try {
-      const imageElements = Array.from(
-        comparisonCaptureRef.current.querySelectorAll(".comparison-rider-image")
+      const sourceNode = comparisonCaptureRef.current;
+      const clone = sourceNode.cloneNode(true);
+      const sourceRect = sourceNode.getBoundingClientRect();
+
+      clone.style.position = "fixed";
+      clone.style.left = "-10000px";
+      clone.style.top = "0";
+      clone.style.zIndex = "-1";
+      clone.style.pointerEvents = "none";
+      clone.style.width = `${Math.ceil(sourceRect.width)}px`;
+      clone.style.maxWidth = `${Math.ceil(sourceRect.width)}px`;
+
+      document.body.appendChild(clone);
+
+      const sourceImages = Array.from(
+        sourceNode.querySelectorAll(".comparison-rider-image")
+      );
+      const cloneImages = Array.from(
+        clone.querySelectorAll(".comparison-rider-image")
       );
 
       await Promise.all(
-        imageElements.map(async (img) => {
-          const src = img.getAttribute("src");
+        cloneImages.map(async (img, index) => {
+          const sourceImg = sourceImages[index];
+          const src = sourceImg?.currentSrc || sourceImg?.getAttribute("src");
           if (!src) return;
 
-          const response = await fetch(src);
-          const imageBlob = await response.blob();
-          const dataUrl = await blobToDataUrl(imageBlob);
-          img.setAttribute("data-original-src", src);
-          img.setAttribute("src", dataUrl);
+          try {
+            const response = await fetch(src, { cache: "force-cache" });
+            const imageBlob = await response.blob();
+            const dataUrl = await blobToDataUrl(imageBlob);
+            img.setAttribute("src", dataUrl);
+          } catch {
+            img.setAttribute("src", src);
+          }
         })
       );
 
-      const blob = await toBlob(comparisonCaptureRef.current, {
+      await Promise.all(cloneImages.map(waitForImageReady));
+
+      let blob = await toBlob(clone, {
         cacheBust: true,
         backgroundColor: "#121212",
         pixelRatio: 2
       });
 
       if (!blob) {
-        throw new Error("Failed to generate image.");
+        const pngDataUrl = await toPng(clone, {
+          cacheBust: true,
+          backgroundColor: "#121212",
+          pixelRatio: 2
+        });
+        blob = await (await fetch(pngDataUrl)).blob();
       }
 
         const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
@@ -201,17 +251,9 @@ export default function RiderComparison() {
       console.error("Failed to export comparison image", error);
       setImageStatus("Could not create the comparison image.");
     } finally {
-      const imageElements = Array.from(
-        comparisonCaptureRef.current?.querySelectorAll(".comparison-rider-image") || []
-      );
-
-      imageElements.forEach((img) => {
-        const originalSrc = img.getAttribute("data-original-src");
-        if (originalSrc) {
-          img.setAttribute("src", originalSrc);
-          img.removeAttribute("data-original-src");
-        }
-      });
+      document
+        .querySelectorAll(".comparison-capture-target[style*='left: -10000px']")
+        .forEach((node) => node.remove());
 
       setIsExporting(false);
     }
