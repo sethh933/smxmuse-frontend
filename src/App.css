@@ -3744,8 +3744,9 @@ a.track-link:focus-visible {
   }
 
   .navbar {
-    position: relative;
-    z-index: 40;
+    position: sticky;
+    top: 0;
+    z-index: 120;
     background: #111;
     border-bottom: 1px solid #2a2a2a;
   }
