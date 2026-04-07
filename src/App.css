@@ -1988,6 +1988,75 @@ a.country-rider-name:hover,
     width: 48px;
     height: 48px;
   }
+
+  .comparison-capture-target {
+    overflow-x: hidden;
+  }
+
+  .comparison-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    min-width: 0;
+  }
+
+  .comparison-table th:first-child,
+  .comparison-table td:first-child {
+    width: 32%;
+  }
+
+  .comparison-table thead th:not(:first-child) {
+    width: 34%;
+  }
+
+  .comparison-rider-header {
+    width: 100%;
+    min-width: 0;
+    padding: 0 4px;
+    box-sizing: border-box;
+  }
+
+  .comparison-rider-name {
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .comparison-search .search-dropdown {
+    max-height: min(240px, 34vh);
+    overflow-y: auto;
+    border-radius: 8px;
+    z-index: 30;
+  }
+
+  .comparison-search .search-group-label {
+    padding: 7px 12px;
+    font-size: 0.72rem;
+  }
+
+  .comparison-search .search-result-item {
+    padding: 8px 12px;
+  }
+
+  .comparison-search .search-result-title {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .comparison-search .search-result-subtitle {
+    font-size: 0.78rem;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
 }
 
 .comparison-logo {
