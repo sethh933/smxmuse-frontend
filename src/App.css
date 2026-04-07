@@ -2057,6 +2057,10 @@ a.country-rider-name:hover,
     line-height: 1.2;
     margin-top: 2px;
   }
+
+  .comparison-floating-share {
+    display: none;
+  }
 }
 
 .comparison-logo {
