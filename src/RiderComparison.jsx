@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import debounce from "lodash.debounce";
 import { toBlob, toPng } from "html-to-image";
+import { toBlob } from "html-to-image";
 import { apiUrl } from "./api";
 
 function getComparisonImageSrc(url) {
@@ -68,67 +69,7 @@ export default function RiderComparison() {
   const handleClickOutside = (event) => {
     if (
       searchRef1.current &&
-      !searchRef1.current.contains(event.target)
-    ) {
-      setSuggestions1([]);
-    }
-
-    if (
-      searchRef2.current &&
-      !searchRef2.current.contains(event.target)
-    ) {
-      setSuggestions2([]);
-    }
-  };
-
-  document.addEventListener("mousedown", handleClickOutside);
-
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
-
-  const debouncedFetch = useRef(
-    debounce(async (input, setSuggestions) => {
-      try {
-        const response = await fetch(
-          apiUrl(`/api/riders/search?q=${encodeURIComponent(input)}`)
-        );
-        if (!response.ok) {
-          throw new Error("Failed to load rider suggestions.");
-        }
-
-        const json = await response.json();
-        setSuggestions(json || []);
-      } catch (error) {
-        setSuggestions([]);
-      }
-    }, 300)
-  ).current;
-
-  useEffect(() => {
-    return () => debouncedFetch.cancel();
-  }, [debouncedFetch]);
-
-  const handleSearch = (value, setName, setSuggestions) => {
-    setName(value);
-
-    if (value.length >= 2) {
-      debouncedFetch(value, setSuggestions);
-    } else {
-      setSuggestions([]);
-    }
-  };
-
-  const handleSelect = (rider, setName, setSuggestions, setId) => {
-    setName(rider.FullName);
-    setSuggestions([]);
-    setId(rider.RiderID);
-  };
-
-  useEffect(() => {
-    if (sport === "sx" && classId === 3) {
-      setClassId(1);
+@@ -132,150 +110,122 @@ export default function RiderComparison() {
     }
   }, [sport, classId]);
 
@@ -173,21 +114,29 @@ export default function RiderComparison() {
       );
       const cloneImages = Array.from(
         clone.querySelectorAll(".comparison-rider-image")
+      const imageElements = Array.from(
+        comparisonCaptureRef.current.querySelectorAll(".comparison-rider-image")
       );
 
       await Promise.all(
         cloneImages.map(async (img, index) => {
           const sourceImg = sourceImages[index];
           const src = sourceImg?.currentSrc || sourceImg?.getAttribute("src");
+        imageElements.map(async (img) => {
+          const src = img.getAttribute("src");
           if (!src) return;
 
           try {
             const response = await fetch(src, { cache: "force-cache" });
+            const response = await fetch(src);
             const imageBlob = await response.blob();
             const dataUrl = await blobToDataUrl(imageBlob);
+            img.setAttribute("data-original-src", src);
             img.setAttribute("src", dataUrl);
           } catch {
             img.setAttribute("src", src);
+          } catch (error) {
+            console.error("Failed to inline comparison image", error);
           }
         })
       );
@@ -195,6 +144,7 @@ export default function RiderComparison() {
       await Promise.all(cloneImages.map(waitForImageReady));
 
       let blob = await toBlob(clone, {
+      const blob = await toBlob(comparisonCaptureRef.current, {
         cacheBust: true,
         backgroundColor: "#121212",
         pixelRatio: 2
@@ -207,6 +157,7 @@ export default function RiderComparison() {
           pixelRatio: 2
         });
         blob = await (await fetch(pngDataUrl)).blob();
+        throw new Error("Failed to generate image.");
       }
 
         const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
@@ -237,6 +188,22 @@ export default function RiderComparison() {
             throw new Error("Sharing files is not supported on this device.");
           }
         } else {
+      const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
+      const imageMimeType = blob.type || "image/png";
+
+      if (
+        navigator.clipboard &&
+        window.ClipboardItem &&
+        typeof navigator.clipboard.write === "function"
+      ) {
+        await navigator.clipboard.write([
+          new window.ClipboardItem({
+            [imageMimeType]: blob
+          })
+        ]);
+
+        setImageStatus("Comparison copied to clipboard.");
+      } else {
         const downloadUrl = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = downloadUrl;
@@ -254,6 +221,17 @@ export default function RiderComparison() {
       document
         .querySelectorAll(".comparison-capture-target[style*='left: -10000px']")
         .forEach((node) => node.remove());
+      const imageElements = Array.from(
+        comparisonCaptureRef.current?.querySelectorAll(".comparison-rider-image") || []
+      );
+
+      imageElements.forEach((img) => {
+        const originalSrc = img.getAttribute("data-original-src");
+        if (originalSrc) {
+          img.setAttribute("src", originalSrc);
+          img.removeAttribute("data-original-src");
+        }
+      });
 
       setIsExporting(false);
     }
@@ -279,7 +257,6 @@ export default function RiderComparison() {
     });
 
     return { main, heats, qual };
-  };
 
   const getChamps = () => {
     if (!data) return {};
