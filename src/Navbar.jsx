@@ -4,11 +4,45 @@ import UnifiedSearch from "./UnifiedSearch";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hideMobileSearch, setHideMobileSearch] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isMobile = window.innerWidth <= 980;
+
+      if (!isMobile) {
+        setHideMobileSearch(false);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY <= 12) {
+        setHideMobileSearch(false);
+      } else if (currentScrollY > lastScrollY) {
+        setHideMobileSearch(true);
+      } else if (currentScrollY < lastScrollY) {
+        setHideMobileSearch(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   const navItems = [
     { to: "/", label: "Home" },
@@ -84,7 +118,9 @@ function Navbar() {
             </div>
           )}
 
-          <div className="nav-mobile-search-row">
+          <div
+            className={`nav-mobile-search-row${hideMobileSearch && !mobileMenuOpen ? " is-hidden" : ""}`}
+          >
             <UnifiedSearch />
           </div>
         </div>
