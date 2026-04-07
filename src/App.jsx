@@ -28,6 +28,7 @@ import RiderPoints from "./RiderPoints";
 import SeasonRedirect from "./SeasonRedirect";
 import { useLocation } from "react-router-dom";
 import LandingPage from "./LandingPage";
+import AboutPage from "./AboutPage";
 import { apiUrl } from "./api";
 
 
@@ -284,9 +285,10 @@ function App() {
       <div className="app-wrapper">
         <Navbar />
         <div className="page-container">
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/leaderboards" element={<LeaderboardsPage />} />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/season" element={<SeasonRedirect />} />
             <Route
   path="/season/:sport/:year/:classId"

@@ -1847,6 +1847,75 @@ a.country-rider-name:hover,
   width: 120px;
 }
 
+.about-page {
+  padding: 28px 24px 56px;
+}
+
+.about-hero,
+.about-section {
+  max-width: 980px;
+  margin: 0 auto 22px;
+  padding: 30px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top left, rgba(120, 70, 52, 0.14), transparent 38%),
+    radial-gradient(circle at top right, rgba(62, 84, 140, 0.18), transparent 40%),
+    linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(18, 18, 18, 0.98));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.about-kicker {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  color: #c9b59a;
+}
+
+.about-page p {
+  margin: 0;
+  max-width: 58rem;
+  color: #d4d4d4;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.about-notes-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-notes-list li {
+  position: relative;
+  margin: 0 0 16px;
+  padding: 0 0 16px 24px;
+  color: #d4d4d4;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-notes-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.about-notes-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #6fa8ff;
+}
+
 .comparison-share-status {
   color: #bdbdbd;
   font-size: 0.85rem;

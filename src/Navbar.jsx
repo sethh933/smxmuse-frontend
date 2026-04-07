@@ -17,6 +17,7 @@ function Navbar() {
     { to: "/results", label: "Race Results" },
     { to: "/leaderboards", label: "Leaderboards" },
     { to: "/compare", label: "Comparison Tool" },
+    { to: "/about", label: "About" },
   ];
 
   return (
