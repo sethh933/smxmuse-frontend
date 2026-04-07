@@ -3750,9 +3750,8 @@ a.track-link:focus-visible {
   }
 
   .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 120;
+    position: relative;
+    z-index: 40;
     background: #111;
     border-bottom: 1px solid #2a2a2a;
   }
@@ -3851,22 +3850,10 @@ a.track-link:focus-visible {
     margin: 12px 12px 12px;
     padding: 0;
     min-width: 0;
-    max-height: 72px;
-    overflow: hidden;
-    opacity: 1;
-    transition: max-height 0.22s ease, margin 0.22s ease, opacity 0.18s ease;
   }
 
   .nav-mobile-dropdown + .nav-mobile-search-row {
     margin-top: 12px;
-  }
-
-  .nav-mobile-search-row.is-hidden {
-    max-height: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    opacity: 0;
-    pointer-events: none;
   }
 
   .nav-mobile-search-row .unified-search input {

@@ -4,62 +4,11 @@ import UnifiedSearch from "./UnifiedSearch";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hideMobileSearch, setHideMobileSearch] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let accumulatedUp = 0;
-    let accumulatedDown = 0;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isMobile = window.innerWidth <= 980;
-      const delta = currentScrollY - lastScrollY;
-
-      if (!isMobile) {
-        setHideMobileSearch(false);
-        lastScrollY = currentScrollY;
-        accumulatedUp = 0;
-        accumulatedDown = 0;
-        return;
-      }
-
-      if (currentScrollY <= 12) {
-        setHideMobileSearch(false);
-        accumulatedUp = 0;
-        accumulatedDown = 0;
-      } else if (delta > 0) {
-        accumulatedDown += delta;
-        accumulatedUp = 0;
-
-        if (accumulatedDown >= 18) {
-          setHideMobileSearch(true);
-        }
-      } else if (delta < 0) {
-        accumulatedUp += Math.abs(delta);
-        accumulatedDown = 0;
-
-        if (accumulatedUp >= 48) {
-          setHideMobileSearch(false);
-        }
-      }
-
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
 
   const navItems = [
     { to: "/", label: "Home" },
@@ -135,9 +84,7 @@ function Navbar() {
             </div>
           )}
 
-          <div
-            className={`nav-mobile-search-row${hideMobileSearch && !mobileMenuOpen ? " is-hidden" : ""}`}
-          >
+          <div className="nav-mobile-search-row">
             <UnifiedSearch />
           </div>
         </div>
