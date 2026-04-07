@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import debounce from "lodash.debounce";
-import { toBlob, toPng } from "html-to-image";
+import { toBlob } from "html-to-image";
 import { apiUrl } from "./api";
 
 function getComparisonImageSrc(url) {
@@ -18,28 +18,6 @@ function blobToDataUrl(blob) {
     reader.onloadend = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(blob);
-  });
-}
-
-function waitForImageReady(img) {
-  return new Promise((resolve) => {
-    if (!img) {
-      resolve();
-      return;
-    }
-
-    const finish = () => resolve();
-    img.addEventListener("load", finish, { once: true });
-    img.addEventListener("error", finish, { once: true });
-
-    if (img.complete) {
-      resolve();
-      return;
-    }
-
-    if (typeof img.decode === "function") {
-      img.decode().then(finish).catch(finish);
-    }
   });
 }
 
@@ -154,89 +132,53 @@ export default function RiderComparison() {
     setImageStatus("");
 
     try {
-      const sourceNode = comparisonCaptureRef.current;
-      const clone = sourceNode.cloneNode(true);
-      const sourceRect = sourceNode.getBoundingClientRect();
-
-      clone.style.position = "fixed";
-      clone.style.left = "-10000px";
-      clone.style.top = "0";
-      clone.style.zIndex = "-1";
-      clone.style.pointerEvents = "none";
-      clone.style.width = `${Math.ceil(sourceRect.width)}px`;
-      clone.style.maxWidth = `${Math.ceil(sourceRect.width)}px`;
-
-      document.body.appendChild(clone);
-
-      const sourceImages = Array.from(
-        sourceNode.querySelectorAll(".comparison-rider-image")
-      );
-      const cloneImages = Array.from(
-        clone.querySelectorAll(".comparison-rider-image")
+      const imageElements = Array.from(
+        comparisonCaptureRef.current.querySelectorAll(".comparison-rider-image")
       );
 
       await Promise.all(
-        cloneImages.map(async (img, index) => {
-          const sourceImg = sourceImages[index];
-          const src = sourceImg?.currentSrc || sourceImg?.getAttribute("src");
+        imageElements.map(async (img) => {
+          const src = img.getAttribute("src");
           if (!src) return;
 
           try {
-            const response = await fetch(src, { cache: "force-cache" });
+            const response = await fetch(src);
             const imageBlob = await response.blob();
             const dataUrl = await blobToDataUrl(imageBlob);
+            img.setAttribute("data-original-src", src);
             img.setAttribute("src", dataUrl);
-          } catch {
-            img.setAttribute("src", src);
+          } catch (error) {
+            console.error("Failed to inline comparison image", error);
           }
         })
       );
 
-      await Promise.all(cloneImages.map(waitForImageReady));
-
-      let blob = await toBlob(clone, {
+      const blob = await toBlob(comparisonCaptureRef.current, {
         cacheBust: true,
         backgroundColor: "#121212",
         pixelRatio: 2
       });
 
       if (!blob) {
-        const pngDataUrl = await toPng(clone, {
-          cacheBust: true,
-          backgroundColor: "#121212",
-          pixelRatio: 2
-        });
-        blob = await (await fetch(pngDataUrl)).blob();
+        throw new Error("Failed to generate image.");
       }
 
-        const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
-        const imageMimeType = blob.type || "image/png";
+      const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
+      const imageMimeType = blob.type || "image/png";
 
-        if (
-          navigator.clipboard &&
-          window.ClipboardItem &&
-          typeof navigator.clipboard.write === "function"
-        ) {
-          await navigator.clipboard.write([
-            new window.ClipboardItem({
-              [imageMimeType]: blob
-            })
-          ]);
+      if (
+        navigator.clipboard &&
+        window.ClipboardItem &&
+        typeof navigator.clipboard.write === "function"
+      ) {
+        await navigator.clipboard.write([
+          new window.ClipboardItem({
+            [imageMimeType]: blob
+          })
+        ]);
 
-          setImageStatus("Comparison copied to clipboard.");
-        } else if (typeof navigator.share === "function") {
-          const shareFile = new File([blob], imageFileName, { type: imageMimeType });
-
-          if (!navigator.canShare || navigator.canShare({ files: [shareFile] })) {
-            await navigator.share({
-              files: [shareFile],
-              title: "SMXmuse Rider Comparison"
-            });
-            setImageStatus("Comparison image ready to share.");
-          } else {
-            throw new Error("Sharing files is not supported on this device.");
-          }
-        } else {
+        setImageStatus("Comparison copied to clipboard.");
+      } else {
         const downloadUrl = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = downloadUrl;
@@ -251,9 +193,17 @@ export default function RiderComparison() {
       console.error("Failed to export comparison image", error);
       setImageStatus("Could not create the comparison image.");
     } finally {
-      document
-        .querySelectorAll(".comparison-capture-target[style*='left: -10000px']")
-        .forEach((node) => node.remove());
+      const imageElements = Array.from(
+        comparisonCaptureRef.current?.querySelectorAll(".comparison-rider-image") || []
+      );
+
+      imageElements.forEach((img) => {
+        const originalSrc = img.getAttribute("data-original-src");
+        if (originalSrc) {
+          img.setAttribute("src", originalSrc);
+          img.removeAttribute("data-original-src");
+        }
+      });
 
       setIsExporting(false);
     }
