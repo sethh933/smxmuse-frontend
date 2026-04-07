@@ -191,7 +191,7 @@ classes.sort((a, b) => order[a] - order[b]);
   const isSX = raceHeader.SportID === 1;
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="race-page" style={{ padding: 20 }}>
 
       <h1 style={{ textAlign: "center" }}>
         <Link 
