@@ -259,7 +259,15 @@ export default function RiderComparison() {
   const isMX = appliedSport === "mx";
 
   const getStyle = (val1, val2, lowerIsBetter = false) => {
-    if (val1 == null || val2 == null) return {};
+    if (val1 == null && val2 == null) return {};
+    if (val1 == null) return {};
+    if (val2 == null) {
+      return {
+        backgroundColor: "#193d2b",
+        fontWeight: "bold"
+      };
+    }
+
     if (val1 === val2) return {};
 
     const better = lowerIsBetter ? val1 < val2 : val1 > val2;
@@ -287,6 +295,8 @@ export default function RiderComparison() {
     : `MAIN EVENTS: ${selectedClassLabel} ${selectedSportLabel}`;
   const heatsSectionLabel = `HEATS: ${selectedClassLabel} ${selectedSportLabel}`;
   const qualifyingSectionLabel = `QUALIFYING: ${selectedClassLabel} ${selectedSportLabel}`;
+  const rider1Titles = champs[r1]?.[appliedClassId] ?? 0;
+  const rider2Titles = champs[r2]?.[appliedClassId] ?? 0;
 
   return (
     <div className="comparison-page">
@@ -648,21 +658,11 @@ export default function RiderComparison() {
 
                 <tr>
                   <td>{titleLabel}</td>
-                  <td
-                    style={getStyle(
-                      champs[r1]?.[appliedClassId],
-                      champs[r2]?.[appliedClassId]
-                    )}
-                  >
-                    {champs[r1]?.[appliedClassId] ?? 0}
+                  <td style={getStyle(rider1Titles, rider2Titles)}>
+                    {rider1Titles}
                   </td>
-                  <td
-                    style={getStyle(
-                      champs[r2]?.[appliedClassId],
-                      champs[r1]?.[appliedClassId]
-                    )}
-                  >
-                    {champs[r2]?.[appliedClassId] ?? 0}
+                  <td style={getStyle(rider2Titles, rider1Titles)}>
+                    {rider2Titles}
                   </td>
                 </tr>
               </tbody>

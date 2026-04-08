@@ -2945,8 +2945,9 @@ a.track-link:focus-visible {
 
 .nav-logo-image {
   display: block;
-  height: 72px;
+  height: 38px;
   width: auto;
+  transform: translateY(2px);
 }
 
 .nav-mobile-shell {
@@ -3938,8 +3939,9 @@ a.track-link:focus-visible {
   }
 
   .nav-mobile-logo .nav-logo-image {
-    height: 52px;
+    height: 32px;
     width: auto;
+    max-width: 100%;
   }
 
   .nav-mobile-menu-button {

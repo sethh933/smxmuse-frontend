@@ -11,7 +11,6 @@ function Navbar() {
   }, [location.pathname]);
 
   const navItems = [
-    { to: "/", label: "Home" },
     { to: "/riders", label: "Riders" },
     { to: "/season", label: "Seasons" },
     { to: "/results", label: "Race Results" },
@@ -27,7 +26,7 @@ function Navbar() {
           <div className="nav-logo">
             <Link to="/">
               <img
-                src="/smxmuselogo.png"
+                src="/OneLineTransparent-cropped.png"
                 alt="SMXmuse"
                 className="nav-logo-image"
               />
@@ -52,7 +51,7 @@ function Navbar() {
             <div className="nav-mobile-logo">
               <Link to="/">
                 <img
-                  src="/smxmuselogo.png"
+                  src="/OneLineTransparent-cropped.png"
                   alt="SMXmuse"
                   className="nav-logo-image"
                 />

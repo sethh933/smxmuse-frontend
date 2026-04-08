@@ -7,7 +7,7 @@ export const RemotionRoot = () => {
       <Composition
         id="SmxMusePromo"
         component={PromoVideo}
-        durationInFrames={900}
+        durationInFrames={960}
         fps={30}
         width={1080}
         height={1920}
