@@ -24,6 +24,16 @@ export default function AboutPage() {
       </section>
 
       <section className="about-section">
+        <p className="about-kicker">CONTACT</p>
+        <p>
+          For feedback or any questions about the site, please use
+          feedback@smxmuse.com. You can also reach out through my social media
+          pages at @smxmuse. For business inquiries, collaborations, and other
+          partnership-related requests, please use seth@smxmuse.com.
+        </p>
+      </section>
+
+      <section className="about-section">
         <p className="about-kicker">SITE NOTES</p>
         <ul className="about-notes-list">
           <li>Laps led and start position data are only available starting from 2003 for Supercross and 2004 for Motocross.</li>
