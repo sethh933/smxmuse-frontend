@@ -21,6 +21,83 @@ function blobToDataUrl(blob) {
   });
 }
 
+function isComparisonWinner(val1, val2, lowerIsBetter = false) {
+  if (val1 == null && val2 == null) return false;
+  if (val1 == null) return false;
+  if (val2 == null) return true;
+  if (val1 === val2) return false;
+
+  return lowerIsBetter ? val1 < val2 : val1 > val2;
+}
+
+function canvasToBlob(canvas) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) {
+        resolve(blob);
+      } else {
+        reject(new Error("Failed to generate canvas image."));
+      }
+    }, "image/png");
+  });
+}
+
+function drawRoundedRect(ctx, x, y, width, height, radius, fillStyle) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+  ctx.fillStyle = fillStyle;
+  ctx.fill();
+  ctx.restore();
+}
+
+function fitText(ctx, text, maxWidth) {
+  const safeText = text == null ? "" : String(text);
+  if (ctx.measureText(safeText).width <= maxWidth) return safeText;
+
+  let trimmed = safeText;
+  while (trimmed.length > 0 && ctx.measureText(`${trimmed}...`).width > maxWidth) {
+    trimmed = trimmed.slice(0, -1);
+  }
+
+  return trimmed ? `${trimmed}...` : "";
+}
+
+async function loadImageForCanvas(src) {
+  if (!src) return null;
+
+  try {
+    const response = await fetch(src);
+    if (!response.ok) return null;
+
+    const blob = await response.blob();
+    const dataUrl = await blobToDataUrl(blob);
+
+    const image = new Image();
+    image.decoding = "async";
+
+    await new Promise((resolve, reject) => {
+      image.onload = resolve;
+      image.onerror = reject;
+      image.src = dataUrl;
+    });
+
+    return image;
+  } catch (error) {
+    console.error("Failed to load image for canvas export", error);
+    return null;
+  }
+}
+
 export default function RiderComparison() {
   const [data, setData] = useState(null);
 
@@ -132,41 +209,60 @@ export default function RiderComparison() {
     setImageStatus("");
 
     try {
-      const imageElements = Array.from(
-        comparisonCaptureRef.current.querySelectorAll(".comparison-rider-image")
-      );
+      const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
+      const isMobileExport =
+        typeof window !== "undefined" &&
+        window.matchMedia("(max-width: 768px), (pointer: coarse)").matches;
+      let blob;
 
-      await Promise.all(
-        imageElements.map(async (img) => {
-          const src = img.getAttribute("src");
-          if (!src) return;
+      if (isMobileExport) {
+        blob = await createMobileComparisonImage();
+      } else {
+        const imageElements = Array.from(
+          comparisonCaptureRef.current.querySelectorAll(".comparison-rider-image")
+        );
 
-          try {
-            const response = await fetch(src);
-            const imageBlob = await response.blob();
-            const dataUrl = await blobToDataUrl(imageBlob);
-            img.setAttribute("data-original-src", src);
-            img.setAttribute("src", dataUrl);
-          } catch (error) {
-            console.error("Failed to inline comparison image", error);
-          }
-        })
-      );
+        await Promise.all(
+          imageElements.map(async (img) => {
+            const src = img.getAttribute("src");
+            if (!src) return;
 
-      const blob = await toBlob(comparisonCaptureRef.current, {
-        cacheBust: true,
-        backgroundColor: "#121212",
-        pixelRatio: 2
-      });
+            try {
+              const response = await fetch(src);
+              const imageBlob = await response.blob();
+              const dataUrl = await blobToDataUrl(imageBlob);
+              img.setAttribute("data-original-src", src);
+              img.setAttribute("src", dataUrl);
+            } catch (error) {
+              console.error("Failed to inline comparison image", error);
+            }
+          })
+        );
 
-      if (!blob) {
-        throw new Error("Failed to generate image.");
+        blob = await toBlob(comparisonCaptureRef.current, {
+          cacheBust: true,
+          backgroundColor: "#121212",
+          pixelRatio: 2
+        });
       }
 
-      const imageFileName = `smxmuse-comparison-${riderMap[r1]?.FullName || "rider-1"}-vs-${riderMap[r2]?.FullName || "rider-2"}.png`;
+      if (!blob) throw new Error("Failed to generate image.");
+
       const imageMimeType = blob.type || "image/png";
+      const imageFile = new File([blob], imageFileName, { type: imageMimeType });
 
       if (
+        isMobileExport &&
+        navigator.share &&
+        (!navigator.canShare || navigator.canShare({ files: [imageFile] }))
+      ) {
+        await navigator.share({
+          files: [imageFile],
+          title: "SMX Muse rider comparison"
+        });
+
+        setImageStatus("Comparison ready to share.");
+      } else if (
         navigator.clipboard &&
         window.ClipboardItem &&
         typeof navigator.clipboard.write === "function"
@@ -187,7 +283,11 @@ export default function RiderComparison() {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(downloadUrl);
-        setImageStatus("Image downloaded because clipboard image copy is unavailable here.");
+        setImageStatus(
+          isMobileExport
+            ? "Image downloaded because native file sharing is unavailable here."
+            : "Image downloaded because clipboard image copy is unavailable here."
+        );
       }
     } catch (error) {
       console.error("Failed to export comparison image", error);
@@ -259,20 +359,7 @@ export default function RiderComparison() {
   const isMX = appliedSport === "mx";
 
   const getStyle = (val1, val2, lowerIsBetter = false) => {
-    if (val1 == null && val2 == null) return {};
-    if (val1 == null) return {};
-    if (val2 == null) {
-      return {
-        backgroundColor: "#193d2b",
-        fontWeight: "bold"
-      };
-    }
-
-    if (val1 === val2) return {};
-
-    const better = lowerIsBetter ? val1 < val2 : val1 > val2;
-
-    return better
+    return isComparisonWinner(val1, val2, lowerIsBetter)
       ? {
           backgroundColor: "#193d2b",
           fontWeight: "bold"
@@ -297,6 +384,200 @@ export default function RiderComparison() {
   const qualifyingSectionLabel = `QUALIFYING: ${selectedClassLabel} ${selectedSportLabel}`;
   const rider1Titles = champs[r1]?.[appliedClassId] ?? 0;
   const rider2Titles = champs[r2]?.[appliedClassId] ?? 0;
+  const comparisonSections = [
+    {
+      label: mainSectionLabel,
+      rows: [
+        { label: "Starts", value1: main[r1]?.Starts ?? null, value2: main[r2]?.Starts ?? null },
+        { label: "Avg Finish", value1: main[r1]?.AvgFinish ?? null, value2: main[r2]?.AvgFinish ?? null, lowerIsBetter: true },
+        { label: "Wins", value1: main[r1]?.Wins ?? null, value2: main[r2]?.Wins ?? null },
+        { label: "Win %", value1: main[r1]?.WinPct ?? null, value2: main[r2]?.WinPct ?? null },
+        ...(isMX
+          ? [{ label: "Moto Wins", value1: main[r1]?.MotoWins ?? null, value2: main[r2]?.MotoWins ?? null }]
+          : []),
+        { label: "Podiums", value1: main[r1]?.Podiums ?? null, value2: main[r2]?.Podiums ?? null },
+        { label: "Podium %", value1: main[r1]?.PodiumPct ?? null, value2: main[r2]?.PodiumPct ?? null },
+        { label: "Top 5 %", value1: main[r1]?.Top5Pct ?? null, value2: main[r2]?.Top5Pct ?? null },
+        { label: "Top 10 %", value1: main[r1]?.Top10Pct ?? null, value2: main[r2]?.Top10Pct ?? null },
+        { label: "Laps Led", value1: main[r1]?.LapsLed ?? null, value2: main[r2]?.LapsLed ?? null }
+      ]
+    },
+    ...(!isMX
+      ? [{
+          label: heatsSectionLabel,
+          rows: [
+            { label: "Heat Avg", value1: heats[r1]?.HeatAvg ?? null, value2: heats[r2]?.HeatAvg ?? null, lowerIsBetter: true, display1: heats[r1]?.HeatAvg ?? "-", display2: heats[r2]?.HeatAvg ?? "-" },
+            { label: "Heat Wins", value1: heats[r1]?.HeatWins ?? null, value2: heats[r2]?.HeatWins ?? null, display1: heats[r1]?.HeatWins ?? 0, display2: heats[r2]?.HeatWins ?? 0 }
+          ]
+        }]
+      : []),
+    {
+      label: qualifyingSectionLabel,
+      rows: [
+        { label: "Qual Avg", value1: qual[r1]?.QualAvg ?? null, value2: qual[r2]?.QualAvg ?? null, lowerIsBetter: true },
+        { label: "Poles", value1: qual[r1]?.Poles ?? null, value2: qual[r2]?.Poles ?? null }
+      ]
+    },
+    {
+      label: "CHAMPIONSHIPS",
+      rows: [
+        { label: titleLabel, value1: rider1Titles, value2: rider2Titles, display1: rider1Titles, display2: rider2Titles }
+      ]
+    }
+  ];
+
+  const createMobileComparisonImage = async () => {
+    const canvasWidth = 1200;
+    const pagePadding = 40;
+    const cardPadding = 28;
+    const rowHeight = 54;
+    const sectionHeight = 44;
+    const headerHeight = 150;
+    const footerHeight = 36;
+    const cardWidth = canvasWidth - pagePadding * 2;
+    const tableWidth = cardWidth - cardPadding * 2;
+    const labelColWidth = 360;
+    const valueColWidth = (tableWidth - labelColWidth) / 2;
+    const contentHeight = comparisonSections.reduce(
+      (sum, section) => sum + sectionHeight + section.rows.length * rowHeight,
+      0
+    );
+    const canvasHeight = pagePadding * 2 + cardPadding * 2 + headerHeight + contentHeight + footerHeight;
+
+    const canvas = document.createElement("canvas");
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      throw new Error("Canvas is unavailable on this device.");
+    }
+
+    const [logoImage, rider1Image, rider2Image] = await Promise.all([
+      loadImageForCanvas("/OneLineTransparent-cropped.png"),
+      loadImageForCanvas(getComparisonImageSrc(riderMap[r1]?.ImageURL)),
+      loadImageForCanvas(getComparisonImageSrc(riderMap[r2]?.ImageURL))
+    ]);
+
+    ctx.fillStyle = "#121212";
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    drawRoundedRect(ctx, pagePadding, pagePadding, cardWidth, canvasHeight - pagePadding * 2, 20, "#171717");
+
+    const cardX = pagePadding;
+    const cardY = pagePadding;
+    const tableX = cardX + cardPadding;
+    let currentY = cardY + cardPadding;
+
+    if (logoImage) {
+      const logoWidth = 260;
+      const logoHeight = (logoImage.height / logoImage.width) * logoWidth;
+      ctx.drawImage(logoImage, tableX, currentY, logoWidth, logoHeight);
+    }
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "700 26px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    const rider1CenterX = tableX + labelColWidth + valueColWidth / 2;
+    const rider2CenterX = tableX + labelColWidth + valueColWidth + valueColWidth / 2;
+    const avatarSize = 72;
+    const avatarY = currentY + 4;
+
+    const drawAvatar = (image, centerX) => {
+      const avatarX = centerX - avatarSize / 2;
+      drawRoundedRect(ctx, avatarX, avatarY, avatarSize, avatarSize, 14, "#2a2a2a");
+      if (image) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(avatarX + 14, avatarY);
+        ctx.lineTo(avatarX + avatarSize - 14, avatarY);
+        ctx.quadraticCurveTo(avatarX + avatarSize, avatarY, avatarX + avatarSize, avatarY + 14);
+        ctx.lineTo(avatarX + avatarSize, avatarY + avatarSize - 14);
+        ctx.quadraticCurveTo(avatarX + avatarSize, avatarY + avatarSize, avatarX + avatarSize - 14, avatarY + avatarSize);
+        ctx.lineTo(avatarX + 14, avatarY + avatarSize);
+        ctx.quadraticCurveTo(avatarX, avatarY + avatarSize, avatarX, avatarY + avatarSize - 14);
+        ctx.lineTo(avatarX, avatarY + 14);
+        ctx.quadraticCurveTo(avatarX, avatarY, avatarX + 14, avatarY);
+        ctx.closePath();
+        ctx.clip();
+        ctx.drawImage(image, avatarX, avatarY, avatarSize, avatarSize);
+        ctx.restore();
+      }
+    };
+
+    drawAvatar(rider1Image, rider1CenterX);
+    drawAvatar(rider2Image, rider2CenterX);
+
+    ctx.fillText(fitText(ctx, riderMap[r1]?.FullName || "Rider 1", valueColWidth - 24), rider1CenterX, avatarY + avatarSize + 24);
+    ctx.fillText(fitText(ctx, riderMap[r2]?.FullName || "Rider 2", valueColWidth - 24), rider2CenterX, avatarY + avatarSize + 24);
+
+    currentY += headerHeight;
+
+    comparisonSections.forEach((section) => {
+      ctx.fillStyle = "#1b1b1b";
+      ctx.fillRect(tableX, currentY, tableWidth, sectionHeight);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "700 18px Arial";
+      ctx.textAlign = "left";
+      ctx.fillText(section.label, tableX + 16, currentY + sectionHeight / 2 + 1);
+      currentY += sectionHeight;
+
+      section.rows.forEach((row) => {
+        const rowY = currentY;
+        const winner1 = isComparisonWinner(row.value1, row.value2, row.lowerIsBetter);
+        const winner2 = isComparisonWinner(row.value2, row.value1, row.lowerIsBetter);
+
+        ctx.fillStyle = "#141414";
+        ctx.fillRect(tableX, rowY, tableWidth, rowHeight);
+
+        if (winner1) {
+          ctx.fillStyle = "#193d2b";
+          ctx.fillRect(tableX + labelColWidth, rowY, valueColWidth, rowHeight);
+        }
+
+        if (winner2) {
+          ctx.fillStyle = "#193d2b";
+          ctx.fillRect(tableX + labelColWidth + valueColWidth, rowY, valueColWidth, rowHeight);
+        }
+
+        ctx.strokeStyle = "#2a2a2a";
+        ctx.lineWidth = 1;
+        ctx.strokeRect(tableX, rowY, tableWidth, rowHeight);
+        ctx.beginPath();
+        ctx.moveTo(tableX + labelColWidth, rowY);
+        ctx.lineTo(tableX + labelColWidth, rowY + rowHeight);
+        ctx.moveTo(tableX + labelColWidth + valueColWidth, rowY);
+        ctx.lineTo(tableX + labelColWidth + valueColWidth, rowY + rowHeight);
+        ctx.stroke();
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "500 18px Arial";
+        ctx.textAlign = "left";
+        ctx.fillText(fitText(ctx, row.label, labelColWidth - 28), tableX + 16, rowY + rowHeight / 2 + 1);
+
+        const display1 = row.display1 ?? (row.value1 ?? "-");
+        const display2 = row.display2 ?? (row.value2 ?? "-");
+
+        ctx.font = `${winner1 ? "700" : "500"} 18px Arial`;
+        ctx.textAlign = "center";
+        ctx.fillText(String(display1), tableX + labelColWidth + valueColWidth / 2, rowY + rowHeight / 2 + 1);
+
+        ctx.font = `${winner2 ? "700" : "500"} 18px Arial`;
+        ctx.fillText(String(display2), tableX + labelColWidth + valueColWidth + valueColWidth / 2, rowY + rowHeight / 2 + 1);
+
+        currentY += rowHeight;
+      });
+    });
+
+    ctx.fillStyle = "#a1a1aa";
+    ctx.font = "500 15px Arial";
+    ctx.textAlign = "right";
+    ctx.fillText("smxmuse.com", cardX + cardWidth - cardPadding, canvasHeight - pagePadding - 16);
+
+    return canvasToBlob(canvas);
+  };
 
   return (
     <div className="comparison-page">
