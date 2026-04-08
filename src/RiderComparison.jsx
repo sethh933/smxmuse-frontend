@@ -454,7 +454,7 @@ export default function RiderComparison() {
     }
 
     const [logoImage, rider1Image, rider2Image] = await Promise.all([
-      loadImageForCanvas("/OneLineTransparent-cropped.png"),
+      loadImageForCanvas("/smxmuselogo.png"),
       loadImageForCanvas(getComparisonImageSrc(riderMap[r1]?.ImageURL)),
       loadImageForCanvas(getComparisonImageSrc(riderMap[r2]?.ImageURL))
     ]);
@@ -470,7 +470,7 @@ export default function RiderComparison() {
     let currentY = cardY + cardPadding;
 
     if (logoImage) {
-      const logoWidth = 260;
+      const logoWidth = 120;
       const logoHeight = (logoImage.height / logoImage.width) * logoWidth;
       ctx.drawImage(logoImage, tableX, currentY, logoWidth, logoHeight);
     }
@@ -948,6 +948,7 @@ export default function RiderComparison() {
                 </tr>
               </tbody>
               </table>
+              <div className="comparison-capture-footer">smxmuse.com</div>
               </div>
 
                 <div className="comparison-floating-share">
