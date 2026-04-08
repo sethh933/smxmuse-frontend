@@ -472,7 +472,8 @@ export default function RiderComparison() {
     if (logoImage) {
       const logoWidth = 120;
       const logoHeight = (logoImage.height / logoImage.width) * logoWidth;
-      ctx.drawImage(logoImage, tableX, currentY, logoWidth, logoHeight);
+      const logoX = tableX + (labelColWidth - logoWidth) / 2;
+      ctx.drawImage(logoImage, logoX, currentY, logoWidth, logoHeight);
     }
 
     ctx.fillStyle = "#ffffff";

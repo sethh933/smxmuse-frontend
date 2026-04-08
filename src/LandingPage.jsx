@@ -179,12 +179,12 @@ function GridsCallout() {
         ))}
       </div>
       <a
-        href="https://smxmuse.com"
+        href="https://grids.smxmuse.com"
         target="_blank"
         rel="noreferrer"
         className="landing-button landing-button-primary"
       >
-        Play on smxmuse.com
+        Play on grids.smxmuse.com
       </a>
     </aside>
   );
