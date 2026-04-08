@@ -2128,7 +2128,16 @@ a.country-rider-name:hover,
   }
 
   .comparison-floating-share {
-    display: none;
+    display: block;
+    width: 100%;
+  }
+
+  .comparison-share-rail {
+    align-items: stretch;
+  }
+
+  .comparison-share-button {
+    width: 100%;
   }
 }
 
