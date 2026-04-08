@@ -26,10 +26,9 @@ export default function AboutPage() {
       <section className="about-section">
         <p className="about-kicker">CONTACT</p>
         <p>
-          For feedback or any questions about the site, please use
-          feedback@smxmuse.com. You can also reach out through my social media
-          pages at @smxmuse. For business inquiries, collaborations, and other
-          partnership-related requests, please use seth@smxmuse.com.
+          If you want to get in touch about the site, the database, collaborations,
+          or anything else related to smxmuse, the best place to reach me is through
+          my social media pages at @smxmuse or seth@smxmuse.com.
         </p>
       </section>
 
