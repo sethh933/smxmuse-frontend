@@ -1,9 +1,12 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRacePath, buildRiderPath, buildTrackPath, parseRiderId } from "./seo";
 
 export default function RiderResults() {
-  const { riderId } = useParams();
+  const { riderId: riderParam } = useParams();
+  const riderId = parseRiderId(riderParam);
   const location = useLocation();
   const [selectedTrack, setSelectedTrack] = useState("All Tracks");
   const [results, setResults] = useState([]);
@@ -16,7 +19,10 @@ export default function RiderResults() {
 ];
 
   const getRacePath = (row) =>
-    `/race/${row.RaceID}`;
+    buildRacePath(row.RaceID, row.TrackName, new Date(row.RaceDate).getFullYear(), {
+      sportId: row.Discipline === "SX" ? 1 : row.Discipline === "MX" ? 2 : row.Discipline,
+      city: row.City
+    });
 
   // Fetch race results
   useEffect(() => {
@@ -97,6 +103,15 @@ export default function RiderResults() {
 
   return (
     <div className="rider-profile-page rider-results-page">
+      {riderData && (
+        <Seo
+          title={`${riderData.full_name} Career Results`}
+          description={`Browse ${riderData.full_name}'s race-by-race Supercross and Motocross career results, including track history and filtered event results.`}
+          path={buildRiderPath(riderId, riderData.full_name, "results")}
+          canonical={buildRiderPath(riderId, riderData.full_name, "results")}
+          image={riderData.image_url}
+        />
+      )}
       {!riderData ? (
         <div>Loading...</div>
       ) : (
@@ -130,14 +145,14 @@ export default function RiderResults() {
 
           <div className="rider-nav">
             <Link
-              to={`/rider/${riderId}`}
+              to={buildRiderPath(riderId, riderData.full_name)}
               className="rider-nav-button"
             >
               Career Stats
             </Link>
 
             <Link
-              to={`/rider/${riderId}/results`}
+              to={buildRiderPath(riderId, riderData.full_name, "results")}
               className={`rider-nav-button ${
                 location.pathname.includes("/results") ? "active" : ""
               }`}
@@ -146,7 +161,7 @@ export default function RiderResults() {
             </Link>
 
             <Link
-              to={`/rider/${riderId}/points`}
+              to={buildRiderPath(riderId, riderData.full_name, "points")}
               className="rider-nav-button"
             >
               Points Standings
@@ -214,7 +229,7 @@ export default function RiderResults() {
 
                 <td className="track-col">
                   <Link
-  to={`/track/${row.Discipline === "SX" ? 1 : 2}/${row.TrackID}`}
+  to={buildTrackPath(row.Discipline === "SX" ? 1 : 2, row.TrackID, row.TrackName)}
 >
                     {row.TrackName}
                   </Link>

@@ -2,9 +2,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRiderPath, parseRiderId } from "./seo";
 
 export default function RiderProfile() {
-  const { riderId } = useParams();
+  const { riderId: riderParam } = useParams();
+  const riderId = parseRiderId(riderParam);
   const [data, setData] = useState(null);
   const [mode, setMode] = useState("SX"); // default to SX
   const [hasSX, setHasSX] = useState(true);
@@ -191,6 +194,23 @@ const getLapsLedDisplay = (row, sport) => {
 
   return (
     <div className="rider-profile-page rider-career-page">
+      {data?.rider && (
+        <Seo
+          title={`${data.rider.full_name} Rider Profile and Career Stats`}
+          description={`Explore ${data.rider.full_name}'s Supercross and Motocross career stats, results history, qualifying numbers, and points totals on SMXmuse.`}
+          path={buildRiderPath(riderId, data.rider.full_name)}
+          canonical={buildRiderPath(riderId, data.rider.full_name)}
+          image={data.rider.image_url}
+          type="profile"
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: data.rider.full_name,
+            image: data.rider.image_url,
+            nationality: data.rider.country
+          }}
+        />
+      )}
       <section className="rider-profile-hero">
         <div className="rider-header">
           <img
@@ -221,16 +241,16 @@ const getLapsLedDisplay = (row, sport) => {
 
         <div className="rider-nav">
           <Link
-            to={`/rider/${riderId}`}
+            to={buildRiderPath(riderId, data.rider.full_name)}
             className={`rider-nav-button ${
-              location.pathname === `/rider/${riderId}` ? "active" : ""
+              location.pathname === buildRiderPath(riderId, data.rider.full_name) ? "active" : ""
             }`}
           >
             Career Stats
           </Link>
 
           <Link
-            to={`/rider/${riderId}/results`}
+            to={buildRiderPath(riderId, data.rider.full_name, "results")}
             className={`rider-nav-button ${
               location.pathname.includes("/results") ? "active" : ""
             }`}
@@ -239,7 +259,7 @@ const getLapsLedDisplay = (row, sport) => {
           </Link>
 
           <Link
-            to={`/rider/${riderId}/points`}
+            to={buildRiderPath(riderId, data.rider.full_name, "points")}
             className={`rider-nav-button ${
               location.pathname.includes("/points") ? "active" : ""
             }`}

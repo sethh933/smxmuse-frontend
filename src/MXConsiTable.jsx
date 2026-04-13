@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { buildRiderPath } from "./seo";
 
 function MXConsiTable({ data }) {
   return (
@@ -18,7 +19,7 @@ function MXConsiTable({ data }) {
     <tr key={index}>
       <td className="pos">{row.result}</td>
       <td className="rider">
-  <Link to={`/rider/${row.riderid}`}>
+  <Link to={buildRiderPath(row.riderid, row.fullname)}>
     {row.fullname}
   </Link>
 </td>

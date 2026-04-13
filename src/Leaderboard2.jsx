@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
+import { buildRiderPath } from "./seo";
 
 function Leaderboard2({ sport, classId, selectedRider, setSelectedRider }) {
   const [data, setData] = useState([]);
@@ -71,7 +72,7 @@ function Leaderboard2({ sport, classId, selectedRider, setSelectedRider }) {
                   <td>{idx + 1}</td>
                   <td>
   <Link
-    to={`/rider/${rider.riderid}`}
+    to={buildRiderPath(rider.riderid, rider.fullname)}
     onClick={(e) => e.stopPropagation()}
   >
     {rider.fullname}

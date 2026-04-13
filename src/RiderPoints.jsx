@@ -1,9 +1,12 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRiderPath, parseRiderId } from "./seo";
 
 export default function RiderPoints() {
-  const { riderId } = useParams();
+  const { riderId: riderParam } = useParams();
+  const riderId = parseRiderId(riderParam);
   const location = useLocation();
 
   const [points, setPoints] = useState([]);
@@ -57,6 +60,15 @@ export default function RiderPoints() {
 
   return (
     <div className="rider-profile-page rider-points-page">
+      {riderData && (
+        <Seo
+          title={`${riderData.full_name} Points Standings History`}
+          description={`View ${riderData.full_name}'s Supercross and Motocross championship finishes and points standings history on SMXmuse.`}
+          path={buildRiderPath(riderId, riderData.full_name, "points")}
+          canonical={buildRiderPath(riderId, riderData.full_name, "points")}
+          image={riderData.image_url}
+        />
+      )}
       {!riderData ? (
         <div>Loading...</div>
       ) : (
@@ -90,21 +102,21 @@ export default function RiderPoints() {
 
           <div className="rider-nav">
             <Link
-              to={`/rider/${riderId}`}
+              to={buildRiderPath(riderId, riderData.full_name)}
               className="rider-nav-button"
             >
               Career Stats
             </Link>
 
             <Link
-              to={`/rider/${riderId}/results`}
+              to={buildRiderPath(riderId, riderData.full_name, "results")}
               className="rider-nav-button"
             >
               Career Results
             </Link>
 
             <Link
-              to={`/rider/${riderId}/points`}
+              to={buildRiderPath(riderId, riderData.full_name, "points")}
               className={`rider-nav-button ${
                 location.pathname.includes("/points") ? "active" : ""
               }`}

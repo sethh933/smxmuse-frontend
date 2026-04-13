@@ -1,6 +1,13 @@
+import Seo from "./SiteSeo";
+
 export default function AboutPage() {
   return (
     <div className="about-page">
+      <Seo
+        title="About SMXmuse"
+        description="Learn what SMXmuse covers, how the Supercross and Motocross stats archive was built, and where to send feedback or business inquiries."
+        path="/about"
+      />
       <section className="about-hero">
         <p className="about-kicker">ABOUT SMXMUSE</p>
         <p>

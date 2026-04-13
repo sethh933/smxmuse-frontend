@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { buildRiderPath } from "./seo";
 
 function MXOverallsTable({ data }) {
   return (
@@ -24,7 +25,7 @@ function MXOverallsTable({ data }) {
             <tr key={index}>
               <td>{row.result}</td>
               <td>
-  <Link to={`/rider/${row.riderid}`}>
+  <Link to={buildRiderPath(row.riderid, row.fullname)}>
     {row.fullname}
   </Link>
 </td>

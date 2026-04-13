@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRiderPath } from "./seo";
 
 const getCountryCode = (country) => {
   const map = {
@@ -97,7 +99,7 @@ function FeaturedRiders({ riders, navigate }) {
             key={rider.RiderID}
             type="button"
             className="featured-rider-card"
-            onClick={() => navigate(`/rider/${rider.RiderID}`)}
+            onClick={() => navigate(buildRiderPath(rider.RiderID, rider.FullName))}
           >
             <img
               src={rider.ImageURL}
@@ -169,6 +171,11 @@ function CountriesPage() {
 
   return (
     <div className="page-container riders-hub">
+      <Seo
+        title="Browse Riders"
+        description="Browse the full SMXmuse rider archive by last name or country, including featured riders and country pages."
+        path="/riders"
+      />
       <div className="riders-hub-header">
         <h1>Riders</h1>
         <div className="rider-count">{riderCount.toLocaleString()} Riders</div>
@@ -222,7 +229,7 @@ function CountriesPage() {
                   <div
                     key={rider.RiderID}
                     className="rider-row rider-row-clickable"
-                    onClick={() => navigate(`/rider/${rider.RiderID}`)}
+                    onClick={() => navigate(buildRiderPath(rider.RiderID, rider.FullName))}
                   >
                     <img
                       src={rider.ImageURL}

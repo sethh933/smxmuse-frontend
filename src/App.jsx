@@ -30,6 +30,8 @@ import { useLocation } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import AboutPage from "./AboutPage";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildAbsoluteUrl, buildRacePath, buildTrackPath, parseRaceId, parseRiderId, parseTrackId } from "./seo";
 
 
 
@@ -41,6 +43,11 @@ function LeaderboardsPage() {
 
   return (
     <div className="leaderboards-page">
+      <Seo
+        title="All-Time Supercross and Motocross Leaderboards"
+        description="Browse all-time SMXmuse leaderboards for wins, podiums, starts, and career milestones across Supercross and Motocross."
+        path="/leaderboards"
+      />
       <section className="leaderboards-hero">
         <h1>All Time Leaderboards</h1>
         <p className="leaderboards-intro">
@@ -129,7 +136,8 @@ function LeaderboardsPage() {
 }
 
 function RacePage() {
-  const { raceid } = useParams();
+  const { raceid: raceParam } = useParams();
+  const raceid = parseRaceId(raceParam);
   const [raceHeader, setRaceHeader] = useState(null);
   const [mainEvent450, setMainEvent450] = useState([]);
   const [mainEvent250, setMainEvent250] = useState([]);
@@ -193,11 +201,30 @@ classes.sort((a, b) => order[a] - order[b]);
 
   return (
     <div className="race-page" style={{ padding: 20 }}>
+      <Seo
+        title={`${raceHeader.Year} ${raceHeader.TrackName} ${isSX ? "Supercross" : "Motocross"} Results`}
+        description={`View round ${raceHeader.Round} results, race data, and class breakdowns from ${raceHeader.TrackName} in the ${raceHeader.Year} ${isSX ? "Supercross" : "Motocross"} season.`}
+        path={buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
+          sportId: raceHeader.SportID,
+          city: raceHeader.City
+        })}
+        type="article"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          name: `${raceHeader.Year} ${raceHeader.TrackName} ${isSX ? "Supercross" : "Motocross"}`,
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+          sport: isSX ? "Supercross" : "Motocross",
+          startDate: `${raceHeader.Year}`,
+          url: buildAbsoluteUrl(buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
+            sportId: raceHeader.SportID,
+            city: raceHeader.City
+          }))
+        }}
+      />
 
       <h1 style={{ textAlign: "center" }}>
-        <Link 
-  to={`/track/${raceHeader.SportID}/${raceHeader.TrackID}`}
->
+        <Link to={buildTrackPath(raceHeader.SportID, raceHeader.TrackID, raceHeader.TrackName)}>
           {raceHeader.TrackName}
         </Link>
       </h1>
@@ -261,17 +288,27 @@ function SeasonRouteWrapper() {
 
 function RiderProfileRouteWrapper() {
   const { riderId } = useParams();
-  return <RiderProfile key={riderId} />;
+  return <RiderProfile key={parseRiderId(riderId)} />;
 }
 
 function RiderResultsRouteWrapper() {
   const { riderId } = useParams();
-  return <RiderResults key={riderId} />;
+  return <RiderResults key={parseRiderId(riderId)} />;
 }
 
 function RiderPointsRouteWrapper() {
   const { riderId } = useParams();
-  return <RiderPoints key={riderId} />;
+  return <RiderPoints key={parseRiderId(riderId)} />;
+}
+
+function TrackProfileRouteWrapper() {
+  const { track_id } = useParams();
+  return <TrackProfile key={parseTrackId(track_id)} />;
+}
+
+function RacePageRouteWrapper() {
+  const { raceid } = useParams();
+  return <RacePage key={parseRaceId(raceid)} />;
 }
 
 function LegacyCountryRedirect() {
@@ -294,11 +331,11 @@ function App() {
   path="/season/:sport/:year/:classId"
   element={<SeasonRouteWrapper />}
 />
-            <Route path="/race/:raceid" element={<RacePage />} />
+            <Route path="/race/:raceid" element={<RacePageRouteWrapper />} />
             <Route path="/rider/:riderId" element={<RiderProfileRouteWrapper />} />
             <Route path="/rider/:riderId/results" element={<RiderResultsRouteWrapper />} />
             <Route path="/compare" element={<RiderComparison />} />
-            <Route path="/track/:sport_id/:track_id" element={<TrackProfile />} />
+            <Route path="/track/:sport_id/:track_id" element={<TrackProfileRouteWrapper />} />
             <Route path="/riders" element={<CountriesPage />} />
             <Route path="/riders/:country" element={<CountryPage />} />
             <Route path="/countries" element={<Navigate to="/riders" replace />} />

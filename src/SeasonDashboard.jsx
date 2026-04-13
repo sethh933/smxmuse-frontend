@@ -5,6 +5,7 @@ import { LapsLedPie } from "./LapsLedPie";
 import { PointsProgressionChart } from "./PointsProgressionChart";
 import { useParams, useNavigate } from "react-router-dom";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
 
 const START_YEAR = 1972;
 const CURRENT_YEAR = new Date().getFullYear();
@@ -134,6 +135,11 @@ export default function SeasonDashboard() {
 
   return (
     <div className="season-dashboard">
+      <Seo
+        title={`${year} ${getSeasonLabel(classId, sport)} Season Dashboard`}
+        description={`Explore ${year} ${getSeasonLabel(classId, sport)} standings, stats, laps led, and championship progression on SMXmuse.`}
+        path={`/season/${sport}/${year}/${classId}`}
+      />
       <section className="season-dashboard-hero">
         <p className="results-home-kicker">Season dashboard</p>
         <h1>{year} {getSeasonLabel(classId, sport)}</h1>

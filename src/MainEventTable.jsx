@@ -1,5 +1,6 @@
 import "./App.css";
 import { Link } from "react-router-dom";
+import { buildRiderPath } from "./seo";
 
 export default function MainEventTable({ results, raceYear, sportId, tripleCrownId }) {
   if (!results || results.length === 0) {
@@ -32,7 +33,7 @@ export default function MainEventTable({ results, raceYear, sportId, tripleCrown
             <tr key={`${rider.riderid}-${rider.result}`}>
               <td className="pos">{rider.result}</td>
               <td className="rider">
-                <Link to={`/rider/${rider.riderid}`}>
+                <Link to={buildRiderPath(rider.riderid, rider.fullname)}>
                   {rider.fullname}
                 </Link>
               </td>

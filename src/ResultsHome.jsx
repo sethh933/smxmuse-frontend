@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
 
 export default function ResultsHome() {
   const [sport, setSport] = useState("sx");
@@ -44,6 +45,11 @@ export default function ResultsHome() {
 
   return (
     <div className="results-container results-home">
+      <Seo
+        title={`Race Results Archive${sport === "sx" ? " - Supercross" : " - Motocross"}`}
+        description={`Browse ${sport === "sx" ? "Supercross" : "Motocross"} race results by decade and season, then jump into full round-by-round result pages.`}
+        path="/results"
+      />
       <section className="results-home-hero">
         <p className="results-home-kicker">Archive browser</p>
         <h1>Race Results</h1>

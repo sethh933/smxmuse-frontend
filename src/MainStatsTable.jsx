@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { buildRiderPath } from "./seo";
 
 export function MainStatsTable({ data, sport }) {
   const getDisplayName = (row) => row.DisplayFullName || row.FullName;
@@ -93,7 +94,7 @@ export function MainStatsTable({ data, sport }) {
             {columns.map(col => (
               <td key={col.key} className={col.key === "FullName" ? "rider-col" : undefined}>
   {col.key === "FullName" ? (
-    <Link to={`/rider/${row.RiderID}`}>
+    <Link to={buildRiderPath(row.RiderID, getDisplayName(row))}>
       {getDisplayName(row)}
     </Link>
   ) : (

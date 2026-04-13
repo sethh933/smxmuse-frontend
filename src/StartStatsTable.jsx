@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { buildRiderPath } from "./seo";
 
 export function StartStatsTable({ data, sport, year }) {
   const getDisplayName = (row) => row.DisplayFullName || row.FullName;
@@ -106,7 +107,7 @@ const [sortDir, setSortDir] = useState(defaultSortDir);
       {sport === "sx" ? (
         <>
           <td className="rider-col">
-  <Link to={`/rider/${r.RiderID}`}>
+  <Link to={buildRiderPath(r.RiderID, getDisplayName(r))}>
     {getDisplayName(r)}
   </Link>
 </td>
@@ -120,7 +121,7 @@ const [sortDir, setSortDir] = useState(defaultSortDir);
       ) : (
         <>
           <td className="rider-col">
-  <Link to={`/rider/${r.RiderID}`}>
+  <Link to={buildRiderPath(r.RiderID, getDisplayName(r))}>
     {getDisplayName(r)}
   </Link>
 </td>

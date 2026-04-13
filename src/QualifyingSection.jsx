@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QualifyingTable from "./QualifyingTable";
 import { apiUrl } from "./api";
+import { parseRaceId } from "./seo";
 
 /* -------------------------
    Coast label helper
@@ -17,7 +18,8 @@ function getCoastLabel(raceCoastId, results) {
 }
 
 export default function QualifyingSection({ classid, raceCoastId }) {
-  const { raceid } = useParams();
+  const { raceid: raceParam } = useParams();
+  const raceid = parseRaceId(raceParam);
   const [results, setResults] = useState([]);
 
   useEffect(() => {

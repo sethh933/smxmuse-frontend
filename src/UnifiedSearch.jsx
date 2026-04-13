@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "./api";
+import { buildRiderPath, buildTrackPath } from "./seo";
 
 function UnifiedSearch() {
   const [query, setQuery] = useState("");
@@ -54,13 +55,13 @@ function UnifiedSearch() {
   const selectRider = (rider) => {
     setQuery("");
     setShowDropdown(false);
-    navigate(`/rider/${rider.RiderID}`);
+    navigate(buildRiderPath(rider.RiderID, rider.FullName));
   };
 
   const selectTrack = (track) => {
   setQuery("");
   setShowDropdown(false);
-  navigate(`/track/${track.SportID}/${track.TrackID}`);
+  navigate(buildTrackPath(track.SportID, track.TrackID, track.TrackName));
 };
 
   const hasResults =

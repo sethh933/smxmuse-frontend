@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeatRaceTable from "./HeatRaceTable";
 import { apiUrl } from "./api";
+import { parseRaceId } from "./seo";
 
 /* -------------------------
    Coast label helper
@@ -27,7 +28,8 @@ function getRaceCoastLabel(raceCoastId, results) {
 }
 
 export default function HeatRacesSection({ classid, raceCoastId }) {
-  const { raceid } = useParams();
+  const { raceid: raceParam } = useParams();
+  const raceid = parseRaceId(raceParam);
   const [heats, setHeats] = useState({});
 
   useEffect(() => {

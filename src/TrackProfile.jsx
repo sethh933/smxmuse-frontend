@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./App.css";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRacePath, buildRiderPath, buildTrackPath, parseSportParam, parseTrackId } from "./seo";
 
 function TrackProfile() {
-  const { track_id, sport_id } = useParams();
-
-  const sportId = Number(sport_id);
+  const { track_id: trackParam, sport_id: sportParam } = useParams();
+  const trackId = parseTrackId(trackParam);
+  const sportId = parseSportParam(sportParam);
 
   const [classId, setClassId] = useState(1);
   const [data, setData] = useState(null);
@@ -17,7 +19,7 @@ function TrackProfile() {
     async function fetchClasses() {
       try {
         const params = new URLSearchParams({
-          track_id,
+          track_id: trackId,
           sport_id: String(sportId),
         });
         const res = await fetch(apiUrl(`/api/track-classes?${params.toString()}`));
@@ -33,7 +35,7 @@ function TrackProfile() {
     }
 
     fetchClasses();
-  }, [track_id, sportId]);
+  }, [trackId, sportId]);
 
   useEffect(() => {
     if (availableClasses.length === 0) return;
@@ -45,7 +47,7 @@ function TrackProfile() {
 
   useEffect(() => {
     const params = new URLSearchParams({
-      track_id,
+      track_id: trackId,
       sport_id: String(sportId),
       class_id: String(classId),
     });
@@ -64,7 +66,7 @@ function TrackProfile() {
       .catch((err) => {
         console.error("ERROR:", err);
       });
-  }, [track_id, sportId, classId]);
+  }, [trackId, sportId, classId]);
 
   if (!data || !data.race_winners) {
     return <div className="app-wrapper">Loading...</div>;
@@ -74,6 +76,11 @@ function TrackProfile() {
 
   return (
     <div className="track-profile-page">
+      <Seo
+        title={`${trackName} ${sportId === 1 ? "Supercross" : "Motocross"} Track History`}
+        description={`View ${trackName} winners, starts, podiums, and track history for ${sportId === 1 ? "Supercross" : "Motocross"} on SMXmuse.`}
+        path={buildTrackPath(sportParam, trackId, trackName)}
+      />
       <section className="track-profile-hero">
         <h1>{trackName}</h1>
 
@@ -125,12 +132,15 @@ function TrackProfile() {
                 {data.race_winners?.map((row, i) => (
                   <tr key={i}>
                     <td>
-                      <Link to={`/race/${row.RaceID}`}>
+                      <Link to={buildRacePath(row.RaceID, row.TrackName, new Date(row.RaceDate).getFullYear(), {
+                        sportId,
+                        city: row.City
+                      })}>
                         {new Date(row.RaceDate).toLocaleDateString()}
                       </Link>
                     </td>
                     <td>
-                      <Link to={`/rider/${row.RiderID}`} className="race-winner-name-link">
+                      <Link to={buildRiderPath(row.RiderID, row.Winner)} className="race-winner-name-link">
                         <span className="race-winner-name-text">{row.Winner}</span>
                       </Link>
                     </td>
@@ -182,7 +192,7 @@ function LeaderboardCard({ title, data, stat }) {
               <tr key={i}>
                 <td>{row.Rank}</td>
                 <td>
-                  <Link to={`/rider/${row.RiderID}`}>
+                  <Link to={buildRiderPath(row.RiderID, row.FullName)}>
                     {row.FullName}
                   </Link>
                 </td>

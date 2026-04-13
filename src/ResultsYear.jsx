@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRacePath, buildRiderPath } from "./seo";
 
 function getChampionLabel(sport, classId, coastId) {
   if (sport === "sx") {
@@ -88,6 +90,11 @@ export default function ResultsYear() {
 
   return (
     <div className="schedule-container results-year-page">
+      <Seo
+        title={`${year} ${sportLabel} Results`}
+        description={`Browse every round from the ${year} ${sportLabel} season, plus season champions and the full archive schedule.`}
+        path={`/results/${sport}/${year}`}
+      />
       <section className="results-year-hero">
         <p className="results-home-kicker">Season archive</p>
         <h1>
@@ -112,7 +119,7 @@ export default function ResultsYear() {
                 key={`${champion.classid}-${champion.coastid ?? "all"}-${champion.riderid}`}
                 type="button"
                 className="results-year-champion-card"
-                onClick={() => navigate(`/rider/${champion.riderid}`)}
+                onClick={() => navigate(buildRiderPath(champion.riderid, champion.fullname))}
               >
                 <span className="results-year-champion-label">{champion.label}</span>
                 <img
@@ -155,7 +162,10 @@ export default function ResultsYear() {
             <div
               key={race.race_id}
               className={`schedule-row ${isMobileSchedule ? "schedule-row-mobile" : ""}`}
-              onClick={() => navigate(`/race/${race.race_id}`)}
+              onClick={() => navigate(buildRacePath(race.race_id, race.track_name, year, {
+                sportId,
+                city: race.city
+              }))}
             >
               <div className="schedule-round">{race.round}</div>
               {isMobileSchedule ? (

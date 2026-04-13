@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRiderPath, slugify } from "./seo";
 
 const getCountryCode = (country) => {
   const map = {
@@ -87,6 +89,12 @@ const letters = Object.keys(groupedRiders).sort();
 
   return (
     <div className="page-container">
+      <Seo
+        title={`${data.country} Riders`}
+        description={`Browse rider profiles from ${data.country} in the SMXmuse Supercross and Motocross archive.`}
+        path={`/riders/${slugify(data.country)}`}
+        canonical={`/riders/${country}`}
+      />
 
       {/* HEADER */}
       <div className="country-header">
@@ -139,7 +147,7 @@ const letters = Object.keys(groupedRiders).sort();
           <div
             key={rider.RiderID}
             className="rider-row rider-row-clickable"
-            onClick={() => navigate(`/rider/${rider.RiderID}`)}
+            onClick={() => navigate(buildRiderPath(rider.RiderID, rider.FullName))}
           >
             <img
               src={rider.ImageURL}
@@ -162,7 +170,7 @@ const letters = Object.keys(groupedRiders).sort();
         <div
           key={rider.RiderID}
           className="rider-row rider-row-clickable"
-          onClick={() => navigate(`/rider/${rider.RiderID}`)}
+          onClick={() => navigate(buildRiderPath(rider.RiderID, rider.FullName))}
         >
           <img
             src={rider.ImageURL}

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
+import { buildRacePath, buildRiderPath } from "./seo";
 
 const FEATURED_PATHS = [
   {
@@ -126,7 +128,7 @@ function ResultList({ rows, sport }) {
       {rows.map((row) => (
         <Link
           key={`${row.riderid}-${row.result}`}
-          to={`/rider/${row.riderid}`}
+          to={buildRiderPath(row.riderid, row.fullname)}
           className="landing-result-row"
         >
           <span className="landing-result-pos">#{row.result}</span>
@@ -197,7 +199,7 @@ function RiderOfTheDayPanel({ riderOfTheDay }) {
       {riderOfTheDay ? (
         <>
           <Link
-            to={`/rider/${riderOfTheDay.RiderID}`}
+            to={buildRiderPath(riderOfTheDay.RiderID, riderOfTheDay.FullName)}
             className="landing-spotlight-link"
           >
             <img
@@ -222,7 +224,7 @@ function RiderOfTheDayPanel({ riderOfTheDay }) {
           </p>
           <div className="landing-spotlight-actions">
             <Link
-              to={`/rider/${riderOfTheDay.RiderID}`}
+              to={buildRiderPath(riderOfTheDay.RiderID, riderOfTheDay.FullName)}
               className="landing-button landing-button-primary"
             >
               Open rider profile
@@ -254,7 +256,13 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
         </div>
 
         {latestRace && (
-          <Link to={`/race/${latestRace.race_id}`} className="landing-inline-link">
+          <Link
+            to={buildRacePath(latestRace.race_id, latestRace.track_name, new Date(latestRace.race_date).getFullYear(), {
+              sportId: latestRace.sport === "sx" ? 1 : latestRace.sport === "mx" ? 2 : latestRace.sport,
+              city: latestRace.city
+            })}
+            className="landing-inline-link"
+          >
             View full race page
           </Link>
         )}
@@ -434,6 +442,11 @@ export default function LandingPage() {
 
   return (
     <div className="landing-page">
+      <Seo
+        title="Supercross and Motocross Stats, Results, and Rider Profiles"
+        description="SMXmuse is a Supercross and Motocross stats archive with rider profiles, race results, season dashboards, comparisons, and all-time leaderboards."
+        path="/"
+      />
       <section className="landing-desktop-layout landing-layout-narrow-top">
         <div className="landing-hero-copy landing-hero-copy-narrow">
           <p className="landing-kicker">Supercross and Motocross Archive</p>
