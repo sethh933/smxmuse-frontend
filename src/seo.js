@@ -1,4 +1,4 @@
-export const SITE_NAME = "SMXmuse";
+export const SITE_NAME = "smxmuse";
 export const SITE_URL = "https://smxmuse.com";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/smxmuselogo.png`;
 
