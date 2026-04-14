@@ -45,7 +45,7 @@ function LeaderboardsPage() {
     <div className="leaderboards-page">
       <Seo
         title="All-Time Supercross and Motocross Leaderboards"
-        description="Browse all-time SMXmuse leaderboards for wins, podiums, starts, and career milestones across Supercross and Motocross."
+        description="Browse all-time smxmuse leaderboards for wins, podiums, starts, and career milestones across Supercross and Motocross."
         path="/leaderboards"
       />
       <section className="leaderboards-hero">
