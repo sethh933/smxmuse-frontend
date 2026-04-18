@@ -198,12 +198,13 @@ classes.sort((a, b) => order[a] - order[b]);
   if (!raceHeader) return <p>Loading...</p>;
 
   const isSX = raceHeader.SportID === 1;
+  const raceDisplayName = isSX && raceHeader.City ? raceHeader.City : raceHeader.TrackName;
 
   return (
     <div className="race-page" style={{ padding: 20 }}>
       <Seo
-        title={`${raceHeader.Year} ${raceHeader.TrackName} ${isSX ? "Supercross" : "Motocross"} Results`}
-        description={`View round ${raceHeader.Round} results, race data, and class breakdowns from ${raceHeader.TrackName} in the ${raceHeader.Year} ${isSX ? "Supercross" : "Motocross"} season.`}
+        title={`${raceHeader.Year} ${raceDisplayName} ${isSX ? "Supercross" : "Motocross"} Results`}
+        description={`View round ${raceHeader.Round} results, race data, and class breakdowns from ${raceDisplayName} in the ${raceHeader.Year} ${isSX ? "Supercross" : "Motocross"} season.`}
         path={buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
           sportId: raceHeader.SportID,
           city: raceHeader.City
@@ -212,7 +213,7 @@ classes.sort((a, b) => order[a] - order[b]);
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "SportsEvent",
-          name: `${raceHeader.Year} ${raceHeader.TrackName} ${isSX ? "Supercross" : "Motocross"}`,
+          name: `${raceHeader.Year} ${raceDisplayName} ${isSX ? "Supercross" : "Motocross"}`,
           eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
           sport: isSX ? "Supercross" : "Motocross",
           startDate: `${raceHeader.Year}`,

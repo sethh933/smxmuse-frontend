@@ -241,6 +241,12 @@ function RiderOfTheDayPanel({ riderOfTheDay }) {
 }
 
 function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
+  const latestRaceDisplayName = latestRace
+    ? latestRace.sport === "sx" && latestRace.city
+      ? latestRace.city
+      : latestRace.track_name
+    : null;
+
   return (
     <div className="landing-results-panel">
       <div className="landing-panel-header">
@@ -250,7 +256,7 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
             {loadingLatest
               ? "Loading latest race..."
               : latestRace
-              ? `${latestRace.track_name} ${latestRace.sportLabel}`
+              ? `${latestRaceDisplayName} ${latestRace.sportLabel}`
               : "Latest race unavailable"}
           </h3>
         </div>
