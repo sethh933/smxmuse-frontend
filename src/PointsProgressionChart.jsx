@@ -71,6 +71,20 @@ function normalizeBrand(value) {
   return String(value || "").trim().toUpperCase();
 }
 
+function normalizeName(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function getRiderKey(row) {
+  const riderId = row?.RiderID ?? row?.riderid;
+
+  if (riderId != null && riderId !== "") {
+    return `rider:${riderId}`;
+  }
+
+  return `name:${normalizeName(row?.FullName ?? row?.fullname)}`;
+}
+
 function getBaseBrandColor(brand) {
   return BRAND_BASE_COLORS[normalizeBrand(brand)] || "#8a8f98";
 }
@@ -119,68 +133,100 @@ export function PointsProgressionChart({ data, sport, mainStats = [] }) {
 
   const getPoints = (d) => d.CumulativePoints ?? d.Points;
 
-  const finalByRider = {};
-  data.forEach((d) => {
-    const pts = getPoints(d);
-    finalByRider[d.FullName] = Math.max(finalByRider[d.FullName] || 0, pts);
+  const riderMetaByKey = new Map();
+
+  mainStats.forEach((row) => {
+    const key = getRiderKey(row);
+    const name = row.FullName || row.fullname;
+    const brand = row.Brand || row.brand;
+
+    if (!key || !name) return;
+
+    riderMetaByKey.set(key, {
+      name,
+      brand
+    });
   });
 
-  const topRiders = Object.entries(finalByRider)
-    .sort((a, b) => b[1] - a[1])
+  data.forEach((row) => {
+    const key = getRiderKey(row);
+    const name = row.FullName || row.fullname;
+
+    if (!key || !name || riderMetaByKey.has(key)) return;
+
+    riderMetaByKey.set(key, {
+      name,
+      brand: undefined
+    });
+  });
+
+  const finalByRider = new Map();
+  data.forEach((d) => {
+    const riderKey = getRiderKey(d);
+    const pts = getPoints(d);
+    const current = finalByRider.get(riderKey);
+
+    if (!current || pts > current.points) {
+      const meta = riderMetaByKey.get(riderKey);
+      finalByRider.set(riderKey, {
+        key: riderKey,
+        name: meta?.name || d.FullName || d.fullname || riderKey,
+        points: pts
+      });
+    }
+  });
+
+  const topRiders = Array.from(finalByRider.values())
+    .sort((a, b) => b.points - a.points)
     .slice(0, 5)
-    .map(([name]) => name);
+    .map((rider) => rider.key);
 
   const rounds = {};
   data.forEach((d) => {
-    if (!topRiders.includes(d.FullName)) return;
+    const riderKey = getRiderKey(d);
+
+    if (!topRiders.includes(riderKey)) return;
 
     if (!rounds[d.Round]) rounds[d.Round] = { round: d.Round };
-    rounds[d.Round][d.FullName] = getPoints(d);
+    rounds[d.Round][riderKey] = getPoints(d);
   });
 
   const sortedRounds = Object.values(rounds).sort((a, b) => a.round - b.round);
-  const lastSeenPoints = Object.fromEntries(topRiders.map((name) => [name, 0]));
+  const lastSeenPoints = Object.fromEntries(topRiders.map((riderKey) => [riderKey, 0]));
 
   const chartData = sortedRounds.map((roundRow) => {
     const filledRow = { round: roundRow.round };
 
-    topRiders.forEach((name) => {
-      if (roundRow[name] != null) {
-        lastSeenPoints[name] = roundRow[name];
+    topRiders.forEach((riderKey) => {
+      if (roundRow[riderKey] != null) {
+        lastSeenPoints[riderKey] = roundRow[riderKey];
       }
 
-      filledRow[name] = lastSeenPoints[name];
+      filledRow[riderKey] = lastSeenPoints[riderKey];
     });
 
     return filledRow;
-  });
-
-  const brandByRider = new Map();
-  mainStats.forEach((row) => {
-    const brand = row.Brand || row.brand;
-    const name = row.FullName || row.fullname;
-    if (brand && name) {
-      brandByRider.set(String(name).trim().toLowerCase(), brand);
-    }
   });
 
   const brandCounts = new Map();
   const lineColors = new Map();
   const displayColors = new Map();
 
-  topRiders.forEach((name) => {
-    const brand = brandByRider.get(String(name).trim().toLowerCase()) || "Other";
+  topRiders.forEach((riderKey) => {
+    const brand = riderMetaByKey.get(riderKey)?.brand || "Other";
     const brandKey = normalizeBrand(brand);
     const brandIndex = brandCounts.get(brandKey) || 0;
     brandCounts.set(brandKey, brandIndex + 1);
     const lineColor = getBrandShade(getBaseBrandColor(brandKey), brandIndex);
-    lineColors.set(name, lineColor);
-    displayColors.set(name, getDisplayColor(lineColor, brandKey));
+    lineColors.set(riderKey, lineColor);
+    displayColors.set(riderKey, getDisplayColor(lineColor, brandKey));
   });
+
+  const getRiderLabel = (riderKey) => riderMetaByKey.get(riderKey)?.name || riderKey;
 
   const legendFormatter = (value) => (
     <span style={{ color: displayColors.get(value) || "#f1f1f1", fontWeight: 600 }}>
-      {value}
+      {getRiderLabel(value)}
     </span>
   );
 
@@ -210,15 +256,15 @@ export function PointsProgressionChart({ data, sport, mainStats = [] }) {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
           {topRiders
-            .filter((name) => roundRow[name] != null)
-            .map((name) => (
+            .filter((riderKey) => roundRow[riderKey] != null)
+            .map((riderKey) => (
               <div
-                key={name}
+                key={riderKey}
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
-                  color: displayColors.get(name) || "#f1f1f1",
+                  color: displayColors.get(riderKey) || "#f1f1f1",
                   fontWeight: 600
                 }}
               >
@@ -227,12 +273,12 @@ export function PointsProgressionChart({ data, sport, mainStats = [] }) {
                     width: "9px",
                     height: "9px",
                     borderRadius: "999px",
-                    backgroundColor: displayColors.get(name) || "#f1f1f1",
+                    backgroundColor: displayColors.get(riderKey) || "#f1f1f1",
                     boxShadow: "0 0 0 1px rgba(255, 255, 255, 0.2)"
                   }}
                 />
                 <span>
-                  {name}: {roundRow[name]}
+                  {getRiderLabel(riderKey)}: {roundRow[riderKey]}
                 </span>
               </div>
             ))}
@@ -278,19 +324,20 @@ export function PointsProgressionChart({ data, sport, mainStats = [] }) {
             height={legendHeight}
           />
 
-          {topRiders.map((name) => (
+          {topRiders.map((riderKey) => (
             <Line
-              key={name}
+              key={riderKey}
               type="monotone"
-              dataKey={name}
-              stroke={displayColors.get(name)}
+              dataKey={riderKey}
+              name={getRiderLabel(riderKey)}
+              stroke={displayColors.get(riderKey)}
               strokeWidth={isMobile ? 3 : 3.5}
               dot={false}
               activeDot={{
                 r: isMobile ? 4 : 5,
                 stroke: "#ffffff",
                 strokeWidth: 1,
-                fill: displayColors.get(name)
+                fill: displayColors.get(riderKey)
               }}
             />
           ))}
