@@ -77,8 +77,13 @@ function normalizeName(value) {
 
 function getRiderKey(row) {
   const riderId = row?.RiderID ?? row?.riderid;
+  const riderCoastId = row?.RiderCoastID ?? row?.ridercoastid;
 
   if (riderId != null && riderId !== "") {
+    if (riderCoastId != null && riderCoastId !== "") {
+      return `rider:${riderId}:coast:${riderCoastId}`;
+    }
+
     return `rider:${riderId}`;
   }
 
