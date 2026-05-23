@@ -23,7 +23,8 @@ function getSeasonLabel(classId, sport) {
       ? "250 East"
       : classId;
 
-  return `${classLabel} ${sport === "sx" ? "Supercross" : "Motocross"}`;
+  const sportLabel = sport === "sx" ? "Supercross" : sport === "mx" ? "Motocross" : "SMX";
+  return `${classLabel} ${sportLabel}`;
 }
 
 export default function SeasonDashboard() {
@@ -37,12 +38,21 @@ export default function SeasonDashboard() {
   const [selectedYear, setSelectedYear] = useState(year);
   const [selectedClass, setSelectedClass] = useState(classId);
   const [availableClasses, setAvailableClasses] = useState([]);
+  const selectableYears = selectedSport === "smx"
+    ? YEARS.filter((y) => y >= 2023)
+    : YEARS;
 
   useEffect(() => {
     setSelectedSport(sport);
     setSelectedYear(year);
     setSelectedClass(classId);
   }, [sport, year, classId]);
+
+  useEffect(() => {
+    if (selectedSport === "smx" && selectedYear < 2023) {
+      setSelectedYear(2023);
+    }
+  }, [selectedSport, selectedYear]);
 
   useEffect(() => {
     async function loadClasses() {
@@ -53,7 +63,7 @@ export default function SeasonDashboard() {
         return;
       }
 
-      const sportId = selectedSport === "sx" ? 1 : 2;
+      const sportId = selectedSport === "sx" ? 1 : selectedSport === "mx" ? 2 : 3;
       const res = await fetch(apiUrl(`/api/available-classes?sport_id=${sportId}&year=${selectedYear}`));
       const data = await res.json();
 
@@ -110,23 +120,29 @@ export default function SeasonDashboard() {
         lapsUrl = `/api/season/laps-led?year=${year}&sportid=1&classid=${apiClassId}${riderCoastId ? `&ridercoastid=${riderCoastId}` : ""}`;
         pointsUrl = `/api/season/points-progression?year=${year}&sportid=1&classid=${apiClassId}${riderCoastId ? `&ridercoastid=${riderCoastId}` : ""}`;
       } else {
-        mainUrl = `/api/mx/season/overall?year=${year}&classid=${apiClassId}`;
-        startUrl = `/api/mx/season/moto-qual?year=${year}&classid=${apiClassId}`;
-        lapsUrl = `/api/mx/season/laps-led?year=${year}&classid=${apiClassId}`;
-        pointsUrl = `/api/mx/season/points-progression?year=${year}&classid=${apiClassId}`;
+        const seasonPrefix = sport === "smx" ? "smx" : "mx";
+        mainUrl = `/api/${seasonPrefix}/season/overall?year=${year}&classid=${apiClassId}`;
+        startUrl = `/api/${seasonPrefix}/season/moto-qual?year=${year}&classid=${apiClassId}`;
+        lapsUrl = `/api/${seasonPrefix}/season/laps-led?year=${year}&classid=${apiClassId}`;
+        pointsUrl = `/api/${seasonPrefix}/season/points-progression?year=${year}&classid=${apiClassId}`;
       }
 
-      const [mainRes, startRes, lapsRes, pointsRes] = await Promise.all([
+      const requests = [
         fetch(apiUrl(mainUrl)),
         fetch(apiUrl(startUrl)),
-        fetch(apiUrl(lapsUrl)),
-        fetch(apiUrl(pointsUrl))
-      ]);
+        fetch(apiUrl(lapsUrl))
+      ];
+
+      if (pointsUrl) {
+        requests.push(fetch(apiUrl(pointsUrl)));
+      }
+
+      const [mainRes, startRes, lapsRes, pointsRes] = await Promise.all(requests);
 
       setMainStats(await mainRes.json());
       setStartStats(await startRes.json());
       setLapsLedStats(await lapsRes.json());
-      setPointsData(await pointsRes.json());
+      setPointsData(pointsRes ? await pointsRes.json() : []);
       setLoading(false);
     }
 
@@ -155,6 +171,9 @@ export default function SeasonDashboard() {
               onChange={(e) => {
                 const newSport = e.target.value;
                 setSelectedSport(newSport);
+                if (newSport === "smx" && selectedYear < 2023) {
+                  setSelectedYear(2023);
+                }
                 setSelectedClass("450");
               }}
             >
@@ -164,6 +183,7 @@ export default function SeasonDashboard() {
                 <>
                   <option value="sx">SX</option>
                   <option value="mx">MX</option>
+                  <option value="smx">SMX</option>
                 </>
               )}
             </select>
@@ -172,7 +192,7 @@ export default function SeasonDashboard() {
               value={selectedYear}
               onChange={(e) => setSelectedYear(Number(e.target.value))}
             >
-              {YEARS.map((y) => (
+              {selectableYears.map((y) => (
                 <option key={y} value={y}>{y}</option>
               ))}
             </select>

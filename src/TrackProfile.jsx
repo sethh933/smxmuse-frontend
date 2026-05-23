@@ -73,12 +73,13 @@ function TrackProfile() {
   }
 
   const trackName = data?.race_winners?.[0]?.TrackName || "Track Profile";
+  const sportLabel = sportId === 1 ? "Supercross" : sportId === 2 ? "Motocross" : "SMX";
 
   return (
     <div className="track-profile-page">
       <Seo
-        title={`${trackName} ${sportId === 1 ? "Supercross" : "Motocross"} Track History`}
-        description={`View ${trackName} winners, starts, podiums, and track history for ${sportId === 1 ? "Supercross" : "Motocross"} on SMXmuse.`}
+        title={`${trackName} ${sportLabel} Track History`}
+        description={`View ${trackName} winners, starts, podiums, and track history for ${sportLabel} on SMXmuse.`}
         path={buildTrackPath(sportParam, trackId, trackName)}
       />
       <section className="track-profile-hero">

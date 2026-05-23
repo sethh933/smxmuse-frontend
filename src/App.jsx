@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { Fragment, useCallback, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useParams, Navigate } from "react-router-dom";
 import SeasonDashboard from "./SeasonDashboard";
 import Leaderboard1 from './Leaderboard1';
@@ -16,6 +16,8 @@ import RiderResults from "./RiderResults";
 import MXOverallsSection from "./MXOverallsSection";
 import MXQualifyingSection from "./MXQualifyingSection";
 import MXConsiSection from "./MXConsiSection";
+import SMXMotoSection from "./SMXMotoSection";
+import SMXWildcardSection from "./SMXWildcardSection";
 import RiderComparison from "./RiderComparison";
 import TrackProfile from "./TrackProfile";
 import CountriesPage from './CountriesPage';
@@ -44,8 +46,8 @@ function LeaderboardsPage() {
   return (
     <div className="leaderboards-page">
       <Seo
-        title="All-Time Supercross and Motocross Leaderboards"
-        description="Browse all-time smxmuse leaderboards for wins, podiums, starts, and career milestones across Supercross and Motocross."
+        title="All-Time Supercross, Motocross, and SMX Leaderboards"
+        description="Browse all-time smxmuse leaderboards for wins, podiums, starts, and career milestones across Supercross, Motocross, and SMX."
         path="/leaderboards"
       />
       <section className="leaderboards-hero">
@@ -75,6 +77,16 @@ function LeaderboardsPage() {
               className={sport === "motocross" ? "active" : ""}
             >
               MX
+            </button>
+
+            <button
+              onClick={() => {
+                setSport("smx");
+                setClassId(1);
+              }}
+              className={sport === "smx" ? "active" : ""}
+            >
+              SMX
             </button>
           </div>
 
@@ -143,6 +155,7 @@ function RacePage() {
   const [mainEvent250, setMainEvent250] = useState([]);
   const [tripleCrownMains, setTripleCrownMains] = useState(null);
   const [mxClasses, setMxClasses] = useState([]);
+  const [loadedOverallClasses, setLoadedOverallClasses] = useState(() => new Set());
 
   // Fetch header (this determines SX vs MX)
   useEffect(() => {
@@ -153,15 +166,15 @@ function RacePage() {
   }, [raceid]);
 
   useEffect(() => {
-  if (!raceHeader || raceHeader.SportID !== 2) return;
+  if (!raceHeader || ![2, 3].includes(raceHeader.SportID)) return;
 
-  fetch(apiUrl(`/api/race/mx-classes?raceid=${raceid}`))
+  fetch(apiUrl(`/api/race/mx-classes?raceid=${raceid}&sport_id=${raceHeader.SportID}`))
     .then(res => res.json())
     .then(data => {
       const classes = data.map(c => c.ClassID);
 
       // optional sort
-      const order = { 1: 1, 3: 2, 2: 3 };
+      const order = raceHeader.SportID === 3 ? { 1: 1, 2: 2, 3: 3 } : { 1: 1, 3: 2, 2: 3 };
 
 classes.sort((a, b) => order[a] - order[b]);
 
@@ -169,6 +182,18 @@ classes.sort((a, b) => order[a] - order[b]);
     })
     .catch(err => console.error(err));
 }, [raceHeader, raceid]);
+
+  useEffect(() => {
+    setLoadedOverallClasses(new Set());
+  }, [raceid, raceHeader?.SportID]);
+
+  const handleOverallLoaded = useCallback((classId) => {
+    setLoadedOverallClasses((previous) => {
+      const next = new Set(previous);
+      next.add(classId);
+      return next;
+    });
+  }, []);
 
   // Fetch SX main event ONLY if SX
   useEffect(() => {
@@ -198,13 +223,18 @@ classes.sort((a, b) => order[a] - order[b]);
   if (!raceHeader) return <p>Loading...</p>;
 
   const isSX = raceHeader.SportID === 1;
+  const isSMX = raceHeader.SportID === 3;
+  const smxOverallsReady =
+    !isSMX ||
+    (mxClasses.length > 0 && mxClasses.every((classId) => loadedOverallClasses.has(classId)));
+  const sportLabel = isSX ? "Supercross" : isSMX ? "SMX" : "Motocross";
   const raceDisplayName = isSX && raceHeader.City ? raceHeader.City : raceHeader.TrackName;
 
   return (
     <div className="race-page" style={{ padding: 20 }}>
       <Seo
-        title={`${raceHeader.Year} ${raceDisplayName} ${isSX ? "Supercross" : "Motocross"} Results`}
-        description={`View round ${raceHeader.Round} results, race data, and class breakdowns from ${raceDisplayName} in the ${raceHeader.Year} ${isSX ? "Supercross" : "Motocross"} season.`}
+        title={`${raceHeader.Year} ${raceDisplayName} ${sportLabel} Results`}
+        description={`View round ${raceHeader.Round} results, race data, and class breakdowns from ${raceDisplayName} in the ${raceHeader.Year} ${sportLabel} season.`}
         path={buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
           sportId: raceHeader.SportID,
           city: raceHeader.City
@@ -213,9 +243,9 @@ classes.sort((a, b) => order[a] - order[b]);
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "SportsEvent",
-          name: `${raceHeader.Year} ${raceDisplayName} ${isSX ? "Supercross" : "Motocross"}`,
+          name: `${raceHeader.Year} ${raceDisplayName} ${sportLabel}`,
           eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-          sport: isSX ? "Supercross" : "Motocross",
+          sport: sportLabel,
           startDate: `${raceHeader.Year}`,
           url: buildAbsoluteUrl(buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
             sportId: raceHeader.SportID,
@@ -263,17 +293,37 @@ classes.sort((a, b) => order[a] - order[b]);
         </>
       ) : (
         <>
-          {/* MOTOcross */}
+          {/* MOTOcross / SMX */}
 
 {mxClasses.map(classId => (
-  <MXOverallsSection key={`overall-${classId}`} raceId={raceid} classId={classId} />
+  <MXOverallsSection
+    key={`overall-${classId}`}
+    raceId={raceid}
+    classId={classId}
+    sportId={raceHeader.SportID}
+    onLoaded={isSMX ? handleOverallLoaded : undefined}
+  />
 ))}
 
-{mxClasses.map(classId => (
-  <MXQualifyingSection key={`qual-${classId}`} raceId={raceid} classId={classId} sportId={2} />
+{isSMX && smxOverallsReady && mxClasses.map(classId => (
+  <Fragment key={`smx-motos-${classId}`}>
+    <SMXMotoSection raceId={raceid} classId={classId} moto={1} />
+    <SMXMotoSection raceId={raceid} classId={classId} moto={2} />
+  </Fragment>
 ))}
 
-{mxClasses.map(classId => (
+{(!isSMX || smxOverallsReady) && mxClasses.map(classId => (
+  <MXQualifyingSection
+    key={`qual-${classId}`}
+    raceId={raceid}
+    classId={classId}
+    sportId={raceHeader.SportID}
+  />
+))}
+
+{isSMX && smxOverallsReady ? mxClasses.map(classId => (
+  <SMXWildcardSection key={`wildcard-${classId}`} raceId={raceid} classId={classId} />
+)) : !isSMX && mxClasses.map(classId => (
   <MXConsiSection key={`consi-${classId}`} raceId={raceid} classId={classId} />
 ))}
         </>

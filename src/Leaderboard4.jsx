@@ -9,7 +9,7 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
   const riderRefs = useRef({});
   const containerRef = useRef(null);
 
-  const title = sport === "motocross" ? "Moto Wins" : "Heat Wins";
+  const title = sport === "supercross" ? "Heat Wins" : "Moto Wins";
 
   useEffect(() => {
     setLoading(true);
@@ -17,7 +17,7 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
     fetch(apiUrl(`/leaderboard4?class_ids=${classId}`))
       .then((res) => res.json())
       .then((json) => {
-        const dataset = sport === "motocross" ? json.motocross : json.supercross;
+        const dataset = json[sport] || [];
         setData(dataset);
         setLoading(false);
       });
@@ -52,7 +52,7 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
         <div className="leaderboard-table-head leaderboard-table-head-four">
           <span>#</span>
           <span>Rider</span>
-          <span>{sport === "motocross" ? "Moto Wins" : "Heat Wins"}</span>
+          <span>{sport === "supercross" ? "Heat Wins" : "Moto Wins"}</span>
         </div>
       <div className="leaderboard-table-wrapper" ref={containerRef}>
         <table className="leaderboard-four-table">
@@ -61,9 +61,9 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
               const isHighlighted = selectedRider === rider.riderid;
 
               const wins =
-                sport === "motocross"
-                  ? rider.moto_wins
-                  : rider.heat_wins;
+                sport === "supercross"
+                  ? rider.heat_wins
+                  : rider.moto_wins;
 
               return (
                 <tr

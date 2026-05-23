@@ -20,7 +20,7 @@ export default function RiderResults() {
 
   const getRacePath = (row) =>
     buildRacePath(row.RaceID, row.TrackName, new Date(row.RaceDate).getFullYear(), {
-      sportId: row.Discipline === "SX" ? 1 : row.Discipline === "MX" ? 2 : row.Discipline,
+      sportId: row.Discipline === "SX" ? 1 : row.Discipline === "MX" ? 2 : 3,
       city: row.City
     });
 
@@ -41,7 +41,8 @@ export default function RiderResults() {
   const disciplineMatch =
     mode === "Combined" ||
     (mode === "SX" && row.Discipline === "SX") ||
-    (mode === "MX" && row.Discipline === "MX");
+    (mode === "MX" && row.Discipline === "MX") ||
+    (mode === "SMX" && row.Discipline === "SMX");
 
   const trackMatch =
     selectedTrack === "All Tracks" || row.TrackName === selectedTrack;
@@ -189,6 +190,15 @@ export default function RiderResults() {
             >
               MX
             </button>
+
+            {results.some((row) => row.Discipline === "SMX") && (
+              <button
+                className={mode === "SMX" ? "active" : ""}
+                onClick={() => setMode("SMX")}
+              >
+                SMX
+              </button>
+            )}
           </div>
 
           <div className="track-filter rider-profile-track-filter">
@@ -229,7 +239,7 @@ export default function RiderResults() {
 
                 <td className="track-col">
                   <Link
-  to={buildTrackPath(row.Discipline === "SX" ? 1 : 2, row.TrackID, row.TrackName)}
+  to={buildTrackPath(row.Discipline === "SX" ? 1 : row.Discipline === "MX" ? 2 : 3, row.TrackID, row.TrackName)}
 >
                     {row.TrackName}
                   </Link>

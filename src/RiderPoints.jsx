@@ -54,7 +54,8 @@ export default function RiderPoints() {
   const filteredPoints = points.filter((row) => {
   if (mode === "Combined") return true;
   if (mode === "SX") return row.Class.includes("SX");
-  if (mode === "MX") return row.Class.includes("MX");
+  if (mode === "MX") return row.Class.includes("MX") && !row.Class.includes("SMX");
+  if (mode === "SMX") return row.Class.includes("SMX");
   return true;
 });
 
@@ -146,6 +147,15 @@ export default function RiderPoints() {
             >
               MX
             </button>
+
+            {points.some((row) => row.Class?.includes("SMX")) && (
+              <button
+                className={mode === "SMX" ? "active" : ""}
+                onClick={() => setMode("SMX")}
+              >
+                SMX
+              </button>
+            )}
           </div>
         </section>
       )}
@@ -169,7 +179,7 @@ export default function RiderPoints() {
                 <td className="year-col">
   <Link
     to={`/season/${
-      row.Class.includes("MX") ? "mx" : "sx"
+      row.Class.includes("SMX") ? "smx" : row.Class.includes("MX") ? "mx" : "sx"
     }/${row.Year}/${
       row.Class === "250SX W"
         ? "250W"

@@ -18,6 +18,11 @@ function getChampionLabel(sport, classId, coastId) {
     if (classId === 3) return "500 Champion";
   }
 
+  if (sport === "smx") {
+    if (classId === 1) return "450 SMX Champion";
+    if (classId === 2) return "250 SMX Champion";
+  }
+
   return "Champion";
 }
 
@@ -32,8 +37,8 @@ export default function ResultsYear() {
     typeof window !== "undefined" ? window.innerWidth <= 640 : false
   );
 
-  const sportId = sport === "sx" ? 1 : 2;
-  const sportLabel = sport === "sx" ? "Supercross" : "Motocross";
+  const sportId = sport === "sx" ? 1 : sport === "mx" ? 2 : 3;
+  const sportLabel = sport === "sx" ? "Supercross" : sport === "mx" ? "Motocross" : "SMX";
 
   useEffect(() => {
     setLoading(true);

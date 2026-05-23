@@ -12,11 +12,13 @@ export default function RiderProfile() {
   const [mode, setMode] = useState("SX"); // default to SX
   const [hasSX, setHasSX] = useState(true);
   const [hasMX, setHasMX] = useState(true);
+  const [hasSMX, setHasSMX] = useState(false);
 
   useEffect(() => {
     setData(null);
     setHasSX(true);
     setHasMX(true);
+    setHasSMX(false);
     setMode("SX");
   }, [riderId]);
 
@@ -31,6 +33,7 @@ useEffect(() => {
       setData(data);
       setHasSX(data.hasSX);
       setHasMX(data.hasMX);
+      setHasSMX(data.hasSMX);
     });
 
   return () => {
@@ -43,6 +46,8 @@ useEffect(() => {
 
   if (!data.hasSX && data.hasMX) {
     setMode("MX");
+  } else if (!data.hasSX && !data.hasMX && data.hasSMX) {
+    setMode("SMX");
   }
 }, [data]);
 
@@ -59,6 +64,8 @@ const sxStats = data.stats ?? [];
 const qualStats = data.qual_stats ?? [];
 const mxStats = data.mx_stats ?? [];
 const mxQualStats = data.mx_qual_stats ?? [];
+const smxStats = data.smx_stats ?? [];
+const smxQualStats = data.smx_qual_stats ?? [];
 
 
 
@@ -158,6 +165,19 @@ const sortedMxCareerRows = [...mxCareerRows].sort((a, b) => {
 
 const sortedMxQualStats = [...mxYearlyRows, ...sortedMxCareerRows];
 
+const smxYearlyRows = smxQualStats.filter(r => r.Year !== null);
+const smxCareerRows = smxQualStats.filter(r => r.Year === null);
+
+const sortedSmxCareerRows = [...smxCareerRows].sort((a, b) => {
+  if (a.ClassID === 0) return 1;
+  if (b.ClassID === 0) return -1;
+  if (a.ClassID === 2 && b.ClassID === 1) return -1;
+  if (a.ClassID === 1 && b.ClassID === 2) return 1;
+  return 0;
+});
+
+const sortedSmxQualStats = [...smxYearlyRows, ...sortedSmxCareerRows];
+
 const mxStatsYearlyRows = mxStats.filter(r => r.Year !== null);
 const mxStatsCareerRows = mxStats.filter(r => r.Year === null);
 
@@ -173,6 +193,22 @@ const sortedMxStatsCareerRows = [...mxStatsCareerRows].sort((a, b) => {
 });
 
 const sortedMxStats = [...mxStatsYearlyRows, ...sortedMxStatsCareerRows];
+
+const smxStatsYearlyRows = smxStats.filter(r => r.Year !== null);
+const smxStatsCareerRows = smxStats.filter(r => r.Year === null);
+
+const sortedSmxStatsCareerRows = [...smxStatsCareerRows].sort((a, b) => {
+  const classOrder = {
+    2: 1,
+    1: 2,
+    3: 3,
+    0: 4
+  };
+
+  return (classOrder[a.ClassID] ?? 9) - (classOrder[b.ClassID] ?? 9);
+});
+
+const sortedSmxStats = [...smxStatsYearlyRows, ...sortedSmxStatsCareerRows];
 
 const getProfileClassLabel = (row) => {
   if (row.Class) return row.Class;
@@ -286,12 +322,21 @@ const getLapsLedDisplay = (row, sport) => {
               MX
             </button>
           )}
+
+          {hasSMX && (
+            <button
+              className={mode === "SMX" ? "active" : ""}
+              onClick={() => setMode("SMX")}
+            >
+              SMX
+            </button>
+          )}
         </div>
       </section>
 
       {/* ================= MAIN STATS TABLE ================= */}
       <h2 className="section-header">
-  {mode === "SX" ? "Main Events" : "Motocross"}
+  {mode === "SX" ? "Main Events" : mode === "MX" ? "Motocross" : "SMX Overalls"}
 </h2>
 
 <div className="rider-table-wrapper">
@@ -399,7 +444,7 @@ const getLapsLedDisplay = (row, sport) => {
       );
     })
   ) : (
-    sortedMxStats.map((row, i) => {
+    (mode === "SMX" ? sortedSmxStats : sortedMxStats).map((row, i) => {
   const isCareer = row.Year === null && row.ClassID === 0;
   const isClassTotal = row.Year === null && row.ClassID !== 0;
 
@@ -415,14 +460,14 @@ const getLapsLedDisplay = (row, sport) => {
       }
     >
       <td className="year-col">
-        {row.Year ? (
+        {row.Year && mode !== "SMX" ? (
           <Link
-            to={`/season/mx/${row.Year}/${row.Class}`}
+            to={`/season/${mode === "SMX" ? "smx" : "mx"}/${row.Year}/${row.Class}`}
             style={{ color: "#60a5fa", textDecoration: "none" }}
           >
             {row.Year}
           </Link>
-        ) : "Career"}
+        ) : row.Year ? row.Year : "Career"}
       </td>
 
       <td className="class-col">{getProfileClassLabel(row)}</td>
@@ -443,7 +488,7 @@ const getLapsLedDisplay = (row, sport) => {
       <td>{row.PodiumPct}</td>
       <td>{row.Wins}</td>
       <td>{row.WinPct}</td>
-      <td>{getLapsLedDisplay(row, "MX")}</td>
+      <td>{getLapsLedDisplay(row, mode)}</td>
       <td>{row.Holeshots}</td>
       <td>{row.TotalPoints}</td>
     </tr>
@@ -542,9 +587,11 @@ const getLapsLedDisplay = (row, sport) => {
         </>
 )}
 
-{mode === "MX" && (
+{(mode === "MX" || mode === "SMX") && (
   <>
-    <h2 className="section-header">Qualifying / Consis</h2>
+    <h2 className="section-header">
+      {mode === "SMX" ? "Qualifying / Wildcards" : "Qualifying / Consis"}
+    </h2>
 
     <div className="rider-table-wrapper">
       <table className="rider-stats">
@@ -559,15 +606,15 @@ const getLapsLedDisplay = (row, sport) => {
             <th>Best Qual</th>
             <th>Poles</th>
 
-            <th>Consi Apps</th>
-            <th>Avg Consi</th>
-            <th>Best Consi</th>
-            <th>Consi Wins</th>
+            <th>{mode === "SMX" ? "Wildcard Apps" : "Consi Apps"}</th>
+            <th>{mode === "SMX" ? "Avg Wildcard" : "Avg Consi"}</th>
+            <th>{mode === "SMX" ? "Best Wildcard" : "Best Consi"}</th>
+            <th>{mode === "SMX" ? "Wildcard Wins" : "Consi Wins"}</th>
           </tr>
         </thead>
 
         <tbody>
-          {sortedMxQualStats.map((row, i) => {
+          {(mode === "SMX" ? sortedSmxQualStats : sortedMxQualStats).map((row, i) => {
             const isCareer = row.Year === null && row.ClassID === 0;
             const isClassTotal = row.Year === null && row.ClassID !== 0;
 
@@ -583,14 +630,14 @@ const getLapsLedDisplay = (row, sport) => {
                 }
               >
                 <td className="year-col">
-  {row.Year ? (
+  {row.Year && mode !== "SMX" ? (
     <Link
-      to={`/season/mx/${row.Year}/${row.Class}`}
+      to={`/season/${mode === "SMX" ? "smx" : "mx"}/${row.Year}/${row.Class}`}
       style={{ color: "#60a5fa", textDecoration: "none" }}
     >
       {row.Year}
     </Link>
-  ) : "Career"}
+  ) : row.Year ? row.Year : "Career"}
 </td>
 
                 <td className="class-col">{row.Class ?? ""}</td>

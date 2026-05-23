@@ -11,7 +11,7 @@ function Leaderboard1({ sport, classId, selectedRider, setSelectedRider }) {
   const riderRefs = useRef({});
   const containerRef = useRef(null);
 
-  const title = sport === "motocross" ? "Overall Wins" : "Main Event Wins";
+  const title = sport === "supercross" ? "Main Event Wins" : "Overall Wins";
 
   useEffect(() => {
     setLoading(true);
@@ -19,7 +19,7 @@ function Leaderboard1({ sport, classId, selectedRider, setSelectedRider }) {
     fetch(apiUrl(`/leaderboard1?class_ids=${classId}`))
       .then((res) => res.json())
       .then((json) => {
-        const dataset = sport === "motocross" ? json.motocross : json.supercross;
+        const dataset = json[sport] || [];
         setData(dataset);
         setLoading(false);
       });

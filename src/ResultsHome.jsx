@@ -10,7 +10,7 @@ export default function ResultsHome() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  const sportId = sport === "sx" ? 1 : 2;
+  const sportId = sport === "sx" ? 1 : sport === "mx" ? 2 : 3;
 
   fetch(apiUrl(`/api/years?sport_id=${sportId}`))
     .then(res => res.json())
@@ -42,12 +42,13 @@ export default function ResultsHome() {
   const totalYears = years.length;
   const newestYear = years.length > 0 ? Math.max(...years) : null;
   const oldestYear = years.length > 0 ? Math.min(...years) : null;
+  const sportLabel = sport === "sx" ? "Supercross" : sport === "mx" ? "Motocross" : "SMX";
 
   return (
     <div className="results-container results-home">
       <Seo
-        title={`Race Results Archive${sport === "sx" ? " - Supercross" : " - Motocross"}`}
-        description={`Browse ${sport === "sx" ? "Supercross" : "Motocross"} race results by decade and season, then jump into full round-by-round result pages.`}
+        title={`Race Results Archive - ${sportLabel}`}
+        description={`Browse ${sportLabel} race results by decade and season, then jump into full round-by-round result pages.`}
         path="/results"
       />
       <section className="results-home-hero">
@@ -72,12 +73,19 @@ export default function ResultsHome() {
             >
               MX
             </button>
+
+            <button
+              onClick={() => setSport("smx")}
+              className={sport === "smx" ? "active" : ""}
+            >
+              SMX
+            </button>
           </div>
 
           <div className="results-home-summary">
             <div className="results-home-summary-card">
               <span>Sport</span>
-              <strong>{sport === "sx" ? "Supercross" : "Motocross"}</strong>
+              <strong>{sportLabel}</strong>
             </div>
             <div className="results-home-summary-card">
               <span>Years</span>

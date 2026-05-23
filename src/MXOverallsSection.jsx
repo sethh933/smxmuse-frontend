@@ -2,21 +2,26 @@ import React, { useEffect, useState } from "react";
 import MXOverallsTable from "./MXOverallsTable";
 import { apiUrl } from "./api";
 
-function MXOverallsSection({ raceId, classId }) {
+function MXOverallsSection({ raceId, classId, sportId = 2, onLoaded }) {
   const [overalls, setOveralls] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const getClassName = (classId) => {
-  if (classId === 1) return "450";
-  if (classId === 2) return "250";
-  if (classId === 3) return "500";
-  return classId;
-};
+    if (classId === 1) return "450";
+    if (classId === 2) return "250";
+    if (classId === 3) return "500";
+    return classId;
+  };
 
   useEffect(() => {
+    let isCurrent = true;
+
     async function fetchOveralls() {
+      setLoading(true);
+
       try {
         const res = await fetch(
-          apiUrl(`/api/race/overalls?raceid=${raceId}&classid=${classId}`)
+          apiUrl(`/api/race/overalls?raceid=${raceId}&classid=${classId}&sport_id=${sportId}`)
         );
 
         if (!res.ok) {
@@ -25,17 +30,26 @@ function MXOverallsSection({ raceId, classId }) {
 
         const data = await res.json();
 
-        setOveralls(data);
-        setLoading(false);   // ← missing
+        if (!isCurrent) return;
 
+        setOveralls(data);
+        setLoading(false);
+        onLoaded?.(classId);
       } catch (err) {
+        if (!isCurrent) return;
+
         console.error("Failed to fetch MX overalls:", err);
-        setLoading(false);   // ← also needed
+        setLoading(false);
+        onLoaded?.(classId);
       }
     }
 
     fetchOveralls();
-  }, [raceId, classId]);
+
+    return () => {
+      isCurrent = false;
+    };
+  }, [raceId, classId, sportId, onLoaded]);
 
   if (loading) return <p>Loading Overalls...</p>;
 
