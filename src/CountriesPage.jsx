@@ -51,7 +51,8 @@ const getCountryCode = (country) => {
     "Uganda": "ug",
     "Ukraine": "ua",
     "Uruguay": "uy",
-    "Venezuela": "ve"
+    "Venezuela": "ve",
+    "Austria": "at"
   };
 
   return map[country] || null;
