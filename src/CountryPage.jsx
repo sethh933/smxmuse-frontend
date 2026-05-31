@@ -11,7 +11,7 @@ const getCountryCode = (country) => {
     "England": "gb",
     "Wales": "gb",
     "Scotland": "gb",
-
+    "Austria" : "at",
     "Argentina": "ar",
     "Australia": "au",
     "Belgium": "be",
