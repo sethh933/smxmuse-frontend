@@ -121,7 +121,8 @@ const formatDecimal = (value) => {
       "Chile": "cl",
       "South Africa": "za",
       "Portugal": "pt",
-      "Costa Rica": "cr"
+      "Costa Rica": "cr",
+      "Austria": "at"
     };
 
     return map[country] || "us";
