@@ -24,7 +24,7 @@ function getMainEventHeading(classid, results, raceCoastId) {
 /* ---------------------------------------
    Main Event Section Component
 --------------------------------------- */
-export default function MainEventSection({ class450, class250, raceCoastId, raceYear, sportId, tripleCrownId }) {
+export default function MainEventSection({ class450, class250, raceId, raceCoastId, raceYear, sportId, tripleCrownId }) {
   return (
     <div className="main-event-section">
       {class450 && class450.length > 0 && (
@@ -34,9 +34,12 @@ export default function MainEventSection({ class450, class250, raceCoastId, race
           </h3>
           <MainEventTable
             results={class450}
+            raceId={raceId}
+            classId={1}
             raceYear={raceYear}
             sportId={sportId}
             tripleCrownId={tripleCrownId}
+            enableLapDetails={tripleCrownId !== 1}
           />
         </>
       )}
@@ -48,9 +51,12 @@ export default function MainEventSection({ class450, class250, raceCoastId, race
           </h3>
           <MainEventTable
             results={class250}
+            raceId={raceId}
+            classId={2}
             raceYear={raceYear}
             sportId={sportId}
             tripleCrownId={tripleCrownId}
+            enableLapDetails={tripleCrownId !== 1}
           />
         </>
       )}

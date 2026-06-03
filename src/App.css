@@ -898,6 +898,234 @@ button {
   text-align: center;
 }
 
+.main-result-row {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.main-result-row:hover,
+.main-result-row.expanded {
+  background-color: rgba(255, 255, 255, 0.055);
+}
+
+.main-detail-row td {
+  padding: 0;
+  background:
+    linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(17, 17, 17, 0.98));
+  border-bottom-color: #333;
+}
+
+.main-row-detail {
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) minmax(380px, 1.05fr) minmax(280px, 1.25fr);
+  gap: 14px;
+  align-items: start;
+  padding: 12px;
+  text-align: left;
+}
+
+.main-detail-metrics {
+  display: grid;
+  gap: 6px;
+}
+
+.main-detail-summary,
+.main-detail-block {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 8px 10px;
+}
+
+.main-detail-summary {
+  display: grid;
+  gap: 2px;
+}
+
+.main-detail-summary span,
+.main-detail-summary small,
+.main-detail-label,
+.segment-best-pill span,
+.segment-average-pill span,
+.lap-detail-pill span,
+.segment-best-pill small,
+.segment-average-pill small,
+.lap-detail-pill small {
+  color: #a9a9a9;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.main-detail-summary strong {
+  color: #fff;
+  font-size: 17px;
+}
+
+.main-detail-summary .consistency-label {
+  margin-top: 6px;
+}
+
+.main-detail-label {
+  margin-bottom: 8px;
+}
+
+.segment-best-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(90px, max-content);
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.segment-best-pill,
+.segment-average-pill,
+.lap-detail-pill {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  padding: 7px 8px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.main-detail-summary {
+  position: relative;
+}
+
+.rank-medal {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.main-detail-summary.rank-gold,
+.segment-best-pill.rank-gold,
+.segment-average-pill.rank-gold,
+.lap-detail-pill.rank-gold {
+  border-color: rgba(255, 214, 102, 0.5);
+  background: rgba(255, 214, 102, 0.11);
+}
+
+.main-detail-summary.rank-silver,
+.segment-best-pill.rank-silver,
+.segment-average-pill.rank-silver,
+.lap-detail-pill.rank-silver {
+  border-color: rgba(210, 220, 230, 0.42);
+  background: rgba(210, 220, 230, 0.095);
+}
+
+.main-detail-summary.rank-bronze,
+.segment-best-pill.rank-bronze,
+.segment-average-pill.rank-bronze,
+.lap-detail-pill.rank-bronze {
+  border-color: rgba(205, 127, 50, 0.48);
+  background: rgba(205, 127, 50, 0.11);
+}
+
+.segment-best-pill strong,
+.segment-average-pill strong,
+.lap-detail-pill strong {
+  color: #fff;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.segment-average-label {
+  margin-top: 10px;
+}
+
+.segment-average-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(90px, max-content);
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.lap-detail-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(72px, max-content);
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.lap-rank-trend {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lap-rank-trend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.lap-rank-trend-header span,
+.lap-rank-trend-header small,
+.lap-rank-trend-label {
+  fill: #a9a9a9;
+  color: #a9a9a9;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.lap-rank-trend svg {
+  display: block;
+  width: 100%;
+  height: 118px;
+  overflow: visible;
+}
+
+.lap-rank-trend-axis {
+  stroke: rgba(255, 255, 255, 0.11);
+  stroke-width: 1;
+}
+
+.lap-rank-trend-line {
+  fill: none;
+  stroke: rgba(255, 214, 102, 0.88);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lap-rank-trend-dot {
+  fill: #141414;
+  stroke: rgba(255, 214, 102, 0.9);
+  stroke-width: 2;
+}
+
+.lap-rank-trend-dot.best {
+  fill: rgba(255, 214, 102, 0.95);
+}
+
+.main-detail-state {
+  padding: 14px;
+  color: #bcbcbc;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .main-row-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
 .rider-stats tr:nth-child(even) {
   background-color: #2a2a2a;
 }

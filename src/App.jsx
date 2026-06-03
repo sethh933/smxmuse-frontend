@@ -17,6 +17,7 @@ import MXOverallsSection from "./MXOverallsSection";
 import MXQualifyingSection from "./MXQualifyingSection";
 import MXConsiSection from "./MXConsiSection";
 import SMXMotoSection from "./SMXMotoSection";
+import MXMotoSection from "./MXMotoSection";
 import SMXWildcardSection from "./SMXWildcardSection";
 import RiderComparison from "./RiderComparison";
 import TrackProfile from "./TrackProfile";
@@ -270,6 +271,7 @@ classes.sort((a, b) => order[a] - order[b]);
           <MainEventSection
             class450={mainEvent450}
             class250={mainEvent250}
+            raceId={raceid}
             raceCoastId={raceHeader.CoastID}
             raceYear={raceHeader.Year}
             sportId={raceHeader.SportID}
@@ -281,6 +283,7 @@ classes.sort((a, b) => order[a] - order[b]);
           {raceHeader.TripleCrownID === 1 && (
             <TripleCrownMainsSection
               mains={tripleCrownMains}
+              raceId={raceid}
               raceCoastId={raceHeader.CoastID}
               raceYear={raceHeader.Year}
               sportId={raceHeader.SportID}
@@ -309,6 +312,13 @@ classes.sort((a, b) => order[a] - order[b]);
   <Fragment key={`smx-motos-${classId}`}>
     <SMXMotoSection raceId={raceid} classId={classId} moto={1} />
     <SMXMotoSection raceId={raceid} classId={classId} moto={2} />
+  </Fragment>
+))}
+
+{!isSMX && mxClasses.map(classId => (
+  <Fragment key={`mx-motos-${classId}`}>
+    <MXMotoSection raceId={raceid} classId={classId} moto={1} />
+    <MXMotoSection raceId={raceid} classId={classId} moto={2} />
   </Fragment>
 ))}
 
