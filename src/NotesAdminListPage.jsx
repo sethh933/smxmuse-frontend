@@ -84,6 +84,7 @@ export function NotesAdminListPage() {
   const [status, setStatus] = useState("draft");
   const [notes, setNotes] = useState([]);
   const [loadStatus, setLoadStatus] = useState("");
+  const [linkBackfillStatus, setLinkBackfillStatus] = useState("");
 
   useEffect(() => {
     localStorage.setItem("smxmuseAdminToken", adminToken);
@@ -123,6 +124,29 @@ export function NotesAdminListPage() {
   function changeStatus(nextStatus) {
     setStatus(nextStatus);
     loadNotes(nextStatus);
+  }
+
+  async function backfillEntityLinks() {
+    setLinkBackfillStatus("Refreshing detected links...");
+
+    try {
+      const response = await fetch(apiUrl("/api/admin/notes/backfill-entity-links"), {
+        method: "POST",
+        headers: {
+          "X-Admin-Token": adminToken
+        }
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.detail || `Refresh failed with ${response.status}`);
+      }
+
+      setLinkBackfillStatus(`Detected links refreshed for ${data.rebuilt} notes.`);
+      loadNotes(status);
+    } catch (error) {
+      setLinkBackfillStatus(error.message || "Detected link refresh failed.");
+    }
   }
 
   return (
@@ -170,10 +194,12 @@ export function NotesAdminListPage() {
           </div>
 
           <button type="button" onClick={() => loadNotes(status)}>Refresh</button>
+          <button type="button" onClick={backfillEntityLinks}>Refresh Links</button>
           <Link to="/admin/notes/new" className="notes-admin-created-link">New note</Link>
         </div>
 
         {loadStatus && <p className="notes-admin-status">{loadStatus}</p>}
+        {linkBackfillStatus && <p className="notes-admin-status">{linkBackfillStatus}</p>}
       </section>
 
       <section className="notes-admin-list">
