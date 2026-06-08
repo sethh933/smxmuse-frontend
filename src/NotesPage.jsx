@@ -1,13 +1,14 @@
+import { useEffect, useState } from "react";
 import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
+import { apiUrl } from "./api";
+import LinkedNoteText from "./LinkedNoteText";
 import Seo from "./SiteSeo";
 import { buildAbsoluteUrl } from "./seo";
 import { getPostTags, getPostTypeLabel, getPublishedPosts } from "./contentPosts";
 
 const FILTERS = [
   { value: "preRace", label: "Pre-Race" },
-  { value: "raceRecap", label: "Race Recaps" },
-  { value: "leaderboard", label: "Leaderboards" },
-  { value: "analysis", label: "Analysis" }
+  { value: "raceRecap", label: "Race Recaps" }
 ];
 
 function formatDate(date) {
@@ -38,21 +39,21 @@ function PostMeta({ post }) {
   return <p className="notes-post-meta">{details.join(" / ")}</p>;
 }
 
-function PostBodyBlock({ block, index }) {
+function PostBodyBlock({ block, index, entities }) {
   if (typeof block === "string") {
-    return <p key={index}>{block}</p>;
+    return <p key={index}><LinkedNoteText text={block} entities={entities} /></p>;
   }
 
   return (
     <section key={index} className="notes-body-section">
       {block.heading && <h2>{block.heading}</h2>}
       {block.paragraphs?.map((paragraph, paragraphIndex) => (
-        <p key={paragraphIndex}>{paragraph}</p>
+        <p key={paragraphIndex}><LinkedNoteText text={paragraph} entities={entities} /></p>
       ))}
       {block.bullets && (
         <ul>
           {block.bullets.map((bullet, bulletIndex) => (
-            <li key={bulletIndex}>{bullet}</li>
+            <li key={bulletIndex}><LinkedNoteText text={bullet} entities={entities} /></li>
           ))}
         </ul>
       )}
@@ -60,12 +61,12 @@ function PostBodyBlock({ block, index }) {
         <section key={subsectionIndex} className="notes-body-subsection">
           {subsection.heading && <h3>{subsection.heading}</h3>}
           {subsection.paragraphs?.map((paragraph, paragraphIndex) => (
-            <p key={paragraphIndex}>{paragraph}</p>
+            <p key={paragraphIndex}><LinkedNoteText text={paragraph} entities={entities} /></p>
           ))}
           {subsection.bullets && (
             <ul>
               {subsection.bullets.map((bullet, bulletIndex) => (
-                <li key={bulletIndex}>{bullet}</li>
+                <li key={bulletIndex}><LinkedNoteText text={bullet} entities={entities} /></li>
               ))}
             </ul>
           )}
@@ -77,12 +78,51 @@ function PostBodyBlock({ block, index }) {
 
 export function NotesIndexPage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [apiPosts, setApiPosts] = useState(null);
+  const [apiStatus, setApiStatus] = useState("idle");
   const requestedFilter = searchParams.get("type") || "preRace";
   const activeFilter = FILTERS.some((filter) => filter.value === requestedFilter)
     ? requestedFilter
     : "preRace";
-  const posts = getPublishedPosts();
+  const fallbackPosts = getPublishedPosts();
+  const posts = apiPosts || fallbackPosts;
   const filteredPosts = posts.filter((post) => post.type === activeFilter);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadNotes() {
+      setApiStatus("loading");
+
+      try {
+        const response = await fetch(apiUrl(`/api/notes?category=${activeFilter}`));
+
+        if (!response.ok) {
+          throw new Error(`Notes request failed with ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!cancelled) {
+          setApiPosts(data);
+          setApiStatus("ready");
+        }
+      } catch (error) {
+        console.error(error);
+
+        if (!cancelled) {
+          setApiPosts(null);
+          setApiStatus("fallback");
+        }
+      }
+    }
+
+    loadNotes();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activeFilter]);
 
   function setFilter(filter) {
     setSearchParams({ type: filter });
@@ -91,17 +131,17 @@ export function NotesIndexPage() {
   return (
     <div className="notes-page">
       <Seo
-        title="SMXmuse Notes"
+        title="smxmuse Notes"
         description="Read SMXmuse pre-race notes, race recaps, leaderboard posts, and moto stats analysis."
         path="/notes"
       />
 
       <section className="notes-hero">
         <p className="notes-kicker">SMXMUSE NOTES</p>
-        <h1>Notes</h1>
+        <h1>Race Notes and Analysis</h1>
         <p>
-          The written home for SMXmuse pre-race notes, race recaps, leaderboard
-          posts, and deeper stat pulls.
+          The written home for smxmuse pre-race notes, race recaps, leaderboard
+          posts, and deeper stats and anaylsis.
         </p>
       </section>
 
@@ -139,10 +179,11 @@ export function NotesIndexPage() {
         </section>
       ) : (
         <section className="notes-empty-state">
-          <h2>Ready for notes.</h2>
+          <h2>{apiStatus === "loading" ? "Loading notes." : "Ready for notes."}</h2>
           <p>
-            Add posts in <code>src/contentPosts.js</code>, then they will appear here with
-            filterable archive cards and individual article pages.
+            {apiStatus === "loading"
+              ? "Checking for published notes."
+              : "Published notes for this category will appear here."}
           </p>
         </section>
       )}
@@ -152,10 +193,59 @@ export function NotesIndexPage() {
 
 export function NotePostPage() {
   const { slug } = useParams();
-  const posts = getPublishedPosts();
-  const post = posts.find((candidate) => candidate.slug === slug);
+  const [apiPost, setApiPost] = useState(null);
+  const [apiStatus, setApiStatus] = useState("loading");
+  const fallbackPost = getPublishedPosts().find((candidate) => candidate.slug === slug);
+  const post = apiPost || fallbackPost;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadNote() {
+      setApiStatus("loading");
+
+      try {
+        const response = await fetch(apiUrl(`/api/notes/${slug}`));
+
+        if (!response.ok) {
+          throw new Error(`Note request failed with ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!cancelled) {
+          setApiPost(data);
+          setApiStatus(data ? "ready" : "missing");
+        }
+      } catch (error) {
+        console.error(error);
+
+        if (!cancelled) {
+          setApiPost(null);
+          setApiStatus("fallback");
+        }
+      }
+    }
+
+    loadNote();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
 
   if (!post) {
+    if (apiStatus === "loading") {
+      return (
+        <div className="notes-page">
+          <section className="notes-empty-state">
+            <h2>Loading note.</h2>
+            <p>Checking for the published article.</p>
+          </section>
+        </div>
+      );
+    }
+
     return <Navigate to="/notes" replace />;
   }
 
@@ -184,8 +274,12 @@ export function NotePostPage() {
 
       <header className="notes-post-header">
         <PostMeta post={post} />
-        <h1>{post.title}</h1>
-        {post.summary && <p className="notes-post-summary">{post.summary}</p>}
+        <h1><LinkedNoteText text={post.title} entities={post.entities} /></h1>
+        {post.summary && (
+          <p className="notes-post-summary">
+            <LinkedNoteText text={post.summary} entities={post.entities} />
+          </p>
+        )}
         {post.instagramUrl && (
           <a
             className="notes-instagram-link"
@@ -193,14 +287,14 @@ export function NotePostPage() {
             target="_blank"
             rel="noreferrer"
           >
-            View original Instagram post
+            View on Instagram
           </a>
         )}
       </header>
 
       <div className="notes-post-body">
         {post.body?.map((block, index) => (
-          <PostBodyBlock key={index} block={block} index={index} />
+          <PostBodyBlock key={index} block={block} index={index} entities={post.entities} />
         ))}
       </div>
     </article>

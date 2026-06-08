@@ -32,6 +32,8 @@ import SeasonRedirect from "./SeasonRedirect";
 import { useLocation } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import AboutPage from "./AboutPage";
+import { NotesAdminListPage, NotesAdminPreviewPage } from "./NotesAdminListPage";
+import NotesAdminPage from "./NotesAdminPage";
 import { NotePostPage, NotesIndexPage } from "./NotesPage";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
@@ -158,6 +160,7 @@ function RacePage() {
   const [tripleCrownMains, setTripleCrownMains] = useState(null);
   const [mxClasses, setMxClasses] = useState([]);
   const [loadedOverallClasses, setLoadedOverallClasses] = useState(() => new Set());
+  const [raceNotes, setRaceNotes] = useState([]);
 
   // Fetch header (this determines SX vs MX)
   useEffect(() => {
@@ -188,6 +191,35 @@ classes.sort((a, b) => order[a] - order[b]);
   useEffect(() => {
     setLoadedOverallClasses(new Set());
   }, [raceid, raceHeader?.SportID]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch(apiUrl(`/api/notes?race_id=${raceid}`))
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Race notes request failed with ${res.status}`);
+        }
+
+        return res.json();
+      })
+      .then(data => {
+        if (!cancelled) {
+          setRaceNotes(Array.isArray(data) ? data : []);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+
+        if (!cancelled) {
+          setRaceNotes([]);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [raceid]);
 
   const handleOverallLoaded = useCallback((classId) => {
     setLoadedOverallClasses((previous) => {
@@ -231,6 +263,8 @@ classes.sort((a, b) => order[a] - order[b]);
     (mxClasses.length > 0 && mxClasses.every((classId) => loadedOverallClasses.has(classId)));
   const sportLabel = isSX ? "Supercross" : isSMX ? "SMX" : "Motocross";
   const raceDisplayName = isSX && raceHeader.City ? raceHeader.City : raceHeader.TrackName;
+  const preRaceNote = raceNotes.find((note) => note.type === "preRace");
+  const raceRecapNote = raceNotes.find((note) => note.type === "raceRecap");
 
   return (
     <div className="race-page" style={{ padding: 20 }}>
@@ -265,6 +299,17 @@ classes.sort((a, b) => order[a] - order[b]);
       <p style={{ textAlign: "center", color: "#aaa", marginTop: "-10px" }}>
         {`Round ${raceHeader.Round} of ${raceHeader.MaxRound} • ${raceHeader.Year}`}
       </p>
+
+      {(preRaceNote || raceRecapNote) && (
+        <div className="race-notes-links" aria-label="Race notes">
+          {preRaceNote && (
+            <Link to={`/notes/${preRaceNote.slug}`}>Pre-Race Notes</Link>
+          )}
+          {raceRecapNote && (
+            <Link to={`/notes/${raceRecapNote.slug}`}>Race Recap</Link>
+          )}
+        </div>
+      )}
 
       {isSX ? (
         <>
@@ -389,6 +434,10 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/notes" element={<NotesIndexPage />} />
           <Route path="/notes/:slug" element={<NotePostPage />} />
+          <Route path="/admin/notes" element={<NotesAdminListPage />} />
+          <Route path="/admin/notes/preview/:slug" element={<NotesAdminPreviewPage />} />
+          <Route path="/admin/notes/edit/:slug" element={<NotesAdminPage />} />
+          <Route path="/admin/notes/new" element={<NotesAdminPage />} />
           <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/season" element={<SeasonRedirect />} />
             <Route

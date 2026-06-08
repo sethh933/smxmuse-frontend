@@ -45,6 +45,25 @@ button {
   margin-top: 1rem;
 }
 
+.race-notes-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: -2px 0 24px;
+}
+
+.race-notes-links a {
+  color: #646cff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.race-notes-links a:hover {
+  color: #7c82ff;
+}
+
 .toggle-buttons button {
   background-color: #333;
   color: white;
@@ -2438,7 +2457,8 @@ a.country-rider-name:hover,
 }
 
 .notes-instagram-link {
-  margin: 0;
+  align-self: center;
+  margin: 4px auto 0;
 }
 
 .notes-post-body {
@@ -2483,6 +2503,291 @@ a.country-rider-name:hover,
 
 .notes-body-section li {
   margin-bottom: 10px;
+}
+
+.notes-post-body a,
+.notes-post-header a {
+  color: #646cff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.notes-post-body a:hover,
+.notes-post-header a:hover {
+  color: #7c82ff;
+  text-decoration: none;
+}
+
+.notes-admin-page {
+  width: 100%;
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 24px 0 64px;
+}
+
+.notes-admin-header,
+.notes-admin-panel,
+.notes-admin-actions {
+  margin: 0 auto 18px;
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(86, 141, 255, 0.05), transparent 34%),
+    radial-gradient(circle at top left, rgba(243, 93, 122, 0.04), transparent 30%),
+    linear-gradient(180deg, rgba(24, 24, 24, 0.98), rgba(15, 15, 15, 0.98));
+}
+
+.notes-admin-header h1 {
+  margin: 0;
+  display: block;
+  color: #fff;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+  line-height: 1.12;
+  text-align: left;
+}
+
+.notes-admin-header p:last-child {
+  max-width: 58rem;
+  margin: 10px 0 0;
+  color: #cfcfcf;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.notes-admin-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 2fr) repeat(3, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.notes-admin-grid-wide {
+  grid-template-columns: minmax(280px, 2fr) repeat(3, minmax(180px, 1fr));
+  margin-top: 14px;
+}
+
+.notes-admin-panel label,
+.notes-admin-slide label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #d7d7d7;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.notes-admin-panel input,
+.notes-admin-panel select,
+.notes-admin-panel textarea,
+.notes-admin-slide input,
+.notes-admin-slide textarea {
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.notes-admin-panel input,
+.notes-admin-panel select,
+.notes-admin-slide input {
+  min-height: 38px;
+  padding: 8px 10px;
+}
+
+.notes-admin-panel textarea,
+.notes-admin-slide textarea {
+  min-height: 110px;
+  padding: 10px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.notes-admin-race-row,
+.notes-admin-section-heading,
+.notes-admin-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.notes-admin-race-row {
+  margin-top: 14px;
+}
+
+.notes-admin-race-row label {
+  flex: 1;
+}
+
+.notes-admin-full {
+  margin-top: 14px;
+}
+
+.notes-admin-section-heading {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.notes-admin-section-heading label {
+  flex: 1;
+  max-width: 420px;
+}
+
+.notes-admin-slides {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.notes-admin-slide {
+  min-width: 0;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.notes-admin-slide-number {
+  margin: 0 0 12px;
+  color: #b8b8b8;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.notes-admin-slide label + label {
+  margin-top: 12px;
+}
+
+.notes-admin-panel button,
+.notes-admin-actions button {
+  min-height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-weight: 800;
+}
+
+.notes-admin-panel button:hover,
+.notes-admin-actions button:hover {
+  border-color: rgba(111, 168, 255, 0.72);
+  background: rgba(111, 168, 255, 0.16);
+}
+
+.notes-admin-actions {
+  justify-content: flex-start;
+}
+
+.notes-admin-primary {
+  background: #4c9aff !important;
+  border-color: #4c9aff !important;
+}
+
+.notes-admin-status {
+  margin: 0;
+  color: #d1d1d1;
+  font-size: 0.92rem;
+}
+
+.notes-admin-created-link {
+  color: #d7e7ff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.notes-admin-created-link:hover {
+  color: #8dbbff;
+}
+
+.notes-admin-list-toolbar {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) auto auto auto;
+  align-items: end;
+  gap: 14px;
+}
+
+.notes-admin-filter-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.notes-admin-filter-buttons button.active {
+  border-color: rgba(111, 168, 255, 0.72);
+  background: rgba(111, 168, 255, 0.16);
+}
+
+.notes-admin-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.notes-admin-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.notes-admin-card-actions a {
+  color: #d7e7ff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.notes-admin-card-actions a:hover {
+  color: #8dbbff;
+}
+
+.notes-admin-detected-links {
+  margin: 0 0 28px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(111, 168, 255, 0.22);
+  background: rgba(111, 168, 255, 0.06);
+}
+
+.notes-admin-detected-links h2 {
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.notes-admin-detected-links-note {
+  margin: -6px 0 14px;
+  color: #b8b8b8;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.notes-admin-detected-links h3 {
+  margin: 14px 0 8px;
+  color: #d7d7d7;
+  font-size: 0.9rem;
+}
+
+.notes-admin-detected-links .notes-tag-row {
+  margin-top: 0;
+}
+
+.notes-admin-detected-links .notes-tag-row a {
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d7e7ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.notes-admin-detected-links .notes-tag-row a:hover {
+  color: #fff;
+  background: rgba(111, 168, 255, 0.2);
 }
 
 .comparison-share-status {
