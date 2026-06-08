@@ -39,7 +39,99 @@ import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildAbsoluteUrl, buildRacePath, buildTrackPath, parseRaceId, parseRiderId, parseTrackId } from "./seo";
 
+function formatWeatherNumber(value, options = {}) {
+  if (value === null || value === undefined || value === "") return null;
 
+  const numericValue = Number(value);
+  if (!Number.isFinite(numericValue)) return null;
+
+  return numericValue.toLocaleString("en-US", {
+    maximumFractionDigits: options.maximumFractionDigits ?? 1,
+    minimumFractionDigits: options.minimumFractionDigits ?? 0
+  });
+}
+
+function getWeatherType(conditions, precipitation) {
+  const conditionText = (conditions || "").toLowerCase();
+  const precipValue = Number(precipitation);
+
+  if (conditionText.includes("snow")) return "snow";
+  if (
+    conditionText.includes("rain") ||
+    conditionText.includes("storm") ||
+    conditionText.includes("shower") ||
+    (Number.isFinite(precipValue) && precipValue > 0)
+  ) {
+    return "rain";
+  }
+  if (conditionText.includes("overcast") || conditionText.includes("cloudy")) {
+    return conditionText.includes("partial") ? "partly-cloudy" : "cloudy";
+  }
+  if (conditionText.includes("clear") || conditionText.includes("sun")) return "clear";
+
+  return "default";
+}
+
+function WeatherIcon({ type }) {
+  return (
+    <span className={`weather-icon weather-icon-${type}`} aria-hidden="true">
+      <span className="weather-icon-sun" />
+      <span className="weather-icon-cloud" />
+      <span className="weather-icon-drops">
+        <span />
+        <span />
+        <span />
+      </span>
+    </span>
+  );
+}
+
+function RaceWeatherWidget({ raceHeader }) {
+  const high = formatWeatherNumber(raceHeader.TemperatureHigh);
+  const low = formatWeatherNumber(raceHeader.TemperatureLow);
+  const precipitation = formatWeatherNumber(raceHeader.Precipitation, {
+    maximumFractionDigits: 2
+  });
+  const conditions = raceHeader.Conditions?.trim();
+  const hasWeather = high || low || precipitation || conditions;
+  const weatherType = getWeatherType(conditions, raceHeader.Precipitation);
+
+  if (!hasWeather) {
+    return null;
+  }
+
+  return (
+    <aside className="race-weather-widget" aria-label="Race day weather">
+      <div className="race-weather-summary">
+        <WeatherIcon type={weatherType} />
+        <div className="race-weather-copy">
+          <span>Race Weather</span>
+          <strong>{conditions || "Weather logged"}</strong>
+        </div>
+      </div>
+
+      <div className="race-weather-metrics">
+        {(high || low) && (
+          <div className="race-weather-metric">
+            <span>Temp</span>
+            <strong>
+              {high ? <>{high}&deg;</> : "--"}
+              <small> / </small>
+              {low ? <>{low}&deg;</> : "--"}
+            </strong>
+          </div>
+        )}
+
+        {precipitation && (
+          <div className="race-weather-metric">
+            <span>Precip</span>
+            <strong>{precipitation} in</strong>
+          </div>
+        )}
+      </div>
+    </aside>
+  );
+}
 
 
 function LeaderboardsPage() {
@@ -262,6 +354,7 @@ classes.sort((a, b) => order[a] - order[b]);
     !isSMX ||
     (mxClasses.length > 0 && mxClasses.every((classId) => loadedOverallClasses.has(classId)));
   const sportLabel = isSX ? "Supercross" : isSMX ? "SMX" : "Motocross";
+  const venueTypeLabel = raceHeader.Indoors === 1 ? "Indoor" : "Open air";
   const raceDisplayName = isSX && raceHeader.City ? raceHeader.City : raceHeader.TrackName;
   const preRaceNote = raceNotes.find((note) => note.type === "preRace");
   const raceRecapNote = raceNotes.find((note) => note.type === "raceRecap");
@@ -290,15 +383,25 @@ classes.sort((a, b) => order[a] - order[b]);
         }}
       />
 
-      <h1 style={{ textAlign: "center" }}>
+      <section className="race-hero">
+      <div className="race-hero-copy">
+      <p className="race-hero-kicker">{sportLabel} Results</p>
+      <h1 className="race-title">
         <Link to={buildTrackPath(raceHeader.SportID, raceHeader.TrackID, raceHeader.TrackName)}>
           {raceHeader.TrackName}
         </Link>
       </h1>
 
-      <p style={{ textAlign: "center", color: "#aaa", marginTop: "-10px" }}>
+      <div className="race-meta" aria-label="Race details">
+        <span>Round {raceHeader.Round} of {raceHeader.MaxRound}</span>
+        <span>{raceHeader.Year}</span>
+        {raceHeader.City && <span>{raceHeader.City}</span>}
+        {isSX && <span className="race-meta-venue">{venueTypeLabel}</span>}
         {`Round ${raceHeader.Round} of ${raceHeader.MaxRound} • ${raceHeader.Year}`}
-      </p>
+      </div>
+      </div>
+
+      <RaceWeatherWidget raceHeader={raceHeader} />
 
       {(preRaceNote || raceRecapNote) && (
         <div className="race-notes-links" aria-label="Race notes">
@@ -310,6 +413,7 @@ classes.sort((a, b) => order[a] - order[b]);
           )}
         </div>
       )}
+      </section>
 
       {isSX ? (
         <>

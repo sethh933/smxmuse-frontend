@@ -45,23 +45,305 @@ button {
   margin-top: 1rem;
 }
 
-.race-notes-links {
+.race-hero {
+  width: min(980px, 100%);
+  margin: 34px auto 30px;
+  padding: 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 20px 24px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at top left, rgba(243, 93, 122, 0.055), transparent 30%),
+    radial-gradient(circle at top right, rgba(86, 141, 255, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(28, 28, 28, 0.98), rgba(16, 16, 16, 0.98));
+}
+
+.race-hero-copy {
+  min-width: 0;
+}
+
+.race-hero-kicker {
+  margin: 0 0 10px;
+  color: #b8b8b8;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.race-title {
+  margin: 0;
+  display: block;
+  text-align: left;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+}
+
+.race-title a {
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.race-title a:hover {
+  color: #ffffff;
+}
+
+.race-meta {
+  margin-top: 14px;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: transparent;
+  font-size: 0;
+}
+
+.race-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #d2d2d2;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.race-meta .race-meta-venue {
+  border-color: rgba(255, 214, 107, 0.2);
+  background: rgba(255, 214, 107, 0.08);
+  color: #f1d892;
+}
+
+.race-notes-links {
+  grid-column: 1 / -1;
+  display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px 16px;
-  margin: -2px 0 24px;
+  gap: 10px;
+  margin: 0;
+  padding-top: 2px;
 }
 
 .race-notes-links a {
-  color: #646cff;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid rgba(100, 108, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(100, 108, 255, 0.1);
+  color: #aeb2ff;
+  font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
 }
 
 .race-notes-links a:hover {
-  color: #7c82ff;
+  color: #ffffff;
+  border-color: rgba(124, 130, 255, 0.42);
+  background: rgba(100, 108, 255, 0.16);
+}
+
+.race-weather-widget {
+  justify-self: stretch;
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.race-weather-summary {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+}
+
+.race-weather-copy,
+.race-weather-metric {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.race-weather-copy span,
+.race-weather-metric span {
+  color: #a9a9a9;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.race-weather-copy strong {
+  color: #fff;
+  font-size: 1.08rem;
+  overflow-wrap: anywhere;
+}
+
+.race-weather-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.race-weather-metric {
+  min-height: 66px;
+  padding: 10px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.race-weather-metric strong {
+  color: #fff;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.race-weather-metric small {
+  color: #9e9e9e;
+}
+
+.weather-icon {
+  position: relative;
+  display: block;
+  width: 58px;
+  height: 48px;
+}
+
+.weather-icon-sun,
+.weather-icon-cloud,
+.weather-icon-drops {
+  position: absolute;
+  display: block;
+}
+
+.weather-icon-sun {
+  top: 5px;
+  left: 9px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffd66b;
+  box-shadow: 0 0 18px rgba(255, 214, 107, 0.42);
+}
+
+.weather-icon-sun::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 214, 107, 0.55);
+}
+
+.weather-icon-cloud {
+  right: 3px;
+  bottom: 7px;
+  width: 40px;
+  height: 17px;
+  border-radius: 999px;
+  background: #d9e1ea;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+}
+
+.weather-icon-cloud::before,
+.weather-icon-cloud::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  border-radius: 50%;
+  background: #d9e1ea;
+}
+
+.weather-icon-cloud::before {
+  left: 7px;
+  width: 18px;
+  height: 18px;
+}
+
+.weather-icon-cloud::after {
+  right: 7px;
+  width: 24px;
+  height: 24px;
+}
+
+.weather-icon-drops {
+  left: 17px;
+  bottom: 0;
+  display: none;
+  gap: 7px;
+}
+
+.weather-icon-drops span {
+  display: block;
+  width: 3px;
+  height: 12px;
+  border-radius: 999px;
+  background: #7ec8ff;
+  transform: rotate(14deg);
+}
+
+.weather-icon-clear .weather-icon-cloud,
+.weather-icon-clear .weather-icon-drops {
+  display: none;
+}
+
+.weather-icon-cloudy .weather-icon-sun,
+.weather-icon-rain .weather-icon-sun,
+.weather-icon-snow .weather-icon-sun,
+.weather-icon-default .weather-icon-sun {
+  display: none;
+}
+
+.weather-icon-cloudy .weather-icon-cloud,
+.weather-icon-rain .weather-icon-cloud,
+.weather-icon-snow .weather-icon-cloud,
+.weather-icon-default .weather-icon-cloud {
+  left: 9px;
+  right: auto;
+  bottom: 12px;
+  width: 44px;
+}
+
+.weather-icon-rain .weather-icon-drops,
+.weather-icon-snow .weather-icon-drops {
+  display: flex;
+}
+
+.weather-icon-snow .weather-icon-drops span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: none;
+  background: #eaf6ff;
+}
+
+@media (max-width: 760px) {
+  .race-hero {
+    grid-template-columns: 1fr;
+    margin-top: 22px;
+    padding: 20px;
+  }
+
+  .race-title {
+    text-align: center;
+  }
+
+  .race-hero-kicker,
+  .race-meta,
+  .race-notes-links {
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .toggle-buttons button {
@@ -144,6 +426,14 @@ button {
 .track-profile-hero h1 {
   margin-top: 0;
   margin-bottom: 12px;
+}
+
+.track-profile-location {
+  margin: -4px 0 14px;
+  color: #bdbdbd;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .track-profile-toggle-buttons {

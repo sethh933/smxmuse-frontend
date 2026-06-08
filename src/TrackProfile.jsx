@@ -73,6 +73,9 @@ function TrackProfile() {
   }
 
   const trackName = data?.race_winners?.[0]?.TrackName || "Track Profile";
+  const trackCity = data?.race_winners?.[0]?.City;
+  const trackState = data?.race_winners?.[0]?.State;
+  const trackLocation = [trackCity, trackState].filter(Boolean).join(", ");
   const sportLabel = sportId === 1 ? "Supercross" : sportId === 2 ? "Motocross" : "SMX";
 
   return (
@@ -84,6 +87,7 @@ function TrackProfile() {
       />
       <section className="track-profile-hero">
         <h1>{trackName}</h1>
+        {trackLocation && <p className="track-profile-location">{trackLocation}</p>}
 
         <div className="toggle-buttons track-profile-toggle-buttons">
           {availableClasses.includes(1) && (
