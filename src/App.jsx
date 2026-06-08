@@ -32,6 +32,7 @@ import SeasonRedirect from "./SeasonRedirect";
 import { useLocation } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import AboutPage from "./AboutPage";
+import { NotePostPage, NotesIndexPage } from "./NotesPage";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildAbsoluteUrl, buildRacePath, buildTrackPath, parseRaceId, parseRiderId, parseTrackId } from "./seo";
@@ -386,6 +387,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/notes" element={<NotesIndexPage />} />
+          <Route path="/notes/:slug" element={<NotePostPage />} />
           <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/season" element={<SeasonRedirect />} />
             <Route
