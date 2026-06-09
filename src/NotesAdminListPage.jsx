@@ -152,16 +152,16 @@ export function NotesAdminListPage() {
   return (
     <div className="notes-admin-page">
       <Seo
-        title="Notes Admin"
-        description="Manage SMXmuse notes drafts and published posts."
-        path="/admin/notes"
+        title="News Admin"
+        description="Manage SMXmuse news drafts and published posts."
+        path="/admin/news"
         robots="noindex,nofollow"
       />
 
       <section className="notes-admin-header">
-        <p className="notes-kicker">Notes Admin</p>
-        <h1>Manage Notes</h1>
-        <p>Review drafts and published race notes before they go live.</p>
+        <p className="notes-kicker">News Admin</p>
+        <h1>Manage News</h1>
+        <p>Review drafts and published race news before they go live.</p>
       </section>
 
       <section className="notes-admin-panel">
@@ -195,7 +195,7 @@ export function NotesAdminListPage() {
 
           <button type="button" onClick={() => loadNotes(status)}>Refresh</button>
           <button type="button" onClick={backfillEntityLinks}>Refresh Links</button>
-          <Link to="/admin/notes/new" className="notes-admin-created-link">New note</Link>
+          <Link to="/admin/news/new" className="notes-admin-created-link">New post</Link>
         </div>
 
         {loadStatus && <p className="notes-admin-status">{loadStatus}</p>}
@@ -216,9 +216,9 @@ export function NotesAdminListPage() {
               </div>
             )}
             <div className="notes-admin-card-actions">
-              <Link to={`/admin/notes/edit/${note.slug}`}>Edit</Link>
-              <Link to={`/admin/notes/preview/${note.slug}`}>Preview</Link>
-              {note.status === "published" && <Link to={`/notes/${note.slug}`}>Public page</Link>}
+              <Link to={`/admin/news/edit/${note.slug}`}>Edit</Link>
+              <Link to={`/admin/news/preview/${note.slug}`}>Preview</Link>
+              {note.status === "published" && <Link to={`/news/${note.slug}`}>Public page</Link>}
             </div>
           </article>
         ))}
@@ -278,7 +278,7 @@ export function NotesAdminPreviewPage() {
   }, [adminToken, slug]);
 
   if (!note && loadStatus === "Note not found.") {
-    return <Navigate to="/admin/notes" replace />;
+    return <Navigate to="/admin/news" replace />;
   }
 
   return (
@@ -286,11 +286,11 @@ export function NotesAdminPreviewPage() {
       <Seo
         title={note?.title || "Draft Preview"}
         description="Preview SMXmuse note draft."
-        path={`/admin/notes/preview/${slug}`}
+        path={`/admin/news/preview/${slug}`}
         robots="noindex,nofollow"
       />
 
-      <Link to="/admin/notes" className="notes-back-link">Back to admin notes</Link>
+      <Link to="/admin/news" className="notes-back-link">Back to admin news</Link>
 
       {!note ? (
         <section className="notes-empty-state">

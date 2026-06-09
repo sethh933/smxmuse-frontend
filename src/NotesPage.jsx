@@ -21,7 +21,7 @@ function formatDate(date) {
 }
 
 function buildPostPath(post) {
-  return `/notes/${post.slug}`;
+  return `/news/${post.slug}`;
 }
 
 function getPostDescription(post) {
@@ -144,7 +144,7 @@ export function NotesIndexPage() {
       <Seo
         title="smxmuse News"
         description="Read SMXmuse pre-race notes, race recaps, leaderboard posts, and moto stats analysis."
-        path="/notes"
+        path="/news"
       />
 
       <section className="notes-hero">
@@ -257,7 +257,7 @@ export function NotePostPage() {
       );
     }
 
-    return <Navigate to="/notes" replace />;
+    return <Navigate to="/news" replace />;
   }
 
   return (
@@ -281,7 +281,7 @@ export function NotePostPage() {
         }}
       />
 
-      <Link to="/notes" className="notes-back-link">Back to news</Link>
+      <Link to="/news" className="notes-back-link">Back to news</Link>
 
       <header className="notes-post-header">
         <PostMeta post={post} />

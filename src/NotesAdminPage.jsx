@@ -260,7 +260,7 @@ export default function NotesAdminPage() {
         throw new Error(data?.detail || `Save failed with ${response.status}`);
       }
 
-      setCreatedPath(data.path);
+      setCreatedPath(data.path?.replace(/^\/notes/, "/news") || "");
       setSaveStatus(status === "published" ? "Published." : isEditing ? "Draft updated." : "Draft saved.");
     } catch (error) {
       setSaveStatus(error.message || "Save failed.");
@@ -270,15 +270,15 @@ export default function NotesAdminPage() {
   return (
     <div className="notes-admin-page">
       <Seo
-        title={isEditing ? "Edit Note" : "Notes Admin"}
+        title={isEditing ? "Edit News Post" : "News Admin"}
         description={`${isEditing ? "Edit" : "Create"} SMXmuse pre-race notes and race recaps.`}
-        path={isEditing ? `/admin/notes/edit/${slug}` : "/admin/notes/new"}
+        path={isEditing ? `/admin/news/edit/${slug}` : "/admin/news/new"}
         robots="noindex,nofollow"
       />
 
       <section className="notes-admin-header">
-        <p className="notes-kicker">Notes Admin</p>
-        <h1>{isEditing ? "Edit Race Notes" : "Create Race Notes"}</h1>
+        <p className="notes-kicker">News Admin</p>
+        <h1>{isEditing ? "Edit Race News" : "Create Race News"}</h1>
         <p>
           {isEditing
             ? "Update a saved draft or publish it when it is ready."

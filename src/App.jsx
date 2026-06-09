@@ -406,10 +406,10 @@ classes.sort((a, b) => order[a] - order[b]);
       {(preRaceNote || raceRecapNote) && (
         <div className="race-notes-links" aria-label="Race notes">
           {preRaceNote && (
-            <Link to={`/notes/${preRaceNote.slug}`}>Pre-Race Notes</Link>
+            <Link to={`/news/${preRaceNote.slug}`}>Pre-Race Notes</Link>
           )}
           {raceRecapNote && (
-            <Link to={`/notes/${raceRecapNote.slug}`}>Race Recap</Link>
+            <Link to={`/news/${raceRecapNote.slug}`}>Race Recap</Link>
           )}
         </div>
       )}
@@ -527,6 +527,16 @@ function LegacyCountryRedirect() {
   return <Navigate to={`/riders/${country}`} replace />;
 }
 
+function LegacyNoteRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={slug ? `/news/${slug}` : "/news"} replace />;
+}
+
+function NavigateToAdminNews({ mode }) {
+  const { slug } = useParams();
+  return <Navigate to={`/admin/news/${mode}/${slug}`} replace />;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -536,12 +546,18 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/notes" element={<NotesIndexPage />} />
-          <Route path="/notes/:slug" element={<NotePostPage />} />
-          <Route path="/admin/notes" element={<NotesAdminListPage />} />
-          <Route path="/admin/notes/preview/:slug" element={<NotesAdminPreviewPage />} />
-          <Route path="/admin/notes/edit/:slug" element={<NotesAdminPage />} />
-          <Route path="/admin/notes/new" element={<NotesAdminPage />} />
+          <Route path="/news" element={<NotesIndexPage />} />
+          <Route path="/news/:slug" element={<NotePostPage />} />
+          <Route path="/notes" element={<LegacyNoteRedirect />} />
+          <Route path="/notes/:slug" element={<LegacyNoteRedirect />} />
+          <Route path="/admin/news" element={<NotesAdminListPage />} />
+          <Route path="/admin/news/preview/:slug" element={<NotesAdminPreviewPage />} />
+          <Route path="/admin/news/edit/:slug" element={<NotesAdminPage />} />
+          <Route path="/admin/news/new" element={<NotesAdminPage />} />
+          <Route path="/admin/notes" element={<Navigate to="/admin/news" replace />} />
+          <Route path="/admin/notes/preview/:slug" element={<NavigateToAdminNews mode="preview" />} />
+          <Route path="/admin/notes/edit/:slug" element={<NavigateToAdminNews mode="edit" />} />
+          <Route path="/admin/notes/new" element={<Navigate to="/admin/news/new" replace />} />
           <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/season" element={<SeasonRedirect />} />
             <Route
