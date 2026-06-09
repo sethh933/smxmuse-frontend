@@ -47,7 +47,6 @@ export default function AboutPage() {
           <li>Qualifying data such as pole positions and average qual are available from the start of the timed qualifying era. This is 2007 in Supercross and 2009 in Motocross.</li>
           <li>Holeshot data is something I have been working on. It is complete for 450 MX but varied in all other classes and sports.</li>
           <li>Semi data is something I have not prioritized and do not have in the database yet but it is something I plan to add in the future.</li>
-          <li>I have the SMX Playoff data in my database but not on the website. I focused on getting SX/MX covered and will add SMX data to this site in the future.</li>
           <li>Heat, LCQ, and individual moto data prior to 1990 is pulled from the CycleNews Archives which did not start listing the full field in each race until 1990.</li>
         </ul>
       </section>

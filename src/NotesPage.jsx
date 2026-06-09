@@ -7,6 +7,7 @@ import { buildAbsoluteUrl } from "./seo";
 import { getPostTags, getPostTypeLabel, getPublishedPosts } from "./contentPosts";
 
 const FILTERS = [
+  { value: "all", label: "All" },
   { value: "preRace", label: "Pre-Race" },
   { value: "raceRecap", label: "Race Recaps" }
 ];
@@ -80,13 +81,15 @@ export function NotesIndexPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [apiPosts, setApiPosts] = useState(null);
   const [apiStatus, setApiStatus] = useState("idle");
-  const requestedFilter = searchParams.get("type") || "preRace";
+  const requestedFilter = searchParams.get("type") || "all";
   const activeFilter = FILTERS.some((filter) => filter.value === requestedFilter)
     ? requestedFilter
-    : "preRace";
+    : "all";
   const fallbackPosts = getPublishedPosts();
   const posts = apiPosts || fallbackPosts;
-  const filteredPosts = posts.filter((post) => post.type === activeFilter);
+  const filteredPosts = activeFilter === "all"
+    ? posts
+    : posts.filter((post) => post.type === activeFilter);
 
   useEffect(() => {
     let cancelled = false;
@@ -95,7 +98,10 @@ export function NotesIndexPage() {
       setApiStatus("loading");
 
       try {
-        const response = await fetch(apiUrl(`/api/notes?category=${activeFilter}`));
+        const notesPath = activeFilter === "all"
+          ? "/api/notes"
+          : `/api/notes?category=${activeFilter}`;
+        const response = await fetch(apiUrl(notesPath));
 
         if (!response.ok) {
           throw new Error(`Notes request failed with ${response.status}`);
@@ -125,23 +131,28 @@ export function NotesIndexPage() {
   }, [activeFilter]);
 
   function setFilter(filter) {
+    if (filter === "all") {
+      setSearchParams({});
+      return;
+    }
+
     setSearchParams({ type: filter });
   }
 
   return (
     <div className="notes-page">
       <Seo
-        title="smxmuse Notes"
+        title="smxmuse News"
         description="Read SMXmuse pre-race notes, race recaps, leaderboard posts, and moto stats analysis."
         path="/notes"
       />
 
       <section className="notes-hero">
-        <p className="notes-kicker">SMXMUSE NOTES</p>
+        <p className="notes-kicker">SMXMUSE NEWS</p>
         <h1>Race Notes and Analysis</h1>
         <p>
           The written home for smxmuse pre-race notes, race recaps, leaderboard
-          posts, and deeper stats and anaylsis.
+          posts, and deeper stats and analysis.
         </p>
       </section>
 
@@ -183,7 +194,7 @@ export function NotesIndexPage() {
           <p>
             {apiStatus === "loading"
               ? "Checking for published notes."
-              : "Published notes for this category will appear here."}
+              : "Published notes will appear here."}
           </p>
         </section>
       )}
@@ -270,7 +281,7 @@ export function NotePostPage() {
         }}
       />
 
-      <Link to="/notes" className="notes-back-link">Back to notes</Link>
+      <Link to="/notes" className="notes-back-link">Back to news</Link>
 
       <header className="notes-post-header">
         <PostMeta post={post} />

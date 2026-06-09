@@ -14,7 +14,7 @@ function Navbar() {
     { to: "/riders", label: "Riders" },
     { to: "/season", label: "Seasons" },
     { to: "/results", label: "Race Results" },
-    { to: "/notes", label: "Notes" },
+    { to: "/notes", label: "News", badge: "NEW" },
     { to: "/leaderboards", label: "Leaderboards" },
     { to: "/compare", label: "Comparison Tool" },
     { to: "/about", label: "About" },
@@ -37,7 +37,8 @@ function Navbar() {
           <div className="nav-links">
             {navItems.map((item) => (
               <Link key={item.to} to={item.to}>
-                {item.label}
+                <span>{item.label}</span>
+                {item.badge && <span className="nav-new-badge">{item.badge}</span>}
               </Link>
             ))}
           </div>
@@ -79,7 +80,8 @@ function Navbar() {
                   className="nav-mobile-dropdown-link"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  {item.badge && <span className="nav-new-badge">{item.badge}</span>}
                 </Link>
               ))}
             </div>

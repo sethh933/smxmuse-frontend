@@ -1760,6 +1760,9 @@ a.country-rider-name:hover,
 }
 
 .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
   color: #ccc;
   text-decoration: none;
   font-size: 0.95rem;
@@ -1770,6 +1773,28 @@ a.country-rider-name:hover,
 
 .nav-links a:hover {
   color: white;
+}
+
+.nav-new-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 23px;
+  height: 13px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #ff4fb8;
+  color: #fff;
+  font-size: 0.48rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 0 8px rgba(255, 79, 184, 0.45);
+}
+
+.nav-links .nav-new-badge {
+  position: absolute;
+  top: -11px;
+  right: -22px;
 }
 
 /* this pushes search all the way to the right */
@@ -5142,7 +5167,10 @@ a.track-link:focus-visible {
   }
 
   .nav-mobile-dropdown-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
     padding: 13px 14px;
     color: #f0f0f0;
     text-decoration: none;
@@ -5153,6 +5181,11 @@ a.track-link:focus-visible {
 
   .nav-mobile-dropdown-link:first-child {
     border-top: none;
+  }
+
+  .nav-mobile-dropdown-link .nav-new-badge {
+    margin-left: 2px;
+    transform: translateY(-6px);
   }
 
   .nav-mobile-search-row .unified-search {
