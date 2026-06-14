@@ -66,6 +66,8 @@ const mxStats = data.mx_stats ?? [];
 const mxQualStats = data.mx_qual_stats ?? [];
 const smxStats = data.smx_stats ?? [];
 const smxQualStats = data.smx_qual_stats ?? [];
+const numberHistory = data.number_history ?? [];
+const accolades = data.accolades ?? [];
 
 
 
@@ -276,62 +278,109 @@ const getLapsLedDisplay = (row, sport) => {
           </span>
         </div>
 
-        <div className="rider-nav">
-          <Link
-            to={buildRiderPath(riderId, data.rider.full_name)}
-            className={`rider-nav-button ${
-              location.pathname === buildRiderPath(riderId, data.rider.full_name) ? "active" : ""
-            }`}
-          >
-            Career Stats
-          </Link>
+        {accolades.length > 0 && (
+          <div className="rider-accolade-banners" aria-label="Rider accolades">
+            {accolades.map((accolade) => (
+              <span
+                key={`${accolade.sport_id}-${accolade.class_id}`}
+                className="rider-accolade-banner"
+              >
+                {accolade.label}
+              </span>
+            ))}
+          </div>
+        )}
 
-          <Link
-            to={buildRiderPath(riderId, data.rider.full_name, "results")}
-            className={`rider-nav-button ${
-              location.pathname.includes("/results") ? "active" : ""
-            }`}
-          >
-            Career Results
-          </Link>
+        {numberHistory.length > 0 && (
+          <div className="rider-number-plates" aria-label="Rider number history">
+            {numberHistory.map((numberEntry) => (
+              <span
+                key={`${numberEntry.number}-${numberEntry.first_year}`}
+                className="rider-number-plate-tooltip"
+                tabIndex={0}
+                aria-label={`Number ${numberEntry.number}: ${numberEntry.year_context}`}
+              >
+                <span className="rider-number-plate">
+                  <img
+                    src="/NumberPlate.png"
+                    alt=""
+                    className="rider-number-plate-image"
+                    aria-hidden="true"
+                  />
+                  <span
+                    className={`rider-number-plate-text rider-number-plate-text-${String(
+                      numberEntry.number
+                    ).length}`}
+                  >
+                    {numberEntry.number}
+                  </span>
+                </span>
+                <span className="rider-number-plate-tooltip-bubble">
+                  {numberEntry.year_context}
+                </span>
+              </span>
+            ))}
+          </div>
+        )}
 
-          <Link
-            to={buildRiderPath(riderId, data.rider.full_name, "points")}
-            className={`rider-nav-button ${
-              location.pathname.includes("/points") ? "active" : ""
-            }`}
-          >
-            Points Standings
-          </Link>
-        </div>
-
-        <div className="toggle-buttons rider-profile-toggle">
-          {hasSX && (
-            <button
-              className={mode === "SX" ? "active" : ""}
-              onClick={() => setMode("SX")}
+        <div className="rider-profile-actions">
+          <div className="rider-nav">
+            <Link
+              to={buildRiderPath(riderId, data.rider.full_name)}
+              className={`rider-nav-button ${
+                location.pathname === buildRiderPath(riderId, data.rider.full_name) ? "active" : ""
+              }`}
             >
-              SX
-            </button>
-          )}
+              Career Stats
+            </Link>
 
-          {hasMX && (
-            <button
-              className={mode === "MX" ? "active" : ""}
-              onClick={() => setMode("MX")}
+            <Link
+              to={buildRiderPath(riderId, data.rider.full_name, "results")}
+              className={`rider-nav-button ${
+                location.pathname.includes("/results") ? "active" : ""
+              }`}
             >
-              MX
-            </button>
-          )}
+              Career Results
+            </Link>
 
-          {hasSMX && (
-            <button
-              className={mode === "SMX" ? "active" : ""}
-              onClick={() => setMode("SMX")}
+            <Link
+              to={buildRiderPath(riderId, data.rider.full_name, "points")}
+              className={`rider-nav-button ${
+                location.pathname.includes("/points") ? "active" : ""
+              }`}
             >
-              SMX
-            </button>
-          )}
+              Points Standings
+            </Link>
+          </div>
+
+          <div className="toggle-buttons rider-profile-toggle">
+            {hasSX && (
+              <button
+                className={mode === "SX" ? "active" : ""}
+                onClick={() => setMode("SX")}
+              >
+                SX
+              </button>
+            )}
+
+            {hasMX && (
+              <button
+                className={mode === "MX" ? "active" : ""}
+                onClick={() => setMode("MX")}
+              >
+                MX
+              </button>
+            )}
+
+            {hasSMX && (
+              <button
+                className={mode === "SMX" ? "active" : ""}
+                onClick={() => setMode("SMX")}
+              >
+                SMX
+              </button>
+            )}
+          </div>
         </div>
       </section>
 
