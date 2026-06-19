@@ -85,6 +85,7 @@ export function NotesAdminListPage() {
   const [notes, setNotes] = useState([]);
   const [loadStatus, setLoadStatus] = useState("");
   const [linkBackfillStatus, setLinkBackfillStatus] = useState("");
+  const [deleteStatus, setDeleteStatus] = useState("");
 
   useEffect(() => {
     localStorage.setItem("smxmuseAdminToken", adminToken);
@@ -149,6 +150,40 @@ export function NotesAdminListPage() {
     }
   }
 
+  async function deleteDraft(note) {
+    if (note.status !== "draft") {
+      setDeleteStatus("Only draft posts can be deleted.");
+      return;
+    }
+
+    const confirmed = window.confirm(`Delete draft "${note.title}"? This cannot be undone.`);
+
+    if (!confirmed) {
+      return;
+    }
+
+    setDeleteStatus("Deleting draft...");
+
+    try {
+      const response = await fetch(apiUrl(`/api/admin/notes/${note.slug}`), {
+        method: "DELETE",
+        headers: {
+          "X-Admin-Token": adminToken
+        }
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.detail || `Delete failed with ${response.status}`);
+      }
+
+      setDeleteStatus("Draft deleted.");
+      loadNotes(status);
+    } catch (error) {
+      setDeleteStatus(error.message || "Delete failed.");
+    }
+  }
+
   return (
     <div className="notes-admin-page">
       <Seo
@@ -200,6 +235,7 @@ export function NotesAdminListPage() {
 
         {loadStatus && <p className="notes-admin-status">{loadStatus}</p>}
         {linkBackfillStatus && <p className="notes-admin-status">{linkBackfillStatus}</p>}
+        {deleteStatus && <p className="notes-admin-status">{deleteStatus}</p>}
       </section>
 
       <section className="notes-admin-list">
@@ -219,6 +255,9 @@ export function NotesAdminListPage() {
               <Link to={`/admin/news/edit/${note.slug}`}>Edit</Link>
               <Link to={`/admin/news/preview/${note.slug}`}>Preview</Link>
               {note.status === "published" && <Link to={`/news/${note.slug}`}>Public page</Link>}
+              {note.status === "draft" && (
+                <button type="button" onClick={() => deleteDraft(note)}>Delete draft</button>
+              )}
             </div>
           </article>
         ))}
