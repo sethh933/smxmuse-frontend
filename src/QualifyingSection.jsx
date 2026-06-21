@@ -51,7 +51,11 @@ export default function QualifyingSection({ classid, raceCoastId }) {
   return (
     <div style={{ marginTop: 30 }}>
       <h3 className="class-header">{heading}</h3>
-      <QualifyingTable results={results} />
+      <QualifyingTable
+        results={results}
+        raceId={raceid}
+        classId={classid}
+      />
     </div>
   );
 }

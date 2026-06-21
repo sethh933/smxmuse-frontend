@@ -1613,9 +1613,91 @@ button {
   text-align: left;
 }
 
+.qual-row-detail {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  text-align: left;
+}
+
+.qual-session-card {
+  display: grid;
+  grid-template-columns: max-content max-content minmax(360px, 1fr);
+  gap: 10px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.qual-session-heading {
+  grid-column: 1 / -1;
+  color: #fff;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.qual-lap-pill,
+.qual-session-card .main-detail-block {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.qual-lap-pill {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  width: 112px;
+  min-height: 90px;
+  padding: 9px 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.qual-lap-pill span,
+.qual-lap-pill small {
+  color: #a9a9a9;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.qual-lap-pill strong {
+  color: #fff;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.qual-lap-pill.rank-gold {
+  border-color: rgba(255, 214, 102, 0.5);
+  background: rgba(255, 214, 102, 0.11);
+}
+
+.qual-lap-pill.rank-silver {
+  border-color: rgba(210, 220, 230, 0.42);
+  background: rgba(210, 220, 230, 0.095);
+}
+
+.qual-lap-pill.rank-bronze {
+  border-color: rgba(205, 127, 50, 0.48);
+  background: rgba(205, 127, 50, 0.11);
+}
+
+.qual-segment-block {
+  min-width: 0;
+}
+
 @media (max-width: 900px) {
   .main-row-detail {
     grid-template-columns: 1fr;
+  }
+
+  .qual-session-card {
+    grid-template-columns: repeat(2, max-content);
+  }
+
+  .qual-segment-block {
+    grid-column: 1 / -1;
   }
 }
 
@@ -1701,6 +1783,37 @@ button {
 
   .lap-rank-trend {
     display: none;
+  }
+
+  .qual-row-detail {
+    gap: 10px;
+    padding: 8px;
+  }
+
+  .qual-session-card {
+    grid-template-columns: repeat(2, max-content);
+    gap: 6px;
+  }
+
+  .qual-lap-pill {
+    width: 92px;
+    min-height: 54px;
+    padding: 6px;
+  }
+
+  .qual-lap-pill span,
+  .qual-lap-pill small {
+    font-size: 9px;
+    line-height: 1.1;
+  }
+
+  .qual-lap-pill strong {
+    font-size: 11px;
+    line-height: 1.15;
+  }
+
+  .qual-session-heading {
+    font-size: 11px;
   }
 }
 

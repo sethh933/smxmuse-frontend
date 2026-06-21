@@ -31,7 +31,12 @@ function MXQualifyingSection({ raceId, classId, sportId }) {
       {getClassName(classId)} Qualifying
     </h2>
 
-    <MXQualifyingTable data={qualifying} />
+    <MXQualifyingTable
+      data={qualifying}
+      raceId={raceId}
+      classId={classId}
+      sportId={sportId}
+    />
   </div>
 );
 }
