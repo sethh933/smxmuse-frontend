@@ -64,6 +64,7 @@ const sxStats = data.stats ?? [];
 const qualStats = data.qual_stats ?? [];
 const mxStats = data.mx_stats ?? [];
 const mxQualStats = data.mx_qual_stats ?? [];
+const mxLegacyQualStats = data.mx_legacy_qual_stats ?? [];
 const smxStats = data.smx_stats ?? [];
 const smxQualStats = data.smx_qual_stats ?? [];
 const numberHistory = data.number_history ?? [];
@@ -494,7 +495,10 @@ const getLapsLedDisplay = (row, sport) => {
       );
     })
   ) : (
-    (mode === "SMX" ? sortedSmxStats : sortedMxStats).map((row, i) => {
+    (mode === "SMX"
+      ? sortedSmxStats
+      : sortedMxStats.filter((row) => Number(row.Starts) > 0)
+    ).map((row, i) => {
   const isCareer = row.Year === null && row.ClassID === 0;
   const isClassTotal = row.Year === null && row.ClassID !== 0;
 
@@ -664,7 +668,12 @@ const getLapsLedDisplay = (row, sport) => {
         </thead>
 
         <tbody>
-          {(mode === "SMX" ? sortedSmxQualStats : sortedMxQualStats).map((row, i) => {
+          {(mode === "SMX"
+            ? sortedSmxQualStats
+            : sortedMxQualStats.filter(
+                (row) => Number(row.QualAppearances) > 0 || Number(row.ConsiAppearances) > 0
+              )
+          ).map((row, i) => {
             const isCareer = row.Year === null && row.ClassID === 0;
             const isClassTotal = row.Year === null && row.ClassID !== 0;
 
@@ -703,6 +712,70 @@ const getLapsLedDisplay = (row, sport) => {
                 <td>{formatDecimal(row.AvgConsi)}</td>
                 <td>{row.BestConsi}</td>
                 <td>{row.ConsiWins}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </>
+)}
+
+{mode === "MX" && mxLegacyQualStats.length > 0 && (
+  <>
+    <h2 className="section-header">Qualifying / Consis (2004-2008)</h2>
+
+    <div className="rider-table-wrapper">
+      <table className="rider-stats">
+        <thead>
+          <tr>
+            <th className="year-col">Year</th>
+            <th className="class-col">Class</th>
+            <th>Brand</th>
+            <th>Qual Apps</th>
+            <th>Avg Saturday PreQual</th>
+            <th>Best PreQual</th>
+            <th>Avg First Consi</th>
+            <th>Avg Sunday Qual</th>
+            <th>Best Sunday Qual</th>
+            <th>Avg Final Consi</th>
+            <th>Best Consi</th>
+            <th>Avg Fast40 Qual</th>
+            <th>Best Fast40 Qual</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mxLegacyQualStats.map((row, i) => {
+            const isCareer = row.Year === null && row.ClassID === 0;
+            const isClassTotal = row.Year === null && row.ClassID !== 0;
+
+            return (
+              <tr
+                key={i}
+                className={isCareer ? "career-row" : isClassTotal ? "class-total-row" : ""}
+              >
+                <td className="year-col">
+                  {row.Year ? (
+                    <Link
+                      to={`/season/mx/${row.Year}/${row.Class}`}
+                      style={{ color: "#60a5fa", textDecoration: "none" }}
+                    >
+                      {row.Year}
+                    </Link>
+                  ) : "Career"}
+                </td>
+                <td className="class-col">{row.Class ?? ""}</td>
+                <td>{row.Brand ?? ""}</td>
+                <td>{row.QualAppearances}</td>
+                <td>{formatDecimal(row.AvgSaturdayPreQual)}</td>
+                <td>{row.BestPreQual ?? "-"}</td>
+                <td>{formatDecimal(row.AvgFirstConsi)}</td>
+                <td>{formatDecimal(row.AvgSundayQual)}</td>
+                <td>{row.BestSundayQual ?? "-"}</td>
+                <td>{formatDecimal(row.AvgFinalConsi)}</td>
+                <td>{row.BestConsi ?? "-"}</td>
+                <td>{formatDecimal(row.AvgFast40Qual)}</td>
+                <td>{row.BestFast40Qual ?? "-"}</td>
               </tr>
             );
           })}

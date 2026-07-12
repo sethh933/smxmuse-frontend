@@ -19,6 +19,7 @@ import MXConsiSection from "./MXConsiSection";
 import SMXMotoSection from "./SMXMotoSection";
 import MXMotoSection from "./MXMotoSection";
 import SMXWildcardSection from "./SMXWildcardSection";
+import LegacyMXRaceSessions from "./LegacyMXRaceSessions";
 import RiderComparison from "./RiderComparison";
 import TrackProfile from "./TrackProfile";
 import CountriesPage from './CountriesPage';
@@ -471,6 +472,10 @@ classes.sort((a, b) => order[a] - order[b]);
     <MXMotoSection raceId={raceid} classId={classId} moto={2} />
   </Fragment>
 ))}
+
+{!isSMX && (
+  <LegacyMXRaceSessions raceId={raceid} year={raceHeader.Year} />
+)}
 
 {(!isSMX || smxOverallsReady) && mxClasses.map(classId => (
   <MXQualifyingSection

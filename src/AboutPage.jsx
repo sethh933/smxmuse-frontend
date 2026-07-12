@@ -48,6 +48,9 @@ export default function AboutPage() {
           <li>Holeshot data is something I have been working on. It is complete for 450 MX but varied in all other classes and sports.</li>
           <li>Semi data is something I have not prioritized and do not have in the database yet but it is something I plan to add in the future.</li>
           <li>Heat, LCQ, and individual moto data prior to 1990 is pulled from the CycleNews Archives which did not start listing the full field in each race until 1990.</li>
+          <li>I recently added MX qualifying results from 2004-2008. From 2004-2006 on the race result pages you will now see pre-qualifiers, consis, and qualifiers for each race.
+            From 2007-2008, you will see the timed qualifying results from Saturday and Sunday as well as the consis. The Sunday timed qualifying will be referred to as the
+            Fast40 in the rider profiles. </li>
         </ul>
       </section>
     </div>
