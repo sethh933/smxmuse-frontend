@@ -14,7 +14,7 @@ function Navbar() {
     { to: "/riders", label: "Riders" },
     { to: "/season", label: "Seasons" },
     { to: "/results", label: "Race Results" },
-    { to: "/news", label: "News", badge: "NEW" },
+    { to: "/news", label: "News" },
     { to: "/leaderboards", label: "Leaderboards" },
     { to: "/compare", label: "Comparison Tool" },
     { to: "/about", label: "About" },

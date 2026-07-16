@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRacePath, buildRiderPath } from "./seo";
+import { BrandMark } from "./ResultIdentity";
 
 const FEATURED_PATHS = [
   {
@@ -141,9 +142,12 @@ function ResultList({ rows, sport }) {
             <span className="landing-result-name">{row.fullname}</span>
           </span>
           <span className="landing-result-meta">
-            {sport === "sx"
-              ? `${row.brand}${row.lapsled ? ` / ${row.lapsled} led` : ""}`
-              : `${row.brand}${row.moto1 ? ` / ${row.moto1}-${row.moto2}` : ""}`}
+            <span className="landing-result-brand"><BrandMark brand={row.brand} /></span>
+            <span>
+              {sport === "sx"
+                ? (row.lapsled ? `${row.lapsled} led` : "")
+                : (row.moto1 ? `${row.moto1}-${row.moto2}` : "")}
+            </span>
           </span>
         </Link>
       ))}

@@ -4359,9 +4359,18 @@ a.track-link:focus-visible {
 }
 
 .landing-result-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
   color: #9f9f9f;
   font-size: 0.9rem;
   text-align: right;
+}
+
+.landing-result-brand .result-brand-mark {
+  width: 46px;
+  height: 24px;
 }
 
 .landing-spotlight-summary {
