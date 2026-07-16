@@ -86,8 +86,8 @@ export default function MainEventTable({
           <tr>
             <th className="sticky-col pos">Pos</th>
             <th className="sticky-col rider">Rider</th>
-            <th>Country</th>
-            <th>Brand</th>
+            <th className="result-country-col">Country</th>
+            <th className="result-brand-col">Brand</th>
             {isTripleCrown ? <th>Main 1</th> : showDetailedRaceColumns && <th>Interval</th>}
             {isTripleCrown ? <th>Main 2</th> : showDetailedRaceColumns && <th>Best Lap</th>}
             {isTripleCrown ? <th>Main 3</th> : showDetailedRaceColumns && <th>Laps Led</th>}
@@ -115,11 +115,13 @@ export default function MainEventTable({
                       riderId={rider.riderid}
                       name={rider.fullname}
                       imageUrl={rider.imageurl}
+                      country={rider.country}
+                      brand={rider.brand}
                       onClick={(event) => event.stopPropagation()}
                     />
                   </td>
-                  <td><CountryFlag country={rider.country} /></td>
-                  <td><BrandMark brand={rider.brand} /></td>
+                  <td className="result-country-col"><CountryFlag country={rider.country} /></td>
+                  <td className="result-brand-col"><BrandMark brand={rider.brand} /></td>
                   {isTripleCrown ? <td>{rider.tc1 ?? ""}</td> : showDetailedRaceColumns && <td>{rider.interval}</td>}
                   {isTripleCrown ? <td>{rider.tc2 ?? ""}</td> : showDetailedRaceColumns && <td>{rider.bestlap}</td>}
                   {isTripleCrown ? <td>{rider.tc3 ?? ""}</td> : showDetailedRaceColumns && <td>{rider.lapsled === null ? "" : rider.lapsled}</td>}

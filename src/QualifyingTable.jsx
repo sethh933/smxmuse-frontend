@@ -61,9 +61,9 @@ export default function QualifyingTable({ results, raceId, classId }) {
           <tr>
             <th className="pos">Pos</th>
             <th className="rider">Rider</th>
-            <th>Country</th>
+            <th className="result-country-col">Country</th>
             <th>Best Lap</th>
-            <th>Brand</th>
+            <th className="result-brand-col">Brand</th>
             
           </tr>
         </thead>
@@ -84,12 +84,13 @@ export default function QualifyingTable({ results, raceId, classId }) {
                   <td className="rider">
                     <ResultRider
                       riderId={rider.riderid} name={rider.fullname} imageUrl={rider.imageurl}
+                      country={rider.country} brand={rider.brand}
                       onClick={(event) => event.stopPropagation()}
                     />
                   </td>
-                  <td><CountryFlag country={rider.country} /></td>
+                  <td className="result-country-col"><CountryFlag country={rider.country} /></td>
                   <td>{rider.best_lap}</td>
-                  <td><BrandMark brand={rider.brand} /></td>
+                  <td className="result-brand-col"><BrandMark brand={rider.brand} /></td>
                 </tr>
                 {isExpanded && (
                   <tr className="main-detail-row">

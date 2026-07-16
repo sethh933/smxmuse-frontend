@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRiderPath, slugify } from "./seo";
@@ -61,7 +61,8 @@ const getCountryCode = (country) => {
 function CountryPage() {
   const { country } = useParams();
   const [data, setData] = useState(null);
-  const [selectedLetter, setSelectedLetter] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedLetter = searchParams.get("letter")?.toUpperCase() || null;
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -69,6 +70,21 @@ function CountryPage() {
       .then(res => res.json())
       .then(data => setData(data));
   }, [country]);
+
+  useEffect(() => {
+    if (!data || data.country !== "United States" || !requestedLetter) return;
+
+    const scrollKey = `country-riders-scroll:${data.country}:${requestedLetter}`;
+    const savedScroll = sessionStorage.getItem(scrollKey);
+    if (savedScroll === null) return;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, Number(savedScroll));
+        sessionStorage.removeItem(scrollKey);
+      });
+    });
+  }, [data, requestedLetter]);
 
   if (!data) return <div>Loading...</div>;
 
@@ -84,6 +100,17 @@ function CountryPage() {
 }, {});
 
 const letters = Object.keys(groupedRiders).sort();
+const selectedLetter = isUSA && letters.includes(requestedLetter) ? requestedLetter : null;
+
+  function openRider(rider) {
+    if (isUSA && selectedLetter) {
+      sessionStorage.setItem(
+        `country-riders-scroll:${data.country}:${selectedLetter}`,
+        String(window.scrollY)
+      );
+    }
+    navigate(buildRiderPath(rider.RiderID, rider.FullName));
+  }
 
   const code = getCountryCode(data.country);
 
@@ -120,7 +147,7 @@ const letters = Object.keys(groupedRiders).sort();
       <span
         key={letter}
         className={`alphabet-letter ${selectedLetter === letter ? "active" : ""}`}
-        onClick={() => setSelectedLetter(letter)}
+        onClick={() => setSearchParams({ letter })}
       >
         {letter}
       </span>
@@ -147,7 +174,7 @@ const letters = Object.keys(groupedRiders).sort();
           <div
             key={rider.RiderID}
             className="rider-row rider-row-clickable"
-            onClick={() => navigate(buildRiderPath(rider.RiderID, rider.FullName))}
+            onClick={() => openRider(rider)}
           >
             <img
               src={rider.ImageURL}
@@ -170,7 +197,7 @@ const letters = Object.keys(groupedRiders).sort();
         <div
           key={rider.RiderID}
           className="rider-row rider-row-clickable"
-          onClick={() => navigate(buildRiderPath(rider.RiderID, rider.FullName))}
+          onClick={() => openRider(rider)}
         >
           <img
             src={rider.ImageURL}

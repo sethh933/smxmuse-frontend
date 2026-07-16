@@ -61,8 +61,8 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
           <tr>
             <th>Pos</th>
             <th>Rider</th>
-            <th>Country</th>
-            <th>Brand</th>
+            <th className="result-country-col">Country</th>
+            <th className="result-brand-col">Brand</th>
             <th>Interval</th>
             <th>BestLap</th>
             <th>Start</th>
@@ -89,11 +89,13 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
                       riderId={row.riderid}
                       name={row.fullname}
                       imageUrl={row.imageurl}
+                      country={row.country}
+                      brand={row.brand}
                       onClick={(event) => event.stopPropagation()}
                     />
                   </td>
-                  <td><CountryFlag country={row.country} /></td>
-                  <td><BrandMark brand={row.brand} /></td>
+                  <td className="result-country-col"><CountryFlag country={row.country} /></td>
+                  <td className="result-brand-col"><BrandMark brand={row.brand} /></td>
                   <td>{row.interval ?? "-"}</td>
                   <td>{row.bestlap ?? "-"}</td>
                   <td>{row.start ?? "-"}</td>

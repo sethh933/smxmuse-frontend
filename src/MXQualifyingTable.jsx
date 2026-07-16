@@ -58,8 +58,8 @@ function MXQualifyingTable({ data, raceId, classId, sportId }) {
           <tr>
             <th className="pos">Pos</th>
             <th className="rider">Rider</th>
-            <th>Country</th>
-            <th>Brand</th>
+            <th className="result-country-col">Country</th>
+            <th className="result-brand-col">Brand</th>
             <th>Best Lap</th>
           </tr>
         </thead>
@@ -80,11 +80,12 @@ function MXQualifyingTable({ data, raceId, classId, sportId }) {
                   <td className="rider">
                     <ResultRider
                       riderId={row.riderid} name={row.fullname} imageUrl={row.imageurl}
+                      country={row.country} brand={row.brand}
                       onClick={(event) => event.stopPropagation()}
                     />
                   </td>
-                  <td><CountryFlag country={row.country} /></td>
-                  <td><BrandMark brand={row.brand} /></td>
+                  <td className="result-country-col"><CountryFlag country={row.country} /></td>
+                  <td className="result-brand-col"><BrandMark brand={row.brand} /></td>
                   <td>{row.best_lap}</td>
                 </tr>
                 {isExpanded && (

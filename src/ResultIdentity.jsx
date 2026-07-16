@@ -44,7 +44,7 @@ function riderInitials(name) {
     .map((part) => part[0]).join("").toUpperCase();
 }
 
-export function ResultRider({ riderId, name, imageUrl, onClick }) {
+export function ResultRider({ riderId, name, imageUrl, country, brand, onClick }) {
   const [imageFailed, setImageFailed] = useState(false);
   const showImage = imageUrl && !imageFailed;
 
@@ -55,7 +55,13 @@ export function ResultRider({ riderId, name, imageUrl, onClick }) {
           <img src={imageUrl} alt="" loading="lazy" onError={() => setImageFailed(true)} />
         ) : <span>{riderInitials(name)}</span>}
       </span>
-      <span className="result-rider-name">{name}</span>
+      <span className="result-rider-copy">
+        <span className="result-rider-name">{name}</span>
+        <span className="result-rider-mobile-meta">
+          <CountryFlag country={country} />
+          <BrandMark brand={brand} />
+        </span>
+      </span>
     </Link>
   );
 }

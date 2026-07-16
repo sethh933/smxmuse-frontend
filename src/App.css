@@ -1431,6 +1431,15 @@ button {
   object-position: center 18%;
 }
 
+.result-rider-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.result-rider-mobile-meta { display: none; }
+
 .result-brand-mark {
   display: inline-flex;
   align-items: center;
@@ -1458,7 +1467,91 @@ button {
 
 .result-country-empty { color: #777; }
 
+.overall-mobile-label { display: none; }
+
 @media (max-width: 640px) {
+  .result-identity-table .result-country-col,
+  .result-identity-table .result-brand-col {
+    display: none;
+  }
+
+  .result-identity-table .result-rider-mobile-meta {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 16px;
+    margin-top: 2px;
+  }
+
+  .result-identity-table .result-rider-mobile-meta .result-country-flag {
+    width: 20px;
+    height: 13px;
+  }
+
+  .result-identity-table .result-rider-mobile-meta .result-brand-mark {
+    width: 31px;
+    height: 16px;
+  }
+
+  .result-overalls-table {
+    width: 580px;
+    min-width: 580px;
+    table-layout: fixed;
+  }
+
+  .result-overalls-table th,
+  .result-overalls-table td {
+    padding-inline: 3px;
+  }
+
+  .result-overalls-table th:first-child,
+  .result-overalls-table td:first-child {
+    width: 34px;
+  }
+
+  .result-overalls-table th:nth-child(2),
+  .result-overalls-table td:nth-child(2) {
+    width: 185px;
+  }
+
+  .result-overalls-table .overall-country-col,
+  .result-overalls-table .overall-brand-col {
+    display: none;
+  }
+
+  .result-overalls-table .overall-moto-col {
+    width: 38px;
+  }
+
+  .result-overalls-table .overall-desktop-label { display: none; }
+  .result-overalls-table .overall-mobile-label { display: inline; }
+
+  .result-overalls-table th:nth-child(7),
+  .result-overalls-table td:nth-child(7) {
+    width: 58px;
+  }
+
+  .result-overalls-table th:nth-child(8),
+  .result-overalls-table td:nth-child(8),
+  .result-overalls-table th:nth-child(9),
+  .result-overalls-table td:nth-child(9),
+  .result-overalls-table th:nth-child(10),
+  .result-overalls-table td:nth-child(10) {
+    width: 57px;
+  }
+
+  .result-overalls-table .result-rider-identity {
+    width: 175px;
+    gap: 6px;
+    font-size: 0.82rem;
+  }
+
+  .result-overalls-table .result-rider-photo {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
   .result-rider-identity {
     gap: 7px;
     width: 190px;

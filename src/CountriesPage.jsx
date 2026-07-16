@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRiderPath } from "./seo";
@@ -116,12 +116,12 @@ function FeaturedRiders({ riders, navigate }) {
 }
 
 function CountriesPage() {
-  const [view, setView] = useState("lastname");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const view = searchParams.get("view") === "countries" ? "countries" : "lastname";
   const [countries, setCountries] = useState([]);
   const [allRiders, setAllRiders] = useState([]);
   const [featuredRiders, setFeaturedRiders] = useState([]);
   const [riderCount, setRiderCount] = useState(0);
-  const [selectedLetter, setSelectedLetter] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -161,14 +161,34 @@ function CountriesPage() {
   }, [allRiders]);
 
   const letters = useMemo(() => Object.keys(groupedRiders).sort(), [groupedRiders]);
+  const requestedLetter = searchParams.get("letter")?.toUpperCase();
+  const selectedLetter = letters.includes(requestedLetter) ? requestedLetter : (letters[0] || null);
 
   useEffect(() => {
-    if (!letters.length) return;
+    if (!selectedLetter || !allRiders.length) return;
 
-    if (!selectedLetter || !letters.includes(selectedLetter)) {
-      setSelectedLetter(letters[0]);
+    const scrollKey = `riders-hub-scroll:${selectedLetter}`;
+    const savedScroll = sessionStorage.getItem(scrollKey);
+    if (savedScroll === null) return;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, Number(savedScroll));
+        sessionStorage.removeItem(scrollKey);
+      });
+    });
+  }, [allRiders.length, selectedLetter]);
+
+  function selectLetter(letter) {
+    setSearchParams({ letter });
+  }
+
+  function openRider(rider) {
+    if (selectedLetter) {
+      sessionStorage.setItem(`riders-hub-scroll:${selectedLetter}`, String(window.scrollY));
     }
-  }, [letters, selectedLetter]);
+    navigate(buildRiderPath(rider.RiderID, rider.FullName));
+  }
 
   return (
     <div className="page-container riders-hub">
@@ -186,7 +206,7 @@ function CountriesPage() {
         <button
           type="button"
           className={`rider-nav-button ${view === "lastname" ? "active" : ""}`}
-          onClick={() => setView("lastname")}
+          onClick={() => setSearchParams(selectedLetter ? { letter: selectedLetter } : {})}
         >
           Last Name
         </button>
@@ -194,13 +214,15 @@ function CountriesPage() {
         <button
           type="button"
           className={`rider-nav-button ${view === "countries" ? "active" : ""}`}
-          onClick={() => setView("countries")}
+          onClick={() => setSearchParams({ view: "countries", ...(selectedLetter ? { letter: selectedLetter } : {}) })}
         >
           Countries
         </button>
       </div>
 
-      <FeaturedRiders riders={featuredRiders} navigate={navigate} />
+      {view === "lastname" && (
+        <FeaturedRiders riders={featuredRiders} navigate={navigate} />
+      )}
 
       {view === "lastname" ? (
         <section className="riders-panel">
@@ -214,7 +236,7 @@ function CountriesPage() {
               <span
                 key={letter}
                 className={`alphabet-letter ${selectedLetter === letter ? "active" : ""}`}
-                onClick={() => setSelectedLetter(letter)}
+                onClick={() => selectLetter(letter)}
               >
                 {letter}
               </span>
@@ -230,7 +252,7 @@ function CountriesPage() {
                   <div
                     key={rider.RiderID}
                     className="rider-row rider-row-clickable"
-                    onClick={() => navigate(buildRiderPath(rider.RiderID, rider.FullName))}
+                    onClick={() => openRider(rider)}
                   >
                     <img
                       src={rider.ImageURL}

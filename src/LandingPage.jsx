@@ -458,6 +458,20 @@ export default function LandingPage() {
         path="/"
       />
       <section className="landing-desktop-layout landing-layout-narrow-top">
+        <div className="landing-narrow-results">
+          <LatestResultsPanel
+            loadingLatest={loadingLatest}
+            latestRace={latestRace}
+            latestResults={latestResults}
+          />
+        </div>
+
+        <div className="landing-hero-grid-slot">
+          <RiderOfTheDayPanel riderOfTheDay={riderOfTheDay} />
+        </div>
+      </section>
+
+      <section className="landing-desktop-layout landing-layout-narrow-live">
         <div className="landing-hero-copy landing-hero-copy-narrow">
           <p className="landing-kicker">Supercross and Motocross Archive</p>
           <h1 className="landing-title landing-title-narrow">
@@ -478,20 +492,6 @@ export default function LandingPage() {
               Open current season
             </Link>
           </div>
-        </div>
-
-        <div className="landing-hero-grid-slot">
-          <RiderOfTheDayPanel riderOfTheDay={riderOfTheDay} />
-        </div>
-      </section>
-
-      <section className="landing-desktop-layout landing-layout-narrow-live">
-        <div className="landing-narrow-results">
-          <LatestResultsPanel
-            loadingLatest={loadingLatest}
-            latestRace={latestRace}
-            latestResults={latestResults}
-          />
         </div>
         <div className="landing-narrow-side">
           <GridsCallout />

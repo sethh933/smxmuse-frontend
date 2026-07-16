@@ -34,8 +34,8 @@ export default function LegacyMXRaceSessions({ raceId, year }) {
             <tr>
               <th>Result</th>
               <th className="rider">Full Name</th>
-              <th>Country</th>
-              <th>Brand</th>
+              <th className="result-country-col">Country</th>
+              <th className="result-brand-col">Brand</th>
               <th>{session.title.includes("Timed Qualifying") ? "BestLap" : "Interval"}</th>
             </tr>
           </thead>
@@ -44,10 +44,11 @@ export default function LegacyMXRaceSessions({ raceId, year }) {
               <tr key={`${session.session_order}-${row.riderid}-${row.result}-${index}`}>
                 <td>{row.result}</td>
                 <td className="rider">
-                  <ResultRider riderId={row.riderid} name={row.fullname} imageUrl={row.imageurl} />
+                  <ResultRider riderId={row.riderid} name={row.fullname} imageUrl={row.imageurl}
+                    country={row.country} brand={row.brand} />
                 </td>
-                <td><CountryFlag country={row.country} /></td>
-                <td><BrandMark brand={row.brand} /></td>
+                <td className="result-country-col"><CountryFlag country={row.country} /></td>
+                <td className="result-brand-col"><BrandMark brand={row.brand} /></td>
                 <td>{row.interval}</td>
               </tr>
             ))}
