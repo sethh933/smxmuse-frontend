@@ -1,9 +1,8 @@
 import "./App.css";
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
 import RaceLapDetailDrawer from "./RaceLapDetailDrawer";
-import { buildRiderPath } from "./seo";
+import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 export default function MainEventTable({
   results,
@@ -27,7 +26,7 @@ export default function MainEventTable({
   const showDetailedRaceColumns = !(sportId === 1 && raceYear < 2003);
   const showHsPos = sportId === 1 && raceYear >= 2026;
   const columnCount =
-    3 +
+    4 +
     (isTripleCrown ? 3 : showDetailedRaceColumns ? 3 : 0) +
     1 +
     (!isTripleCrown && showHsPos ? 1 : 0) +
@@ -82,11 +81,12 @@ export default function MainEventTable({
 
   return (
     <div className="rider-table-wrapper">
-      <table className="rider-stats">
+      <table className="rider-stats result-identity-table">
         <thead>
           <tr>
             <th className="sticky-col pos">Pos</th>
             <th className="sticky-col rider">Rider</th>
+            <th>Country</th>
             <th>Brand</th>
             {isTripleCrown ? <th>Main 1</th> : showDetailedRaceColumns && <th>Interval</th>}
             {isTripleCrown ? <th>Main 2</th> : showDetailedRaceColumns && <th>Best Lap</th>}
@@ -111,14 +111,15 @@ export default function MainEventTable({
                 >
                   <td className="pos">{rider.result}</td>
                   <td className="rider">
-                    <Link
-                      to={buildRiderPath(rider.riderid, rider.fullname)}
+                    <ResultRider
+                      riderId={rider.riderid}
+                      name={rider.fullname}
+                      imageUrl={rider.imageurl}
                       onClick={(event) => event.stopPropagation()}
-                    >
-                      {rider.fullname}
-                    </Link>
+                    />
                   </td>
-                  <td>{rider.brand}</td>
+                  <td><CountryFlag country={rider.country} /></td>
+                  <td><BrandMark brand={rider.brand} /></td>
                   {isTripleCrown ? <td>{rider.tc1 ?? ""}</td> : showDetailedRaceColumns && <td>{rider.interval}</td>}
                   {isTripleCrown ? <td>{rider.tc2 ?? ""}</td> : showDetailedRaceColumns && <td>{rider.bestlap}</td>}
                   {isTripleCrown ? <td>{rider.tc3 ?? ""}</td> : showDetailedRaceColumns && <td>{rider.lapsled === null ? "" : rider.lapsled}</td>}

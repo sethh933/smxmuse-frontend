@@ -1391,6 +1391,91 @@ button {
   text-align: center;
 }
 
+/* Compact identity treatment for race-result tables. */
+.result-rider-identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.result-rider-photo {
+  display: inline-flex;
+  flex: 0 0 38px;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #353535, #191919);
+  color: #bfc3ca;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
+}
+
+.result-rider-photo.has-image {
+  background: radial-gradient(circle at 50% 35%, #4c4c4c, #1b1b1b 72%);
+}
+
+.result-rider-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.result-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 30px;
+}
+
+.result-brand-mark img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.result-country-flag {
+  display: inline-block;
+  width: 28px;
+  height: 19px;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.38);
+  vertical-align: middle;
+}
+
+.result-country-empty { color: #777; }
+
+@media (max-width: 640px) {
+  .result-rider-identity {
+    gap: 7px;
+    width: 190px;
+  }
+
+  .result-rider-photo {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .result-brand-mark {
+    width: 56px;
+    height: 26px;
+  }
+}
+
 .main-result-row {
   cursor: pointer;
   transition: background-color 0.15s ease;

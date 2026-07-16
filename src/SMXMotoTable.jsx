@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
 import RaceLapDetailDrawer from "./RaceLapDetailDrawer";
-import { buildRiderPath } from "./seo";
+import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
   const [expandedKey, setExpandedKey] = useState(null);
@@ -57,11 +56,12 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
 
   return (
     <div className="rider-table-wrapper">
-      <table className="rider-stats rider-stats-content-fit">
+      <table className="rider-stats rider-stats-content-fit result-identity-table">
         <thead>
           <tr>
             <th>Pos</th>
             <th>Rider</th>
+            <th>Country</th>
             <th>Brand</th>
             <th>Interval</th>
             <th>BestLap</th>
@@ -85,14 +85,15 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
                 >
                   <td>{row.result}</td>
                   <td>
-                    <Link
-                      to={buildRiderPath(row.riderid, row.fullname)}
+                    <ResultRider
+                      riderId={row.riderid}
+                      name={row.fullname}
+                      imageUrl={row.imageurl}
                       onClick={(event) => event.stopPropagation()}
-                    >
-                      {row.fullname}
-                    </Link>
+                    />
                   </td>
-                  <td>{row.brand}</td>
+                  <td><CountryFlag country={row.country} /></td>
+                  <td><BrandMark brand={row.brand} /></td>
                   <td>{row.interval ?? "-"}</td>
                   <td>{row.bestlap ?? "-"}</td>
                   <td>{row.start ?? "-"}</td>
@@ -103,7 +104,7 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
                 </tr>
                 {isExpanded && (
                   <tr className="main-detail-row">
-                    <td colSpan={8}>
+                    <td colSpan={9}>
                       <RaceLapDetailDrawer
                         detail={detailState.detail}
                         isLoading={detailState.isLoading}

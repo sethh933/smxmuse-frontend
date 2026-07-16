@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { buildRiderPath } from "./seo";
+import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 function MXOverallsTable({ data }) {
   return (
     <div className="rider-table-wrapper">
-      <table className="rider-stats">
+      <table className="rider-stats result-identity-table">
         <thead>
           <tr>
             <th>Pos</th>
             <th>Rider</th>
+            <th>Country</th>
             <th>Brand</th>
             <th>M1</th>
             <th>M2</th>
@@ -25,11 +25,10 @@ function MXOverallsTable({ data }) {
             <tr key={index}>
               <td>{row.result}</td>
               <td>
-  <Link to={buildRiderPath(row.riderid, row.fullname)}>
-    {row.fullname}
-  </Link>
-</td>
-              <td>{row.brand}</td>
+                <ResultRider riderId={row.riderid} name={row.fullname} imageUrl={row.imageurl} />
+              </td>
+              <td><CountryFlag country={row.country} /></td>
+              <td><BrandMark brand={row.brand} /></td>
               <td>{row.moto1}</td>
               <td>{row.moto2}</td>
               <td>{row.lapsled}</td>

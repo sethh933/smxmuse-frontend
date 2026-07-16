@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { buildRiderPath } from "./seo";
+import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 function MXConsiTable({ data }) {
   return (
     <div className="rider-table-wrapper">
-    <table className="rider-stats rider-stats-content-fit">
+    <table className="rider-stats rider-stats-content-fit result-identity-table">
         <thead>
           <tr>
             <th className="pos">Pos</th>
             <th className="rider">Rider</th>
+            <th>Country</th>
             <th>Brand</th>
           </tr>
         </thead>
@@ -19,11 +19,10 @@ function MXConsiTable({ data }) {
     <tr key={index}>
       <td className="pos">{row.result}</td>
       <td className="rider">
-  <Link to={buildRiderPath(row.riderid, row.fullname)}>
-    {row.fullname}
-  </Link>
-</td>
-      <td>{row.brand}</td>
+        <ResultRider riderId={row.riderid} name={row.fullname} imageUrl={row.imageurl} />
+      </td>
+      <td><CountryFlag country={row.country} /></td>
+      <td><BrandMark brand={row.brand} /></td>
     </tr>
   ))}
 </tbody>

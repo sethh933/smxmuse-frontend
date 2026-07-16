@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
 import QualifyingDetailDrawer from "./QualifyingDetailDrawer";
-import { buildRiderPath } from "./seo";
+import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 function MXQualifyingTable({ data, raceId, classId, sportId }) {
   const [expandedKey, setExpandedKey] = useState(null);
@@ -54,11 +53,12 @@ function MXQualifyingTable({ data, raceId, classId, sportId }) {
 
   return (
     <div className="rider-table-wrapper">
-    <table className="rider-stats rider-stats-content-fit">
+    <table className="rider-stats rider-stats-content-fit result-identity-table">
         <thead>
           <tr>
             <th className="pos">Pos</th>
             <th className="rider">Rider</th>
+            <th>Country</th>
             <th>Brand</th>
             <th>Best Lap</th>
           </tr>
@@ -78,19 +78,18 @@ function MXQualifyingTable({ data, raceId, classId, sportId }) {
                 >
                   <td className="pos">{row.result}</td>
                   <td className="rider">
-                    <Link
-                      to={buildRiderPath(row.riderid, row.fullname)}
+                    <ResultRider
+                      riderId={row.riderid} name={row.fullname} imageUrl={row.imageurl}
                       onClick={(event) => event.stopPropagation()}
-                    >
-                      {row.fullname}
-                    </Link>
+                    />
                   </td>
-                  <td>{row.brand}</td>
+                  <td><CountryFlag country={row.country} /></td>
+                  <td><BrandMark brand={row.brand} /></td>
                   <td>{row.best_lap}</td>
                 </tr>
                 {isExpanded && (
                   <tr className="main-detail-row">
-                    <td colSpan={4}>
+                    <td colSpan={5}>
                       <QualifyingDetailDrawer
                         detail={detailState.detail}
                         isLoading={detailState.isLoading}

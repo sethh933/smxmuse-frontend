@@ -1,9 +1,8 @@
 import "./App.css";
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
 import QualifyingDetailDrawer from "./QualifyingDetailDrawer";
-import { buildRiderPath } from "./seo";
+import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 export default function QualifyingTable({ results, raceId, classId }) {
   const [expandedKey, setExpandedKey] = useState(null);
@@ -57,11 +56,12 @@ export default function QualifyingTable({ results, raceId, classId }) {
 
   return (
     <div className="rider-table-wrapper">
-  <table className="rider-stats rider-stats-content-fit">
+  <table className="rider-stats rider-stats-content-fit result-identity-table">
         <thead>
           <tr>
             <th className="pos">Pos</th>
             <th className="rider">Rider</th>
+            <th>Country</th>
             <th>Best Lap</th>
             <th>Brand</th>
             
@@ -82,19 +82,18 @@ export default function QualifyingTable({ results, raceId, classId }) {
                 >
                   <td className="pos">{rider.result}</td>
                   <td className="rider">
-                    <Link
-                      to={buildRiderPath(rider.riderid, rider.fullname)}
+                    <ResultRider
+                      riderId={rider.riderid} name={rider.fullname} imageUrl={rider.imageurl}
                       onClick={(event) => event.stopPropagation()}
-                    >
-                      {rider.fullname}
-                    </Link>
+                    />
                   </td>
+                  <td><CountryFlag country={rider.country} /></td>
                   <td>{rider.best_lap}</td>
-                  <td>{rider.brand}</td>
+                  <td><BrandMark brand={rider.brand} /></td>
                 </tr>
                 {isExpanded && (
                   <tr className="main-detail-row">
-                    <td colSpan={4}>
+                    <td colSpan={5}>
                       <QualifyingDetailDrawer
                         detail={detailState.detail}
                         isLoading={detailState.isLoading}

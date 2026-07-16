@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
-import { buildRiderPath } from "./seo";
+import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 export default function LegacyMXRaceSessions({ raceId, year }) {
   const [sessions, setSessions] = useState([]);
@@ -30,11 +29,12 @@ export default function LegacyMXRaceSessions({ raceId, year }) {
     <div key={session.session_order}>
       <h2 className="section-header">{session.title}</h2>
       <div className="rider-table-wrapper">
-        <table className="rider-stats rider-stats-content-fit">
+        <table className="rider-stats rider-stats-content-fit result-identity-table">
           <thead>
             <tr>
               <th>Result</th>
               <th className="rider">Full Name</th>
+              <th>Country</th>
               <th>Brand</th>
               <th>{session.title.includes("Timed Qualifying") ? "BestLap" : "Interval"}</th>
             </tr>
@@ -44,11 +44,10 @@ export default function LegacyMXRaceSessions({ raceId, year }) {
               <tr key={`${session.session_order}-${row.riderid}-${row.result}-${index}`}>
                 <td>{row.result}</td>
                 <td className="rider">
-                  <Link to={buildRiderPath(row.riderid, row.fullname)}>
-                    {row.fullname}
-                  </Link>
+                  <ResultRider riderId={row.riderid} name={row.fullname} imageUrl={row.imageurl} />
                 </td>
-                <td>{row.brand}</td>
+                <td><CountryFlag country={row.country} /></td>
+                <td><BrandMark brand={row.brand} /></td>
                 <td>{row.interval}</td>
               </tr>
             ))}
