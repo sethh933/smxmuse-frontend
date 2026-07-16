@@ -3994,6 +3994,10 @@ a.track-link:focus-visible {
   margin-top: 10px;
 }
 
+.landing-archive-mobile {
+  display: none;
+}
+
 .landing-hero-grid-slot {
   display: flex;
 }
@@ -4219,21 +4223,37 @@ a.track-link:focus-visible {
 }
 
 .landing-hero-grid-slot .landing-spotlight-panel {
-  padding: 16px 18px 18px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 22px 24px 24px;
+  box-sizing: border-box;
+  flex-direction: column;
 }
 
 .landing-hero-grid-slot .landing-spotlight-image {
-  max-width: 132px;
-  margin-bottom: 10px;
+  max-width: 190px;
+  margin-bottom: 14px;
+}
+
+.landing-hero-grid-slot .landing-spotlight-link {
+  align-self: center;
+  margin: 4px auto 18px;
 }
 
 .landing-hero-grid-slot .landing-spotlight-summary,
 .landing-hero-grid-slot .landing-spotlight-context {
-  font-size: 0.88rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 .landing-hero-grid-slot .landing-spotlight-actions {
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.landing-hero-grid-slot .landing-spotlight-actions .landing-button {
+  width: 100%;
 }
 
 .landing-feature-callout h2,
@@ -4751,6 +4771,14 @@ a.track-link:focus-visible {
 }
 
 @media (max-width: 1150px) {
+  .landing-archive-mobile {
+    display: block;
+  }
+
+  .landing-archive-desktop {
+    display: none;
+  }
+
   .landing-layout-switcher-options,
   .landing-layout-balanced,
   .landing-layout-snapshot,

@@ -310,19 +310,18 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
   );
 }
 
-function ArchiveIntro() {
+function ArchiveIntro({ className = "" }) {
   return (
-    <div className="landing-hero-copy">
+    <div className={`landing-hero-copy landing-hero-copy-narrow ${className}`.trim()}>
       <p className="landing-kicker">Supercross and Motocross Archive</p>
-      <h1 className="landing-title">
+      <h1 className="landing-title landing-title-narrow">
         Everything in one place, from the latest gate drop to all-time history.
       </h1>
-      <p className="landing-intro">
-        SMXmuse is built for digging deeper: race results, rider profiles, season dashboards,
-        comparison tools, and all-time leaderboards designed for fans who want to bench race with more knowledge than ever before.
+      <p className="landing-intro landing-intro-narrow">
+        SMXmuse is built for race results, rider profiles, season dashboards, comparison tools,
+        and all-time leaderboards without making you dig to find the newest story first.
       </p>
-
-      <div className="landing-hero-actions">
+      <div className="landing-hero-actions landing-hero-actions-narrow">
         <Link to="/results" className="landing-button landing-button-primary">
           Explore results
         </Link>
@@ -334,16 +333,6 @@ function ArchiveIntro() {
         </Link>
       </div>
 
-      <div className="landing-stat-strip">
-        <div className="landing-stat-pill">
-          <span className="landing-stat-label">Best for</span>
-          <strong>Race-by-race deep dives</strong>
-        </div>
-        <div className="landing-stat-pill">
-          <span className="landing-stat-label">Quick jump</span>
-          <strong>Head-to-head rider comparison</strong>
-        </div>
-      </div>
     </div>
   );
 }
@@ -466,33 +455,15 @@ export default function LandingPage() {
           />
         </div>
 
+        <ArchiveIntro className="landing-archive-mobile" />
+
         <div className="landing-hero-grid-slot">
           <RiderOfTheDayPanel riderOfTheDay={riderOfTheDay} />
         </div>
       </section>
 
       <section className="landing-desktop-layout landing-layout-narrow-live">
-        <div className="landing-hero-copy landing-hero-copy-narrow">
-          <p className="landing-kicker">Supercross and Motocross Archive</p>
-          <h1 className="landing-title landing-title-narrow">
-            Everything in one place, from the latest gate drop to all-time history.
-          </h1>
-          <p className="landing-intro landing-intro-narrow">
-            SMXmuse is built for race results, rider profiles, season dashboards, comparison tools,
-            and all-time leaderboards without making you dig to find the newest story first.
-          </p>
-          <div className="landing-hero-actions landing-hero-actions-narrow">
-            <Link to="/results" className="landing-button landing-button-primary">
-              Explore results
-            </Link>
-            <Link to="/compare" className="landing-button landing-button-secondary">
-              Compare riders
-            </Link>
-            <Link to="/season" className="landing-button landing-button-secondary">
-              Open current season
-            </Link>
-          </div>
-        </div>
+        <ArchiveIntro className="landing-archive-desktop" />
         <div className="landing-narrow-side">
           <GridsCallout />
         </div>
