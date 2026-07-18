@@ -39,6 +39,7 @@ import { NotePostPage, NotesIndexPage } from "./NotesPage";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildAbsoluteUrl, buildRacePath, buildTrackPath, parseRaceId, parseRiderId, parseTrackId } from "./seo";
+import NotFoundPage from "./NotFoundPage";
 
 function formatWeatherNumber(value, options = {}) {
   if (value === null || value === undefined || value === "") return null;
@@ -581,6 +582,7 @@ function App() {
             <Route path="/results" element={<ResultsHome />} />
             <Route path="/results/:sport/:year" element={<ResultsYear />} />
             <Route path="/rider/:riderId/points" element={<RiderPointsRouteWrapper />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       </div>
