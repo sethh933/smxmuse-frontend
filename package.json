@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
+    "build:client": "vite build",
+    "prerender": "node scripts/prerender.mjs",
     "lint": "eslint .",
     "remotion:studio": "remotion studio src/remotion/index.jsx",
     "remotion:render": "remotion render src/remotion/index.jsx ChampionshipBarRace out/2026-250sx-west-standings.mp4",
