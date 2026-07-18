@@ -188,7 +188,7 @@ export function NotesAdminListPage() {
     <div className="notes-admin-page">
       <Seo
         title="News Admin"
-        description="Manage SMXmuse news drafts and published posts."
+        description="Manage smxmuse news drafts and published posts."
         path="/admin/news"
         robots="noindex,nofollow"
       />
@@ -324,7 +324,7 @@ export function NotesAdminPreviewPage() {
     <article className="notes-page notes-post-page">
       <Seo
         title={note?.title || "Draft Preview"}
-        description="Preview SMXmuse note draft."
+        description="Preview smxmuse note draft."
         path={`/admin/news/preview/${slug}`}
         robots="noindex,nofollow"
       />

@@ -237,7 +237,7 @@ const getLapsLedDisplay = (row, sport) => {
       {data?.rider && (
         <Seo
           title={`${data.rider.full_name} Rider Profile and Career Stats`}
-          description={`Explore ${data.rider.full_name}'s Supercross and Motocross career stats, results history, qualifying numbers, and points totals on SMXmuse.`}
+          description={`Explore ${data.rider.full_name}'s Supercross and Motocross career stats, results history, qualifying numbers, and points totals on smxmuse.`}
           path={buildRiderPath(riderId, data.rider.full_name)}
           canonical={buildRiderPath(riderId, data.rider.full_name)}
           image={data.rider.image_url}

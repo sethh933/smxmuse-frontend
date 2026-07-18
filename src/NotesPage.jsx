@@ -25,7 +25,7 @@ function buildPostPath(post) {
 }
 
 function getPostDescription(post) {
-  return post.summary || `${getPostTypeLabel(post.type)} from SMXmuse.`;
+  return post.summary || `${getPostTypeLabel(post.type)} from smxmuse.`;
 }
 
 function PostMeta({ post }) {
@@ -143,7 +143,7 @@ export function NotesIndexPage() {
     <div className="notes-page">
       <Seo
         title="smxmuse News"
-        description="Read SMXmuse pre-race notes, race recaps, leaderboard posts, and moto stats analysis."
+        description="Read smxmuse pre-race notes, race recaps, leaderboard posts, and moto stats analysis."
         path="/news"
       />
 
@@ -275,7 +275,7 @@ export function NotePostPage() {
           datePublished: post.date,
           author: {
             "@type": "Organization",
-            name: "SMXmuse"
+            name: "smxmuse"
           },
           url: buildAbsoluteUrl(buildPostPath(post))
         }}

@@ -28,7 +28,7 @@ function Navbar() {
             <Link to="/">
               <img
                 src="/OneLineTransparent-cropped.png"
-                alt="SMXmuse"
+                alt="smxmuse"
                 className="nav-logo-image"
               />
             </Link>
@@ -54,7 +54,7 @@ function Navbar() {
               <Link to="/">
                 <img
                   src="/OneLineTransparent-cropped.png"
-                  alt="SMXmuse"
+                  alt="smxmuse"
                   className="nav-logo-image"
                 />
               </Link>

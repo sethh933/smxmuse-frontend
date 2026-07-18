@@ -153,7 +153,7 @@ export default function SeasonDashboard() {
     <div className="season-dashboard">
       <Seo
         title={`${year} ${getSeasonLabel(classId, sport)} Season Dashboard`}
-        description={`Explore ${year} ${getSeasonLabel(classId, sport)} standings, stats, laps led, and championship progression on SMXmuse.`}
+        description={`Explore ${year} ${getSeasonLabel(classId, sport)} standings, stats, laps led, and championship progression on smxmuse.`}
         path={`/season/${sport}/${year}/${classId}`}
       />
       <section className="season-dashboard-hero">

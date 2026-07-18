@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import debounce from "lodash.debounce";
 import { toBlob } from "html-to-image";
 import { apiUrl } from "./api";
+import Seo from "./SiteSeo";
 
 function getComparisonImageSrc(url) {
   if (!url) return "/smxmuselogo.png";
@@ -582,6 +583,11 @@ export default function RiderComparison() {
 
   return (
     <div className="comparison-page">
+      <Seo
+        title="Compare Supercross and Motocross Riders"
+        description="Compare Supercross, Motocross, and SMX riders head to head across career wins, podiums, starts, championships, and season statistics."
+        path="/compare"
+      />
       <h1>Rider Comparison</h1>
 
       <div className="comparison-card">

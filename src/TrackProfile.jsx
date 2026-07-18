@@ -82,7 +82,7 @@ function TrackProfile() {
     <div className="track-profile-page">
       <Seo
         title={`${trackName} ${sportLabel} Track History`}
-        description={`View ${trackName} winners, starts, podiums, and track history for ${sportLabel} on SMXmuse.`}
+        description={`View ${trackName} winners, starts, podiums, and track history for ${sportLabel} on smxmuse.`}
         path={buildTrackPath(sportParam, trackId, trackName)}
       />
       <section className="track-profile-hero">

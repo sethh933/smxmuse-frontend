@@ -271,7 +271,7 @@ export default function NotesAdminPage() {
     <div className="notes-admin-page">
       <Seo
         title={isEditing ? "Edit News Post" : "News Admin"}
-        description={`${isEditing ? "Edit" : "Create"} SMXmuse pre-race notes and race recaps.`}
+        description={`${isEditing ? "Edit" : "Create"} smxmuse pre-race notes and race recaps.`}
         path={isEditing ? `/admin/news/edit/${slug}` : "/admin/news/new"}
         robots="noindex,nofollow"
       />

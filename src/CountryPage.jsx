@@ -118,7 +118,7 @@ const selectedLetter = isUSA && letters.includes(requestedLetter) ? requestedLet
     <div className="page-container">
       <Seo
         title={`${data.country} Riders`}
-        description={`Browse rider profiles from ${data.country} in the SMXmuse Supercross and Motocross archive.`}
+        description={`Browse rider profiles from ${data.country} in the smxmuse Supercross and Motocross archive.`}
         path={`/riders/${slugify(data.country)}`}
         canonical={`/riders/${country}`}
       />

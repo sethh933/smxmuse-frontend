@@ -64,7 +64,7 @@ export default function RiderPoints() {
       {riderData && (
         <Seo
           title={`${riderData.full_name} Points Standings History`}
-          description={`View ${riderData.full_name}'s Supercross and Motocross championship finishes and points standings history on SMXmuse.`}
+          description={`View ${riderData.full_name}'s Supercross and Motocross championship finishes and points standings history on smxmuse.`}
           path={buildRiderPath(riderId, riderData.full_name, "points")}
           canonical={buildRiderPath(riderId, riderData.full_name, "points")}
           image={riderData.image_url}

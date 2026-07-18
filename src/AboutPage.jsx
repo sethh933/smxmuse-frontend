@@ -4,8 +4,8 @@ export default function AboutPage() {
   return (
     <div className="about-page">
       <Seo
-        title="About SMXmuse"
-        description="Learn what SMXmuse covers, how the Supercross and Motocross stats archive was built, and where to send feedback or business inquiries."
+        title="About smxmuse"
+        description="Learn what smxmuse covers, how the Supercross and Motocross stats archive was built, and where to send feedback or business inquiries."
         path="/about"
       />
       <section className="about-hero">

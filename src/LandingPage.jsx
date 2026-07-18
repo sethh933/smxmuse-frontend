@@ -174,7 +174,7 @@ function GridsCallout() {
   return (
     <aside className="landing-feature-callout">
       <p className="landing-callout-label">Featured</p>
-      <h2>SMXmuse Grids</h2>
+      <h2>Smxmuse Grids</h2>
       <p>
         A daily 3x3 grid trivia game powered by my database to test your knowledge about Supercross and Motocross.
         Chase perfect scores or be daring and try some deep cuts!
@@ -222,7 +222,7 @@ function RiderOfTheDayPanel({ riderOfTheDay }) {
               />
             )}
           </div>
-          <p className="landing-spotlight-summary">A daily random pull from the SMXmuse rider archive.</p>
+          <p className="landing-spotlight-summary">A daily random pull from the smxmuse rider archive.</p>
           <p className="landing-spotlight-context">
             This rider stays featured for the full day, then rotates to a new random archive pick.
           </p>
@@ -318,7 +318,7 @@ function ArchiveIntro({ className = "" }) {
         Everything in one place, from the latest gate drop to all-time history.
       </h1>
       <p className="landing-intro landing-intro-narrow">
-        SMXmuse is built for race results, rider profiles, season dashboards, comparison tools,
+        Smxmuse is built for race results, rider profiles, season dashboards, comparison tools,
         and all-time leaderboards without making you dig to find the newest story first.
       </p>
       <div className="landing-hero-actions landing-hero-actions-narrow">
@@ -443,7 +443,7 @@ export default function LandingPage() {
     <div className="landing-page">
       <Seo
         title="Supercross and Motocross Stats, Results, and Rider Profiles"
-        description="SMXmuse is a Supercross and Motocross stats archive with rider profiles, race results, season dashboards, comparisons, and all-time leaderboards."
+        description="Smxmuse is a Supercross and Motocross stats archive with rider profiles, race results, season dashboards, comparisons, and all-time leaderboards."
         path="/"
       />
       <section className="landing-desktop-layout landing-primary-grid">
@@ -500,10 +500,10 @@ export default function LandingPage() {
         </div>
 
         <div className="landing-path-card">
-          <p className="landing-panel-label">SMXmuse on social</p>
-          <h3>Follow SMXmuse outside the site.</h3>
+          <p className="landing-panel-label">Smxmuse on social</p>
+          <h3>Follow smxmuse outside the site.</h3>
           <p>
-            Catch the latest SMXmuse updates, including pre-race notes, race recaps,
+            Catch the latest smxmuse updates, including pre-race notes, race recaps,
             and unique stat pulls posted across Instagram and X.
           </p>
           <div className="landing-social-links">
@@ -537,7 +537,7 @@ export default function LandingPage() {
             </a>
           </div>
           <p className="landing-callout-footnote">
-            Opens the latest SMXmuse social feed in a new tab.
+            Opens the latest smxmuse social feed in a new tab.
           </p>
         </div>
       </section>

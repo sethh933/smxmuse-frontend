@@ -194,7 +194,7 @@ function CountriesPage() {
     <div className="page-container riders-hub">
       <Seo
         title="Browse Riders"
-        description="Browse the full SMXmuse rider archive by last name or country, including featured riders and country pages."
+        description="Browse the full smxmuse rider archive by last name or country, including featured riders and country pages."
         path="/riders"
       />
       <div className="riders-hub-header">

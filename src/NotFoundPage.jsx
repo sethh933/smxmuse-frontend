@@ -28,7 +28,7 @@ export default function NotFoundPage() {
     <main className="not-found-page">
       <Seo
         title="Page Not Found"
-        description="The requested SMXmuse page could not be found. Search the archive or browse rider profiles, race results, and season dashboards."
+        description="The requested smxmuse page could not be found. Search the archive or browse rider profiles, race results, and season dashboards."
         robots="noindex,nofollow"
       />
 
@@ -46,7 +46,7 @@ export default function NotFoundPage() {
             for a rider or venue, or head back to familiar ground.
           </p>
 
-          <div className="not-found-search" aria-label="Search the SMXmuse archive">
+          <div className="not-found-search" aria-label="Search the smxmuse archive">
             <UnifiedSearch />
           </div>
 
