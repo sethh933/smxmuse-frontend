@@ -80,6 +80,7 @@ function renderPage(page) {
   const image = page.image || `${siteUrl}/smxmuselogo.png`;
   const type = page.type || "website";
   const tags = [
+    '<style data-prerender-style="true">.seo-prerender-shell{display:none!important}</style>',
     `<title>${escapeHtml(fullTitle)}</title>`,
     `<meta name="description" content="${escapeHtml(page.description)}" />`,
     '<meta name="robots" content="index,follow" />',
