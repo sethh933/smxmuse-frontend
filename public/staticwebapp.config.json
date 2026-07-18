@@ -1,4 +1,11 @@
 {
+  "routes": [
+    {
+      "route": "/sitemap.xml",
+      "redirect": "https://smxmuse-api-fegkfsc4g0hggxgg.eastus2-01.azurewebsites.net/sitemap.xml",
+      "statusCode": 302
+    }
+  ],
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
