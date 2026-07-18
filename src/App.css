@@ -3974,6 +3974,32 @@ a.track-link:focus-visible {
   align-items: stretch;
 }
 
+.landing-primary-grid {
+  grid-template-columns: minmax(0, 1.52fr) minmax(320px, 0.78fr);
+  grid-template-areas:
+    "results rider"
+    "intro grids";
+  column-gap: 18px;
+  row-gap: 16px;
+  align-items: stretch;
+}
+
+.landing-primary-grid .landing-narrow-results {
+  grid-area: results;
+}
+
+.landing-primary-grid .landing-hero-copy {
+  grid-area: intro;
+}
+
+.landing-primary-grid .landing-hero-grid-slot {
+  grid-area: rider;
+}
+
+.landing-primary-grid .landing-narrow-side {
+  grid-area: grids;
+}
+
 .landing-hero-copy-narrow {
   padding: 16px 24px 18px;
 }
@@ -4225,10 +4251,6 @@ a.track-link:focus-visible {
   .not-found-link-card {
     min-height: 190px;
   }
-}
-
-.landing-archive-mobile {
-  display: none;
 }
 
 .landing-hero-grid-slot {
@@ -5004,12 +5026,13 @@ a.track-link:focus-visible {
 }
 
 @media (max-width: 1150px) {
-  .landing-archive-mobile {
-    display: block;
-  }
-
-  .landing-archive-desktop {
-    display: none;
+  .landing-primary-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "results"
+      "intro"
+      "rider"
+      "grids";
   }
 
   .landing-layout-switcher-options,

@@ -446,7 +446,7 @@ export default function LandingPage() {
         description="SMXmuse is a Supercross and Motocross stats archive with rider profiles, race results, season dashboards, comparisons, and all-time leaderboards."
         path="/"
       />
-      <section className="landing-desktop-layout landing-layout-narrow-top">
+      <section className="landing-desktop-layout landing-primary-grid">
         <div className="landing-narrow-results">
           <LatestResultsPanel
             loadingLatest={loadingLatest}
@@ -455,15 +455,11 @@ export default function LandingPage() {
           />
         </div>
 
-        <ArchiveIntro className="landing-archive-mobile" />
+        <ArchiveIntro />
 
         <div className="landing-hero-grid-slot">
           <RiderOfTheDayPanel riderOfTheDay={riderOfTheDay} />
         </div>
-      </section>
-
-      <section className="landing-desktop-layout landing-layout-narrow-live">
-        <ArchiveIntro className="landing-archive-desktop" />
         <div className="landing-narrow-side">
           <GridsCallout />
         </div>
