@@ -4,6 +4,7 @@ import "./App.css";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRacePath, buildRiderPath, buildTrackPath, parseSportParam, parseTrackId } from "./seo";
+import { formatCalendarDate, getCalendarYear } from "./dateUtils";
 
 function TrackProfile() {
   const { track_id: trackParam, sport_id: sportParam } = useParams();
@@ -137,11 +138,11 @@ function TrackProfile() {
                 {data.race_winners?.map((row, i) => (
                   <tr key={i}>
                     <td>
-                      <Link to={buildRacePath(row.RaceID, row.TrackName, new Date(row.RaceDate).getFullYear(), {
+                      <Link to={buildRacePath(row.RaceID, row.TrackName, getCalendarYear(row.RaceDate), {
                         sportId,
                         city: row.City
                       })}>
-                        {new Date(row.RaceDate).toLocaleDateString()}
+                        {formatCalendarDate(row.RaceDate)}
                       </Link>
                     </td>
                     <td>

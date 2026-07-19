@@ -39,6 +39,7 @@ import { NotePostPage, NotesIndexPage } from "./NotesPage";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildAbsoluteUrl, buildRacePath, buildTrackPath, parseRaceId, parseRiderId, parseTrackId } from "./seo";
+import { formatCalendarDate } from "./dateUtils";
 import NotFoundPage from "./NotFoundPage";
 
 function formatWeatherNumber(value, options = {}) {
@@ -377,7 +378,7 @@ classes.sort((a, b) => order[a] - order[b]);
           name: `${raceHeader.Year} ${raceDisplayName} ${sportLabel}`,
           eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
           sport: sportLabel,
-          startDate: `${raceHeader.Year}`,
+          startDate: raceHeader.RaceDate,
           url: buildAbsoluteUrl(buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
             sportId: raceHeader.SportID,
             city: raceHeader.City
@@ -396,7 +397,11 @@ classes.sort((a, b) => order[a] - order[b]);
 
       <div className="race-meta" aria-label="Race details">
         <span>Round {raceHeader.Round} of {raceHeader.MaxRound}</span>
-        <span>{raceHeader.Year}</span>
+        <span>{formatCalendarDate(raceHeader.RaceDate, {
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        })}</span>
         {raceHeader.City && <span>{raceHeader.City}</span>}
         {isSX && <span className="race-meta-venue">{venueTypeLabel}</span>}
         {`Round ${raceHeader.Round} of ${raceHeader.MaxRound} • ${raceHeader.Year}`}

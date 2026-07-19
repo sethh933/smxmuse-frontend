@@ -4,6 +4,7 @@ import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRacePath, buildRiderPath } from "./seo";
 import { BrandMark } from "./ResultIdentity";
+import { formatCalendarDate, getCalendarYear, parseCalendarDate } from "./dateUtils";
 
 const FEATURED_PATHS = [
   {
@@ -109,11 +110,11 @@ function getCountryCode(country) {
 
 function getSortedCandidateRaces(races) {
   const now = new Date();
-  const completed = races.filter((race) => new Date(race.race_date) <= now);
+  const completed = races.filter((race) => parseCalendarDate(race.race_date) <= now);
   const pool = completed.length > 0 ? completed : races;
 
   return [...pool].sort((a, b) => {
-    const dateDiff = new Date(b.race_date) - new Date(a.race_date);
+    const dateDiff = parseCalendarDate(b.race_date) - parseCalendarDate(a.race_date);
 
     if (dateDiff !== 0) {
       return dateDiff;
@@ -267,7 +268,7 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
 
         {latestRace && (
           <Link
-            to={buildRacePath(latestRace.race_id, latestRace.track_name, new Date(latestRace.race_date).getFullYear(), {
+            to={buildRacePath(latestRace.race_id, latestRace.track_name, getCalendarYear(latestRace.race_date), {
               sportId: latestRace.sport === "sx" ? 1 : latestRace.sport === "mx" ? 2 : latestRace.sport,
               city: latestRace.city
             })}
@@ -281,7 +282,7 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
       {latestRace && (
         <p className="landing-race-meta">
           Round {latestRace.round} /{" "}
-          {new Date(latestRace.race_date).toLocaleDateString("en-US", {
+          {formatCalendarDate(latestRace.race_date, {
             month: "long",
             day: "numeric",
             year: "numeric"

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRacePath, buildRiderPath, buildTrackPath, parseRiderId } from "./seo";
+import { getCalendarYear } from "./dateUtils";
 
 export default function RiderResults() {
   const { riderId: riderParam } = useParams();
@@ -19,7 +20,7 @@ export default function RiderResults() {
 ];
 
   const getRacePath = (row) =>
-    buildRacePath(row.RaceID, row.TrackName, new Date(row.RaceDate).getFullYear(), {
+    buildRacePath(row.RaceID, row.TrackName, getCalendarYear(row.RaceDate), {
       sportId: row.Discipline === "SX" ? 1 : row.Discipline === "MX" ? 2 : 3,
       city: row.City
     });

@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRacePath, buildRiderPath } from "./seo";
+import { formatCalendarDate } from "./dateUtils";
 
 function getChampionLabel(sport, classId, coastId) {
   if (sport === "sx") {
@@ -189,7 +190,7 @@ export default function ResultsYear() {
                 </>
               )}
               <div className="schedule-date">
-                {new Date(race.race_date).toLocaleDateString("en-US", {
+                {formatCalendarDate(race.race_date, {
                   month: "short",
                   day: "numeric"
                 })}
