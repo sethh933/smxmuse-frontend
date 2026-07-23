@@ -512,6 +512,18 @@ button {
   --leaderboard-columns: 50px minmax(0, 1fr) 92px;
 }
 
+.leaderboard-champions {
+  --leaderboard-columns: 80px minmax(0, 1fr) 52px;
+}
+
+.leaderboard-champions-head {
+  --leaderboard-columns: 80px minmax(0, 1fr) 52px;
+}
+
+.leaderboard-champions-table tbody tr {
+  grid-template-columns: var(--leaderboard-columns);
+}
+
 .race-winners-head {
   --leaderboard-columns: 96px minmax(0, 1fr) 72px;
 }

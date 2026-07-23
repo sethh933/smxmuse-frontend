@@ -9,7 +9,8 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
   const riderRefs = useRef({});
   const containerRef = useRef(null);
 
-  const title = sport === "supercross" ? "Heat Wins" : "Moto Wins";
+  const isWMX = sport === "wmx";
+  const title = isWMX ? "Champions" : sport === "supercross" ? "Heat Wins" : "Moto Wins";
 
   useEffect(() => {
     setLoading(true);
@@ -42,20 +43,20 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
   }, [selectedRider, data]);
 
   return (
-  <div className="leaderboard">
+  <div className={`leaderboard${isWMX ? " leaderboard-champions" : ""}`}>
     <h2>{title}</h2>
 
     {loading ? (
       <p>Loading...</p>
     ) : (
       <>
-        <div className="leaderboard-table-head leaderboard-table-head-four">
-          <span>#</span>
+        <div className={`leaderboard-table-head ${isWMX ? "leaderboard-champions-head" : "leaderboard-table-head-four"}`}>
+          <span>{isWMX ? "Year" : "#"}</span>
           <span>Rider</span>
-          <span>{sport === "supercross" ? "Heat Wins" : "Moto Wins"}</span>
+          <span>{isWMX ? "" : sport === "supercross" ? "Heat Wins" : "Moto Wins"}</span>
         </div>
       <div className="leaderboard-table-wrapper" ref={containerRef}>
-        <table className="leaderboard-four-table">
+        <table className={isWMX ? "leaderboard-champions-table" : "leaderboard-four-table"}>
           <tbody>
             {data.map((rider, idx) => {
               const isHighlighted = selectedRider === rider.riderid;
@@ -67,20 +68,26 @@ function Leaderboard4({ sport, classId, selectedRider, setSelectedRider }) {
 
               return (
                 <tr
-                  key={rider.riderid}
+                  key={isWMX ? `${rider.year}-${rider.riderid}` : rider.riderid}
                   ref={(el) => (riderRefs.current[rider.riderid] = el)}
                   onClick={() =>
                     setSelectedRider(isHighlighted ? null : rider.riderid)
                   }
                   className={isHighlighted ? "highlighted" : ""}
                 >
-                  <td>{idx + 1}</td>
+                  <td>
+                    {isWMX ? (
+                      <Link to={`/season/wmx/${rider.year}/wmx`}>{rider.year}</Link>
+                    ) : (
+                      idx + 1
+                    )}
+                  </td>
                   <td>
   <Link to={buildRiderPath(rider.riderid, rider.fullname)}>
     {rider.fullname}
   </Link>
 </td>
-                  <td>{wins}</td>
+                  <td>{isWMX ? "🏆" : wins}</td>
                 </tr>
               );
             })}
