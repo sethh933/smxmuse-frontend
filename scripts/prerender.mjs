@@ -15,14 +15,14 @@ if (!apiBase && process.env.PRERENDER_SKIP_DYNAMIC !== "1") {
 const fallbackPages = [
   {
     path: "/",
-    title: "Supercross and Motocross Stats, Results, and Rider Profiles",
-    description: "Smxmuse is a Supercross and Motocross stats archive with rider profiles, race results, season dashboards, comparisons, and all-time leaderboards.",
+    title: "Supercross, Motocross, SMX, and WMX Stats and Results",
+    description: "Smxmuse is a Supercross, Motocross, SMX, and WMX stats archive with rider profiles, race results, season dashboards, comparisons, and all-time leaderboards.",
     heading: "Everything in one place, from the latest gate drop to all-time history.",
   },
   {
     path: "/about",
     title: "About smxmuse",
-    description: "Learn what smxmuse covers, how the Supercross and Motocross stats archive was built, and where to send feedback or business inquiries.",
+    description: "Learn what smxmuse covers, how the Supercross, Motocross, SMX, and WMX stats archive was built, and where to send feedback or business inquiries.",
   },
   {
     path: "/riders",
@@ -32,8 +32,8 @@ const fallbackPages = [
   },
   {
     path: "/results",
-    title: "Race Results Archive - Supercross",
-    description: "Browse Supercross race results by decade and season, then jump into full round-by-round result pages.",
+    title: "Supercross, Motocross, SMX, and WMX Race Results Archive",
+    description: "Browse Supercross, Motocross, SMX, and WMX race results by decade and season, then open full round-by-round result pages.",
     heading: "Race Results",
   },
   {
@@ -44,14 +44,14 @@ const fallbackPages = [
   },
   {
     path: "/leaderboards",
-    title: "All-Time Supercross, Motocross, and SMX Leaderboards",
-    description: "Browse all-time smxmuse leaderboards for wins, podiums, starts, and career milestones across Supercross, Motocross, and SMX.",
+    title: "All-Time Supercross, Motocross, SMX, and WMX Leaderboards",
+    description: "Browse all-time smxmuse leaderboards for wins, podiums, starts, and career milestones across Supercross, Motocross, SMX, and WMX.",
     heading: "All Time Leaderboards",
   },
   {
     path: "/compare",
-    title: "Compare Supercross and Motocross Riders",
-    description: "Compare Supercross, Motocross, and SMX riders head to head across career wins, podiums, starts, championships, and season statistics.",
+    title: "Compare Supercross, Motocross, SMX, and WMX Riders",
+    description: "Compare Supercross, Motocross, SMX, and WMX riders head to head across career wins, podiums, starts, championships, and season statistics.",
     heading: "Rider Comparison",
   },
 ];

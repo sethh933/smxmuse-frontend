@@ -3,10 +3,25 @@ import { apiUrl } from "./api";
 import RaceLapDetailDrawer from "./RaceLapDetailDrawer";
 import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
-function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
+function SMXMotoTable({
+  data,
+  raceId,
+  classId,
+  moto,
+  detailEndpoint,
+  startLabel = "Start",
+  showHoleshotLine = false,
+}) {
   const [expandedKey, setExpandedKey] = useState(null);
   const [detailsByKey, setDetailsByKey] = useState({});
-  const canExpandRows = Boolean(detailEndpoint && raceId && classId && moto);
+  const canExpandRows = Boolean(
+    detailEndpoint &&
+    raceId &&
+    classId !== null &&
+    classId !== undefined &&
+    moto
+  );
+  const columnCount = showHoleshotLine ? 10 : 9;
   const hasNoRaceStatus = (raceStatus) =>
     raceStatus === null || raceStatus === undefined || String(raceStatus).trim() === "";
 
@@ -65,7 +80,8 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
             <th className="result-brand-col">Brand</th>
             <th>Interval</th>
             <th>BestLap</th>
-            <th>Start</th>
+            <th>{startLabel}</th>
+            {showHoleshotLine && <th>HoleshotLine</th>}
             <th>Holeshot</th>
             <th>RaceStatus</th>
           </tr>
@@ -99,6 +115,7 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
                   <td>{row.interval ?? "-"}</td>
                   <td>{row.bestlap ?? "-"}</td>
                   <td>{row.start ?? "-"}</td>
+                  {showHoleshotLine && <td>{row.holeshotline ?? "-"}</td>}
                   <td className="holeshot">{row.holeshot === 1 ? "\u25CF" : ""}</td>
                   <td className={hasNoRaceStatus(row.racestatus) ? "holeshot" : ""}>
                     {hasNoRaceStatus(row.racestatus) ? "\u25CF" : row.racestatus}
@@ -106,7 +123,7 @@ function SMXMotoTable({ data, raceId, classId, moto, detailEndpoint }) {
                 </tr>
                 {isExpanded && (
                   <tr className="main-detail-row">
-                    <td colSpan={9}>
+                    <td colSpan={columnCount}>
                       <RaceLapDetailDrawer
                         detail={detailState.detail}
                         isLoading={detailState.isLoading}

@@ -32,6 +32,8 @@ const getCountryCode = (country) => {
     "Guatemala": "gt",
     "Honduras": "hn",
     "Ireland": "ie",
+    "Iran": "ir",
+    "Isle of Man": "im",
     "Italy": "it",
     "Japan": "jp",
     "Latvia": "lv",

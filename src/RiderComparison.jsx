@@ -194,9 +194,10 @@ export default function RiderComparison() {
     setAppliedSport(sport);
     setAppliedRider1(rider1);
     setAppliedRider2(rider2);
-    setAppliedClassId(classId);
+    setAppliedClassId(sport === "wmx" ? null : classId);
 
-    const url = apiUrl(`/compare?rider1=${rider1}&rider2=${rider2}&sport=${sport}&classid=${classId}`);
+    const classParam = sport === "wmx" ? "" : `&classid=${classId}`;
+    const url = apiUrl(`/compare?rider1=${rider1}&rider2=${rider2}&sport=${sport}${classParam}`);
     const res = await fetch(url);
     const json = await res.json();
     setData(json);
@@ -358,6 +359,8 @@ export default function RiderComparison() {
   const r1 = appliedRider1;
   const r2 = appliedRider2;
   const isMX = appliedSport === "mx";
+  const isWMX = appliedSport === "wmx";
+  const isOverallSport = isMX || isWMX;
 
   const getStyle = (val1, val2, lowerIsBetter = false) => {
     return isComparisonWinner(val1, val2, lowerIsBetter)
@@ -368,23 +371,28 @@ export default function RiderComparison() {
       : {};
   };
 
-  const titleLabel =
-    appliedClassId === 1
+  const titleLabel = isWMX
+    ? "WMX Titles"
+    : appliedClassId === 1
       ? `450 ${isMX ? "MX" : "SX"} Titles`
       : appliedClassId === 2
       ? `250 ${isMX ? "MX" : "SX"} Titles`
       : "500 MX Titles";
 
-  const selectedClassLabel =
+  const selectedClassLabel = isWMX ? "" :
     appliedClassId === 1 ? "450" : appliedClassId === 2 ? "250" : "500";
-  const selectedSportLabel = isMX ? "MX" : "SX";
-  const mainSectionLabel = isMX
-    ? `OVERALLS: ${selectedClassLabel} ${selectedSportLabel}`
+  const selectedSportLabel = isWMX ? "WMX" : isMX ? "MX" : "SX";
+  const mainSectionLabel = isOverallSport
+    ? `OVERALLS: ${[selectedClassLabel, selectedSportLabel].filter(Boolean).join(" ")}`
     : `MAIN EVENTS: ${selectedClassLabel} ${selectedSportLabel}`;
   const heatsSectionLabel = `HEATS: ${selectedClassLabel} ${selectedSportLabel}`;
   const qualifyingSectionLabel = `QUALIFYING: ${selectedClassLabel} ${selectedSportLabel}`;
-  const rider1Titles = champs[r1]?.[appliedClassId] ?? 0;
-  const rider2Titles = champs[r2]?.[appliedClassId] ?? 0;
+  const rider1Titles = isWMX
+    ? Object.values(champs[r1] || {}).reduce((sum, value) => sum + value, 0)
+    : champs[r1]?.[appliedClassId] ?? 0;
+  const rider2Titles = isWMX
+    ? Object.values(champs[r2] || {}).reduce((sum, value) => sum + value, 0)
+    : champs[r2]?.[appliedClassId] ?? 0;
   const comparisonSections = [
     {
       label: mainSectionLabel,
@@ -393,7 +401,7 @@ export default function RiderComparison() {
         { label: "Avg Finish", value1: main[r1]?.AvgFinish ?? null, value2: main[r2]?.AvgFinish ?? null, lowerIsBetter: true },
         { label: "Wins", value1: main[r1]?.Wins ?? null, value2: main[r2]?.Wins ?? null },
         { label: "Win %", value1: main[r1]?.WinPct ?? null, value2: main[r2]?.WinPct ?? null },
-        ...(isMX
+        ...(isOverallSport
           ? [{ label: "Moto Wins", value1: main[r1]?.MotoWins ?? null, value2: main[r2]?.MotoWins ?? null }]
           : []),
         { label: "Podiums", value1: main[r1]?.Podiums ?? null, value2: main[r2]?.Podiums ?? null },
@@ -403,7 +411,7 @@ export default function RiderComparison() {
         { label: "Laps Led", value1: main[r1]?.LapsLed ?? null, value2: main[r2]?.LapsLed ?? null }
       ]
     },
-    ...(!isMX
+    ...(!isOverallSport
       ? [{
           label: heatsSectionLabel,
           rows: [
@@ -412,13 +420,15 @@ export default function RiderComparison() {
           ]
         }]
       : []),
-    {
-      label: qualifyingSectionLabel,
-      rows: [
-        { label: "Qual Avg", value1: qual[r1]?.QualAvg ?? null, value2: qual[r2]?.QualAvg ?? null, lowerIsBetter: true },
-        { label: "Poles", value1: qual[r1]?.Poles ?? null, value2: qual[r2]?.Poles ?? null }
-      ]
-    },
+    ...(!isWMX
+      ? [{
+          label: qualifyingSectionLabel,
+          rows: [
+            { label: "Qual Avg", value1: qual[r1]?.QualAvg ?? null, value2: qual[r2]?.QualAvg ?? null, lowerIsBetter: true },
+            { label: "Poles", value1: qual[r1]?.Poles ?? null, value2: qual[r2]?.Poles ?? null }
+          ]
+        }]
+      : []),
     {
       label: "CHAMPIONSHIPS",
       rows: [
@@ -584,14 +594,14 @@ export default function RiderComparison() {
   return (
     <div className="comparison-page">
       <Seo
-        title="Compare Supercross and Motocross Riders"
-        description="Compare Supercross, Motocross, and SMX riders head to head across career wins, podiums, starts, championships, and season statistics."
+        title="Compare Supercross, Motocross, and WMX Riders"
+        description="Compare Supercross, Motocross, and WMX riders head to head across career wins, podiums, starts, championships, and season statistics."
         path="/compare"
       />
       <h1>Rider Comparison</h1>
 
       <div className="comparison-card">
-        <div className="comparison-inputs">
+        <div className={`comparison-inputs${sport === "wmx" ? " comparison-inputs-wmx" : ""}`}>
           <div ref={searchRef1} className="search-wrapper comparison-search">
             <input
               value={rider1Name}
@@ -602,9 +612,10 @@ export default function RiderComparison() {
             />
             {suggestions1.length > 0 && (
               <div className="search-dropdown">
-  <div className="search-group-label">Riders</div>
-
-  {suggestions1.map((r) => (
+  {suggestions1.some((r) => Number(r.WMX) !== 1) && (
+    <div className="search-group-label">Riders</div>
+  )}
+  {suggestions1.filter((r) => Number(r.WMX) !== 1).map((r) => (
     <div
       key={r.RiderID}
       onClick={() =>
@@ -613,6 +624,21 @@ export default function RiderComparison() {
       className="search-result-item"
     >
       <div className="search-result-title">{r.FullName}</div>
+      <div className="search-result-subtitle">{r.Country}</div>
+    </div>
+  ))}
+  {suggestions1.some((r) => Number(r.WMX) === 1) && (
+    <div className="search-group-label">WMX Riders</div>
+  )}
+  {suggestions1.filter((r) => Number(r.WMX) === 1).map((r) => (
+    <div
+      key={r.RiderID}
+      onClick={() =>
+        handleSelect(r, setRider1Name, setSuggestions1, setRider1)
+      }
+      className="search-result-item"
+    >
+      <div className="search-result-title search-result-title-wmx">{r.FullName}</div>
       <div className="search-result-subtitle">{r.Country}</div>
     </div>
   ))}
@@ -630,9 +656,10 @@ export default function RiderComparison() {
             />
             {suggestions2.length > 0 && (
               <div className="search-dropdown">
-  <div className="search-group-label">Riders</div>
-
-  {suggestions2.map((r) => (
+  {suggestions2.some((r) => Number(r.WMX) !== 1) && (
+    <div className="search-group-label">Riders</div>
+  )}
+  {suggestions2.filter((r) => Number(r.WMX) !== 1).map((r) => (
     <div
       key={r.RiderID}
       onClick={() =>
@@ -644,6 +671,21 @@ export default function RiderComparison() {
       <div className="search-result-subtitle">{r.Country}</div>
     </div>
   ))}
+  {suggestions2.some((r) => Number(r.WMX) === 1) && (
+    <div className="search-group-label">WMX Riders</div>
+  )}
+  {suggestions2.filter((r) => Number(r.WMX) === 1).map((r) => (
+    <div
+      key={r.RiderID}
+      onClick={() =>
+        handleSelect(r, setRider2Name, setSuggestions2, setRider2)
+      }
+      className="search-result-item"
+    >
+      <div className="search-result-title search-result-title-wmx">{r.FullName}</div>
+      <div className="search-result-subtitle">{r.Country}</div>
+    </div>
+  ))}
 </div>
             )}
           </div>
@@ -651,8 +693,10 @@ export default function RiderComparison() {
           <select value={sport} onChange={(e) => setSport(e.target.value)}>
             <option value="sx">Supercross</option>
             <option value="mx">Motocross</option>
+            <option value="wmx">WMX</option>
           </select>
 
+          {sport !== "wmx" && (
           <select
             value={classId}
             onChange={(e) => setClassId(parseInt(e.target.value, 10))}
@@ -670,6 +714,7 @@ export default function RiderComparison() {
               </>
             )}
           </select>
+          )}
 
           <button
             className="compare-button"
@@ -786,7 +831,7 @@ export default function RiderComparison() {
                 </td>
               </tr>
 
-              {isMX && (
+              {isOverallSport && (
                 <tr>
                   <td>Moto Wins</td>
                   <td style={getStyle(main[r1]?.MotoWins, main[r2]?.MotoWins)}>
@@ -848,7 +893,7 @@ export default function RiderComparison() {
                 </td>
               </tr>
 
-              {!isMX && (
+              {!isOverallSport && (
                 <>
                   <tr>
                     <td colSpan="3" className="comparison-section">
@@ -900,6 +945,8 @@ export default function RiderComparison() {
                 </>
               )}
 
+              {!isWMX && (
+              <>
               <tr>
                 <td colSpan="3" className="comparison-section">
                   {qualifyingSectionLabel}
@@ -937,6 +984,8 @@ export default function RiderComparison() {
                   {qual[r2]?.Poles}
                 </td>
               </tr>
+              </>
+              )}
 
               <tr>
                 <td colSpan="3" className="comparison-section">

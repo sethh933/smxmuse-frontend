@@ -10,6 +10,7 @@ function MXOverallsSection({ raceId, classId, sportId = 2, onLoaded }) {
     if (classId === 1) return "450";
     if (classId === 2) return "250";
     if (classId === 3) return "500";
+    if (classId === 4) return "WMX";
     return classId;
   };
 

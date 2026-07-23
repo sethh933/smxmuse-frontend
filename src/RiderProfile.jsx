@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
@@ -13,12 +13,16 @@ export default function RiderProfile() {
   const [hasSX, setHasSX] = useState(true);
   const [hasMX, setHasMX] = useState(true);
   const [hasSMX, setHasSMX] = useState(false);
+  const [hasWMX, setHasWMX] = useState(false);
+  const autoModeSelectedRef = useRef(false);
 
   useEffect(() => {
     setData(null);
     setHasSX(true);
     setHasMX(true);
     setHasSMX(false);
+    setHasWMX(false);
+    autoModeSelectedRef.current = false;
     setMode("SX");
   }, [riderId]);
 
@@ -34,6 +38,7 @@ useEffect(() => {
       setHasSX(data.hasSX);
       setHasMX(data.hasMX);
       setHasSMX(data.hasSMX);
+      setHasWMX(data.hasWMX);
     });
 
   return () => {
@@ -43,8 +48,12 @@ useEffect(() => {
 
 useEffect(() => {
   if (!data) return;
+  if (autoModeSelectedRef.current) return;
 
-  if (!data.hasSX && data.hasMX) {
+  autoModeSelectedRef.current = true;
+  if (data.hasWMX) {
+    setMode("WMX");
+  } else if (!data.hasSX && data.hasMX) {
     setMode("MX");
   } else if (!data.hasSX && !data.hasMX && data.hasSMX) {
     setMode("SMX");
@@ -66,6 +75,7 @@ const mxStats = data.mx_stats ?? [];
 const mxQualStats = data.mx_qual_stats ?? [];
 const mxLegacyQualStats = data.mx_legacy_qual_stats ?? [];
 const smxStats = data.smx_stats ?? [];
+const wmxStats = data.wmx_stats ?? [];
 const smxQualStats = data.smx_qual_stats ?? [];
 const numberHistory = data.number_history ?? [];
 const accolades = data.accolades ?? [];
@@ -111,6 +121,8 @@ const formatDecimal = (value) => {
       "Uruguay": "uy",
       "Canada": "ca",
       "Ireland": "ie",
+      "Iran": "ir",
+      "Isle of Man": "im",
       "Latvia": "lv",
       "Norway": "no",
       "France": "fr",
@@ -213,6 +225,11 @@ const sortedSmxStatsCareerRows = [...smxStatsCareerRows].sort((a, b) => {
 });
 
 const sortedSmxStats = [...smxStatsYearlyRows, ...sortedSmxStatsCareerRows];
+
+const sortedWmxStats = [
+  ...wmxStats.filter(r => r.Year !== null),
+  ...wmxStats.filter(r => r.Year === null)
+];
 
 const getProfileClassLabel = (row) => {
   if (row.Class) return row.Class;
@@ -381,13 +398,22 @@ const getLapsLedDisplay = (row, sport) => {
                 SMX
               </button>
             )}
+
+            {hasWMX && (
+              <button
+                className={mode === "WMX" ? "active" : ""}
+                onClick={() => setMode("WMX")}
+              >
+                WMX
+              </button>
+            )}
           </div>
         </div>
       </section>
 
       {/* ================= MAIN STATS TABLE ================= */}
       <h2 className="section-header">
-  {mode === "SX" ? "Main Events" : mode === "MX" ? "Motocross" : "SMX Overalls"}
+  {mode === "SX" ? "Main Events" : mode === "MX" ? "Motocross" : mode === "WMX" ? "WMX" : "SMX Overalls"}
 </h2>
 
 <div className="rider-table-wrapper">
@@ -417,7 +443,7 @@ const getLapsLedDisplay = (row, sport) => {
   ) : (
     <tr>
       <th className="year-col">Year</th>
-      <th className="class-col">Class</th>
+      {mode !== "WMX" && <th className="class-col">Class</th>}
       <th>Brand</th>
       <th>Starts</th>
       <th>Avg Overall</th>
@@ -497,6 +523,8 @@ const getLapsLedDisplay = (row, sport) => {
   ) : (
     (mode === "SMX"
       ? sortedSmxStats
+      : mode === "WMX"
+      ? sortedWmxStats
       : sortedMxStats.filter((row) => Number(row.Starts) > 0)
     ).map((row, i) => {
   const isCareer = row.Year === null && row.ClassID === 0;
@@ -514,7 +542,14 @@ const getLapsLedDisplay = (row, sport) => {
       }
     >
       <td className="year-col">
-        {row.Year && mode !== "SMX" ? (
+        {row.Year && mode === "WMX" ? (
+          <Link
+            to={`/season/wmx/${row.Year}/wmx`}
+            style={{ color: "#60a5fa", textDecoration: "none" }}
+          >
+            {row.Year}
+          </Link>
+        ) : row.Year && mode !== "SMX" ? (
           <Link
             to={`/season/${mode === "SMX" ? "smx" : "mx"}/${row.Year}/${row.Class}`}
             style={{ color: "#60a5fa", textDecoration: "none" }}
@@ -524,7 +559,7 @@ const getLapsLedDisplay = (row, sport) => {
         ) : row.Year ? row.Year : "Career"}
       </td>
 
-      <td className="class-col">{getProfileClassLabel(row)}</td>
+      {mode !== "WMX" && <td className="class-col">{getProfileClassLabel(row)}</td>}
       <td>{row.Brand ?? ""}</td>
 
       <td>{row.Starts}</td>

@@ -4,6 +4,17 @@ import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRiderPath, parseRiderId } from "./seo";
 
+const DISCIPLINE_ORDER = ["SX", "MX", "SMX", "WMX"];
+
+function getPointsDiscipline(row) {
+  const className = String(row.Class || "").toUpperCase();
+  if (className.includes("WMX")) return "WMX";
+  if (className.includes("SMX")) return "SMX";
+  if (className.includes("SX")) return "SX";
+  if (className.includes("MX")) return "MX";
+  return null;
+}
+
 export default function RiderPoints() {
   const { riderId: riderParam } = useParams();
   const riderId = parseRiderId(riderParam);
@@ -31,6 +42,10 @@ export default function RiderPoints() {
       .then((res) => res.json())
       .then((data) => {
         setPoints(data);
+        const disciplines = DISCIPLINE_ORDER.filter((discipline) =>
+          data.some((row) => getPointsDiscipline(row) === discipline)
+        );
+        setMode(disciplines.length === 1 ? disciplines[0] : "Combined");
       })
       .catch((err) =>
         console.error("Failed to fetch points:", err)
@@ -45,26 +60,28 @@ export default function RiderPoints() {
       "Netherlands": "nl",
       "Germany": "de",
       "Italy": "it",
+      "Iran": "ir",
+      "Isle of Man": "im",
       "Canada": "ca",
       "Spain": "es",
     };
     return map[country] || "us";
   };
 
-  const filteredPoints = points.filter((row) => {
-  if (mode === "Combined") return true;
-  if (mode === "SX") return row.Class.includes("SX");
-  if (mode === "MX") return row.Class.includes("MX") && !row.Class.includes("SMX");
-  if (mode === "SMX") return row.Class.includes("SMX");
-  return true;
-});
+  const availableDisciplines = DISCIPLINE_ORDER.filter((discipline) =>
+    points.some((row) => getPointsDiscipline(row) === discipline)
+  );
+
+  const filteredPoints = points.filter((row) =>
+    mode === "Combined" || getPointsDiscipline(row) === mode
+  );
 
   return (
     <div className="rider-profile-page rider-points-page">
       {riderData && (
         <Seo
           title={`${riderData.full_name} Points Standings History`}
-          description={`View ${riderData.full_name}'s Supercross and Motocross championship finishes and points standings history on smxmuse.`}
+          description={`View ${riderData.full_name}'s Supercross, Motocross, SMX, and WMX championship finishes and points standings history on smxmuse.`}
           path={buildRiderPath(riderId, riderData.full_name, "points")}
           canonical={buildRiderPath(riderId, riderData.full_name, "points")}
           image={riderData.image_url}
@@ -127,35 +144,24 @@ export default function RiderPoints() {
           </div>
 
           <div className="toggle-buttons rider-profile-toggle">
-            <button
-              className={mode === "Combined" ? "active" : ""}
-              onClick={() => setMode("Combined")}
-            >
-              Combined
-            </button>
-
-            <button
-              className={mode === "SX" ? "active" : ""}
-              onClick={() => setMode("SX")}
-            >
-              SX
-            </button>
-
-            <button
-              className={mode === "MX" ? "active" : ""}
-              onClick={() => setMode("MX")}
-            >
-              MX
-            </button>
-
-            {points.some((row) => row.Class?.includes("SMX")) && (
+            {availableDisciplines.length > 1 && (
               <button
-                className={mode === "SMX" ? "active" : ""}
-                onClick={() => setMode("SMX")}
+                className={mode === "Combined" ? "active" : ""}
+                onClick={() => setMode("Combined")}
               >
-                SMX
+                Combined
               </button>
             )}
+
+            {availableDisciplines.map((discipline) => (
+              <button
+                key={discipline}
+                className={mode === discipline ? "active" : ""}
+                onClick={() => setMode(discipline)}
+              >
+                {discipline}
+              </button>
+            ))}
           </div>
         </section>
       )}
@@ -168,7 +174,7 @@ export default function RiderPoints() {
               <th className="year-col">Year</th>
               <th className="result-col">Result</th>
               <th className="points-col">Points</th>
-              <th className="class-col">Class</th>
+              {mode !== "WMX" && <th className="class-col">Class</th>}
               <th className="brand-col">Brand</th>
             </tr>
           </thead>
@@ -179,9 +185,11 @@ export default function RiderPoints() {
                 <td className="year-col">
   <Link
     to={`/season/${
-      row.Class.includes("SMX") ? "smx" : row.Class.includes("MX") ? "mx" : "sx"
+      getPointsDiscipline(row)?.toLowerCase() || "sx"
     }/${row.Year}/${
-      row.Class === "250SX W"
+      getPointsDiscipline(row) === "WMX"
+        ? "wmx"
+        : row.Class === "250SX W"
         ? "250W"
         : row.Class === "250SX E"
         ? "250E"
@@ -206,12 +214,14 @@ export default function RiderPoints() {
                 <td className="points-col">
                   {row.Points}
                   <div className="rider-points-mobile-meta">
-                    <span className="rider-points-mobile-class">{row.Class}</span>
+                    {mode !== "WMX" && (
+                      <span className="rider-points-mobile-class">{row.Class}</span>
+                    )}
                     <span className="rider-points-mobile-brand">{row.Brand}</span>
                   </div>
                 </td>
 
-                <td className="class-col">{row.Class}</td>
+                {mode !== "WMX" && <td className="class-col">{row.Class}</td>}
 
                 <td className="brand-col">{row.Brand}</td>
               </tr>

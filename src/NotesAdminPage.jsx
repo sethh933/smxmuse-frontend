@@ -261,7 +261,15 @@ export default function NotesAdminPage() {
       }
 
       setCreatedPath(data.path?.replace(/^\/notes/, "/news") || "");
-      setSaveStatus(status === "published" ? "Published." : isEditing ? "Draft updated." : "Draft saved.");
+      setSaveStatus(
+        status === "published"
+          ? data.deployment_triggered
+            ? "Published. Social preview deployment started."
+            : "Published, but the social preview deployment was not started."
+          : isEditing
+            ? "Draft updated."
+            : "Draft saved."
+      );
     } catch (error) {
       setSaveStatus(error.message || "Save failed.");
     }

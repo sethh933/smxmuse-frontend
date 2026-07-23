@@ -46,7 +46,7 @@ const [sortDir, setSortDir] = useState(defaultSortDir);
       { key: "Poles", label: "Poles" },
       { key: "QualStarts", label: "Qual Starts" },
       { key: "AvgQual", label: "Avg Qual" },
-      { key: "ConsiWins", label: "Consi Wins" }
+      ...(sport === "wmx" ? [] : [{ key: "ConsiWins", label: "Consi Wins" }])
     ];
 
   const sortedData = useMemo(() => {
@@ -132,7 +132,7 @@ const [sortDir, setSortDir] = useState(defaultSortDir);
           <td>{r.Poles}</td>
           <td>{r.QualStarts}</td>
           <td>{r.AvgQual?.toFixed(2)}</td>
-          <td>{r.ConsiWins}</td>
+          {sport !== "wmx" && <td>{r.ConsiWins}</td>}
         </>
       )}
     </tr>

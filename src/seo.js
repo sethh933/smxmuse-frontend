@@ -60,6 +60,7 @@ export function parseSportParam(sportParam) {
   if (normalized === "1" || normalized === "SX") return 1;
   if (normalized === "2" || normalized === "MX") return 2;
   if (normalized === "3" || normalized === "SMX") return 3;
+  if (normalized === "4" || normalized === "WMX") return 4;
 
   const numeric = Number(sportParam);
   return Number.isFinite(numeric) ? numeric : 0;
@@ -69,7 +70,8 @@ export function buildTrackPath(sportId, trackId, trackName) {
   const sportCodeMap = {
     1: "SX",
     2: "MX",
-    3: "SMX"
+    3: "SMX",
+    4: "WMX"
   };
 
   const parsedSportId = parseSportParam(sportId);

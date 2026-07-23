@@ -10,7 +10,7 @@ export default function ResultsHome() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  const sportId = sport === "sx" ? 1 : sport === "mx" ? 2 : 3;
+  const sportId = sport === "sx" ? 1 : sport === "mx" ? 2 : sport === "smx" ? 3 : 4;
 
   fetch(apiUrl(`/api/years?sport_id=${sportId}`))
     .then(res => res.json())
@@ -42,7 +42,7 @@ export default function ResultsHome() {
   const totalYears = years.length;
   const newestYear = years.length > 0 ? Math.max(...years) : null;
   const oldestYear = years.length > 0 ? Math.min(...years) : null;
-  const sportLabel = sport === "sx" ? "Supercross" : sport === "mx" ? "Motocross" : "SMX";
+  const sportLabel = sport === "sx" ? "Supercross" : sport === "mx" ? "Motocross" : sport === "smx" ? "SMX" : "WMX";
 
   return (
     <div className="results-container results-home">
@@ -79,6 +79,13 @@ export default function ResultsHome() {
               className={sport === "smx" ? "active" : ""}
             >
               SMX
+            </button>
+
+            <button
+              onClick={() => setSport("wmx")}
+              className={sport === "wmx" ? "active" : ""}
+            >
+              WMX
             </button>
           </div>
 

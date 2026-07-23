@@ -18,6 +18,8 @@ import MXQualifyingSection from "./MXQualifyingSection";
 import MXConsiSection from "./MXConsiSection";
 import SMXMotoSection from "./SMXMotoSection";
 import MXMotoSection from "./MXMotoSection";
+import WMXMotoSection from "./WMXMotoSection";
+import WMXQualifyingSection from "./WMXQualifyingSection";
 import SMXWildcardSection from "./SMXWildcardSection";
 import LegacyMXRaceSessions from "./LegacyMXRaceSessions";
 import RiderComparison from "./RiderComparison";
@@ -145,8 +147,8 @@ function LeaderboardsPage() {
   return (
     <div className="leaderboards-page">
       <Seo
-        title="All-Time Supercross, Motocross, and SMX Leaderboards"
-        description="Browse all-time smxmuse leaderboards for wins, podiums, starts, and career milestones across Supercross, Motocross, and SMX."
+        title="All-Time Supercross, Motocross, SMX, and WMX Leaderboards"
+        description="Browse all-time smxmuse leaderboards for wins, podiums, starts, and career milestones across Supercross, Motocross, SMX, and WMX."
         path="/leaderboards"
       />
       <section className="leaderboards-hero">
@@ -187,8 +189,19 @@ function LeaderboardsPage() {
             >
               SMX
             </button>
+
+            <button
+              onClick={() => {
+                setSport("wmx");
+                setClassId(4);
+              }}
+              className={sport === "wmx" ? "active" : ""}
+            >
+              WMX
+            </button>
           </div>
 
+          {sport !== "wmx" && (
           <div className="toggle-buttons leaderboards-toggle-buttons">
             <button
               onClick={() => setClassId(1)}
@@ -213,6 +226,7 @@ function LeaderboardsPage() {
               </button>
             )}
           </div>
+          )}
         </div>
       </section>
 
@@ -266,7 +280,7 @@ function RacePage() {
   }, [raceid]);
 
   useEffect(() => {
-  if (!raceHeader || ![2, 3].includes(raceHeader.SportID)) return;
+  if (!raceHeader || ![2, 3, 4].includes(raceHeader.SportID)) return;
 
   fetch(apiUrl(`/api/race/mx-classes?raceid=${raceid}&sport_id=${raceHeader.SportID}`))
     .then(res => res.json())
@@ -274,7 +288,7 @@ function RacePage() {
       const classes = data.map(c => c.ClassID);
 
       // optional sort
-      const order = raceHeader.SportID === 3 ? { 1: 1, 2: 2, 3: 3 } : { 1: 1, 3: 2, 2: 3 };
+      const order = raceHeader.SportID === 3 ? { 1: 1, 2: 2, 3: 3 } : { 1: 1, 3: 2, 2: 3, 4: 4 };
 
 classes.sort((a, b) => order[a] - order[b]);
 
@@ -353,10 +367,11 @@ classes.sort((a, b) => order[a] - order[b]);
 
   const isSX = raceHeader.SportID === 1;
   const isSMX = raceHeader.SportID === 3;
+  const isWMX = raceHeader.SportID === 4;
   const smxOverallsReady =
     !isSMX ||
     (mxClasses.length > 0 && mxClasses.every((classId) => loadedOverallClasses.has(classId)));
-  const sportLabel = isSX ? "Supercross" : isSMX ? "SMX" : "Motocross";
+  const sportLabel = isSX ? "Supercross" : isSMX ? "SMX" : isWMX ? "WMX" : "Motocross";
   const venueTypeLabel = raceHeader.Indoors === 1 ? "Indoor" : "Open air";
   const raceDisplayName = isSX && raceHeader.City ? raceHeader.City : raceHeader.TrackName;
   const preRaceNote = raceNotes.find((note) => note.type === "preRace");
@@ -472,18 +487,27 @@ classes.sort((a, b) => order[a] - order[b]);
   </Fragment>
 ))}
 
-{!isSMX && mxClasses.map(classId => (
+{!isSMX && !isWMX && mxClasses.map(classId => (
   <Fragment key={`mx-motos-${classId}`}>
     <MXMotoSection raceId={raceid} classId={classId} moto={1} />
     <MXMotoSection raceId={raceid} classId={classId} moto={2} />
   </Fragment>
 ))}
 
-{!isSMX && (
+{isWMX && (
+  <>
+    <WMXMotoSection raceId={raceid} moto={1} />
+    <WMXMotoSection raceId={raceid} moto={2} />
+    <WMXMotoSection raceId={raceid} moto={3} />
+    <WMXQualifyingSection raceId={raceid} />
+  </>
+)}
+
+{!isSMX && !isWMX && (
   <LegacyMXRaceSessions raceId={raceid} year={raceHeader.Year} />
 )}
 
-{(!isSMX || smxOverallsReady) && mxClasses.map(classId => (
+{!isWMX && (!isSMX || smxOverallsReady) && mxClasses.map(classId => (
   <MXQualifyingSection
     key={`qual-${classId}`}
     raceId={raceid}
@@ -492,11 +516,11 @@ classes.sort((a, b) => order[a] - order[b]);
   />
 ))}
 
-{isSMX && smxOverallsReady ? mxClasses.map(classId => (
+{!isWMX && (isSMX && smxOverallsReady ? mxClasses.map(classId => (
   <SMXWildcardSection key={`wildcard-${classId}`} raceId={raceid} classId={classId} />
 )) : !isSMX && mxClasses.map(classId => (
   <MXConsiSection key={`consi-${classId}`} raceId={raceid} classId={classId} />
-))}
+)))}
         </>
       )}
     </div>

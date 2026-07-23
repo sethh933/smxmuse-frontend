@@ -16,6 +16,8 @@ const YEARS = Array.from(
 );
 
 function getSeasonLabel(classId, sport) {
+  if (sport === "wmx") return "WMX";
+
   const classLabel =
     classId === "250W"
       ? "250 West"
@@ -40,6 +42,8 @@ export default function SeasonDashboard() {
   const [availableClasses, setAvailableClasses] = useState([]);
   const selectableYears = selectedSport === "smx"
     ? YEARS.filter((y) => y >= 2023)
+    : selectedSport === "wmx"
+    ? YEARS.filter((y) => y >= 1998)
     : YEARS;
 
   useEffect(() => {
@@ -51,11 +55,18 @@ export default function SeasonDashboard() {
   useEffect(() => {
     if (selectedSport === "smx" && selectedYear < 2023) {
       setSelectedYear(2023);
+    } else if (selectedSport === "wmx" && selectedYear < 1998) {
+      setSelectedYear(1998);
     }
   }, [selectedSport, selectedYear]);
 
   useEffect(() => {
     async function loadClasses() {
+      if (selectedSport === "wmx") {
+        setAvailableClasses([]);
+        return;
+      }
+
       const key = `${selectedSport}-${selectedYear}`;
 
       if (classCache[key]) {
@@ -119,6 +130,11 @@ export default function SeasonDashboard() {
         startUrl = `/api/season/start-stats?year=${year}&sportid=1&classid=${apiClassId}${riderCoastId ? `&ridercoastid=${riderCoastId}` : ""}`;
         lapsUrl = `/api/season/laps-led?year=${year}&sportid=1&classid=${apiClassId}${riderCoastId ? `&ridercoastid=${riderCoastId}` : ""}`;
         pointsUrl = `/api/season/points-progression?year=${year}&sportid=1&classid=${apiClassId}${riderCoastId ? `&ridercoastid=${riderCoastId}` : ""}`;
+      } else if (sport === "wmx") {
+        mainUrl = `/api/wmx/season/overall?year=${year}`;
+        startUrl = `/api/wmx/season/moto-qual?year=${year}`;
+        lapsUrl = `/api/wmx/season/laps-led?year=${year}`;
+        pointsUrl = `/api/wmx/season/points-progression?year=${year}`;
       } else {
         const seasonPrefix = sport === "smx" ? "smx" : "mx";
         mainUrl = `/api/${seasonPrefix}/season/overall?year=${year}&classid=${apiClassId}`;
@@ -173,8 +189,10 @@ export default function SeasonDashboard() {
                 setSelectedSport(newSport);
                 if (newSport === "smx" && selectedYear < 2023) {
                   setSelectedYear(2023);
+                } else if (newSport === "wmx" && selectedYear < 1998) {
+                  setSelectedYear(1998);
                 }
-                setSelectedClass("450");
+                setSelectedClass(newSport === "wmx" ? "wmx" : "450");
               }}
             >
               {selectedYear <= 1973 ? (
@@ -184,6 +202,7 @@ export default function SeasonDashboard() {
                   <option value="sx">SX</option>
                   <option value="mx">MX</option>
                   <option value="smx">SMX</option>
+                  <option value="wmx">WMX</option>
                 </>
               )}
             </select>
@@ -197,18 +216,20 @@ export default function SeasonDashboard() {
               ))}
             </select>
 
-            <select
-              value={selectedClass}
-              onChange={(e) => setSelectedClass(e.target.value)}
-            >
-              {availableClasses.map((c) => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
+            {selectedSport !== "wmx" && (
+              <select
+                value={selectedClass}
+                onChange={(e) => setSelectedClass(e.target.value)}
+              >
+                {availableClasses.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            )}
 
             <button
               onClick={() =>
-                navigate(`/season/${selectedSport}/${selectedYear}/${selectedClass}`, {
+                navigate(`/season/${selectedSport}/${selectedYear}/${selectedSport === "wmx" ? "wmx" : selectedClass}`, {
                   replace: true
                 })
               }

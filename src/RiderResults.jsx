@@ -13,15 +13,28 @@ export default function RiderResults() {
   const [results, setResults] = useState([]);
   const [mode, setMode] = useState("Combined");
   const [riderData, setRiderData] = useState(null);
+
+  const disciplineOrder = ["SX", "MX", "SMX", "WMX"];
+  const availableDisciplines = disciplineOrder.filter((discipline) =>
+    results.some((row) => row.Discipline === discipline)
+  );
   
   const trackOptions = [
   "All Tracks",
   ...[...new Set(results.map(r => r.TrackName))].sort()
 ];
 
+  const getSportId = (discipline) => {
+    if (discipline === "SX") return 1;
+    if (discipline === "MX") return 2;
+    if (discipline === "SMX") return 3;
+    if (discipline === "WMX") return 4;
+    return null;
+  };
+
   const getRacePath = (row) =>
     buildRacePath(row.RaceID, row.TrackName, getCalendarYear(row.RaceDate), {
-      sportId: row.Discipline === "SX" ? 1 : row.Discipline === "MX" ? 2 : 3,
+      sportId: getSportId(row.Discipline),
       city: row.City
     });
 
@@ -30,6 +43,10 @@ export default function RiderResults() {
   fetch(apiUrl(`/rider/${riderId}/race-results`))
     .then((res) => res.json())
     .then((data) => {
+      const disciplines = disciplineOrder.filter((discipline) =>
+        data.results.some((row) => row.Discipline === discipline)
+      );
+      setMode(disciplines.length === 1 ? disciplines[0] : "Combined");
       setResults(data.results);     // ✅ correct
       setRiderData(data.rider);     // ✅ correct
     })
@@ -43,7 +60,8 @@ export default function RiderResults() {
     mode === "Combined" ||
     (mode === "SX" && row.Discipline === "SX") ||
     (mode === "MX" && row.Discipline === "MX") ||
-    (mode === "SMX" && row.Discipline === "SMX");
+    (mode === "SMX" && row.Discipline === "SMX") ||
+    (mode === "WMX" && row.Discipline === "WMX");
 
   const trackMatch =
     selectedTrack === "All Tracks" || row.TrackName === selectedTrack;
@@ -84,6 +102,8 @@ export default function RiderResults() {
       "Uruguay": "uy",
       "Canada": "ca",
       "Ireland": "ie",
+      "Iran": "ir",
+      "Isle of Man": "im",
       "Latvia": "lv",
       "Norway": "no",
       "France": "fr",
@@ -171,35 +191,24 @@ export default function RiderResults() {
           </div>
 
           <div className="toggle-buttons rider-profile-toggle">
-            <button
-              className={mode === "Combined" ? "active" : ""}
-              onClick={() => setMode("Combined")}
-            >
-              Combined
-            </button>
-
-            <button
-              className={mode === "SX" ? "active" : ""}
-              onClick={() => setMode("SX")}
-            >
-              SX
-            </button>
-
-            <button
-              className={mode === "MX" ? "active" : ""}
-              onClick={() => setMode("MX")}
-            >
-              MX
-            </button>
-
-            {results.some((row) => row.Discipline === "SMX") && (
+            {availableDisciplines.length > 1 && (
               <button
-                className={mode === "SMX" ? "active" : ""}
-                onClick={() => setMode("SMX")}
+                className={mode === "Combined" ? "active" : ""}
+                onClick={() => setMode("Combined")}
               >
-                SMX
+                Combined
               </button>
             )}
+
+            {availableDisciplines.map((discipline) => (
+              <button
+                key={discipline}
+                className={mode === discipline ? "active" : ""}
+                onClick={() => setMode(discipline)}
+              >
+                {discipline}
+              </button>
+            ))}
           </div>
 
           <div className="track-filter rider-profile-track-filter">
@@ -228,8 +237,8 @@ export default function RiderResults() {
               <th className="class-col">Class</th>
               <th className="brand-col">Brand</th>
               <th className="qual-col">Qual</th>
-              <th className="heat-col">Heat</th>
-              <th className="lcq-col">LCQ</th>
+              {mode !== "WMX" && <th className="heat-col">Heat</th>}
+              {mode !== "WMX" && <th className="lcq-col">LCQ</th>}
             </tr>
           </thead>
 
@@ -240,7 +249,7 @@ export default function RiderResults() {
 
                 <td className="track-col">
                   <Link
-  to={buildTrackPath(row.Discipline === "SX" ? 1 : row.Discipline === "MX" ? 2 : 3, row.TrackID, row.TrackName)}
+  to={buildTrackPath(getSportId(row.Discipline), row.TrackID, row.TrackName)}
 >
                     {row.TrackName}
                   </Link>
@@ -264,8 +273,8 @@ export default function RiderResults() {
                 <td className="class-col">{row.Class}</td>
                 <td className="brand-col">{row.Brand}</td>
                 <td className="qual-col">{row.QualResult}</td>
-                <td className="heat-col">{row.HeatResult}</td>
-                <td className="lcq-col">{row.LCQResult}</td>
+                {mode !== "WMX" && <td className="heat-col">{row.HeatResult}</td>}
+                {mode !== "WMX" && <td className="lcq-col">{row.LCQResult}</td>}
               </tr>
             ))}
           </tbody>

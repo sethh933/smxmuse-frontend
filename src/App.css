@@ -2337,6 +2337,10 @@ a.country-rider-name:hover,
   font-size: 0.95rem;
 }
 
+.search-result-title-wmx {
+  color: #89cff0;
+}
+
 .search-result-subtitle {
   font-size: 0.8rem;
   color: #888;
@@ -2853,6 +2857,10 @@ a.country-rider-name:hover,
   grid-template-columns: 1.6fr 1.6fr 140px 80px 140px;
   gap: 12px;
   align-items: center;
+}
+
+.comparison-inputs-wmx {
+  grid-template-columns: 1.6fr 1.6fr 140px 140px;
 }
 
 .compare-button {

@@ -5,7 +5,7 @@ import { buildRiderPath, buildTrackPath } from "./seo";
 
 function UnifiedSearch() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState({ riders: [], tracks: [] });
+  const [results, setResults] = useState({ riders: [], wmxRiders: [], tracks: [] });
   const [showDropdown, setShowDropdown] = useState(false);
 
   const wrapperRef = useRef(null);
@@ -26,7 +26,7 @@ function UnifiedSearch() {
   // Fetch search results
   useEffect(() => {
     if (query.trim().length < 2) {
-      setResults({ riders: [], tracks: [] });
+      setResults({ riders: [], wmxRiders: [], tracks: [] });
       return;
     }
 
@@ -40,6 +40,7 @@ function UnifiedSearch() {
 
         setResults({
           riders: data.riders || [],
+          wmxRiders: data.wmx_riders || [],
           tracks: data.tracks || [],
         });
 
@@ -65,7 +66,9 @@ function UnifiedSearch() {
 };
 
   const hasResults =
-    results.riders.length > 0 || results.tracks.length > 0;
+    results.riders.length > 0 ||
+    results.wmxRiders.length > 0 ||
+    results.tracks.length > 0;
 
   return (
     <div className="unified-search" ref={wrapperRef}>
@@ -92,6 +95,26 @@ function UnifiedSearch() {
                   onClick={() => selectRider(r)}
                 >
                   <div className="search-result-title">{r.FullName}</div>
+                  <div className="search-result-subtitle">
+                    {r.Country || "Unknown"}
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+
+          {results.wmxRiders.length > 0 && (
+            <>
+              <div className="search-group-label">WMX Riders</div>
+              {results.wmxRiders.map((r) => (
+                <div
+                  key={`wmx-${r.RiderID}`}
+                  className="search-result-item"
+                  onClick={() => selectRider(r)}
+                >
+                  <div className="search-result-title search-result-title-wmx">
+                    {r.FullName}
+                  </div>
                   <div className="search-result-subtitle">
                     {r.Country || "Unknown"}
                   </div>
@@ -130,6 +153,25 @@ function UnifiedSearch() {
           .map((t) => (
             <div
               key={`mx-${t.TrackID}`}
+              className="search-result-item"
+              onClick={() => selectTrack(t)}
+            >
+              <div className="search-result-title">{t.TrackName}</div>
+              <div className="search-result-subtitle">{t.State || ""}</div>
+            </div>
+          ))}
+      </>
+    )}
+
+    {/* WMX */}
+    {results.tracks.filter(t => t.SportID === 4).length > 0 && (
+      <>
+        <div className="search-group-label">WMX Venues</div>
+        {results.tracks
+          .filter(t => t.SportID === 4)
+          .map((t) => (
+            <div
+              key={`wmx-${t.TrackID}`}
               className="search-result-item"
               onClick={() => selectTrack(t)}
             >

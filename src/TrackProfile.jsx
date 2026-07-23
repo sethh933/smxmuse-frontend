@@ -11,10 +11,13 @@ function TrackProfile() {
   const trackId = parseTrackId(trackParam);
   const sportId = parseSportParam(sportParam);
 
-  const [classId, setClassId] = useState(1);
+  const [selection, setSelection] = useState({
+    sportId,
+    classId: sportId === 4 ? 0 : 1,
+  });
   const [data, setData] = useState(null);
 
-  const [availableClasses, setAvailableClasses] = useState([]);
+  const [availableOptions, setAvailableOptions] = useState([]);
 
   useEffect(() => {
     async function fetchClasses() {
@@ -29,7 +32,10 @@ function TrackProfile() {
         }
         const json = await res.json();
 
-        setAvailableClasses(json.map((c) => c.ClassID));
+        setAvailableOptions(json.map((option) => ({
+          sportId: Number(option.SportID),
+          classId: Number(option.ClassID),
+        })));
       } catch (err) {
         console.error(err);
       }
@@ -39,18 +45,24 @@ function TrackProfile() {
   }, [trackId, sportId]);
 
   useEffect(() => {
-    if (availableClasses.length === 0) return;
+    if (availableOptions.length === 0) return;
 
-    if (!availableClasses.includes(classId)) {
-      setClassId(availableClasses[0]);
+    const selectionIsAvailable = availableOptions.some(
+      (option) => option.sportId === selection.sportId && option.classId === selection.classId
+    );
+
+    if (!selectionIsAvailable) {
+      const preferredOption = availableOptions.find((option) => option.sportId === sportId)
+        || availableOptions[0];
+      setSelection(preferredOption);
     }
-  }, [availableClasses, classId]);
+  }, [availableOptions, selection, sportId]);
 
   useEffect(() => {
     const params = new URLSearchParams({
       track_id: trackId,
-      sport_id: String(sportId),
-      class_id: String(classId),
+      sport_id: String(selection.sportId),
+      class_id: String(selection.classId),
     });
 
     fetch(apiUrl(`/api/track-profile?${params.toString()}`))
@@ -67,7 +79,7 @@ function TrackProfile() {
       .catch((err) => {
         console.error("ERROR:", err);
       });
-  }, [trackId, sportId, classId]);
+  }, [trackId, selection]);
 
   if (!data || !data.race_winners) {
     return <div className="app-wrapper">Loading...</div>;
@@ -77,7 +89,13 @@ function TrackProfile() {
   const trackCity = data?.race_winners?.[0]?.City;
   const trackState = data?.race_winners?.[0]?.State;
   const trackLocation = [trackCity, trackState].filter(Boolean).join(", ");
-  const sportLabel = sportId === 1 ? "Supercross" : sportId === 2 ? "Motocross" : "SMX";
+  const sportLabel = selection.sportId === 1
+    ? "Supercross"
+    : selection.sportId === 2
+      ? "Motocross"
+      : selection.sportId === 3
+        ? "SMX"
+        : "WMX";
 
   return (
     <div className="track-profile-page">
@@ -91,30 +109,25 @@ function TrackProfile() {
         {trackLocation && <p className="track-profile-location">{trackLocation}</p>}
 
         <div className="toggle-buttons track-profile-toggle-buttons">
-          {availableClasses.includes(1) && (
+          {availableOptions.filter((option) => option.sportId !== 4).map((option) => (
             <button
-              onClick={() => setClassId(1)}
-              className={classId === 1 ? "active" : ""}
+              key={`${option.sportId}-${option.classId}`}
+              onClick={() => setSelection(option)}
+              className={
+                selection.sportId === option.sportId && selection.classId === option.classId
+                  ? "active"
+                  : ""
+              }
             >
-              450
+              {option.classId === 1 ? "450" : option.classId === 2 ? "250" : "500"}
             </button>
-          )}
-
-          {availableClasses.includes(2) && (
+          ))}
+          {availableOptions.some((option) => option.sportId === 4) && (
             <button
-              onClick={() => setClassId(2)}
-              className={classId === 2 ? "active" : ""}
+              onClick={() => setSelection({ sportId: 4, classId: 0 })}
+              className={selection.sportId === 4 ? "active" : ""}
             >
-              250
-            </button>
-          )}
-
-          {availableClasses.includes(3) && (
-            <button
-              onClick={() => setClassId(3)}
-              className={classId === 3 ? "active" : ""}
-            >
-              500
+              WMX
             </button>
           )}
         </div>
@@ -139,7 +152,7 @@ function TrackProfile() {
                   <tr key={i}>
                     <td>
                       <Link to={buildRacePath(row.RaceID, row.TrackName, getCalendarYear(row.RaceDate), {
-                        sportId,
+                        sportId: selection.sportId,
                         city: row.City
                       })}>
                         {formatCalendarDate(row.RaceDate)}

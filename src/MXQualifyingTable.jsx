@@ -3,10 +3,17 @@ import { apiUrl } from "./api";
 import QualifyingDetailDrawer from "./QualifyingDetailDrawer";
 import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
-function MXQualifyingTable({ data, raceId, classId, sportId }) {
+function MXQualifyingTable({ data, raceId, classId, sportId, detailEndpoint }) {
   const [expandedKey, setExpandedKey] = useState(null);
   const [detailsByKey, setDetailsByKey] = useState({});
-  const canExpandRows = sportId === 2 && raceId && classId;
+  const resolvedDetailEndpoint =
+    detailEndpoint || (sportId === 2 ? "/api/race/mx-qualifying-rider-details" : null);
+  const canExpandRows = Boolean(
+    resolvedDetailEndpoint &&
+    raceId &&
+    classId !== null &&
+    classId !== undefined
+  );
 
   function getRowKey(row) {
     return `${row.riderid}-${row.result}-qual`;
@@ -31,7 +38,7 @@ function MXQualifyingTable({ data, raceId, classId, sportId }) {
       riderid: row.riderid,
     });
 
-    fetch(apiUrl(`/api/race/mx-qualifying-rider-details?${params.toString()}`))
+    fetch(apiUrl(`${resolvedDetailEndpoint}?${params.toString()}`))
       .then((res) => {
         if (!res.ok) throw new Error("Failed to load qualifying detail");
         return res.json();
