@@ -394,6 +394,17 @@ classes.sort((a, b) => order[a] - order[b]);
           eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
           sport: sportLabel,
           startDate: raceHeader.RaceDate,
+          ...((raceHeader.City || raceHeader.State) && {
+            location: {
+              "@type": "Place",
+              name: raceHeader.TrackName,
+              address: {
+                "@type": "PostalAddress",
+                ...(raceHeader.City && { addressLocality: raceHeader.City }),
+                ...(raceHeader.State && { addressRegion: raceHeader.State })
+              }
+            }
+          }),
           url: buildAbsoluteUrl(buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
             sportId: raceHeader.SportID,
             city: raceHeader.City
