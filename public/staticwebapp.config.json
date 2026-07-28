@@ -7,7 +7,7 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html",
+    "rewrite": "/spa-shell.html",
     "exclude": [
       "/assets/*",
       "/*.css",

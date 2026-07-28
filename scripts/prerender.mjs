@@ -108,6 +108,21 @@ function renderPage(page) {
     .replace('<div id="root"></div>', `<div id="root">${shell}</div>`);
 }
 
+function renderSpaShell() {
+  const tags = [
+    "<title>Supercross, Motocross, SMX, and WMX Stats and Results | smxmuse</title>",
+    '<meta name="description" content="Explore Supercross, Motocross, SMX, and WMX rider stats, race results, season dashboards, and historical data on smxmuse." />',
+    '<meta name="robots" content="index,follow" />',
+  ];
+
+  // This document is used only when Azure cannot find a prerendered route.
+  // It intentionally has no canonical URL: React adds the route's real
+  // canonical after it loads, instead of every fallback claiming to be home.
+  return removeSeoTags(sourceHtml)
+    .replace("</head>", `    ${tags.join("\n    ")}\n  </head>`)
+    .replace(/<div id="root">[\s\S]*?<\/div>/i, '<div id="root"></div>');
+}
+
 function outputFileFor(routePath) {
   if (routePath === "/") return path.join(distRoot, "index.html");
   const safeSegments = routePath.split("/").filter(Boolean).map((segment) => decodeURIComponent(segment));
@@ -128,10 +143,12 @@ if (process.env.PRERENDER_SKIP_DYNAMIC !== "1") {
 }
 
 const uniquePages = new Map(pages.map((page) => [page.path, page]));
+await writeFile(path.join(distRoot, "spa-shell.html"), renderSpaShell(), "utf8");
+
 for (const page of uniquePages.values()) {
   const outputFile = outputFileFor(page.path);
   await mkdir(path.dirname(outputFile), { recursive: true });
   await writeFile(outputFile, renderPage(page), "utf8");
 }
 
-console.log(`Prerendered ${uniquePages.size.toLocaleString("en-US")} routes.`);
+console.log(`Prerendered ${uniquePages.size.toLocaleString("en-US")} routes plus a neutral SPA fallback.`);
