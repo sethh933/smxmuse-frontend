@@ -55,6 +55,36 @@ const CLASS_LABELS = {
   3: "500"
 };
 
+const LANDING_CACHE_KEYS = {
+  latestRace: "smxmuse:landing:latest-race:v1",
+  riderOfTheDay: "smxmuse:landing:rider-of-the-day:v1"
+};
+
+function readSessionCache(key) {
+  try {
+    const value = window.sessionStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeSessionCache(key, value) {
+  try {
+    window.sessionStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // The page should still work when browser storage is unavailable.
+  }
+}
+
+async function fetchJson(path) {
+  const response = await fetch(apiUrl(path));
+  if (!response.ok) {
+    throw new Error(`${path} returned ${response.status}`);
+  }
+  return response.json();
+}
+
 function getCountryCode(country) {
   const countryMap = {
     "United States": "us",
@@ -341,28 +371,44 @@ function ArchiveIntro({ className = "" }) {
 }
 
 export default function LandingPage() {
-  const [latestRace, setLatestRace] = useState(null);
-  const [latestResults, setLatestResults] = useState([]);
-  const [riderOfTheDay, setRiderOfTheDay] = useState(null);
-  const [loadingLatest, setLoadingLatest] = useState(true);
+  const cachedLatest = readSessionCache(LANDING_CACHE_KEYS.latestRace);
+  const cachedRiderOfTheDay = readSessionCache(LANDING_CACHE_KEYS.riderOfTheDay);
+  const [latestRace, setLatestRace] = useState(cachedLatest?.race ?? null);
+  const [latestResults, setLatestResults] = useState(cachedLatest?.results ?? []);
+  const [riderOfTheDay, setRiderOfTheDay] = useState(cachedRiderOfTheDay);
+  const [loadingLatest, setLoadingLatest] = useState(!cachedLatest);
 
   useEffect(() => {
     let isMounted = true;
 
-    async function loadLatestRace() {
+    async function loadRiderOfTheDay() {
+      if (cachedRiderOfTheDay) {
+        return;
+      }
+
       try {
-        const [currentRes, riderOfTheDayRes] = await Promise.all([
-          fetch(apiUrl("/season/current")),
-          fetch(apiUrl("/api/riders/rider-of-the-day"))
-        ]);
-        const currentSeason = await currentRes.json();
-        const riderOfTheDayData = await riderOfTheDayRes.json();
+        const data = await fetchJson("/api/riders/rider-of-the-day");
+        if (isMounted) {
+          setRiderOfTheDay(data);
+          writeSessionCache(LANDING_CACHE_KEYS.riderOfTheDay, data);
+        }
+      } catch (error) {
+        console.error("Failed to load rider of the day", error);
+      }
+    }
+
+    async function loadLatestRace() {
+      if (cachedLatest) {
+        return;
+      }
+
+      try {
+        const currentSeason = await fetchJson("/season/current");
         const meta = SPORT_META[currentSeason.sport] ?? SPORT_META.sx;
 
-        const racesRes = await fetch(
-          apiUrl(`/api/races?sport_id=${meta.sportId}&year=${currentSeason.year}`)
+        const races = await fetchJson(
+          `/api/races?sport_id=${meta.sportId}&year=${currentSeason.year}`
         );
-        const races = await racesRes.json();
         const raceCandidates = getSortedCandidateRaces(races);
 
         if (raceCandidates.length === 0) {
@@ -376,30 +422,27 @@ export default function LandingPage() {
           let raceResults = [];
 
           if (meta.sportId === 1) {
-            const mainRes = await fetch(
-              apiUrl(`/api/race/main-event?raceid=${race.race_id}`)
+            const mainData = await fetchJson(
+              `/api/race/main-event?raceid=${race.race_id}`
             );
-            const mainData = await mainRes.json();
 
             raceResults = [
               { classId: 1, rows: (mainData.class450 ?? []).slice(0, 5) },
               { classId: 2, rows: (mainData.class250 ?? []).slice(0, 5) }
             ].filter((group) => group.rows.length > 0);
           } else {
-            const classesRes = await fetch(
-              apiUrl(`/api/race/mx-classes?raceid=${race.race_id}`)
+            const classesData = await fetchJson(
+              `/api/race/mx-classes?raceid=${race.race_id}`
             );
-            const classesData = await classesRes.json();
             const orderedClasses = classesData
               .map((item) => item.ClassID)
               .sort((a, b) => a - b);
 
             const resultsByClass = await Promise.all(
               orderedClasses.map(async (classId) => {
-                const overallRes = await fetch(
-                  apiUrl(`/api/race/overalls?raceid=${race.race_id}&classid=${classId}`)
+                const overallData = await fetchJson(
+                  `/api/race/overalls?raceid=${race.race_id}&classid=${classId}`
                 );
-                const overallData = await overallRes.json();
 
                 return { classId, rows: overallData.slice(0, 5) };
               })
@@ -423,9 +466,13 @@ export default function LandingPage() {
           return;
         }
 
-        setLatestRace({ ...selectedRace, sport: currentSeason.sport, sportLabel: meta.label });
+        const race = { ...selectedRace, sport: currentSeason.sport, sportLabel: meta.label };
+        setLatestRace(race);
         setLatestResults(groupedResults);
-        setRiderOfTheDay(riderOfTheDayData);
+        writeSessionCache(LANDING_CACHE_KEYS.latestRace, {
+          race,
+          results: groupedResults
+        });
       } catch (error) {
         console.error("Failed to load landing page race data", error);
       } finally {
@@ -435,6 +482,7 @@ export default function LandingPage() {
       }
     }
 
+    loadRiderOfTheDay();
     loadLatestRace();
 
     return () => {

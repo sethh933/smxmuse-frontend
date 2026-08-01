@@ -20,6 +20,8 @@
     "remotion:render:450:reels-vertical": "remotion render src/remotion/index.jsx ChampionshipBarRace450ReelsVertical out/2026-450sx-standings-reels-9x16-safe.mp4",
     "remotion:render:450:tiktok": "remotion render src/remotion/index.jsx ChampionshipBarRace450TikTok out/2026-450sx-standings-tiktok.mp4",
     "remotion:render:450:portrait45": "remotion render src/remotion/index.jsx ChampionshipBarRace450Portrait45 out/2026-450sx-standings-4x5.mp4",
+    "remotion:render:sx-wins:instagram": "remotion render src/remotion/index.jsx Most450SxWinsInstagram out/most-450sx-wins-instagram.mp4",
+    "remotion:render:sx-wins:tiktok": "remotion render src/remotion/index.jsx Most450SxWinsTikTok out/most-450sx-wins-tiktok.mp4",
     "remotion:render:laps-led:450": "remotion render src/remotion/index.jsx LapsLedPieRace450 out/2026-450sx-laps-led-pie.mp4",
     "remotion:render:laps-led:450:vertical": "remotion render src/remotion/index.jsx LapsLedPieRace450Vertical out/2026-450sx-laps-led-pie-vertical.mp4",
     "remotion:render:laps-led:450:tiktok": "remotion render src/remotion/index.jsx LapsLedPieRace450TikTok out/2026-450sx-laps-led-pie-tiktok.mp4",
