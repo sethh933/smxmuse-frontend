@@ -60,6 +60,15 @@ const LANDING_CACHE_KEYS = {
   riderOfTheDay: "smxmuse:landing:rider-of-the-day:v1"
 };
 
+const IS_HOMEPAGE_DOCUMENT_RELOAD =
+  typeof window !== "undefined" &&
+  window.location.pathname === "/" &&
+  window.performance
+    ?.getEntriesByType("navigation")
+    ?.[0]?.type === "reload";
+
+let hasMountedLandingPage = false;
+
 function readSessionCache(key) {
   try {
     const value = window.sessionStorage.getItem(key);
@@ -373,19 +382,22 @@ function ArchiveIntro({ className = "" }) {
 export default function LandingPage() {
   const cachedLatest = readSessionCache(LANDING_CACHE_KEYS.latestRace);
   const cachedRiderOfTheDay = readSessionCache(LANDING_CACHE_KEYS.riderOfTheDay);
-  const [latestRace, setLatestRace] = useState(cachedLatest?.race ?? null);
-  const [latestResults, setLatestResults] = useState(cachedLatest?.results ?? []);
+  const preferFreshLatest = IS_HOMEPAGE_DOCUMENT_RELOAD && !hasMountedLandingPage;
+  const [latestRace, setLatestRace] = useState(
+    preferFreshLatest ? null : cachedLatest?.race ?? null
+  );
+  const [latestResults, setLatestResults] = useState(
+    preferFreshLatest ? [] : cachedLatest?.results ?? []
+  );
   const [riderOfTheDay, setRiderOfTheDay] = useState(cachedRiderOfTheDay);
-  const [loadingLatest, setLoadingLatest] = useState(!cachedLatest);
+  const [loadingLatest, setLoadingLatest] = useState(preferFreshLatest || !cachedLatest);
 
   useEffect(() => {
     let isMounted = true;
+    let latestCacheFallbackTimer = null;
+    hasMountedLandingPage = true;
 
     async function loadRiderOfTheDay() {
-      if (cachedRiderOfTheDay) {
-        return;
-      }
-
       try {
         const data = await fetchJson("/api/riders/rider-of-the-day");
         if (isMounted) {
@@ -398,8 +410,15 @@ export default function LandingPage() {
     }
 
     async function loadLatestRace() {
-      if (cachedLatest) {
-        return;
+      if (preferFreshLatest && cachedLatest) {
+        latestCacheFallbackTimer = window.setTimeout(() => {
+          if (isMounted) {
+            setLatestRace(cachedLatest.race ?? null);
+            setLatestResults(cachedLatest.results ?? []);
+            setLoadingLatest(false);
+          }
+          latestCacheFallbackTimer = null;
+        }, 1200);
       }
 
       try {
@@ -466,6 +485,11 @@ export default function LandingPage() {
           return;
         }
 
+        if (latestCacheFallbackTimer !== null) {
+          window.clearTimeout(latestCacheFallbackTimer);
+          latestCacheFallbackTimer = null;
+        }
+
         const race = { ...selectedRace, sport: currentSeason.sport, sportLabel: meta.label };
         setLatestRace(race);
         setLatestResults(groupedResults);
@@ -475,6 +499,16 @@ export default function LandingPage() {
         });
       } catch (error) {
         console.error("Failed to load landing page race data", error);
+
+        if (latestCacheFallbackTimer !== null) {
+          window.clearTimeout(latestCacheFallbackTimer);
+          latestCacheFallbackTimer = null;
+        }
+
+        if (isMounted && preferFreshLatest && cachedLatest) {
+          setLatestRace(cachedLatest.race ?? null);
+          setLatestResults(cachedLatest.results ?? []);
+        }
       } finally {
         if (isMounted) {
           setLoadingLatest(false);
@@ -487,6 +521,9 @@ export default function LandingPage() {
 
     return () => {
       isMounted = false;
+      if (latestCacheFallbackTimer !== null) {
+        window.clearTimeout(latestCacheFallbackTimer);
+      }
     };
   }, []);
 
