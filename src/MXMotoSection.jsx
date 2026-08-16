@@ -26,6 +26,10 @@ function MXMotoSection({ raceId, classId, moto }) {
     return null;
   }
 
+  const hasHoleshotPositions = motos.some(
+    (row) => row.holeshotline !== null && row.holeshotline !== undefined
+  );
+
   return (
     <div>
       <h2 className="section-header">
@@ -38,6 +42,8 @@ function MXMotoSection({ raceId, classId, moto }) {
         classId={classId}
         moto={moto}
         detailEndpoint="/api/race/mx-moto-rider-details"
+        startLabel={hasHoleshotPositions ? "Lap1Pos" : "Start"}
+        showHoleshotLine={hasHoleshotPositions}
       />
     </div>
   );

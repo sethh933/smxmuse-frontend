@@ -21,7 +21,10 @@ function SMXMotoTable({
     classId !== undefined &&
     moto
   );
-  const columnCount = showHoleshotLine ? 10 : 9;
+  const showStart = data.some(
+    (row) => row.start !== null && row.start !== undefined
+  );
+  const columnCount = 8 + Number(showStart) + Number(showHoleshotLine);
   const hasNoRaceStatus = (raceStatus) =>
     raceStatus === null || raceStatus === undefined || String(raceStatus).trim() === "";
 
@@ -80,7 +83,7 @@ function SMXMotoTable({
             <th className="result-brand-col">Brand</th>
             <th>Interval</th>
             <th>BestLap</th>
-            <th>{startLabel}</th>
+            {showStart && <th>{startLabel}</th>}
             {showHoleshotLine && <th>HoleshotLine</th>}
             <th>Holeshot</th>
             <th>RaceStatus</th>
@@ -114,7 +117,7 @@ function SMXMotoTable({
                   <td className="result-brand-col"><BrandMark brand={row.brand} /></td>
                   <td>{row.interval ?? "-"}</td>
                   <td>{row.bestlap ?? "-"}</td>
-                  <td>{row.start ?? "-"}</td>
+                  {showStart && <td>{row.start ?? "-"}</td>}
                   {showHoleshotLine && <td>{row.holeshotline ?? "-"}</td>}
                   <td className="holeshot">{row.holeshot === 1 ? "\u25CF" : ""}</td>
                   <td className={hasNoRaceStatus(row.racestatus) ? "holeshot" : ""}>

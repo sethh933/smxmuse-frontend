@@ -2,6 +2,12 @@ import React from "react";
 import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 function MXOverallsTable({ data }) {
+  const showStartColumns = data.some(
+    (row) =>
+      (row.m1_start !== null && row.m1_start !== undefined) ||
+      (row.m2_start !== null && row.m2_start !== undefined)
+  );
+
   return (
     <div className="rider-table-wrapper">
       <table className="rider-stats result-identity-table result-overalls-table">
@@ -24,8 +30,8 @@ function MXOverallsTable({ data }) {
               <span className="overall-desktop-label">Holeshot</span>
               <span className="overall-mobile-label">HS</span>
             </th>
-            <th>M1 Start</th>
-            <th>M2 Start</th>
+            {showStartColumns && <th>M1 Start</th>}
+            {showStartColumns && <th>M2 Start</th>}
           </tr>
         </thead>
 
@@ -45,8 +51,8 @@ function MXOverallsTable({ data }) {
               <td className="overall-moto-col">{row.moto2}</td>
               <td>{row.lapsled}</td>
               <td>{row.holeshot}</td>
-              <td>{row.m1_start}</td>
-              <td>{row.m2_start}</td>
+              {showStartColumns && <td>{row.m1_start}</td>}
+              {showStartColumns && <td>{row.m2_start}</td>}
             </tr>
           ))}
         </tbody>
