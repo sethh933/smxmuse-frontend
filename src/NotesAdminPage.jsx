@@ -24,14 +24,28 @@ function createSlides(count = 6) {
 function createDefaultSections() {
   return [
     {
+      kind: "450",
       heading: "450 Class",
       slides: createSlides()
     },
     {
+      kind: "250",
       heading: "250 Class",
       slides: createSlides()
     }
   ];
+}
+
+function isWmxHeading(heading = "") {
+  return /^wmx(?:\s+class)?$/i.test(heading.trim());
+}
+
+function createWmxSection() {
+  return {
+    kind: "wmx",
+    heading: "WMX Class",
+    slides: createSlides()
+  };
 }
 
 function getToday() {
@@ -48,6 +62,7 @@ function normalizeSectionsForForm(noteSections) {
       : [...slides, ...createSlides(6 - slides.length)];
 
     return {
+      kind: section.kind || (isWmxHeading(section.heading) ? "wmx" : "standard"),
       heading: section.heading || "",
       slides: paddedSlides.map((slide) => ({
         heading: slide.heading || "",
@@ -82,6 +97,7 @@ export default function NotesAdminPage() {
     () => SPORT_OPTIONS.find((option) => option.value === sport) || SPORT_OPTIONS[0],
     [sport]
   );
+  const hasWmxSection = sections.some((section) => section.kind === "wmx");
 
   useEffect(() => {
     localStorage.setItem("smxmuseAdminToken", adminToken);
@@ -211,6 +227,18 @@ export default function NotesAdminPage() {
     );
   }
 
+  function toggleWmxSection(enabled) {
+    setSections((currentSections) => {
+      if (enabled) {
+        return currentSections.some((section) => section.kind === "wmx")
+          ? currentSections
+          : [...currentSections, createWmxSection()];
+      }
+
+      return currentSections.filter((section) => section.kind !== "wmx");
+    });
+  }
+
   function buildPayload(status) {
     return {
       title,
@@ -224,7 +252,7 @@ export default function NotesAdminPage() {
       tags: tags.split(",").map((tag) => tag.trim()).filter(Boolean),
       instagram_url: instagramUrl || null,
       status,
-      sections
+      sections: sections.map(({ heading, slides }) => ({ heading, slides }))
     };
   }
 
@@ -385,6 +413,15 @@ export default function NotesAdminPage() {
             onChange={(event) => setSummary(event.target.value)}
           />
         </label>
+
+        <label className="notes-admin-wmx-toggle">
+          <input
+            type="checkbox"
+            checked={hasWmxSection}
+            onChange={(event) => toggleWmxSection(event.target.checked)}
+          />
+          Include WMX class section
+        </label>
       </section>
 
       {sections.map((section, sectionIndex) => (
@@ -395,6 +432,7 @@ export default function NotesAdminPage() {
               <input
                 value={section.heading}
                 onChange={(event) => updateSection(sectionIndex, { heading: event.target.value })}
+                readOnly={section.kind === "wmx"}
               />
             </label>
             <button type="button" onClick={() => addSlide(sectionIndex)}>Add Slide</button>

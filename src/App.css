@@ -3435,6 +3435,22 @@ a.country-rider-name:hover,
   margin-top: 14px;
 }
 
+.notes-admin-panel .notes-admin-wmx-toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+.notes-admin-panel .notes-admin-wmx-toggle input {
+  width: 1rem;
+  height: 1rem;
+  min-height: auto;
+  margin: 0;
+}
+
 .notes-admin-section-heading {
   align-items: center;
   justify-content: space-between;
