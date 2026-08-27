@@ -1,4 +1,4 @@
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
@@ -9,9 +9,8 @@ export default function RiderResults() {
   const { riderId: riderParam } = useParams();
   const riderId = parseRiderId(riderParam);
   const location = useLocation();
-  const [selectedTrack, setSelectedTrack] = useState("All Tracks");
+  const [searchParams, setSearchParams] = useSearchParams();
   const [results, setResults] = useState([]);
-  const [mode, setMode] = useState("Combined");
   const [riderData, setRiderData] = useState(null);
 
   const disciplineOrder = ["SX", "MX", "SMX", "WMX"];
@@ -23,6 +22,28 @@ export default function RiderResults() {
   "All Tracks",
   ...[...new Set(results.map(r => r.TrackName))].sort()
 ];
+
+  const requestedDiscipline = searchParams.get("discipline")?.toUpperCase();
+  const defaultMode = availableDisciplines.length === 1 ? availableDisciplines[0] : "Combined";
+  const mode = requestedDiscipline === "COMBINED"
+    ? "Combined"
+    : availableDisciplines.includes(requestedDiscipline)
+      ? requestedDiscipline
+      : defaultMode;
+  const requestedTrack = searchParams.get("track");
+  const selectedTrack = requestedTrack && trackOptions.includes(requestedTrack)
+    ? requestedTrack
+    : "All Tracks";
+
+  const updateFilterUrl = (key, value, defaultValue) => {
+    const nextParams = new URLSearchParams(searchParams);
+    if (!value || value === defaultValue) {
+      nextParams.delete(key);
+    } else {
+      nextParams.set(key, value);
+    }
+    setSearchParams(nextParams);
+  };
 
   const getSportId = (discipline) => {
     if (discipline === "SX") return 1;
@@ -43,10 +64,6 @@ export default function RiderResults() {
   fetch(apiUrl(`/rider/${riderId}/race-results`))
     .then((res) => res.json())
     .then((data) => {
-      const disciplines = disciplineOrder.filter((discipline) =>
-        data.results.some((row) => row.Discipline === discipline)
-      );
-      setMode(disciplines.length === 1 ? disciplines[0] : "Combined");
       setResults(data.results);     // ✅ correct
       setRiderData(data.rider);     // ✅ correct
     })
@@ -194,7 +211,7 @@ export default function RiderResults() {
             {availableDisciplines.length > 1 && (
               <button
                 className={mode === "Combined" ? "active" : ""}
-                onClick={() => setMode("Combined")}
+                onClick={() => updateFilterUrl("discipline", "Combined", "Combined")}
               >
                 Combined
               </button>
@@ -204,7 +221,7 @@ export default function RiderResults() {
               <button
                 key={discipline}
                 className={mode === discipline ? "active" : ""}
-                onClick={() => setMode(discipline)}
+                onClick={() => updateFilterUrl("discipline", discipline, defaultMode)}
               >
                 {discipline}
               </button>
@@ -214,7 +231,7 @@ export default function RiderResults() {
           <div className="track-filter rider-profile-track-filter">
             <select
               value={selectedTrack}
-              onChange={(e) => setSelectedTrack(e.target.value)}
+              onChange={(e) => updateFilterUrl("track", e.target.value, "All Tracks")}
             >
               {trackOptions.map((track, i) => (
                 <option key={i} value={track}>
