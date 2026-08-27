@@ -374,13 +374,25 @@ classes.sort((a, b) => order[a] - order[b]);
   const sportLabel = isSX ? "Supercross" : isSMX ? "SMX" : isWMX ? "WMX" : "Motocross";
   const venueTypeLabel = raceHeader.Indoors === 1 ? "Indoor" : "Open air";
   const raceDisplayName = isSX && raceHeader.City ? raceHeader.City : raceHeader.TrackName;
+  const motocrossClassNames = [...mxClasses]
+    .sort((a, b) => a - b)
+    .map((classId) => ({ 1: "450", 2: "250", 3: "500" })[classId] || `Class ${classId}`);
+  const motocrossClassSuffix = motocrossClassNames.length > 0
+    ? ` - ${motocrossClassNames.join(" & ")}`
+    : "";
+  const raceSeoTitle = raceHeader.SportID === 2
+    ? `${raceHeader.Year} ${raceDisplayName} Pro Motocross Results${motocrossClassSuffix}`
+    : `${raceHeader.Year} ${raceDisplayName} ${sportLabel} Results`;
+  const raceHeading = raceHeader.SportID === 2
+    ? `${raceHeader.Year} ${raceDisplayName} Pro Motocross Results`
+    : raceHeader.TrackName;
   const preRaceNote = raceNotes.find((note) => note.type === "preRace");
   const raceRecapNote = raceNotes.find((note) => note.type === "raceRecap");
 
   return (
     <div className="race-page" style={{ padding: 20 }}>
       <Seo
-        title={`${raceHeader.Year} ${raceDisplayName} ${sportLabel} Results`}
+        title={raceSeoTitle}
         description={`View round ${raceHeader.Round} results, race data, and class breakdowns from ${raceDisplayName} in the ${raceHeader.Year} ${sportLabel} season.`}
         path={buildRacePath(raceid, raceHeader.TrackName, raceHeader.Year, {
           sportId: raceHeader.SportID,
@@ -417,7 +429,7 @@ classes.sort((a, b) => order[a] - order[b]);
       <p className="race-hero-kicker">{sportLabel} Results</p>
       <h1 className="race-title">
         <Link to={buildTrackPath(raceHeader.SportID, raceHeader.TrackID, raceHeader.TrackName)}>
-          {raceHeader.TrackName}
+          {raceHeading}
         </Link>
       </h1>
 

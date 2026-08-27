@@ -42,6 +42,12 @@ export default function ResultsYear() {
 
   const sportId = sport === "sx" ? 1 : sport === "mx" ? 2 : sport === "smx" ? 3 : 4;
   const sportLabel = sport === "sx" ? "Supercross" : sport === "mx" ? "Motocross" : sport === "smx" ? "SMX" : "WMX";
+  const pageTitle = sport === "mx"
+    ? `${year} AMA Pro Motocross Results, Schedule & Winners`
+    : `${year} ${sportLabel} Results`;
+  const pageHeading = sport === "mx"
+    ? `${year} Pro Motocross Results`
+    : `${year} ${sportLabel} Results`;
 
   useEffect(() => {
     setLoading(true);
@@ -88,9 +94,7 @@ export default function ResultsYear() {
   if (loading) {
     return (
       <div className="page-container">
-        <h1>
-          {year} {sportLabel} Results
-        </h1>
+        <h1>{pageHeading}</h1>
         <p style={{ textAlign: "center" }}>Loading races...</p>
       </div>
     );
@@ -99,14 +103,14 @@ export default function ResultsYear() {
   return (
     <div className="schedule-container results-year-page">
       <Seo
-        title={`${year} ${sportLabel} Results`}
+        title={pageTitle}
         description={`Browse every round from the ${year} ${sportLabel} season, plus season champions and the full archive schedule.`}
         path={`/results/${sport}/${year}`}
       />
       <section className="results-year-hero">
         <p className="results-home-kicker">Season archive</p>
         <h1>
-          {year} {sportLabel} Results
+          {pageHeading}
         </h1>
         <p className="results-year-intro">
           Open any round from the {year} {sportLabel.toLowerCase()} season, or start with the

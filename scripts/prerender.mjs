@@ -102,7 +102,22 @@ function renderPage(page) {
   }
 
   const heading = page.heading ? `<h1>${escapeHtml(page.heading)}</h1>` : "";
-  const shell = `<main class="seo-prerender-shell" data-prerendered="true">${heading}<p>${escapeHtml(page.body || page.description)}</p></main>`;
+  const schedule = Array.isArray(page.schedule) && page.schedule.length > 0
+    ? `<section><h2>Season Schedule, Results, and Winners</h2><table><thead><tr><th>Round</th><th>Track</th><th>Location</th><th>Date</th><th>Winners</th></tr></thead><tbody>${page.schedule.map((race) => `<tr><td>${escapeHtml(race.round)}</td><td><a href="${escapeHtml(race.href)}">${escapeHtml(race.track)}</a></td><td>${escapeHtml(race.location)}</td><td>${escapeHtml(race.date)}</td><td>${(race.winners || []).map((winner) => `<a href="${escapeHtml(winner.riderHref)}">${escapeHtml(winner.class)}: ${escapeHtml(winner.rider)}</a>`).join(", ")}</td></tr>`).join("")}</tbody></table></section>`
+    : "";
+  const resultSections = Array.isArray(page.resultSections)
+    ? page.resultSections.map((section) => {
+        const motoHeadings = section.showMotos ? "<th>Moto 1</th><th>Moto 2</th>" : "";
+        const rows = (section.rows || []).map((row) => {
+          const motoCells = section.showMotos
+            ? `<td>${escapeHtml(row.moto1 ?? "")}</td><td>${escapeHtml(row.moto2 ?? "")}</td>`
+            : "";
+          return `<tr><td>${escapeHtml(row.position)}</td><td><a href="${escapeHtml(row.riderHref)}">${escapeHtml(row.rider)}</a></td><td>${escapeHtml(row.brand)}</td>${motoCells}</tr>`;
+        }).join("");
+        return `<section><h2>${escapeHtml(section.heading)}</h2><table><thead><tr><th>Position</th><th>Rider</th><th>Brand</th>${motoHeadings}</tr></thead><tbody>${rows}</tbody></table></section>`;
+      }).join("")
+    : "";
+  const shell = `<main class="seo-prerender-shell" data-prerendered="true">${heading}<p>${escapeHtml(page.body || page.description)}</p>${schedule}${resultSections}</main>`;
   return removeSeoTags(sourceHtml)
     .replace("</head>", `    ${tags.join("\n    ")}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${shell}</div>`);
