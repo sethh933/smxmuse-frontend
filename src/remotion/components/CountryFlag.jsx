@@ -5,6 +5,8 @@ export function CountryFlag({ code, country, size = 34 }) {
     return null;
   }
 
+  const normalizedCode = String(code).toLowerCase();
+
   return (
     <div
       aria-label={country || code}
@@ -19,7 +21,7 @@ export function CountryFlag({ code, country, size = 34 }) {
       }}
     >
       <Img
-        src={`https://flagcdn.com/w80/${code}.png`}
+        src={`https://flagcdn.com/w80/${normalizedCode}.png`}
         alt={country || code}
         style={{
           width: "100%",

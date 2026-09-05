@@ -2052,12 +2052,8 @@ button {
   order: 2;
   position: relative;
   flex: 0 0 auto;
-  width: 176px;
+  width: auto;
   margin-left: auto;
-  padding: 5px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  background: #111;
 }
 
 .affiliate-ad-label {
@@ -2074,9 +2070,13 @@ button {
 }
 
 .affiliate-ad-link {
-  width: 160px;
-  height: 33px;
+  width: 176px;
+  height: 45px;
+  padding: 5px 8px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: #111;
 }
 
 .affiliate-ad-creative {

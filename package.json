@@ -29,6 +29,7 @@
     "remotion:render:laps-led:450:tiktok": "remotion render src/remotion/index.jsx LapsLedPieRace450TikTok out/2026-450sx-laps-led-pie-tiktok.mp4",
     "remotion:render:laps-led:west": "remotion render src/remotion/index.jsx LapsLedPieRaceWest out/2026-250sx-west-laps-led-pie.mp4",
     "remotion:render:laps-led:east": "remotion render src/remotion/index.jsx LapsLedPieRaceEast out/2026-250sx-east-laps-led-pie.mp4",
+    "remotion:render:laps-led:2026mx250": "remotion render src/remotion/index.jsx LapsLedPieRace2026Mx250 out/2026-250mx-laps-led-pie.mp4",
     "preview": "vite preview"
   },
   "dependencies": {
