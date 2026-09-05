@@ -18,7 +18,7 @@ export function ManufacturerLogo({ brand, compact = true }) {
   return (
     <div
       style={{
-        width: compact ? 126 : 170,
+        width: compact ? 96 : 170,
         height: compact ? 38 : 48,
         borderRadius: compact ? 7 : 8,
         background: "rgba(255, 255, 255, 0.9)",
@@ -27,7 +27,7 @@ export function ManufacturerLogo({ brand, compact = true }) {
         justifyContent: "center",
         flex: "0 0 auto",
         overflow: "hidden",
-        padding: compact ? "5px 14px" : "6px 18px",
+        padding: compact ? "5px 8px" : "6px 18px",
         color: "#14171d",
         fontSize: 18,
         fontWeight: 900

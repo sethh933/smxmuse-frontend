@@ -1,0 +1,7140 @@
+{
+  "title": "2026 250MX Championship",
+  "subtitle": "2026 ClassID 2 / SportID 2 points standings",
+  "season": 2026,
+  "sportId": 2,
+  "classId": 2,
+  "source": "vw_MX_RunningStandings TotalPoints joined to RiderBrandListYear",
+  "rounds": [
+    {
+      "round": 1,
+      "date": "2026-05-30",
+      "standings": [
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 47
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 34
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 34
+        },
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 34
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 33
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 33
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 30
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 29
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 28
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 23
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 23
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 19
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 19
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 15
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 14
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 13
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 8
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 6
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 5
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 5
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 4
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 3
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 2
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 0
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 0
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 0
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 0
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 0
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 0
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "date": "2026-06-06",
+      "standings": [
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 85
+        },
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 78
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 71
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 70
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 69
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 61
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 56
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 49
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 48
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 47
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 44
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 36
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 33
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 24
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 24
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 21
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 18
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 17
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 17
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 15
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 14
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 12
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 11
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 5
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 3
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 3
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": 2
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 0
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 0
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 0
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 0
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 0
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "date": "2026-06-13",
+      "standings": [
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 117
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 117
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 111
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 104
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 96
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 93
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 80
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 69
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 67
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 58
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 54
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 43
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 40
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 39
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 39
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 33
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 28
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 25
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 24
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 21
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 12
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 11
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 5
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 3
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 3
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": 2
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 0
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 0
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 0
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 0
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "date": "2026-06-20",
+      "standings": [
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 150
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 149
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 148
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 143
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 111
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 101
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 101
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 90
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 73
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 73
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 61
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 60
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 54
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 52
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 50
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 49
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 33
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 25
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 24
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 21
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 15
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 15
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 13
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 3
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 0
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 0
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": -5
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "date": "2026-07-04",
+      "standings": [
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 194
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 190
+        },
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 185
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 159
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 147
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 127
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 120
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 116
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 105
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 99
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 89
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 75
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 67
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 64
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 64
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 61
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 45
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 43
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 33
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 31
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 25
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 23
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 19
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 5
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 5
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 0
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 0
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": -5
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "date": "2026-07-11",
+      "standings": [
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 227
+        },
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 225
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 194
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 194
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 167
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 163
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 152
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 122
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 116
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 113
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 109
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 95
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 83
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 72
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 67
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 64
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 64
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 62
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 50
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 43
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 30
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 29
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 27
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 25
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 14
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 14
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 13
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 11
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 9
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 8
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 6
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 2
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 0
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": -5
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "date": "2026-07-18",
+      "standings": [
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 261
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 237
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 236
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 199
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 194
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 194
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 190
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 153
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 122
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 117
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 116
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 113
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 95
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 90
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 86
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 83
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 80
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 72
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 67
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 64
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 38
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 38
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 33
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 32
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 27
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 25
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 20
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 14
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 9
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 9
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 9
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 8
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 5
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 1
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 0
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "date": "2026-07-25",
+      "standings": [
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 293
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 286
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 268
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 238
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 230
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 224
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 194
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 188
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 146
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 128
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 124
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 116
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 115
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 113
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 101
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 97
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 94
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 83
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 77
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 67
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 55
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 45
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 44
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 38
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 32
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 27
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 22
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 14
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 10
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 9
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 9
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 9
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 8
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 5
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 2
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 2
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "date": "2026-08-15",
+      "standings": [
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 334
+        },
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 333
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 290
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 275
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 270
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 240
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 226
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 194
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 146
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 146
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 146
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 140
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 133
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 129
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 116
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 100
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 94
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 87
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 83
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 67
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 64
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 55
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 51
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 38
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 32
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 31
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 27
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 25
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 23
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 18
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 14
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 14
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 10
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 10
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 9
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 9
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 8
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 2
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "date": "2026-08-22",
+      "standings": [
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 378
+        },
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 364
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 322
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 317
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 291
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 269
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 244
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 194
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 166
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 162
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 154
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 151
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 146
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 144
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 128
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 122
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 118
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 116
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 83
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 68
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 67
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 66
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 64
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 38
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 37
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 32
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 31
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 31
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 27
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 26
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 26
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 19
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 15
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 14
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 11
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 9
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 8
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 3
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 2
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 2
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "date": "2026-08-29",
+      "standings": [
+        {
+          "riderId": 5354,
+          "riderKey": "5354",
+          "points": 407
+        },
+        {
+          "riderId": 3439,
+          "riderKey": "3439",
+          "points": 369
+        },
+        {
+          "riderId": 1425,
+          "riderKey": "1425",
+          "points": 364
+        },
+        {
+          "riderId": 1624,
+          "riderKey": "1624",
+          "points": 364
+        },
+        {
+          "riderId": 793,
+          "riderKey": "793",
+          "points": 326
+        },
+        {
+          "riderId": 5390,
+          "riderKey": "5390",
+          "points": 297
+        },
+        {
+          "riderId": 2177,
+          "riderKey": "2177",
+          "points": 244
+        },
+        {
+          "riderId": 2774,
+          "riderKey": "2774",
+          "points": 194
+        },
+        {
+          "riderId": 2168,
+          "riderKey": "2168",
+          "points": 187
+        },
+        {
+          "riderId": 5016,
+          "riderKey": "5016",
+          "points": 181
+        },
+        {
+          "riderId": 3042,
+          "riderKey": "3042",
+          "points": 179
+        },
+        {
+          "riderId": 5921,
+          "riderKey": "5921",
+          "points": 174
+        },
+        {
+          "riderId": 2727,
+          "riderKey": "2727",
+          "points": 164
+        },
+        {
+          "riderId": 6271,
+          "riderKey": "6271",
+          "points": 155
+        },
+        {
+          "riderId": 3440,
+          "riderKey": "3440",
+          "points": 146
+        },
+        {
+          "riderId": 220,
+          "riderKey": "220",
+          "points": 142
+        },
+        {
+          "riderId": 3115,
+          "riderKey": "3115",
+          "points": 141
+        },
+        {
+          "riderId": 1208,
+          "riderKey": "1208",
+          "points": 134
+        },
+        {
+          "riderId": 2623,
+          "riderKey": "2623",
+          "points": 116
+        },
+        {
+          "riderId": 5355,
+          "riderKey": "5355",
+          "points": 84
+        },
+        {
+          "riderId": 6303,
+          "riderKey": "6303",
+          "points": 83
+        },
+        {
+          "riderId": 3292,
+          "riderKey": "3292",
+          "points": 73
+        },
+        {
+          "riderId": 3894,
+          "riderKey": "3894",
+          "points": 72
+        },
+        {
+          "riderId": 391,
+          "riderKey": "391",
+          "points": 68
+        },
+        {
+          "riderId": 6282,
+          "riderKey": "6282",
+          "points": 67
+        },
+        {
+          "riderId": 3184,
+          "riderKey": "3184",
+          "points": 57
+        },
+        {
+          "riderId": 5912,
+          "riderKey": "5912",
+          "points": 39
+        },
+        {
+          "riderId": 5006,
+          "riderKey": "5006",
+          "points": 39
+        },
+        {
+          "riderId": 6307,
+          "riderKey": "6307",
+          "points": 32
+        },
+        {
+          "riderId": 6805,
+          "riderKey": "6805",
+          "points": 31
+        },
+        {
+          "riderId": 5925,
+          "riderKey": "5925",
+          "points": 31
+        },
+        {
+          "riderId": 5382,
+          "riderKey": "5382",
+          "points": 30
+        },
+        {
+          "riderId": 1583,
+          "riderKey": "1583",
+          "points": 28
+        },
+        {
+          "riderId": 6336,
+          "riderKey": "6336",
+          "points": 27
+        },
+        {
+          "riderId": 3085,
+          "riderKey": "3085",
+          "points": 26
+        },
+        {
+          "riderId": 2101,
+          "riderKey": "2101",
+          "points": 26
+        },
+        {
+          "riderId": 6811,
+          "riderKey": "6811",
+          "points": 18
+        },
+        {
+          "riderId": 217,
+          "riderKey": "217",
+          "points": 15
+        },
+        {
+          "riderId": 6338,
+          "riderKey": "6338",
+          "points": 14
+        },
+        {
+          "riderId": 1612,
+          "riderKey": "1612",
+          "points": 13
+        },
+        {
+          "riderId": 4964,
+          "riderKey": "4964",
+          "points": 11
+        },
+        {
+          "riderId": 5381,
+          "riderKey": "5381",
+          "points": 9
+        },
+        {
+          "riderId": 4986,
+          "riderKey": "4986",
+          "points": 8
+        },
+        {
+          "riderId": 5913,
+          "riderKey": "5913",
+          "points": 8
+        },
+        {
+          "riderId": 2718,
+          "riderKey": "2718",
+          "points": 6
+        },
+        {
+          "riderId": 986,
+          "riderKey": "986",
+          "points": 4
+        },
+        {
+          "riderId": 5391,
+          "riderKey": "5391",
+          "points": 4
+        },
+        {
+          "riderId": 6317,
+          "riderKey": "6317",
+          "points": 4
+        },
+        {
+          "riderId": 4935,
+          "riderKey": "4935",
+          "points": 3
+        },
+        {
+          "riderId": 5911,
+          "riderKey": "5911",
+          "points": 3
+        },
+        {
+          "riderId": 5914,
+          "riderKey": "5914",
+          "points": 2
+        },
+        {
+          "riderId": 286,
+          "riderKey": "286",
+          "points": 2
+        },
+        {
+          "riderId": 2180,
+          "riderKey": "2180",
+          "points": 1
+        },
+        {
+          "riderId": 6270,
+          "riderKey": "6270",
+          "points": 1
+        },
+        {
+          "riderId": 6289,
+          "riderKey": "6289",
+          "points": 0
+        },
+        {
+          "riderId": 6297,
+          "riderKey": "6297",
+          "points": 0
+        },
+        {
+          "riderId": 6808,
+          "riderKey": "6808",
+          "points": 0
+        },
+        {
+          "riderId": 5400,
+          "riderKey": "5400",
+          "points": 0
+        },
+        {
+          "riderId": 6343,
+          "riderKey": "6343",
+          "points": 0
+        },
+        {
+          "riderId": 2872,
+          "riderKey": "2872",
+          "points": 0
+        },
+        {
+          "riderId": 2519,
+          "riderKey": "2519",
+          "points": 0
+        },
+        {
+          "riderId": 3485,
+          "riderKey": "3485",
+          "points": 0
+        },
+        {
+          "riderId": 1988,
+          "riderKey": "1988",
+          "points": 0
+        },
+        {
+          "riderId": 2521,
+          "riderKey": "2521",
+          "points": 0
+        },
+        {
+          "riderId": 6804,
+          "riderKey": "6804",
+          "points": 0
+        },
+        {
+          "riderId": 6331,
+          "riderKey": "6331",
+          "points": 0
+        },
+        {
+          "riderId": 6293,
+          "riderKey": "6293",
+          "points": 0
+        },
+        {
+          "riderId": 6315,
+          "riderKey": "6315",
+          "points": 0
+        },
+        {
+          "riderId": 5922,
+          "riderKey": "5922",
+          "points": 0
+        },
+        {
+          "riderId": 2354,
+          "riderKey": "2354",
+          "points": 0
+        },
+        {
+          "riderId": 5417,
+          "riderKey": "5417",
+          "points": 0
+        },
+        {
+          "riderId": 6284,
+          "riderKey": "6284",
+          "points": 0
+        },
+        {
+          "riderId": 5362,
+          "riderKey": "5362",
+          "points": 0
+        },
+        {
+          "riderId": 4561,
+          "riderKey": "4561",
+          "points": 0
+        },
+        {
+          "riderId": 1817,
+          "riderKey": "1817",
+          "points": 0
+        },
+        {
+          "riderId": 566,
+          "riderKey": "566",
+          "points": 0
+        },
+        {
+          "riderId": 5007,
+          "riderKey": "5007",
+          "points": 0
+        },
+        {
+          "riderId": 6292,
+          "riderKey": "6292",
+          "points": 0
+        },
+        {
+          "riderId": 5383,
+          "riderKey": "5383",
+          "points": 0
+        },
+        {
+          "riderId": 1248,
+          "riderKey": "1248",
+          "points": 0
+        },
+        {
+          "riderId": 6335,
+          "riderKey": "6335",
+          "points": 0
+        },
+        {
+          "riderId": 1455,
+          "riderKey": "1455",
+          "points": 0
+        },
+        {
+          "riderId": 6800,
+          "riderKey": "6800",
+          "points": 0
+        },
+        {
+          "riderId": 6267,
+          "riderKey": "6267",
+          "points": 0
+        },
+        {
+          "riderId": 2986,
+          "riderKey": "2986",
+          "points": 0
+        },
+        {
+          "riderId": 329,
+          "riderKey": "329",
+          "points": 0
+        },
+        {
+          "riderId": 6328,
+          "riderKey": "6328",
+          "points": 0
+        },
+        {
+          "riderId": 6288,
+          "riderKey": "6288",
+          "points": 0
+        },
+        {
+          "riderId": 3605,
+          "riderKey": "3605",
+          "points": 0
+        },
+        {
+          "riderId": 989,
+          "riderKey": "989",
+          "points": 0
+        },
+        {
+          "riderId": 6320,
+          "riderKey": "6320",
+          "points": 0
+        },
+        {
+          "riderId": 72,
+          "riderKey": "72",
+          "points": 0
+        },
+        {
+          "riderId": 6298,
+          "riderKey": "6298",
+          "points": 0
+        },
+        {
+          "riderId": 1418,
+          "riderKey": "1418",
+          "points": 0
+        },
+        {
+          "riderId": 1441,
+          "riderKey": "1441",
+          "points": 0
+        },
+        {
+          "riderId": 5356,
+          "riderKey": "5356",
+          "points": 0
+        },
+        {
+          "riderId": 6308,
+          "riderKey": "6308",
+          "points": 0
+        },
+        {
+          "riderId": 1729,
+          "riderKey": "1729",
+          "points": 0
+        },
+        {
+          "riderId": 6809,
+          "riderKey": "6809",
+          "points": 0
+        },
+        {
+          "riderId": 955,
+          "riderKey": "955",
+          "points": 0
+        },
+        {
+          "riderId": 5924,
+          "riderKey": "5924",
+          "points": 0
+        },
+        {
+          "riderId": 6318,
+          "riderKey": "6318",
+          "points": 0
+        },
+        {
+          "riderId": 1005,
+          "riderKey": "1005",
+          "points": 0
+        },
+        {
+          "riderId": 6814,
+          "riderKey": "6814",
+          "points": 0
+        },
+        {
+          "riderId": 6341,
+          "riderKey": "6341",
+          "points": 0
+        },
+        {
+          "riderId": 6291,
+          "riderKey": "6291",
+          "points": -2
+        },
+        {
+          "riderId": 3443,
+          "riderKey": "3443",
+          "points": -5
+        }
+      ]
+    }
+  ],
+  "riders": [
+    {
+      "riderKey": "5354",
+      "riderId": 5354,
+      "name": "Cole Davies",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/ColeDavies",
+      "country": "New Zealand",
+      "color": "#2f6df6",
+      "finalPoints": 407
+    },
+    {
+      "riderKey": "3439",
+      "riderId": 3439,
+      "name": "Julien Beaumer",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/JulienBeaumer",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 369
+    },
+    {
+      "riderKey": "1425",
+      "riderId": 1425,
+      "name": "Chance Hymas",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/ChanceHymas",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 364
+    },
+    {
+      "riderKey": "1624",
+      "riderId": 1624,
+      "name": "Levi Kitchen",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2023/11/levi-kitchen-1.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 364
+    },
+    {
+      "riderKey": "793",
+      "riderId": 793,
+      "name": "Ryder DiFrancesco",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/RyderDiFrancesco",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 326
+    },
+    {
+      "riderKey": "5390",
+      "riderId": 5390,
+      "name": "Kayden Minear",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2025/06/308124_1749149841eb61594815a78175d5e2.png",
+      "country": "Australia",
+      "color": "#2f6df6",
+      "finalPoints": 297
+    },
+    {
+      "riderKey": "2177",
+      "riderId": 2177,
+      "name": "Carson Mumford",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://rxi.iscdn.net/2022/12/259927_sx23_carson_mumford_smile_691x691px-removebg-preview.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 244
+    },
+    {
+      "riderKey": "2774",
+      "riderId": 2774,
+      "name": "Jo Shimoda",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://rxi.iscdn.net/2024/12/299123_25hondahrcprogressivejoshimoda-removebg-preview.png",
+      "country": "Japan",
+      "color": "#d71920",
+      "finalPoints": 194
+    },
+    {
+      "riderKey": "2168",
+      "riderId": 2168,
+      "name": "Michael Mosiman",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2023/11/michael-mosiman-1.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 187
+    },
+    {
+      "riderKey": "5016",
+      "riderId": 5016,
+      "name": "Drew Adams",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2023/08/273078_screenshot2023-08-04at62506pm-removebg-preview.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 181
+    },
+    {
+      "riderKey": "3042",
+      "riderId": 3042,
+      "name": "Nate Thrasher",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2022/12/260080_thrasher_2023_yamaha_octopi_lm_0434-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 179
+    },
+    {
+      "riderKey": "5921",
+      "riderId": 5921,
+      "name": "Caden Dudney",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2024/11/296977_unnamed-2024-11-01t120440949-removebg-preview.png?auto=format&q=50&w=1300",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 174
+    },
+    {
+      "riderKey": "2727",
+      "riderId": 2727,
+      "name": "Dilan Schwartz",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2023/01/260821_screen_shot_2023-01-05_at_94858_am-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 164
+    },
+    {
+      "riderKey": "6271",
+      "riderId": 6271,
+      "name": "Landen Gordon",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/LandenGordon",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 155
+    },
+    {
+      "riderKey": "3440",
+      "riderId": 3440,
+      "name": "Casey Cochran",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://rxi.iscdn.net/2024/12/298623_caseycochran-rockstarenergygasgasfactoryracing202504-remove.png",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 146
+    },
+    {
+      "riderKey": "220",
+      "riderId": 220,
+      "name": "Daxton Bennick",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2024/02/Daxton-Bennick-1.png",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 142
+    },
+    {
+      "riderKey": "3115",
+      "riderId": 3115,
+      "name": "Lux Turner",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://pmx.iscdn.net/2025/12/10380_lux-turner-2026.png?w=182",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 141
+    },
+    {
+      "riderKey": "1208",
+      "riderId": 1208,
+      "name": "Seth Hammaker",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2023/11/seth-hammaker-2.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 134
+    },
+    {
+      "riderKey": "2623",
+      "riderId": 2623,
+      "name": "Nick Romano",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2022/12/260082_romano_2023_yamaha_octopi_lm_0347-removebg-preview.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 116
+    },
+    {
+      "riderKey": "5355",
+      "riderId": 5355,
+      "name": "Avery Long",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://rxi.iscdn.net/2024/12/299084_screenshot2024-12-23at115504am-removebg-preview.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 84
+    },
+    {
+      "riderKey": "6303",
+      "riderId": 6303,
+      "name": "Sacha Coenen",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SachaCoenen.png",
+      "country": "Belgium",
+      "color": "#f27a1a",
+      "finalPoints": 83
+    },
+    {
+      "riderKey": "3292",
+      "riderId": 3292,
+      "name": "Marshal Weltin",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2023/01/260833_screen_shot_2023-01-05_at_101907_am-removebg-preview.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 73
+    },
+    {
+      "riderKey": "3894",
+      "riderId": 3894,
+      "name": "Hunter Yoder",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2019/12/193835_193651_fchondq2020studio-dec2019-cudby-0123c-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 72
+    },
+    {
+      "riderKey": "391",
+      "riderId": 391,
+      "name": "Pierce Brown",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2024/10/296464_296369unnamed-2024-10-10t143857858-2-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 68
+    },
+    {
+      "riderKey": "6282",
+      "riderId": 6282,
+      "name": "Deacon Denno",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://rxi.iscdn.net/2025/09/313849_deacon-denno-4-2-removebg-preview.png?w=100",
+      "country": "United States",
+      "color": "#2b68b8",
+      "finalPoints": 67
+    },
+    {
+      "riderKey": "3184",
+      "riderId": 3184,
+      "name": "Max Vohland",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2024/09/295416_vohlandclub-08-2-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 57
+    },
+    {
+      "riderKey": "5912",
+      "riderId": 5912,
+      "name": "Brodie Connolly",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://auspromx.com.au/wp-content/uploads/2024/05/2025-ProMX-Round-1-Wonthaggi-RbMotoLens-RML_5727-MX2-Brodie-Connolly-1-headshot.png",
+      "country": "New Zealand",
+      "color": "#d71920",
+      "finalPoints": 39
+    },
+    {
+      "riderKey": "5006",
+      "riderId": 5006,
+      "name": "Parker Ross",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2023/05/268530_futures_alignmedia_sx23_salt_lake_city_217-2-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 39
+    },
+    {
+      "riderKey": "6307",
+      "riderId": 6307,
+      "name": "Carson Wood",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/CarsonWood.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 32
+    },
+    {
+      "riderKey": "6805",
+      "riderId": 6805,
+      "name": "Alex Larwood",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://auspromx.com.au/wp-content/uploads/2021/04/2026-ProMX-Round-1-Wonthaggi-RbMotoLens-RML-4099-Alex-Larwood-headshot.png",
+      "country": "Australia",
+      "color": "#d71920",
+      "finalPoints": 31
+    },
+    {
+      "riderKey": "5925",
+      "riderId": 5925,
+      "name": "Landon Gibson",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://rxi.iscdn.net/2024/04/285658_futuresalignmediasx24stlouis400-2-removebg-preview-1.png?auto=format,compress&q=50&w=100",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 31
+    },
+    {
+      "riderKey": "5382",
+      "riderId": 5382,
+      "name": "Enzo Temmerman",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2025/04/305930_screenshot2025-04-29at12015pm-removebg-preview-1.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 30
+    },
+    {
+      "riderKey": "1583",
+      "riderId": 1583,
+      "name": "Derek Kelley",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2022/12/259928_sx23_derek_kelley_smile_691x691px-removebg-preview.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 28
+    },
+    {
+      "riderKey": "6336",
+      "riderId": 6336,
+      "name": "Francisco Garcia",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "Spain",
+      "color": "#67be23",
+      "finalPoints": 27
+    },
+    {
+      "riderKey": "3085",
+      "riderId": 3085,
+      "name": "Gavin Towers",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://rxi.iscdn.net/2023/08/274403_ar3i1415-3-removebg-preview.png",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 26
+    },
+    {
+      "riderKey": "2101",
+      "riderId": 2101,
+      "name": "Henry Miller",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2020/08/209865_privateers_alignmedia_mx20_lorettas2_005__2_c-removebg-preview.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 26
+    },
+    {
+      "riderKey": "6811",
+      "riderId": 6811,
+      "name": "Ryder Malinoski",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2025/09/314817_screenshot2025-09-15at123351pm-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 18
+    },
+    {
+      "riderKey": "217",
+      "riderId": 217,
+      "name": "Brock Bennett",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 15
+    },
+    {
+      "riderKey": "6338",
+      "riderId": 6338,
+      "name": "Jesson Turner Jr",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 14
+    },
+    {
+      "riderKey": "1612",
+      "riderId": 1612,
+      "name": "Preston Kilroy",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2022/01/239628_unnamed_-_2022-01-04t200629_185c2-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 13
+    },
+    {
+      "riderKey": "4964",
+      "riderId": 4964,
+      "name": "Russell Buccheri",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 11
+    },
+    {
+      "riderKey": "5381",
+      "riderId": 5381,
+      "name": "Cole Timboe",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2025/11/317510_screenshot2025-11-12at124000pm-removebg-preview.png?w=100",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 9
+    },
+    {
+      "riderKey": "4986",
+      "riderId": 4986,
+      "name": "Jake Cannon",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "Australia",
+      "color": "#67be23",
+      "finalPoints": 8
+    },
+    {
+      "riderKey": "5913",
+      "riderId": 5913,
+      "name": "Mathys Boisrame",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/MathysBoisrame",
+      "country": "France",
+      "color": "#f27a1a",
+      "finalPoints": 8
+    },
+    {
+      "riderKey": "2718",
+      "riderId": 2718,
+      "name": "Coty Schock",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2023/12/279667_schock3-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 6
+    },
+    {
+      "riderKey": "986",
+      "riderId": 986,
+      "name": "Austin Forkner",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://rxi.iscdn.net/2024/10/296952_slice2-removebg-preview.png",
+      "country": "United States",
+      "color": "#2b68b8",
+      "finalPoints": 4
+    },
+    {
+      "riderKey": "5391",
+      "riderId": 5391,
+      "name": "Hayes Edwards",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 4
+    },
+    {
+      "riderKey": "6317",
+      "riderId": 6317,
+      "name": "Vincent Wey",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2026/01/321877_screenshot2026-01-29at112607am-removebg-preview.png?w=100",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 4
+    },
+    {
+      "riderKey": "4935",
+      "riderId": 4935,
+      "name": "Casey Benard",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 3
+    },
+    {
+      "riderKey": "5911",
+      "riderId": 5911,
+      "name": "Kade Johnson",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 3
+    },
+    {
+      "riderKey": "5914",
+      "riderId": 5914,
+      "name": "Gavin Betts",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://rxi.iscdn.net/2025/12/318367_screenshot2025-12-02at111154am-removebg-preview.png?auto=format,compress&q=50&w=100",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 2
+    },
+    {
+      "riderKey": "6291",
+      "riderId": 6291,
+      "name": "Jeremy Fappani",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://rxi.iscdn.net/2023/08/273076_screenshot2023-08-04at62149pm-removebg-preview.png?w=100",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 2
+    },
+    {
+      "riderKey": "286",
+      "riderId": 286,
+      "name": "Preston Boespflug",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2024/10/296399_296480prestonboespflugheadshot-removebg-preview.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 2
+    },
+    {
+      "riderKey": "2180",
+      "riderId": 2180,
+      "name": "Kyle Murdoch",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 1
+    },
+    {
+      "riderKey": "6270",
+      "riderId": 6270,
+      "name": "Leum Oehlhof",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 1
+    },
+    {
+      "riderKey": "6289",
+      "riderId": 6289,
+      "name": "Aden Keefer",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/AdenKeefer",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6297",
+      "riderId": 6297,
+      "name": "Alvin Hillan",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6808",
+      "riderId": 6808,
+      "name": "Austin Schafer",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5400",
+      "riderId": 5400,
+      "name": "Axel Neff",
+      "manufacturer": "SUZ",
+      "manufacturerLogo": "SUZ",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f6d928",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6343",
+      "riderId": 6343,
+      "name": "Bayler McKellar",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "2872",
+      "riderId": 2872,
+      "name": "Braden Spangle",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "2519",
+      "riderId": 2519,
+      "name": "Brandon Ray",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://rxi.iscdn.net/2021/10/235360_screen_shot_2021-10-21_at_10_34_58_am-removebg-preview.png",
+      "country": "United States",
+      "color": "#2b68b8",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "3485",
+      "riderId": 3485,
+      "name": "Brayden Ehlermann",
+      "manufacturer": "GAS",
+      "manufacturerLogo": "GAS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#c8102e",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1988",
+      "riderId": 1988,
+      "name": "Bronson McClure",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "2521",
+      "riderId": 2521,
+      "name": "Bryson Raymond",
+      "manufacturer": "GAS",
+      "manufacturerLogo": "GAS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#c8102e",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6804",
+      "riderId": 6804,
+      "name": "Cade Bradley",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/CadeBradley.png",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6331",
+      "riderId": 6331,
+      "name": "Christopher Schroeder",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6293",
+      "riderId": 6293,
+      "name": "Cohen Jackman",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6315",
+      "riderId": 6315,
+      "name": "Cole Szestakow",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5922",
+      "riderId": 5922,
+      "name": "Cole Zeller",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "2354",
+      "riderId": 2354,
+      "name": "Cullin Park",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://rxi.iscdn.net/2020/12/216546_screen_shot_2020-12-15_at_9_47_07_am-removebg-preview.png",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5417",
+      "riderId": 5417,
+      "name": "Deegan Vanvreede",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6284",
+      "riderId": 6284,
+      "name": "Devin Ruth",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2b68b8",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5362",
+      "riderId": 5362,
+      "name": "Dylan Cunha",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "4561",
+      "riderId": 4561,
+      "name": "Evan Ferry",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://rxi.iscdn.net/2024/06/289246_screenshot2024-06-10at101125am-removebg-preview.png",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1817",
+      "riderId": 1817,
+      "name": "Gage Linville",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://rxi.iscdn.net/2020/11/215901_gage_linville_cc.png",
+      "country": "United States",
+      "color": "#2b68b8",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "566",
+      "riderId": 566,
+      "name": "Izaih Clark",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6800",
+      "riderId": 6800,
+      "name": "JJ Concannon",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5007",
+      "riderId": 5007,
+      "name": "Jace Allred",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6292",
+      "riderId": 6292,
+      "name": "Jace Hinrichs",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5383",
+      "riderId": 5383,
+      "name": "Jadyn Serles",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1248",
+      "riderId": 1248,
+      "name": "James Harrington",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://rxi.iscdn.net/2024/07/290373_screenshot2024-07-02at102101am-removebg-preview.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6335",
+      "riderId": 6335,
+      "name": "Jan Krug",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "Germany",
+      "color": "#2b68b8",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1455",
+      "riderId": 1455,
+      "name": "Jesse Jacobsen",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6267",
+      "riderId": 6267,
+      "name": "Jonathan Getz",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "2986",
+      "riderId": 2986,
+      "name": "Joseph Tait",
+      "manufacturer": "GAS",
+      "manufacturerLogo": "GAS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#c8102e",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "329",
+      "riderId": 329,
+      "name": "Josh Bowman",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "3443",
+      "riderId": 3443,
+      "name": "Keegan Rowley",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6328",
+      "riderId": 6328,
+      "name": "Krystian Janik",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://rxi.iscdn.net/2023/08/273077_screenshot2023-08-04at62414pm-removebg-preview.png?w=100",
+      "country": "United States",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6288",
+      "riderId": 6288,
+      "name": "Kyle Looney",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2b68b8",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "3605",
+      "riderId": 3605,
+      "name": "Kyle Wise",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "989",
+      "riderId": 989,
+      "name": "Lawrence Fortin III",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6320",
+      "riderId": 6320,
+      "name": "Luke Fauser",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://rxi.iscdn.net/2024/04/286221_futuresalignmediasx24foxborough336-2-removebg-preview.png?w=100",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "72",
+      "riderId": 72,
+      "name": "Max Anstie",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/MaxAnstie",
+      "country": "United Kingdom",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6298",
+      "riderId": 6298,
+      "name": "Nate Freehill",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/NateFreehill.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1418",
+      "riderId": 1418,
+      "name": "Nicholas Hunt",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#2b68b8",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1441",
+      "riderId": 1441,
+      "name": "Nicolas Israel",
+      "manufacturer": "TRI",
+      "manufacturerLogo": "TRI",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "Chile",
+      "color": "#2b68b8",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5356",
+      "riderId": 5356,
+      "name": "Preston Masciangelo",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "Canada",
+      "color": "#f2f6fb",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6308",
+      "riderId": 6308,
+      "name": "Reece Wheaton",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1729",
+      "riderId": 1729,
+      "name": "Thomas Lanphear",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6809",
+      "riderId": 6809,
+      "name": "Thor Powell",
+      "manufacturer": "GAS",
+      "manufacturerLogo": "GAS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#c8102e",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "955",
+      "riderId": 955,
+      "name": "Tre Fierro",
+      "manufacturer": "YAM",
+      "manufacturerLogo": "YAM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "Mexico",
+      "color": "#2f6df6",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "5924",
+      "riderId": 5924,
+      "name": "Trevor Hazlett",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6318",
+      "riderId": 6318,
+      "name": "Trevor Maley",
+      "manufacturer": "KTM",
+      "manufacturerLogo": "KTM",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f27a1a",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "1005",
+      "riderId": 1005,
+      "name": "Ty Freehill",
+      "manufacturer": "HON",
+      "manufacturerLogo": "HON",
+      "image": "https://rxi.iscdn.net/2022/12/259963_sx23_ty_freehill_smile_691x691px-removebg-preview.png",
+      "country": "United States",
+      "color": "#d71920",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6814",
+      "riderId": 6814,
+      "name": "Will Canaguier III",
+      "manufacturer": "KAW",
+      "manufacturerLogo": "KAW",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#67be23",
+      "finalPoints": 0
+    },
+    {
+      "riderKey": "6341",
+      "riderId": 6341,
+      "name": "Wyatt McGrath",
+      "manufacturer": "HUS",
+      "manufacturerLogo": "HUS",
+      "image": "https://smxmuseimages.blob.core.windows.net/riderimages/SilhouetteRider.png",
+      "country": "United States",
+      "color": "#f2f6fb",
+      "finalPoints": 0
+    }
+  ]
+}

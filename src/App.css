@@ -2048,6 +2048,52 @@ button {
   padding: 0 20px;
 }
 
+.affiliate-ad {
+  order: 2;
+  position: relative;
+  flex: 0 0 auto;
+  width: 176px;
+  margin-left: auto;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: #111;
+}
+
+.affiliate-ad-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.affiliate-ad-link,
+.affiliate-ad-creative {
+  display: block;
+}
+
+.affiliate-ad-link {
+  width: 160px;
+  height: 33px;
+  overflow: hidden;
+}
+
+.affiliate-ad-creative {
+  width: 160px;
+  height: 33px;
+  max-width: 100%;
+  border: 0;
+}
+
+.affiliate-ad-impression {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
 /* COUNTRIES PAGE */
 
 .countries-grid {
@@ -2225,6 +2271,7 @@ a.country-rider-name:hover,
 
 /* left side stays grouped together */
 .nav-left {
+  order: 1;
   display: flex;
   align-items: center;
   gap: 34px;               /* distance between logo and links */
@@ -2287,7 +2334,8 @@ a.country-rider-name:hover,
 
 /* this pushes search all the way to the right */
 .nav-right {
-  margin-left: auto;
+  order: 3;
+  margin-left: 0;
   flex-shrink: 0;
   padding-left: 40px;   /* optional breathing room between links and search */
 }
@@ -6004,6 +6052,10 @@ a.track-link:focus-visible {
   .nav-left,
   .nav-right {
     display: none !important;
+  }
+
+  .affiliate-ad {
+    margin: 10px auto;
   }
 
   .nav-mobile-shell {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import UnifiedSearch from "./UnifiedSearch";
+import AffiliateAd from "./AffiliateAd";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -91,6 +92,8 @@ function Navbar() {
             <UnifiedSearch />
           </div>
         </div>
+
+        <AffiliateAd />
       </div>
     </div>
   );
