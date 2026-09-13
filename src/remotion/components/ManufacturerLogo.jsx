@@ -12,13 +12,13 @@ const LOGOS = {
   YAM: "https://assets.liveracemedia.com/manufacturers/primary/yamaha.png"
 };
 
-export function ManufacturerLogo({ brand, compact = true }) {
+export function ManufacturerLogo({ brand, compact = true, width }) {
   const logo = LOGOS[brand];
 
   return (
     <div
       style={{
-        width: compact ? 96 : 170,
+        width: width ?? (compact ? 96 : 170),
         height: compact ? 38 : 48,
         borderRadius: compact ? 7 : 8,
         background: "rgba(255, 255, 255, 0.9)",

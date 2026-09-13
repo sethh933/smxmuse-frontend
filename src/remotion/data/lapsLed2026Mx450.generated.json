@@ -1,0 +1,9510 @@
+{
+  "title": "2026 450MX Laps Led",
+  "subtitle": "Cumulative lap leaders by lap in chronological season order",
+  "season": 2026,
+  "sportId": 2,
+  "classId": 1,
+  "source": "MX_MOTO_SEGMENTS position = 1 ordered by Race_Table date, moto, and lap",
+  "frames": [
+    {
+      "sequence": 1,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 1,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 2,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 3,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 3
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 4,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 5,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 5
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 6,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 6
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 7,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 7
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 8,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 8
+        }
+      ]
+    },
+    {
+      "sequence": 9,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 9,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 9
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 10,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 10
+        }
+      ]
+    },
+    {
+      "sequence": 11,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 11,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 11
+        }
+      ]
+    },
+    {
+      "sequence": 12,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 12,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 12
+        }
+      ]
+    },
+    {
+      "sequence": 13,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 13,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 13
+        }
+      ]
+    },
+    {
+      "sequence": 14,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 14,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 14
+        }
+      ]
+    },
+    {
+      "sequence": 15,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 15,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 15
+        }
+      ]
+    },
+    {
+      "sequence": 16,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 16,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 15
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 17,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 17,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 18,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 18,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 17
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 19,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 19,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 18
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 20,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 20,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 19
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 21,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 21,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 20
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 22,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 22,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 21
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 23,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 23,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 22
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 24,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 24,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 23
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 25,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 25,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 24
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 26,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 26,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 25
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 27,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 27,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 26
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 28,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 28,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 27
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 29,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 29,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 28
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 30,
+      "round": 1,
+      "raceId": 1491,
+      "raceDate": "2026-05-30",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 30,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 31,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 31,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 1
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 32,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 32,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 33,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 33,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 3
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 34,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 34,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 4
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 35,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 35,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 5
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 36,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 36,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 6
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 37,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 37,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 7
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 38,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 38,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 8
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 39,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 39,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 9
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 40,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 40,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 10
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 41,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 41,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 11
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 42,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 42,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 12
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 43,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 43,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 13
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 44,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 44,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 14
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 45,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 45,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 15
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 46,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 46,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 47,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 17,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 47,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 17
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 48,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 1,
+      "lap": 18,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 48,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 18
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 49,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 49,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 19
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 50,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 50,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 20
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 51,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 51,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 21
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 52,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 52,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 22
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 53,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 53,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 23
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 54,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 54,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 24
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 55,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 55,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 25
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 56,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 56,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 26
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 57,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 57,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 27
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 58,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 58,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 28
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 59,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 59,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 60,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 60,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 30
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 61,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 61,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 31
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 62,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 62,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 32
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 63,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 63,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 33
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 64,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 64,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 34
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 65,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 17,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 65,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 35
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 66,
+      "round": 2,
+      "raceId": 1492,
+      "raceDate": "2026-06-06",
+      "moto": 2,
+      "lap": 18,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 66,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 36
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 67,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 67,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 37
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 68,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 68,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 38
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 69,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 69,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 39
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 70,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 70,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 40
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 71,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 71,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 41
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 72,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 72,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 42
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 73,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 73,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 43
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 74,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 74,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 44
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 75,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 75,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 45
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 76,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 76,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 46
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 77,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 77,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 47
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 78,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 78,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 48
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 79,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 79,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 49
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 80,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 80,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 50
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 81,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 81,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 51
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 82,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 82,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 52
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 83,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 1,
+      "lap": 17,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 83,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 53
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 84,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 84,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 54
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 85,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 85,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 55
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 86,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 86,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 56
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 87,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 87,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 57
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 88,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 88,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 58
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 89,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 89,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 59
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 90,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 90,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 60
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 91,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 91,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 61
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 92,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 92,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 62
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 93,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 93,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 94,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 94,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 64
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 95,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 95,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 96,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 96,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 66
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 97,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 97,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 67
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 98,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 98,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 68
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 99,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 99,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 100,
+      "round": 3,
+      "raceId": 1493,
+      "raceDate": "2026-06-13",
+      "moto": 2,
+      "lap": 17,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 100,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 101,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 101,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 30
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 102,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 102,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 31
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 103,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 103,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 32
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 104,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 104,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 33
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 105,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 105,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 34
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 106,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 106,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 35
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 107,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 107,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 36
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 108,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 108,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 37
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 109,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 109,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 38
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 110,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 110,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 39
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 111,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 111,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 40
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 112,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 112,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 41
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 113,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 113,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 42
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 114,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 114,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 43
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 115,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 115,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 44
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 116,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 116,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 45
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 117,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 1,
+      "lap": 17,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 117,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 46
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 118,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 118,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 47
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 119,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 119,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 48
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 120,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 120,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 49
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 121,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 121,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 50
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 122,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 122,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 51
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 123,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 123,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 52
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 124,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 124,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 53
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 125,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 125,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 54
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 126,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 126,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 55
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 127,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 127,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 56
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 128,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 128,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 57
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 129,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 129,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 58
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 130,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 130,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 59
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 131,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 131,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 60
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 132,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 132,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 61
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 133,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 133,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 62
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 134,
+      "round": 4,
+      "raceId": 1494,
+      "raceDate": "2026-06-20",
+      "moto": 2,
+      "lap": 17,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 134,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 135,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 135,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 136,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 136,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 3
+        }
+      ]
+    },
+    {
+      "sequence": 137,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 137,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 138,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 138,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 71
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 139,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 139,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 72
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 140,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 140,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 73
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 141,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 141,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 74
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 142,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 142,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 75
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 143,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 143,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 76
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 144,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 144,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 77
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 145,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 145,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 78
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 146,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 146,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 79
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 147,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 147,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 80
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 63
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 148,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 148,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 80
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 64
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 149,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 149,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 80
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 150,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 150,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 4
+        }
+      ]
+    },
+    {
+      "sequence": 151,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 151,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 5
+        }
+      ]
+    },
+    {
+      "sequence": 152,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 152,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 6
+        }
+      ]
+    },
+    {
+      "sequence": 153,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 153,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 7
+        }
+      ]
+    },
+    {
+      "sequence": 154,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 154,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 8
+        }
+      ]
+    },
+    {
+      "sequence": 155,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 155,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 9
+        }
+      ]
+    },
+    {
+      "sequence": 156,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 156,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 10
+        }
+      ]
+    },
+    {
+      "sequence": 157,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 157,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 11
+        }
+      ]
+    },
+    {
+      "sequence": 158,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 158,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 12
+        }
+      ]
+    },
+    {
+      "sequence": 159,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 159,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 13
+        }
+      ]
+    },
+    {
+      "sequence": 160,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 160,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 14
+        }
+      ]
+    },
+    {
+      "sequence": 161,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 161,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 15
+        }
+      ]
+    },
+    {
+      "sequence": 162,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 162,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 65
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 163,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 163,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 66
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 164,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 164,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 67
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 165,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 165,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 68
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 166,
+      "round": 5,
+      "raceId": 1495,
+      "raceDate": "2026-07-04",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 166,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 167,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 167,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 82
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 168,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 168,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 83
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 169,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 169,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 84
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 170,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 170,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 85
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 171,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 171,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 86
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 172,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 172,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 87
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 173,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 173,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 88
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 174,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 174,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 89
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 175,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 175,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 90
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 176,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 176,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 91
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 177,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 177,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 92
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 178,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 178,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 69
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 179,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 179,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 70
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 180,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 180,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 71
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 181,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 181,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 72
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 182,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 182,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 73
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 183,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 183,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 74
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 184,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 184,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 75
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 185,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 185,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 76
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 186,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 186,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 77
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 187,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 187,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 78
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 188,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 188,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 79
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 189,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 189,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 80
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 190,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 190,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 81
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 191,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 191,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 82
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 192,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 192,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 83
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 193,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 193,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 84
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 194,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 194,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 94
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 84
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 195,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 195,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 95
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 84
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 196,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 196,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 96
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 84
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 197,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 197,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 97
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 84
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 198,
+      "round": 6,
+      "raceId": 1496,
+      "raceDate": "2026-07-11",
+      "moto": 2,
+      "lap": 17,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 198,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 84
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 199,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 199,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 85
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 200,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 200,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 86
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 201,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 201,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 87
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 202,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 202,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 88
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 203,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 203,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 89
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 204,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 204,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 90
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 205,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 205,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 91
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 206,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 206,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 92
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 207,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 207,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 93
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 208,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 208,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 94
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 209,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 209,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 95
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 210,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 210,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 96
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 211,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 211,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 97
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 212,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 212,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 213,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 213,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 99
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 214,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 214,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 100
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 215,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 1,
+      "lap": 17,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 215,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 101
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 216,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 216,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 102
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 217,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 217,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 103
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 218,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 218,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 219,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 219,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 98
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 220,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 220,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 99
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 221,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 221,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 100
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 222,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 222,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 101
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 223,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 223,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 102
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 224,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 224,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 103
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 225,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 225,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 226,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 226,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 106
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 227,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 227,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 107
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 228,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 228,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 108
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 229,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 229,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 109
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 230,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 230,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 110
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 231,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 231,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 111
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 232,
+      "round": 7,
+      "raceId": 1497,
+      "raceDate": "2026-07-18",
+      "moto": 2,
+      "lap": 17,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 232,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 104
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 233,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 233,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 105
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 234,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 234,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 106
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 235,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 235,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 107
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 236,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 236,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 108
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 237,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 237,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 109
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 238,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 238,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 110
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 239,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 239,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 111
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 240,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 240,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 241,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 241,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 113
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 242,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 242,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 114
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 243,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 243,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 115
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 244,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 244,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 116
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 245,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 245,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 117
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 246,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 246,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 118
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 247,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 247,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 119
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 248,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 248,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 112
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 249,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 249,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 113
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 250,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 250,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 114
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 251,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 251,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 115
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 252,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 252,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 116
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 253,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 253,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 117
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 254,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 254,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 118
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 255,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 255,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 119
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 256,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 256,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 257,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 257,
+      "standings": [
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "1753",
+          "lapsLed": 120
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 258,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 258,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 259,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 259,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 122
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 260,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 260,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 123
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 261,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 261,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 124
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 262,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 262,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 125
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 263,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 263,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 126
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 264,
+      "round": 8,
+      "raceId": 1498,
+      "raceDate": "2026-07-25",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 264,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 127
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        }
+      ]
+    },
+    {
+      "sequence": 265,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "746",
+      "leaderName": "Haiden Deegan",
+      "totalLapsLed": 265,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 127
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 266,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 266,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 128
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 267,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 267,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 129
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 268,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 268,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 130
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 269,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 269,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 131
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 270,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 270,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 132
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 271,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 271,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 272,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 272,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 134
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 273,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 273,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 135
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 274,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 274,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 136
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 275,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 275,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 137
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 276,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 276,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 138
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 277,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 277,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 139
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 278,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 278,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 140
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 279,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 279,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 141
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 280,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 280,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 142
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 281,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 281,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 143
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 282,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 282,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 144
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 283,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 283,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 145
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 284,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 284,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 121
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 285,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 285,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 122
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 286,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 286,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 123
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 287,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 287,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 124
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 288,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 288,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 125
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 289,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 289,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 126
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 290,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 290,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 127
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 291,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 291,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 128
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 292,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 292,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 129
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 293,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 293,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 130
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 294,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 294,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 131
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 295,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 295,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 132
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 296,
+      "round": 9,
+      "raceId": 1499,
+      "raceDate": "2026-08-15",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1755",
+      "leaderName": "Jett Lawrence",
+      "totalLapsLed": 296,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 297,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "746",
+      "leaderName": "Haiden Deegan",
+      "totalLapsLed": 297,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 146
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 298,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 298,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 147
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 299,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 299,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 148
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 300,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 300,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 149
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 301,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 301,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 150
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 302,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 302,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 151
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 303,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 303,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 152
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 304,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 304,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 153
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 305,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 305,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 154
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 306,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 306,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 155
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 307,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 307,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 156
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 308,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 308,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 157
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 309,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 309,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 158
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 310,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 310,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 159
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 311,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 311,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 160
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 312,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 312,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 161
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 313,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 17,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 313,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 162
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 314,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 1,
+      "lap": 18,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 314,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 163
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 315,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 315,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 164
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 316,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 316,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 165
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 317,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 317,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 166
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 318,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 318,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 167
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 319,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 319,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 168
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 320,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 320,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 169
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 321,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 321,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 170
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 322,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 322,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 171
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 323,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 323,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 172
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 324,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 324,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 173
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 325,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 325,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 174
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 326,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 326,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 175
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 327,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 327,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 176
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 328,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 328,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 177
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 329,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 329,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 178
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 330,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 330,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 179
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 331,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 17,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 331,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 180
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 332,
+      "round": 10,
+      "raceId": 1500,
+      "raceDate": "2026-08-22",
+      "moto": 2,
+      "lap": 18,
+      "leaderKey": "1753",
+      "leaderName": "Hunter Lawrence",
+      "totalLapsLed": 332,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        }
+      ]
+    },
+    {
+      "sequence": 333,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 1,
+      "leaderKey": "3266",
+      "leaderName": "Cooper Webb",
+      "totalLapsLed": 333,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 16
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 334,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 2,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 334,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 17
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 335,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 3,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 335,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 18
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 336,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 4,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 336,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 19
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 337,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 5,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 337,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 20
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 338,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 6,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 338,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 21
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 339,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 7,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 339,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 22
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 340,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 8,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 340,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 23
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 341,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 9,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 341,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 24
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 342,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 10,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 342,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 25
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 343,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 11,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 343,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 26
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 344,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 12,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 344,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 27
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 345,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 13,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 345,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 28
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 346,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 14,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 346,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 29
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 347,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 15,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 347,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 30
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 348,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 1,
+      "lap": 16,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 348,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 31
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 349,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 1,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 349,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 32
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 350,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 2,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 350,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 33
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 351,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 3,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 351,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 34
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 352,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 4,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 352,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 35
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 353,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 5,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 353,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 36
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 354,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 6,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 354,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 37
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 355,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 7,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 355,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 38
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 356,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 8,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 356,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 39
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 357,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 9,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 357,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 40
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 358,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 10,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 358,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 41
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 359,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 11,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 359,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 42
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 360,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 12,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 360,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 43
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 361,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 13,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 361,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 44
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 362,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 14,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 362,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 45
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 363,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 15,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 363,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 46
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    },
+    {
+      "sequence": 364,
+      "round": 11,
+      "raceId": 1501,
+      "raceDate": "2026-08-29",
+      "moto": 2,
+      "lap": 16,
+      "leaderKey": "4508",
+      "leaderName": "Jorge Prado",
+      "totalLapsLed": 364,
+      "standings": [
+        {
+          "riderKey": "1753",
+          "lapsLed": 181
+        },
+        {
+          "riderKey": "1755",
+          "lapsLed": 133
+        },
+        {
+          "riderKey": "4508",
+          "lapsLed": 47
+        },
+        {
+          "riderKey": "746",
+          "lapsLed": 2
+        },
+        {
+          "riderKey": "3266",
+          "lapsLed": 1
+        }
+      ]
+    }
+  ],
+  "riders": [
+    {
+      "riderId": 1753,
+      "riderKey": "1753",
+      "name": "Hunter Lawrence",
+      "country": "Australia",
+      "countryCode": "AU",
+      "manufacturerLogo": "HON",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2023/11/hunter-lawrence-2.png",
+      "color": "#d71920"
+    },
+    {
+      "riderId": 1755,
+      "riderKey": "1755",
+      "name": "Jett Lawrence",
+      "country": "Australia",
+      "countryCode": "AU",
+      "manufacturerLogo": "HON",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2023/11/jett-lawrence-2.png",
+      "color": "#d71920"
+    },
+    {
+      "riderId": 4508,
+      "riderKey": "4508",
+      "name": "Jorge Prado",
+      "country": "Spain",
+      "countryCode": "ES",
+      "manufacturerLogo": "KTM",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2024/12/jorge-prado.png",
+      "color": "#f27a1a"
+    },
+    {
+      "riderId": 746,
+      "riderKey": "746",
+      "name": "Haiden Deegan",
+      "country": "United States",
+      "countryCode": "US",
+      "manufacturerLogo": "YAM",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2023/11/Haiden-Deegan.png",
+      "color": "#2f6df6"
+    },
+    {
+      "riderId": 3266,
+      "riderKey": "3266",
+      "name": "Cooper Webb",
+      "country": "United States",
+      "countryCode": "US",
+      "manufacturerLogo": "YAM",
+      "image": "https://www.supercrosslive.com/wp-content/uploads/2023/11/cooper-webb-2.png",
+      "color": "#2f6df6"
+    }
+  ]
+}

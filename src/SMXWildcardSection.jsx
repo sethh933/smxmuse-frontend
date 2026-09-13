@@ -32,7 +32,13 @@ function SMXWildcardSection({ raceId, classId }) {
         {getClassName(classId)} Wildcard
       </h2>
 
-      <MXConsiTable data={wildcard} />
+      <MXConsiTable
+        key={`${raceId}-${classId}`}
+        data={wildcard}
+        raceId={raceId}
+        classId={classId}
+        detailEndpoint="/api/race/smx-lcq-rider-details"
+      />
     </div>
   );
 }

@@ -7,7 +7,10 @@ function MXQualifyingTable({ data, raceId, classId, sportId, detailEndpoint }) {
   const [expandedKey, setExpandedKey] = useState(null);
   const [detailsByKey, setDetailsByKey] = useState({});
   const resolvedDetailEndpoint =
-    detailEndpoint || (sportId === 2 ? "/api/race/mx-qualifying-rider-details" : null);
+    detailEndpoint || ({
+      2: "/api/race/mx-qualifying-rider-details",
+      3: "/api/race/smx-qualifying-rider-details",
+    }[sportId] ?? null);
   const canExpandRows = Boolean(
     resolvedDetailEndpoint &&
     raceId &&

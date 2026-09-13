@@ -32,6 +32,7 @@ function MXQualifyingSection({ raceId, classId, sportId }) {
     </h2>
 
     <MXQualifyingTable
+      key={`${raceId}-${classId}-${sportId}`}
       data={qualifying}
       raceId={raceId}
       classId={classId}

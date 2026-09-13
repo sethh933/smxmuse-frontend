@@ -46,7 +46,8 @@ const FEATURED_PATHS = [
 
 const SPORT_META = {
   sx: { sportId: 1, label: "Supercross" },
-  mx: { sportId: 2, label: "Motocross" }
+  mx: { sportId: 2, label: "Motocross" },
+  smx: { sportId: 3, label: "SuperMotocross" }
 };
 
 const CLASS_LABELS = {
@@ -56,7 +57,7 @@ const CLASS_LABELS = {
 };
 
 const LANDING_CACHE_KEYS = {
-  latestRace: "smxmuse:landing:latest-race:v1",
+  latestRace: "smxmuse:landing:latest-race:v2",
   riderOfTheDay: "smxmuse:landing:rider-of-the-day:v1"
 };
 
@@ -310,7 +311,7 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
         {latestRace && (
           <Link
             to={buildRacePath(latestRace.race_id, latestRace.track_name, getCalendarYear(latestRace.race_date), {
-              sportId: latestRace.sport === "sx" ? 1 : latestRace.sport === "mx" ? 2 : latestRace.sport,
+              sportId: SPORT_META[latestRace.sport]?.sportId,
               city: latestRace.city
             })}
             className="landing-inline-link"
@@ -423,7 +424,10 @@ export default function LandingPage() {
 
       try {
         const currentSeason = await fetchJson("/season/current");
-        const meta = SPORT_META[currentSeason.sport] ?? SPORT_META.sx;
+        const meta = SPORT_META[currentSeason.sport];
+        if (!meta) {
+          throw new Error(`Unsupported current season sport: ${currentSeason.sport}`);
+        }
 
         const races = await fetchJson(
           `/api/races?sport_id=${meta.sportId}&year=${currentSeason.year}`
@@ -451,7 +455,7 @@ export default function LandingPage() {
             ].filter((group) => group.rows.length > 0);
           } else {
             const classesData = await fetchJson(
-              `/api/race/mx-classes?raceid=${race.race_id}`
+              `/api/race/mx-classes?raceid=${race.race_id}&sport_id=${meta.sportId}`
             );
             const orderedClasses = classesData
               .map((item) => item.ClassID)
@@ -460,7 +464,7 @@ export default function LandingPage() {
             const resultsByClass = await Promise.all(
               orderedClasses.map(async (classId) => {
                 const overallData = await fetchJson(
-                  `/api/race/overalls?raceid=${race.race_id}&classid=${classId}`
+                  `/api/race/overalls?raceid=${race.race_id}&classid=${classId}&sport_id=${meta.sportId}`
                 );
 
                 return { classId, rows: overallData.slice(0, 5) };

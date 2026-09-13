@@ -32,7 +32,14 @@ function SMXMotoSection({ raceId, classId, moto }) {
         {getClassName(classId)} Moto {moto}
       </h2>
 
-      <SMXMotoTable data={motos} />
+      <SMXMotoTable
+        key={`${raceId}-${classId}-${moto}`}
+        data={motos}
+        raceId={raceId}
+        classId={classId}
+        moto={moto}
+        detailEndpoint="/api/race/smx-moto-rider-details"
+      />
     </div>
   );
 }

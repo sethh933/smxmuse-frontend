@@ -2,6 +2,7 @@ import { Composition } from "remotion";
 import { ChampionshipBarRace } from "./components/ChampionshipBarRace";
 import { LapsLedPieRace } from "./components/LapsLedPieRace";
 import { SxWinsBarRace } from "./components/SxWinsBarRace";
+import { lapsLed2026Mx450 } from "./data/lapsLed2026Mx450";
 import { lapsLed2026Mx250 } from "./data/lapsLed2026Mx250";
 import { most450SxWins } from "./data/most450SxWins";
 import { standings2026Mx250 } from "./data/standings2026Mx250";
@@ -59,6 +60,30 @@ export function RemotionRoot() {
         }}
       />
       <Composition
+        id="LapsLedPieRace2026Mx450"
+        component={LapsLedPieRace}
+        durationInFrames={3600}
+        fps={60}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          data: lapsLed2026Mx450,
+          layout: "landscape"
+        }}
+      />
+      <Composition
+        id="LapsLedPieRace2026Mx450Instagram"
+        component={LapsLedPieRace}
+        durationInFrames={3600}
+        fps={60}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          data: lapsLed2026Mx450,
+          layout: "instagramVertical"
+        }}
+      />
+      <Composition
         id="LapsLedPieRace2026Mx250"
         component={LapsLedPieRace}
         durationInFrames={3600}
@@ -68,6 +93,18 @@ export function RemotionRoot() {
         defaultProps={{
           data: lapsLed2026Mx250,
           layout: "landscape"
+        }}
+      />
+      <Composition
+        id="LapsLedPieRace2026Mx250Instagram"
+        component={LapsLedPieRace}
+        durationInFrames={3600}
+        fps={60}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          data: lapsLed2026Mx250,
+          layout: "instagramVertical"
         }}
       />
     </>
