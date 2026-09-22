@@ -1,9 +1,11 @@
+import { useRaceSection } from "./raceSections";
 import React, { useEffect, useState } from "react";
 import { apiUrl } from "./api";
 import SMXMotoTable from "./SMXMotoTable";
 
 function WMXMotoSection({ raceId, moto }) {
   const [motos, setMotos] = useState([]);
+  const sectionId = useRaceSection("motos", Array.isArray(motos) && motos.length > 0);
 
   useEffect(() => {
     fetch(apiUrl(`/api/race/wmx-motos?raceid=${raceId}&moto=${moto}`))
@@ -20,7 +22,7 @@ function WMXMotoSection({ raceId, moto }) {
   }
 
   return (
-    <div>
+    <div id={sectionId} className="race-jump-target">
       <h2 className="section-header">WMX Moto {moto}</h2>
       <SMXMotoTable
         data={motos}

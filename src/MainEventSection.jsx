@@ -1,3 +1,4 @@
+import { useRaceSection } from "./raceSections";
 import MainEventTable from "./MainEventTable";
 
 /* ---------------------------------------
@@ -25,11 +26,13 @@ function getMainEventHeading(classid, results, raceCoastId) {
    Main Event Section Component
 --------------------------------------- */
 export default function MainEventSection({ class450, class250, raceId, raceCoastId, raceYear, sportId, tripleCrownId }) {
+  const premierId = useRaceSection("results-1", Boolean(class450?.length));
+  const litesId = useRaceSection("results-2", Boolean(class250?.length));
   return (
     <div className="main-event-section">
       {class450 && class450.length > 0 && (
         <>
-          <h3 className="class-header">
+          <h3 id={premierId} className="class-header race-jump-target">
             {getMainEventHeading(1, class450, raceCoastId)}
           </h3>
           <MainEventTable
@@ -46,7 +49,7 @@ export default function MainEventSection({ class450, class250, raceId, raceCoast
 
       {class250 && class250.length > 0 && (
         <>
-          <h3 className="class-header">
+          <h3 id={litesId} className="class-header race-jump-target">
             {getMainEventHeading(2, class250, raceCoastId)}
           </h3>
           <MainEventTable

@@ -1,3 +1,4 @@
+import { useRaceSection } from "./raceSections";
 import React, { useEffect, useState } from "react";
 import MXOverallsTable from "./MXOverallsTable";
 import { apiUrl } from "./api";
@@ -5,6 +6,7 @@ import { apiUrl } from "./api";
 function MXOverallsSection({ raceId, classId, sportId = 2, onLoaded }) {
   const [overalls, setOveralls] = useState([]);
   const [loading, setLoading] = useState(true);
+  const sectionId = useRaceSection(`results-${classId}`, !loading && Array.isArray(overalls) && overalls.length > 0);
 
   const getClassName = (classId) => {
     if (classId === 1) return "450";
@@ -55,7 +57,7 @@ function MXOverallsSection({ raceId, classId, sportId = 2, onLoaded }) {
   if (loading) return <p>Loading Overalls...</p>;
 
   return (
-    <div>
+    <div id={sectionId} className="race-jump-target">
       <h2 className="section-header">
         {getClassName(classId)} Overall Results
       </h2>

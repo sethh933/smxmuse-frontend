@@ -1,9 +1,11 @@
+import { useRaceSection } from "./raceSections";
 import React, { useEffect, useState } from "react";
 import { apiUrl } from "./api";
 import MXQualifyingTable from "./MXQualifyingTable";
 
 function WMXQualifyingSection({ raceId }) {
   const [qualifying, setQualifying] = useState([]);
+  const sectionId = useRaceSection("qualifying", Array.isArray(qualifying) && qualifying.length > 0);
 
   useEffect(() => {
     fetch(apiUrl(`/api/race/wmx-qualifying?raceid=${raceId}`))
@@ -20,7 +22,7 @@ function WMXQualifyingSection({ raceId }) {
   }
 
   return (
-    <div>
+    <div id={sectionId} className="race-jump-target">
       <h2 className="section-header">WMX Qualifying</h2>
       <MXQualifyingTable
         data={qualifying}

@@ -6254,3 +6254,12 @@ a.track-link:focus-visible {
     min-width: 0;
   }
 }
+
+/* Direct links into race results and the season archive. */
+.race-quick-links { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 28px; }
+.race-quick-links a { display:inline-flex; align-items:center; box-sizing:border-box; min-height:44px; padding:10px 16px; border:1px solid rgba(255, 255, 255, 0.14); border-radius:8px; background:rgba(255, 255, 255, 0.06); color:#f0f0f0; font-size:14px; font-weight:700; text-decoration:none; transition:background-color 150ms ease, border-color 150ms ease; }
+.race-quick-links a:hover, .race-quick-links a:focus-visible { background:rgba(111, 168, 255, 0.16); border-color:rgba(111, 168, 255, 0.72); }
+.race-quick-links a:focus-visible, .schedule-row:focus-visible, .results-year-champion-card:focus-visible { outline:3px solid #2563eb; outline-offset:3px; }
+.race-jump-target { scroll-margin-top:100px; }
+.race-venue-name { margin:8px 0; color:#64748b; }
+a.schedule-row, a.results-year-champion-card { color:inherit; text-decoration:none; }

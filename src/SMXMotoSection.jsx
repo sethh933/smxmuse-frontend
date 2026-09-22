@@ -1,9 +1,11 @@
+import { useRaceSection } from "./raceSections";
 import React, { useEffect, useState } from "react";
 import { apiUrl } from "./api";
 import SMXMotoTable from "./SMXMotoTable";
 
 function SMXMotoSection({ raceId, classId, moto }) {
   const [motos, setMotos] = useState([]);
+  const sectionId = useRaceSection("motos", Array.isArray(motos) && motos.length > 0);
 
   const getClassName = (classId) => {
     if (classId === 1) return "450";
@@ -27,7 +29,7 @@ function SMXMotoSection({ raceId, classId, moto }) {
   }
 
   return (
-    <div>
+    <div id={sectionId} className="race-jump-target">
       <h2 className="section-header">
         {getClassName(classId)} Moto {moto}
       </h2>

@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
@@ -31,7 +31,7 @@ function getChampionLabel(sport, classId, coastId) {
 
 export default function ResultsYear() {
   const { sport, year } = useParams();
-  const navigate = useNavigate();
+
 
   const [loading, setLoading] = useState(true);
   const [races, setRaces] = useState([]);
@@ -127,11 +127,10 @@ export default function ResultsYear() {
 
           <div className="results-year-champion-grid">
             {championCards.map((champion) => (
-              <button
+              <Link
                 key={`${champion.classid}-${champion.coastid ?? "all"}-${champion.riderid}`}
-                type="button"
                 className="results-year-champion-card"
-                onClick={() => navigate(buildRiderPath(champion.riderid, champion.fullname))}
+                to={buildRiderPath(champion.riderid, champion.fullname)}
               >
                 <span className="results-year-champion-label">{champion.label}</span>
                 <img
@@ -140,7 +139,7 @@ export default function ResultsYear() {
                   className="results-year-champion-image"
                 />
                 <strong>{champion.fullname}</strong>
-              </button>
+              </Link>
             ))}
           </div>
         </section>
@@ -171,13 +170,13 @@ export default function ResultsYear() {
 
         <div className="schedule-list">
           {races.map((race) => (
-            <div
+            <Link
               key={race.race_id}
               className={`schedule-row ${isMobileSchedule ? "schedule-row-mobile" : ""}`}
-              onClick={() => navigate(buildRacePath(race.race_id, race.track_name, year, {
+              to={buildRacePath(race.race_id, race.track_name, year, {
                 sportId,
                 city: race.city
-              }))}
+              })}
             >
               <div className="schedule-round">{race.round}</div>
               {isMobileSchedule ? (
@@ -201,7 +200,7 @@ export default function ResultsYear() {
                   day: "numeric"
                 })}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

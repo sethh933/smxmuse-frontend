@@ -1,3 +1,4 @@
+import { useRaceSection } from "./raceSections";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeatRaceTable from "./HeatRaceTable";
@@ -31,6 +32,7 @@ export default function HeatRacesSection({ classid, raceCoastId }) {
   const { raceid: raceParam } = useParams();
   const raceid = parseRaceId(raceParam);
   const [heats, setHeats] = useState({});
+  const sectionId = useRaceSection("heats", Object.values(heats).some(rows => Array.isArray(rows) && rows.length > 0));
 
   useEffect(() => {
     async function fetchHeats() {
@@ -49,7 +51,7 @@ export default function HeatRacesSection({ classid, raceCoastId }) {
   }, [raceid, classid]);
 
   return (
-    <div style={{ marginTop: 30 }}>
+    <div id={sectionId} className="race-jump-target" style={{ marginTop: 30 }}>
       {Object.keys(heats).map((heatNum) => {
         const results = heats[heatNum];
 

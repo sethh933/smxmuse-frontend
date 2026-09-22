@@ -1,3 +1,4 @@
+import { useRaceSection } from "./raceSections";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeatRaceTable from "./HeatRaceTable";
@@ -21,6 +22,7 @@ export default function LCQSection({ classid, raceCoastId }) {
   const { raceid: raceParam } = useParams();
   const raceid = parseRaceId(raceParam);
   const [lcqs, setLcqs] = useState([]);
+  const sectionId = useRaceSection("heats", Array.isArray(lcqs) && lcqs.length > 0);
 
   useEffect(() => {
     async function fetchLCQs() {
@@ -46,7 +48,7 @@ export default function LCQSection({ classid, raceCoastId }) {
       : `Lites Class LCQ (${getCoastLabel(raceCoastId, lcqs)})`;
 
   return (
-    <div style={{ marginTop: 30 }}>
+    <div id={sectionId} className="race-jump-target" style={{ marginTop: 30 }}>
       <h3 className="class-header">{heading}</h3>
       <HeatRaceTable results={lcqs} />
     </div>

@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const backendTarget = "http://127.0.0.1:8000";
+const backendTarget = process.env.DEV_API_TARGET || "http://127.0.0.1:8000";
 const backendPrefixes = [
   "/api",
   "/leaderboard1",

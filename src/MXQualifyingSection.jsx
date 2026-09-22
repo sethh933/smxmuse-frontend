@@ -1,9 +1,11 @@
+import { useRaceSection } from "./raceSections";
 import React, { useEffect, useState } from "react";
 import MXQualifyingTable from "./MXQualifyingTable";
 import { apiUrl } from "./api";
 
 function MXQualifyingSection({ raceId, classId, sportId }) {
   const [qualifying, setQualifying] = useState([]);
+  const sectionId = useRaceSection("qualifying", Array.isArray(qualifying) && qualifying.length > 0);
   const getClassName = (classId) => {
   if (classId === 1) return "450";
   if (classId === 2) return "250";
@@ -26,7 +28,7 @@ function MXQualifyingSection({ raceId, classId, sportId }) {
   }
 
   return (
-  <div>
+  <div id={sectionId} className="race-jump-target">
     <h2 className="section-header">
       {getClassName(classId)} Qualifying
     </h2>

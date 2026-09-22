@@ -1,3 +1,5 @@
+import { RaceSectionProvider } from "./RaceSectionAvailability";
+import { useRaceSections } from "./raceSections";
 import './App.css';
 import { Fragment, useCallback, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useParams, Navigate } from "react-router-dom";
@@ -261,6 +263,8 @@ function LeaderboardsPage() {
 }
 
 function RacePage() {
+  const availableSections = useRaceSections();
+  const sectionTarget = group => Object.values(availableSections).find(section => section.group === group)?.id;
   const { raceid: raceParam } = useParams();
   const raceid = parseRaceId(raceParam);
   const [raceHeader, setRaceHeader] = useState(null);
@@ -385,7 +389,7 @@ classes.sort((a, b) => order[a] - order[b]);
     : `${raceHeader.Year} ${raceDisplayName} ${sportLabel} Results`;
   const raceHeading = raceHeader.SportID === 2
     ? `${raceHeader.Year} ${raceDisplayName} Pro Motocross Results`
-    : raceHeader.TrackName;
+    : `${raceHeader.Year} ${raceDisplayName} ${sportLabel} Results`;
   const preRaceNote = raceNotes.find((note) => note.type === "preRace");
   const raceRecapNote = raceNotes.find((note) => note.type === "raceRecap");
 
@@ -433,6 +437,7 @@ classes.sort((a, b) => order[a] - order[b]);
         </Link>
       </h1>
 
+      {isSX && <p className="race-venue-name">{raceHeader.TrackName}</p>}
       <div className="race-meta" aria-label="Race details">
         <span>Round {raceHeader.Round} of {raceHeader.MaxRound}</span>
         <span>{formatCalendarDate(raceHeader.RaceDate, {
@@ -460,6 +465,15 @@ classes.sort((a, b) => order[a] - order[b]);
       )}
       </section>
 
+      <nav className="race-quick-links" aria-label="Race result sections">
+        {(isSX ? [1, 2].filter(id => (id === 1 ? mainEvent450 : mainEvent250)?.length) : mxClasses).filter(id => sectionTarget(`results-${id}`)).map(id => (
+          <a key={id} href={`#${sectionTarget(`results-${id}`)}`}>{({1: "450", 2: "250", 3: "500", 4: "WMX"})[id] || id} Results</a>
+        ))}
+        {sectionTarget("heats") && <a href={`#${sectionTarget("heats")}`}>Heats &amp; LCQs</a>}
+        {sectionTarget("motos") && <a href={`#${sectionTarget("motos")}`}>Motos</a>}
+        {sectionTarget("qualifying") && <a href={`#${sectionTarget("qualifying")}`}>Qualifying</a>}
+        <Link to={`/results/${({1: "sx", 2: "mx", 3: "smx", 4: "wmx"})[raceHeader.SportID]}/${raceHeader.Year}`}>Season Results</Link>
+      </nav>
       {isSX ? (
         <>
           {/* SUPERcross */}
@@ -472,7 +486,6 @@ classes.sort((a, b) => order[a] - order[b]);
             sportId={raceHeader.SportID}
             tripleCrownId={raceHeader.TripleCrownID}
           />
-
           <HeatRacesSection classid={1} raceCoastId={raceHeader.CoastID} />
           <HeatRacesSection classid={2} raceCoastId={raceHeader.CoastID} />
           {raceHeader.TripleCrownID === 1 && (
@@ -502,7 +515,6 @@ classes.sort((a, b) => order[a] - order[b]);
     onLoaded={isSMX ? handleOverallLoaded : undefined}
   />
 ))}
-
 {isSMX && smxOverallsReady && mxClasses.map(classId => (
   <Fragment key={`smx-motos-${classId}`}>
     <SMXMotoSection raceId={raceid} classId={classId} moto={1} />
@@ -529,6 +541,7 @@ classes.sort((a, b) => order[a] - order[b]);
 {!isSMX && !isWMX && (
   <LegacyMXRaceSessions raceId={raceid} year={raceHeader.Year} />
 )}
+
 
 {!isWMX && (!isSMX || smxOverallsReady) && mxClasses.map(classId => (
   <MXQualifyingSection
@@ -577,7 +590,7 @@ function TrackProfileRouteWrapper() {
 
 function RacePageRouteWrapper() {
   const { raceid } = useParams();
-  return <RacePage key={parseRaceId(raceid)} />;
+  return <RaceSectionProvider key={parseRaceId(raceid)}><RacePage /></RaceSectionProvider>;
 }
 
 function LegacyCountryRedirect() {

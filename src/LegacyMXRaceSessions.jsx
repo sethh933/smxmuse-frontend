@@ -1,9 +1,11 @@
+import { useRaceSection } from "./raceSections";
 import { useEffect, useState } from "react";
 import { apiUrl } from "./api";
 import { BrandMark, CountryFlag, ResultRider } from "./ResultIdentity";
 
 export default function LegacyMXRaceSessions({ raceId, year }) {
   const [sessions, setSessions] = useState([]);
+  const sectionId = useRaceSection("qualifying", sessions.some(session => session.results?.length > 0));
 
   useEffect(() => {
     if (year < 2004 || year > 2008) {
@@ -25,7 +27,7 @@ export default function LegacyMXRaceSessions({ raceId, year }) {
 
   if (sessions.length === 0) return null;
 
-  return sessions.map((session) => (
+  return <div id={sectionId} className="race-jump-target">{sessions.map((session) => (
     <div key={session.session_order}>
       <h2 className="section-header">{session.title}</h2>
       <div className="rider-table-wrapper">
@@ -56,5 +58,5 @@ export default function LegacyMXRaceSessions({ raceId, year }) {
         </table>
       </div>
     </div>
-  ));
+  ))}</div>;
 }

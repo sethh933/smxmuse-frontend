@@ -1,3 +1,4 @@
+import { useRaceSection } from "./raceSections";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QualifyingTable from "./QualifyingTable";
@@ -21,6 +22,7 @@ export default function QualifyingSection({ classid, raceCoastId }) {
   const { raceid: raceParam } = useParams();
   const raceid = parseRaceId(raceParam);
   const [results, setResults] = useState([]);
+  const sectionId = useRaceSection("qualifying", Array.isArray(results) && results.length > 0);
 
   useEffect(() => {
   async function fetchQualifying() {
@@ -49,7 +51,7 @@ export default function QualifyingSection({ classid, raceCoastId }) {
       : `Lites Class Qualifying (${getCoastLabel(raceCoastId, results)})`;
 
   return (
-    <div style={{ marginTop: 30 }}>
+    <div id={sectionId} className="race-jump-target" style={{ marginTop: 30 }}>
       <h3 className="class-header">{heading}</h3>
       <QualifyingTable
         results={results}
