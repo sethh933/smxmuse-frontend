@@ -1,3 +1,5 @@
+import { riderRequest } from "./riderRequest";
+import RiderProfileLoading from "./RiderProfileLoading";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiUrl } from "./api";
@@ -22,34 +24,25 @@ export default function RiderPoints() {
 
   const [points, setPoints] = useState([]);
   const [riderData, setRiderData] = useState(null);
+  const [loadError, setLoadError] = useState(null);
   const [mode, setMode] = useState("Combined");
 
-  // Fetch rider header (same as results page)
   useEffect(() => {
-    fetch(apiUrl(`/rider/${riderId}/race-results`))
-      .then((res) => res.json())
-      .then((data) => {
-        setRiderData(data.rider);
-      })
-      .catch((err) =>
-        console.error("Failed to fetch rider:", err)
-      );
-  }, [riderId]);
-
-  // 🔥 Fetch points standings
-  useEffect(() => {
-    fetch(apiUrl(`/rider/${riderId}/points`))
-      .then((res) => res.json())
-      .then((data) => {
-        setPoints(data);
-        const disciplines = DISCIPLINE_ORDER.filter((discipline) =>
-          data.some((row) => getPointsDiscipline(row) === discipline)
-        );
-        setMode(disciplines.length === 1 ? disciplines[0] : "Combined");
-      })
-      .catch((err) =>
-        console.error("Failed to fetch points:", err)
-      );
+    const controller = new AbortController();
+    const options = { signal: controller.signal };
+    Promise.all([
+      riderRequest(apiUrl(`/rider/${riderId}/race-results`), options),
+      riderRequest(apiUrl(`/rider/${riderId}/points`), options),
+    ]).then(([header, data]) => {
+      if (controller.signal.aborted) return;
+      if (!header?.rider?.full_name || !Array.isArray(data)) throw new Error("Invalid rider points");
+      setRiderData(header.rider);
+      setPoints(data);
+      const disciplines = DISCIPLINE_ORDER.filter(discipline =>
+        data.some(row => getPointsDiscipline(row) === discipline));
+      setMode(disciplines.length === 1 ? disciplines[0] : "Combined");
+    }).catch(error => { if (!controller.signal.aborted) setLoadError(error); });
+    return () => controller.abort();
   }, [riderId]);
 
   const getCountryCode = (country) => {
@@ -75,6 +68,8 @@ export default function RiderPoints() {
   const filteredPoints = points.filter((row) =>
     mode === "Combined" || getPointsDiscipline(row) === mode
   );
+
+  if (!riderData || loadError) return <RiderProfileLoading riderId={riderId} suffix="points" error={loadError} rider={riderData} />;
 
   return (
     <div className="rider-profile-page rider-points-page">

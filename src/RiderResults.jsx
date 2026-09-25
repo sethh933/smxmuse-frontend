@@ -1,3 +1,5 @@
+import { riderRequest } from "./riderRequest";
+import RiderProfileLoading from "./RiderProfileLoading";
 import { useParams, Link, useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiUrl } from "./api";
@@ -12,6 +14,7 @@ export default function RiderResults() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [results, setResults] = useState([]);
   const [riderData, setRiderData] = useState(null);
+  const [loadError, setLoadError] = useState(null);
 
   const disciplineOrder = ["SX", "MX", "SMX", "WMX"];
   const availableDisciplines = disciplineOrder.filter((discipline) =>
@@ -59,18 +62,18 @@ export default function RiderResults() {
       city: row.City
     });
 
-  // Fetch race results
   useEffect(() => {
-  fetch(apiUrl(`/rider/${riderId}/race-results`))
-    .then((res) => res.json())
-    .then((data) => {
-      setResults(data.results);     // ✅ correct
-      setRiderData(data.rider);     // ✅ correct
-    })
-    .catch((err) =>
-      console.error("Failed to fetch rider race results:", err)
-    );
-}, [riderId]);
+    const controller = new AbortController();
+    riderRequest(apiUrl(`/rider/${riderId}/race-results`), { signal: controller.signal })
+      .then(data => {
+        if (controller.signal.aborted) return;
+        if (!data?.rider?.full_name || !Array.isArray(data.results)) throw new Error("Invalid rider results");
+        setResults(data.results);
+        setRiderData(data.rider);
+      })
+      .catch(error => { if (!controller.signal.aborted) setLoadError(error); });
+    return () => controller.abort();
+  }, [riderId]);
 
   const filteredResults = results.filter((row) => {
   const disciplineMatch =
@@ -139,6 +142,8 @@ export default function RiderResults() {
 
     return map[country] || "us";
   };
+
+  if (!riderData || loadError) return <RiderProfileLoading riderId={riderId} suffix="results" error={loadError} rider={riderData} />;
 
   return (
     <div className="rider-profile-page rider-results-page">

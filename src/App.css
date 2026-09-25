@@ -6263,3 +6263,15 @@ a.track-link:focus-visible {
 .race-jump-target { scroll-margin-top:100px; }
 .race-venue-name { margin:8px 0; color:#64748b; }
 a.schedule-row, a.results-year-champion-card { color:inherit; text-decoration:none; }
+
+/* A quiet summary that keeps the detailed results close to the header. */
+.rider-career-overview { width:min(100%, 540px); margin:20px auto; text-align:center; }
+.career-overview-table { width:100%; border-collapse:collapse; font-size:13px; background:transparent; }
+.career-overview-table caption { padding:0 0 8px; font-size:12px; font-weight:600; color:#cfcfcf; }
+.career-overview-table caption span { font-weight:400; color:#999; }
+.career-overview-table th, .career-overview-table td { padding:6px 10px; text-align:center; border:0; background:transparent; }
+.career-overview-table thead th { color:#999; font-size:11px; font-weight:500; border-bottom:1px solid rgba(255,255,255,.1); }
+.career-overview-table tbody th { text-align:left; color:#cfcfcf; font-size:12px; font-weight:600; }
+.career-overview-table tbody td { color:#eee; font-weight:600; font-variant-numeric:tabular-nums; }
+.career-overview-footnote { margin:6px 0 0; font-size:10px; color:#999; }
+@media(max-width:600px) { .career-overview-table th, .career-overview-table td { padding:6px; } }

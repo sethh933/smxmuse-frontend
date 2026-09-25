@@ -1,3 +1,6 @@
+import { riderRequest } from "./riderRequest";
+import RiderCareerOverview from "./RiderCareerOverview";
+import RiderProfileLoading from "./RiderProfileLoading";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -9,6 +12,7 @@ export default function RiderProfile() {
   const { riderId: riderParam } = useParams();
   const riderId = parseRiderId(riderParam);
   const [data, setData] = useState(null);
+  const [loadError, setLoadError] = useState(null);
   const [mode, setMode] = useState("SX"); // default to SX
   const [hasSX, setHasSX] = useState(true);
   const [hasMX, setHasMX] = useState(true);
@@ -29,20 +33,24 @@ export default function RiderProfile() {
 
 useEffect(() => {
   let isCancelled = false;
+  const controller = new AbortController();
+  setLoadError(null);
 
-  fetch(apiUrl(`/rider/${riderId}/profile?sport=${mode}`))
-    .then(res => res.json())
+  riderRequest(apiUrl(`/rider/${riderId}/profile?sport=${mode}`), { signal: controller.signal })
     .then(data => {
       if (isCancelled) return;
+      if (!data?.rider?.full_name) throw new Error("Invalid rider response");
       setData(data);
       setHasSX(data.hasSX);
       setHasMX(data.hasMX);
       setHasSMX(data.hasSMX);
       setHasWMX(data.hasWMX);
-    });
+    })
+    .catch(error => { if (!isCancelled) setLoadError(error); });
 
   return () => {
     isCancelled = true;
+    controller.abort();
   };
 }, [riderId, mode]);
 
@@ -68,7 +76,7 @@ useEffect(() => {
 
 const location = useLocation();
 
-if (!data) return <div>Loading rider profile...</div>;
+if (!data || loadError) return <RiderProfileLoading riderId={riderId} error={loadError} rider={data?.rider} />;
 const sxStats = data.stats ?? [];
 const qualStats = data.qual_stats ?? [];
 const mxStats = data.mx_stats ?? [];
@@ -253,13 +261,13 @@ const getLapsLedDisplay = (row, sport) => {
     <div className="rider-profile-page rider-career-page">
       {data?.rider && (
         <Seo
-          title={`${data.rider.full_name} Rider Profile and Career Stats`}
-          description={`Explore ${data.rider.full_name}'s career stats, results history, and championship history on smxmuse.`}
+          title={data.profileSeo?.title || `${data.rider.full_name} Career Stats and Race Results`}
+          description={data.profileSeo?.description || `Explore ${data.rider.full_name}'s career stats, results history, and championship history on smxmuse.`}
           path={buildRiderPath(riderId, data.rider.full_name)}
           canonical={buildRiderPath(riderId, data.rider.full_name)}
           image={data.rider.image_url}
           type="profile"
-          jsonLd={{
+          jsonLd={data.profileSeo?.jsonLd || {
             "@context": "https://schema.org",
             "@type": "Person",
             name: data.rider.full_name,
@@ -341,6 +349,8 @@ const getLapsLedDisplay = (row, sport) => {
           </div>
         )}
 
+
+
         <div className="rider-profile-actions">
           <div className="rider-nav">
             <Link
@@ -409,6 +419,7 @@ const getLapsLedDisplay = (row, sport) => {
             )}
           </div>
         </div>
+        <RiderCareerOverview overview={data.careerOverview} />
       </section>
 
       {/* ================= MAIN STATS TABLE ================= */}

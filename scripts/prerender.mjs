@@ -75,12 +75,16 @@ function removeSeoTags(html) {
 }
 
 function renderPage(page) {
+  const riderRoute = page.path.match(/^\/rider\/([^/]+)(?:\/(results|points))?$/);
+  const riderId = riderRoute?.[1].match(/(\d+)$/)?.[1];
   const canonical = `${siteUrl}${page.path === "/" ? "/" : page.path}`;
   const fullTitle = `${page.title} | smxmuse`;
   const image = page.image || `${siteUrl}/smxmuselogo.png`;
   const type = page.type || "website";
   const tags = [
-    '<style data-prerender-style="true">.seo-prerender-shell{display:none!important}</style>',
+    riderRoute
+      ? '<style data-prerender-style="true">.seo-prerender-shell{max-width:1100px;margin:2rem auto;padding:2rem;text-align:center}.seo-prerender-shell nav a{margin:0 12px}</style>'
+      : '<style data-prerender-style="true">.seo-prerender-shell{display:none!important}</style>',
     `<title>${escapeHtml(fullTitle)}</title>`,
     `<meta name="description" content="${escapeHtml(page.description)}" />`,
     '<meta name="robots" content="index,follow" />',
@@ -117,10 +121,21 @@ function renderPage(page) {
         return `<section><h2>${escapeHtml(section.heading)}</h2><table><thead><tr><th>Position</th><th>Rider</th><th>Brand</th>${motoHeadings}</tr></thead><tbody>${rows}</tbody></table></section>`;
       }).join("")
     : "";
-  const shell = `<main class="seo-prerender-shell" data-prerendered="true">${heading}<p>${escapeHtml(page.body || page.description)}</p>${schedule}${resultSections}</main>`;
+  const overview = Array.isArray(page.careerOverview) && page.careerOverview.length
+    ? `<section class="rider-career-overview" aria-label="Career overview"><table class="career-overview-table"><caption>Career summary <span>· All classes</span></caption><thead><tr>${["Discipline", "Starts", "Wins", "Podiums", "Avg Finish"].map(label => `<th scope="col">${label}</th>`).join("")}</tr></thead><tbody>${page.careerOverview.map(row => `<tr><th scope="row" title="${escapeHtml(row.label)}">${escapeHtml(row.code)}</th>${[row.starts, row.wins, row.podiums].map(value => `<td>${value == null ? "—" : escapeHtml(Number(value).toLocaleString("en-US"))}</td>`).join("")}<td>${row.averageFinish == null ? "—" : escapeHtml(Number(row.averageFinish).toFixed(2))}</td></tr>`).join("")}</tbody></table><p class="career-overview-footnote">SX main events · MX, SMX &amp; WMX overalls</p></section>`
+    : "";
+  const riderBasePath = riderRoute ? `/rider/${riderRoute[1]}` : "";
+  const riderLinks = riderRoute
+    ? `<nav aria-label="Rider profile"><a href="${escapeHtml(riderBasePath)}">Career Stats</a><a href="${escapeHtml(riderBasePath)}/results">Career Results</a><a href="${escapeHtml(riderBasePath)}/points">Points Standings</a></nav>`
+    : "";
+  const shell = `<main class="seo-prerender-shell" data-prerendered="true">${heading}${page.careerOverview ? "" : `<p>${escapeHtml(page.body || page.description)}</p>`}${riderLinks}${overview}${schedule}${resultSections}</main>`;
+  const snapshot = riderRoute
+    ? `<script type="application/json" id="rider-profile-snapshot">${JSON.stringify({riderId, heading: page.heading, path: page.path, careerOverview: page.careerOverview, title: page.title, description: page.description, image: page.image, type: page.type, jsonLd: page.jsonLd}).replaceAll("<", "\\u003c")}</script>`
+    : "";
   return removeSeoTags(sourceHtml)
     .replace("</head>", `    ${tags.join("\n    ")}\n  </head>`)
-    .replace('<div id="root"></div>', `<div id="root">${shell}</div>`);
+    .replace('<div id="root"></div>', `<div id="root">${shell}</div>${snapshot}`);
+
 }
 
 function renderSpaShell() {
@@ -155,6 +170,9 @@ if (process.env.PRERENDER_SKIP_DYNAMIC !== "1") {
     throw new Error("Prerender manifest did not contain any pages.");
   }
   pages = manifest.pages;
+  if (pages.some(page => /^\/rider\/[^/]+$/.test(page.path) && !Array.isArray(page.careerOverview))) {
+    throw new Error("Rider career summaries are missing from the API. Deploy the rider SEO backend before building this frontend.");
+  }
 }
 
 const uniquePages = new Map(pages.map((page) => [page.path, page]));

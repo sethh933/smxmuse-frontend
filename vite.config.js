@@ -23,6 +23,9 @@ export default defineConfig({
         {
           target: backendTarget,
           changeOrigin: true,
+          bypass(req) {
+            if (req.headers.accept?.includes("text/html")) return "/index.html";
+          },
         },
       ])
     )
