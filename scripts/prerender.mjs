@@ -1,6 +1,8 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createServer } from "vite";
+import react from "@vitejs/plugin-react";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distRoot = path.join(projectRoot, "dist");
@@ -82,7 +84,9 @@ function renderPage(page) {
   const image = page.image || `${siteUrl}/smxmuselogo.png`;
   const type = page.type || "website";
   const tags = [
-    riderRoute
+    page.newsHtml
+      ? '<style data-prerender-style="true">.news-prerender-shell{display:block}</style>'
+      : riderRoute
       ? '<style data-prerender-style="true">.seo-prerender-shell{max-width:1100px;margin:2rem auto;padding:2rem;text-align:center}.seo-prerender-shell nav a{margin:0 12px}</style>'
       : '<style data-prerender-style="true">.seo-prerender-shell{display:none!important}</style>',
     `<title>${escapeHtml(fullTitle)}</title>`,
@@ -128,8 +132,12 @@ function renderPage(page) {
   const riderLinks = riderRoute
     ? `<nav aria-label="Rider profile"><a href="${escapeHtml(riderBasePath)}">Career Stats</a><a href="${escapeHtml(riderBasePath)}/results">Career Results</a><a href="${escapeHtml(riderBasePath)}/points">Points Standings</a></nav>`
     : "";
-  const shell = `<main class="seo-prerender-shell" data-prerendered="true">${heading}${page.careerOverview ? "" : `<p>${escapeHtml(page.body || page.description)}</p>`}${riderLinks}${overview}${schedule}${resultSections}</main>`;
-  const snapshot = riderRoute
+  const shell = page.newsHtml
+    ? `<main class="news-prerender-shell" data-prerendered="true">${page.newsHtml}</main>`
+    : `<main class="seo-prerender-shell" data-prerendered="true">${heading}${page.careerOverview ? "" : `<p>${escapeHtml(page.body || page.description)}</p>`}${riderLinks}${overview}${schedule}${resultSections}</main>`;
+  const snapshot = page.newsSnapshot
+    ? `<script type="application/json" id="news-snapshot">${JSON.stringify(page.newsSnapshot).replaceAll("<", "\\u003c")}</script>`
+    : riderRoute
     ? `<script type="application/json" id="rider-profile-snapshot">${JSON.stringify({riderId, heading: page.heading, path: page.path, careerOverview: page.careerOverview, title: page.title, description: page.description, image: page.image, type: page.type, jsonLd: page.jsonLd}).replaceAll("<", "\\u003c")}</script>`
     : "";
   return removeSeoTags(sourceHtml)
@@ -172,6 +180,48 @@ if (process.env.PRERENDER_SKIP_DYNAMIC !== "1") {
   pages = manifest.pages;
   if (pages.some(page => /^\/rider\/[^/]+$/.test(page.path) && !Array.isArray(page.careerOverview))) {
     throw new Error("Rider career summaries are missing from the API. Deploy the rider SEO backend before building this frontend.");
+  }
+
+  // Fail the release if published news cannot be fetched in full. A successful
+  // deployment must never silently replace articles with summary-only shells.
+  async function newsJson(route) {
+    const response = await fetch(`${apiBase}${route}`, { signal: AbortSignal.timeout(30000) });
+    if (!response.ok) throw new Error(`News prerender failed: ${route} (${response.status})`);
+    return response.json();
+  }
+  const posts = await newsJson("/api/notes");
+  if (!Array.isArray(posts)) throw new Error("Invalid published news listing");
+  const renderer = await createServer({
+    configFile: false, root: projectRoot, plugins: [react()],
+    server: { middlewareMode: true, watch: null }, appType: "custom",
+  });
+  try {
+    const { renderNews } = await renderer.ssrLoadModule("/scripts/renderNews.jsx");
+    const listing = pages.find(page => page.path === "/news");
+    if (!listing) throw new Error("News index missing from manifest");
+    listing.newsSnapshot = { posts };
+    listing.newsHtml = renderNews("/news", listing.newsSnapshot);
+    for (const summary of posts) {
+      const post = await newsJson(`/api/notes/${encodeURIComponent(summary.slug)}`);
+      if (post?.slug !== summary.slug || !post.title || !Array.isArray(post.body)) {
+        throw new Error(`Invalid full article: ${summary.slug}`);
+      }
+      const route = `/news/${post.slug}`;
+      let page = pages.find(page => page.path === route);
+      if (!page) { page = { path: route }; pages.push(page); }
+      page.title = post.title;
+      page.heading = post.title;
+      page.description = post.summary || `Read ${post.title} on smxmuse.`;
+      page.type = "article";
+      page.jsonLd = { ...page.jsonLd, "@context": "https://schema.org", "@type": "BlogPosting",
+        headline: post.title, description: page.description, datePublished: post.date,
+        author: { "@type": "Organization", name: "smxmuse" }, url: `${siteUrl}${route}` };
+      page.newsSnapshot = { post };
+      page.newsHtml = renderNews(route, page.newsSnapshot);
+    }
+    console.log(`Rendered ${posts.length} full news articles and the news index.`);
+  } finally {
+    await renderer.close();
   }
 }
 

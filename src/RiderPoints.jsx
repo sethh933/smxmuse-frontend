@@ -1,4 +1,5 @@
 import { riderRequest } from "./riderRequest";
+import useNumericRiderRedirect from "./useNumericRiderRedirect";
 import RiderProfileLoading from "./RiderProfileLoading";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -24,6 +25,7 @@ export default function RiderPoints() {
 
   const [points, setPoints] = useState([]);
   const [riderData, setRiderData] = useState(null);
+  useNumericRiderRedirect(riderId, riderData?.full_name);
   const [loadError, setLoadError] = useState(null);
   const [mode, setMode] = useState("Combined");
 

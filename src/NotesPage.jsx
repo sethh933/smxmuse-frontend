@@ -3,6 +3,7 @@ import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
 import { apiUrl } from "./api";
 import LinkedNoteText from "./LinkedNoteText";
 import Seo from "./SiteSeo";
+import { readNewsSnapshot } from "./newsSnapshot";
 import { buildAbsoluteUrl } from "./seo";
 import { getPostTags, getPostTypeLabel, getPublishedPosts } from "./contentPosts";
 
@@ -77,7 +78,7 @@ function PostBodyBlock({ block, index, entities }) {
   );
 }
 
-export function NotesIndexPage() {
+export function NotesIndexPage({ initialPosts } = {}) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [apiPosts, setApiPosts] = useState(null);
   const [apiStatus, setApiStatus] = useState("idle");
@@ -85,7 +86,7 @@ export function NotesIndexPage() {
   const activeFilter = FILTERS.some((filter) => filter.value === requestedFilter)
     ? requestedFilter
     : "all";
-  const fallbackPosts = getPublishedPosts();
+  const fallbackPosts = initialPosts || readNewsSnapshot()?.posts || getPublishedPosts();
   const posts = apiPosts || fallbackPosts;
   const filteredPosts = activeFilter === "all"
     ? posts
@@ -202,12 +203,15 @@ export function NotesIndexPage() {
   );
 }
 
-export function NotePostPage() {
+export function NotePostPage({ initialPost } = {}) {
   const { slug } = useParams();
   const [apiPost, setApiPost] = useState(null);
   const [apiStatus, setApiStatus] = useState("loading");
-  const fallbackPost = getPublishedPosts().find((candidate) => candidate.slug === slug);
-  const post = apiPost || fallbackPost;
+  const snapshot = readNewsSnapshot();
+  const savedPost = initialPost || snapshot?.post;
+  const fallbackPost = savedPost?.slug === slug ? savedPost
+    : getPublishedPosts().find((candidate) => candidate.slug === slug);
+  const post = apiPost?.slug === slug ? apiPost : fallbackPost;
 
   useEffect(() => {
     let cancelled = false;

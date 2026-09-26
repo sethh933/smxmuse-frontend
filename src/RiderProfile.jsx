@@ -1,4 +1,5 @@
 import { riderRequest } from "./riderRequest";
+import useNumericRiderRedirect from "./useNumericRiderRedirect";
 import RiderCareerOverview from "./RiderCareerOverview";
 import RiderProfileLoading from "./RiderProfileLoading";
 import { useParams } from "react-router-dom";
@@ -12,6 +13,7 @@ export default function RiderProfile() {
   const { riderId: riderParam } = useParams();
   const riderId = parseRiderId(riderParam);
   const [data, setData] = useState(null);
+  useNumericRiderRedirect(riderId, data?.rider?.full_name);
   const [loadError, setLoadError] = useState(null);
   const [mode, setMode] = useState("SX"); // default to SX
   const [hasSX, setHasSX] = useState(true);

@@ -4,6 +4,81 @@
       "route": "/sitemap.xml",
       "redirect": "https://smxmuse-api-fegkfsc4g0hggxgg.eastus2-01.azurewebsites.net/sitemap.xml",
       "statusCode": 302
+    },
+    {
+      "route": "/rider/1755/index.html",
+      "redirect": "/rider/jett-lawrence-1755",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/1755/results/index.html",
+      "redirect": "/rider/jett-lawrence-1755/results",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/1755/points/index.html",
+      "redirect": "/rider/jett-lawrence-1755/points",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/5354/index.html",
+      "redirect": "/rider/cole-davies-5354",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/5354/results/index.html",
+      "redirect": "/rider/cole-davies-5354/results",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/5354/points/index.html",
+      "redirect": "/rider/cole-davies-5354/points",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/746/index.html",
+      "redirect": "/rider/haiden-deegan-746",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/746/results/index.html",
+      "redirect": "/rider/haiden-deegan-746/results",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/746/points/index.html",
+      "redirect": "/rider/haiden-deegan-746/points",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/4837/index.html",
+      "redirect": "/rider/chase-lock-4837",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/4837/results/index.html",
+      "redirect": "/rider/chase-lock-4837/results",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/4837/points/index.html",
+      "redirect": "/rider/chase-lock-4837/points",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/2337/index.html",
+      "redirect": "/rider/dalton-oxborrow-2337",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/2337/results/index.html",
+      "redirect": "/rider/dalton-oxborrow-2337/results",
+      "statusCode": 301
+    },
+    {
+      "route": "/rider/2337/points/index.html",
+      "redirect": "/rider/dalton-oxborrow-2337/points",
+      "statusCode": 301
     }
   ],
   "navigationFallback": {
