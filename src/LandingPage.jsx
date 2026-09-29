@@ -3,8 +3,47 @@ import { Link } from "react-router-dom";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
 import { buildRacePath, buildRiderPath } from "./seo";
-import { BrandMark } from "./ResultIdentity";
+import { BrandMark, CountryFlag } from "./ResultIdentity";
 import { formatCalendarDate, getCalendarYear, parseCalendarDate } from "./dateUtils";
+import { getPublishedPosts, getPostTypeLabel } from "./contentPosts";
+import { articlePlainText } from "./articlePlainText";
+import "./styles/landingNews.css";
+
+function HomepageNews() {
+  const [posts, setPosts] = useState(getPublishedPosts);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(apiUrl("/api/notes"), { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error("News unavailable");
+        return response.json();
+      })
+      .then((data) => { if (Array.isArray(data)) setPosts(data); })
+      .catch(() => { /* Keep the published local fallback available. */ });
+    return () => controller.abort();
+  }, []);
+  const recent = [...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+  return (
+    <section className="landing-news-panel" aria-labelledby="home-news-title">
+      <div className="landing-news-heading">
+        <h2 id="home-news-title" className="landing-panel-label">Latest from News</h2>
+        <Link to="/news" className="landing-inline-link">All news ↗</Link>
+      </div>
+      {recent.map((post, index) => (
+        <article key={post.slug} className={index === 0 ? "landing-news-lead" : "landing-news-item"}>
+          <p className="landing-panel-label">{getPostTypeLabel(post.type)}</p>
+          <h3><Link to={`/news/${post.slug}`}>{post.title}</Link></h3>
+          <p className="landing-news-date">{formatCalendarDate(post.date, { month: "short", day: "numeric", year: "numeric" })}</p>
+          {index === 0 && <>
+            <p className="landing-news-summary">{articlePlainText(post.summary || "Read the latest story from smxmuse.")}</p>
+            <Link className="landing-inline-link" to={`/news/${post.slug}`}>Read the story ↗</Link>
+          </>}
+        </article>
+      ))}
+      {recent.length === 0 && <p>New stories are on the way. <Link to="/news">Browse news</Link></p>}
+    </section>
+  );
+}
 
 const FEATURED_PATHS = [
   {
@@ -185,6 +224,7 @@ function ResultList({ rows, sport }) {
             <span className="landing-result-name">{row.fullname}</span>
           </span>
           <span className="landing-result-meta">
+            <CountryFlag country={row.country} />
             <span className="landing-result-brand"><BrandMark brand={row.brand} /></span>
             <span>
               {sport === "sx"
@@ -316,7 +356,7 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
             })}
             className="landing-inline-link"
           >
-            View full race page
+            View full race page ↗
           </Link>
         )}
       </div>
@@ -357,9 +397,9 @@ function ArchiveIntro({ className = "" }) {
   return (
     <div className={`landing-hero-copy landing-hero-copy-narrow ${className}`.trim()}>
       <p className="landing-kicker">Supercross and Motocross Archive</p>
-      <h1 className="landing-title landing-title-narrow">
+      <h2 className="landing-title landing-title-narrow">
         Everything in one place, from the latest gate drop to all-time history.
-      </h1>
+      </h2>
       <p className="landing-intro landing-intro-narrow">
         Smxmuse is built for race results, rider profiles, season dashboards, comparison tools,
         and all-time leaderboards without making you dig to find the newest story first.
@@ -538,7 +578,8 @@ export default function LandingPage() {
         description="Smxmuse is a Supercross and Motocross stats archive with rider profiles, race results, season dashboards, comparisons, and all-time leaderboards."
         path="/"
       />
-      <section className="landing-desktop-layout landing-primary-grid">
+      <section className="landing-desktop-layout landing-news-layout">
+        <HomepageNews />
         <div className="landing-narrow-results">
           <LatestResultsPanel
             loadingLatest={loadingLatest}
@@ -547,14 +588,14 @@ export default function LandingPage() {
           />
         </div>
 
-        <ArchiveIntro />
-
         <div className="landing-hero-grid-slot">
           <RiderOfTheDayPanel riderOfTheDay={riderOfTheDay} />
-        </div>
-        <div className="landing-narrow-side">
           <GridsCallout />
         </div>
+      </section>
+
+      <section className="landing-news-secondary">
+        <ArchiveIntro />
       </section>
 
       <FeaturedPathsGrid />
