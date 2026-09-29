@@ -351,7 +351,7 @@ export function NotesAdminPreviewPage() {
         <>
           <header className="notes-post-header">
             <AdminNoteMeta note={note} />
-            <h1><LinkedNoteText text={note.title} entities={note.entities} /></h1>
+            <h1>{note.title}</h1>
             {note.summary && (
               <p className="notes-post-summary">
                 <ArticleFormattedText text={note.summary} entities={note.entities} />

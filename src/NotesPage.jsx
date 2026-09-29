@@ -317,7 +317,7 @@ export function NotePostPage({ initialPost } = {}) {
 
       <header className="notes-post-header">
         <PostMeta post={post} />
-        <h1><LinkedNoteText text={post.title} entities={post.entities} /></h1>
+        <h1>{post.title}</h1>
         {post.summary && (
           <p className="notes-post-summary">
             <ArticleFormattedText text={post.summary} entities={post.entities} />
