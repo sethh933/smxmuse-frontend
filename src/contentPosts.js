@@ -1,6 +1,7 @@
 import { slugify } from "./seo";
 
 export const POST_TYPES = {
+  general: "Article",
   preRace: "Pre-Race Notes",
   raceRecap: "Race Recap",
   leaderboard: "Leaderboard",

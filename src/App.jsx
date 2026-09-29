@@ -39,6 +39,7 @@ import LandingPage from "./LandingPage";
 import AboutPage from "./AboutPage";
 import { NotesAdminListPage, NotesAdminPreviewPage } from "./NotesAdminListPage";
 import NotesAdminPage from "./NotesAdminPage";
+import GeneralArticlePage from "./GeneralArticlePage";
 import { NotePostPage, NotesIndexPage } from "./NotesPage";
 import { apiUrl } from "./api";
 import Seo from "./SiteSeo";
@@ -625,6 +626,8 @@ function App() {
           <Route path="/admin/news/preview/:slug" element={<NotesAdminPreviewPage />} />
           <Route path="/admin/news/edit/:slug" element={<NotesAdminPage />} />
           <Route path="/admin/news/new" element={<NotesAdminPage />} />
+          <Route path="/admin/news/general" element={<GeneralArticlePage />} />
+          <Route path="/admin/news/general/:slug" element={<GeneralArticlePage />} />
           <Route path="/admin/notes" element={<Navigate to="/admin/news" replace />} />
           <Route path="/admin/notes/preview/:slug" element={<NavigateToAdminNews mode="preview" />} />
           <Route path="/admin/notes/edit/:slug" element={<NavigateToAdminNews mode="edit" />} />

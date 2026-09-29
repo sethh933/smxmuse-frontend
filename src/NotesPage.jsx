@@ -1,3 +1,6 @@
+import GeneralArticleBody from "./GeneralArticleBody";
+import { articlePlainText } from "./articlePlainText";
+import ArticleFormattedText from "./ArticleFormattedText";
 import { useEffect, useState } from "react";
 import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
 import { apiUrl } from "./api";
@@ -6,9 +9,11 @@ import Seo from "./SiteSeo";
 import { readNewsSnapshot } from "./newsSnapshot";
 import { buildAbsoluteUrl } from "./seo";
 import { getPostTags, getPostTypeLabel, getPublishedPosts } from "./contentPosts";
+import "./styles/newsHome.css";
 
 const FILTERS = [
   { value: "all", label: "All" },
+  { value: "articles", label: "Articles" },
   { value: "preRace", label: "Pre-Race" },
   { value: "raceRecap", label: "Race Recaps" }
 ];
@@ -26,7 +31,7 @@ function buildPostPath(post) {
 }
 
 function getPostDescription(post) {
-  return post.summary || `${getPostTypeLabel(post.type)} from smxmuse.`;
+  return articlePlainText(post.summary || `${getPostTypeLabel(post.type)} from smxmuse.`);
 }
 
 function PostMeta({ post }) {
@@ -87,10 +92,16 @@ export function NotesIndexPage({ initialPosts } = {}) {
     ? requestedFilter
     : "all";
   const fallbackPosts = initialPosts || readNewsSnapshot()?.posts || getPublishedPosts();
-  const posts = apiPosts || fallbackPosts;
-  const filteredPosts = activeFilter === "all"
-    ? posts
-    : posts.filter((post) => post.type === activeFilter);
+  const posts = [...(apiPosts || fallbackPosts)].sort((a, b) => b.date.localeCompare(a.date));
+  const query = searchParams.get("q") || "";
+  const filteredPosts = posts.filter((post) =>
+    (activeFilter === "all" || (activeFilter === "articles"
+      ? !["preRace", "raceRecap"].includes(post.type) : post.type === activeFilter)) &&
+    [post.title, post.summary, ...getPostTags(post)].filter(Boolean).join(" ").toLowerCase().includes(query.trim().toLowerCase())
+  );
+  const featured = activeFilter === "all" && !query.trim()
+    ? posts.find((post) => post.featured) || posts[0] : null;
+  const feed = filteredPosts.filter((post) => post.slug !== featured?.slug);
 
   useEffect(() => {
     let cancelled = false;
@@ -99,10 +110,7 @@ export function NotesIndexPage({ initialPosts } = {}) {
       setApiStatus("loading");
 
       try {
-        const notesPath = activeFilter === "all"
-          ? "/api/notes"
-          : `/api/notes?category=${activeFilter}`;
-        const response = await fetch(apiUrl(notesPath));
+        const response = await fetch(apiUrl("/api/notes"));
 
         if (!response.ok) {
           throw new Error(`Notes request failed with ${response.status}`);
@@ -129,19 +137,17 @@ export function NotesIndexPage({ initialPosts } = {}) {
     return () => {
       cancelled = true;
     };
-  }, [activeFilter]);
+  }, []);
 
   function setFilter(filter) {
-    if (filter === "all") {
-      setSearchParams({});
-      return;
-    }
-
-    setSearchParams({ type: filter });
+    const params = new URLSearchParams(searchParams);
+    if (filter === "all") params.delete("type");
+    else params.set("type", filter);
+    setSearchParams(params);
   }
 
   return (
-    <div className="notes-page">
+    <div className="notes-page news-home">
       <Seo
         title="smxmuse News"
         description="Read smxmuse pre-race notes, race recaps, leaderboard posts, and moto stats analysis."
@@ -150,29 +156,51 @@ export function NotesIndexPage({ initialPosts } = {}) {
 
       <section className="notes-hero">
         <p className="notes-kicker">SMXMUSE NEWS</p>
-        <h1>Race Notes and Analysis</h1>
+        <h1>Stories, Stats &amp; Race Notes</h1>
         <p>
-          The written home for smxmuse pre-race notes, race recaps, leaderboard
-          posts, and deeper stats and analysis.
+          Race previews, recaps, and a deeper look at the numbers behind the sport.
         </p>
       </section>
 
-      <section className="notes-filter-bar" aria-label="Filter notes">
+      <div className="news-browse-tools">
+      <section className="notes-filter-bar" aria-label="Filter posts">
         {FILTERS.map((filter) => (
           <button
             key={filter.value}
             type="button"
             className={activeFilter === filter.value ? "active" : ""}
+            aria-pressed={activeFilter === filter.value}
             onClick={() => setFilter(filter.value)}
           >
             {filter.label}
           </button>
         ))}
       </section>
+      <label className="news-search">Search posts
+        <input type="search" placeholder="Try a rider, race, or topic…" value={query} onChange={(event) => {
+          const params = new URLSearchParams(searchParams);
+          if (event.target.value) params.set("q", event.target.value);
+          else params.delete("q");
+          setSearchParams(params, { replace: true });
+        }} />
+      </label>
+      </div>
 
-      {filteredPosts.length > 0 ? (
+      {featured && <article className="news-featured">
+        <div className="news-featured-label">{featured.featured ? "Featured story" : "Latest story"}<span>From the smxmuse feed</span></div>
+        <div className="news-featured-content">
+          <PostMeta post={featured} />
+          <h2><Link to={buildPostPath(featured)}>{featured.title}</Link></h2>
+          <p>{getPostDescription(featured)}</p>
+          <div className="notes-tag-row">{getPostTags(featured).slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}</div>
+          <Link className="news-read-link" to={buildPostPath(featured)}>Read the story <span aria-hidden="true">↗</span></Link>
+        </div>
+      </article>}
+
+      {feed.length > 0 ? (<>
+        <div className="news-feed-heading"><h2>{featured ? "More stories" : "Latest posts"}</h2><span>{feed.length} {feed.length === 1 ? "post" : "posts"}</span></div>
         <section className="notes-grid">
-          {filteredPosts.map((post) => (
+          {feed.map((post) => (
             <article key={post.slug} className="notes-card">
               <PostMeta post={post} />
               <h2>
@@ -181,7 +209,7 @@ export function NotesIndexPage({ initialPosts } = {}) {
               <p className="notes-card-summary">{getPostDescription(post)}</p>
               {getPostTags(post).length > 0 && (
                 <div className="notes-tag-row">
-                  {getPostTags(post).map((tag) => (
+                  {getPostTags(post).slice(0, 4).map((tag) => (
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
@@ -189,16 +217,16 @@ export function NotesIndexPage({ initialPosts } = {}) {
             </article>
           ))}
         </section>
-      ) : (
+      </>) : !featured ? (
         <section className="notes-empty-state">
-          <h2>{apiStatus === "loading" ? "Loading notes." : "Ready for notes."}</h2>
+          <h2>{apiStatus === "loading" ? "Loading posts…" : query ? "No matching posts" : "More stories are on the way"}</h2>
           <p>
             {apiStatus === "loading"
-              ? "Checking for published notes."
-              : "Published notes will appear here."}
+              ? "Checking for published posts."
+              : query ? "Try another rider, race, or topic, or choose a different category." : "Published posts in this category will appear here."}
           </p>
         </section>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -292,7 +320,7 @@ export function NotePostPage({ initialPost } = {}) {
         <h1><LinkedNoteText text={post.title} entities={post.entities} /></h1>
         {post.summary && (
           <p className="notes-post-summary">
-            <LinkedNoteText text={post.summary} entities={post.entities} />
+            <ArticleFormattedText text={post.summary} entities={post.entities} />
           </p>
         )}
         {post.instagramUrl && (
@@ -308,6 +336,7 @@ export function NotePostPage({ initialPost } = {}) {
       </header>
 
       <div className="notes-post-body">
+        {post.type === "general" && <GeneralArticleBody blocks={post.blocks} entities={post.entities} />}
         {post.body?.map((block, index) => (
           <PostBodyBlock key={index} block={block} index={index} entities={post.entities} />
         ))}

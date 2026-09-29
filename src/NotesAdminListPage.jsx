@@ -1,3 +1,5 @@
+import GeneralArticleBody from "./GeneralArticleBody";
+import ArticleFormattedText from "./ArticleFormattedText";
 import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { apiUrl } from "./api";
@@ -231,6 +233,7 @@ export function NotesAdminListPage() {
           <button type="button" onClick={() => loadNotes(status)}>Refresh</button>
           <button type="button" onClick={backfillEntityLinks}>Refresh Links</button>
           <Link to="/admin/news/new" className="notes-admin-created-link">New post</Link>
+          <Link to="/admin/news/general" className="notes-admin-created-link">New article</Link>
         </div>
 
         {loadStatus && <p className="notes-admin-status">{loadStatus}</p>}
@@ -252,7 +255,7 @@ export function NotesAdminListPage() {
               </div>
             )}
             <div className="notes-admin-card-actions">
-              <Link to={`/admin/news/edit/${note.slug}`}>Edit</Link>
+              <Link to={note.type === "general" ? `/admin/news/general/${note.slug}` : `/admin/news/edit/${note.slug}`}>Edit</Link>
               <Link to={`/admin/news/preview/${note.slug}`}>Preview</Link>
               {note.status === "published" && <Link to={`/news/${note.slug}`}>Public page</Link>}
               {note.status === "draft" && (
@@ -351,14 +354,15 @@ export function NotesAdminPreviewPage() {
             <h1><LinkedNoteText text={note.title} entities={note.entities} /></h1>
             {note.summary && (
               <p className="notes-post-summary">
-                <LinkedNoteText text={note.summary} entities={note.entities} />
+                <ArticleFormattedText text={note.summary} entities={note.entities} />
               </p>
             )}
           </header>
 
           <div className="notes-post-body">
             <DetectedLinksPanel entities={note.entities} />
-            {note.body?.map((block, index) => (
+            {note.type === "general" && <GeneralArticleBody blocks={note.blocks} entities={note.entities} />}
+        {note.body?.map((block, index) => (
               <AdminNoteBodyBlock key={index} block={block} index={index} entities={note.entities} />
             ))}
           </div>

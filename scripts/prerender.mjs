@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createServer } from "vite";
 import react from "@vitejs/plugin-react";
+import { articlePlainText } from "../src/articlePlainText.js";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distRoot = path.join(projectRoot, "dist");
@@ -211,7 +212,7 @@ if (process.env.PRERENDER_SKIP_DYNAMIC !== "1") {
       if (!page) { page = { path: route }; pages.push(page); }
       page.title = post.title;
       page.heading = post.title;
-      page.description = post.summary || `Read ${post.title} on smxmuse.`;
+      page.description = articlePlainText(post.summary || `Read ${post.title} on smxmuse.`);
       page.type = "article";
       page.jsonLd = { ...page.jsonLd, "@context": "https://schema.org", "@type": "BlogPosting",
         headline: post.title, description: page.description, datePublished: post.date,

@@ -321,6 +321,7 @@ export default function NotesAdminPage() {
             : "Build pre-race notes and race recaps from class sections and slide boxes."}
         </p>
         {loadStatus && <p className="notes-admin-status">{loadStatus}</p>}
+        <Link to="/admin/news/general">Try the General Article template →</Link>
       </section>
 
       <section className="notes-admin-panel">
