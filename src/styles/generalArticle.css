@@ -51,3 +51,6 @@
 .article-instagram { display: block; margin-top: 40px; padding: 20px; border: 1px solid #444444; border-radius: 8px; text-align: center; }
 @media (max-width: 600px) { .article-block-toolbar { align-items: start; } .article-block-toolbar button { padding: 8px 10px; } .article-reader { padding: 18px; } .article-table-tools label:first-child { flex: 1; } }
 
+
+.article-country { display: inline-flex; align-items: center; gap: 9px; }
+.article-country img { width: 24px; height: auto; max-height: 20px; object-fit: contain; vertical-align: middle; }

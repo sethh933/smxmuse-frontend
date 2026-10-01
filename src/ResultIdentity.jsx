@@ -1,3 +1,4 @@
+import { COUNTRY_CODES } from "./countryFlags";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { buildRiderPath } from "./seo";
@@ -21,20 +22,7 @@ const BRAND_ALIASES = {
   TRIUMPH: "TRI", YAMAHA: "YAM",
 };
 
-const COUNTRY_CODES = {
-  "United States": "us", "United Kingdom": "gb", England: "gb", Wales: "gb",
-  Scotland: "gb", Austria: "at", Argentina: "ar", Australia: "au", Belgium: "be",
-  Bolivia: "bo", Brazil: "br", Canada: "ca", Chile: "cl", Colombia: "co",
-  "Costa Rica": "cr", Czechia: "cz", Denmark: "dk", "Dominican Republic": "do",
-  Ecuador: "ec", Estonia: "ee", Finland: "fi", France: "fr", Germany: "de",
-  Guatemala: "gt", Honduras: "hn", Ireland: "ie", Iran: "ir", "Isle of Man": "im",
-  Italy: "it", Japan: "jp",
-  Latvia: "lv", Lithuania: "lt", Mexico: "mx", Mongolia: "mn", Netherlands: "nl",
-  "New Zealand": "nz", Norway: "no", Portugal: "pt", "Puerto Rico": "pr",
-  Russia: "ru", "South Africa": "za", "South Korea": "kr", Spain: "es",
-  Sweden: "se", Switzerland: "ch", Uganda: "ug", Ukraine: "ua", Uruguay: "uy",
-  Venezuela: "ve",
-};
+
 
 function normalizeBrand(brand) {
   return String(brand || "").trim().toUpperCase();
