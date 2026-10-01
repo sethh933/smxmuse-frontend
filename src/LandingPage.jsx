@@ -138,9 +138,9 @@ function getCountryCode(country) {
   const countryMap = {
     "United States": "us",
     "United Kingdom": "gb",
-    "England": "gb",
-    "Wales": "gb",
-    "Scotland": "gb",
+    "England": "gb-eng",
+    "Wales": "gb-wls",
+    "Scotland": "gb-sct",
     "Argentina": "ar",
     "Australia": "au",
     "Belgium": "be",

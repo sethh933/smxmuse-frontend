@@ -1,6 +1,7 @@
 export const COUNTRY_CODES = {
-  "United States": "us", "United Kingdom": "gb", England: "gb", Wales: "gb",
-  Scotland: "gb", Austria: "at", Argentina: "ar", Australia: "au", Belgium: "be",
+  "Northern Ireland": "gb-nir",
+  "United States": "us", "United Kingdom": "gb", England: "gb-eng", Wales: "gb-wls",
+  Scotland: "gb-sct", Austria: "at", Argentina: "ar", Australia: "au", Belgium: "be",
   Bolivia: "bo", Brazil: "br", Canada: "ca", Chile: "cl", Colombia: "co",
   "Costa Rica": "cr", Czechia: "cz", Denmark: "dk", "Dominican Republic": "do",
   Ecuador: "ec", Estonia: "ee", Finland: "fi", France: "fr", Germany: "de",
