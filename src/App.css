@@ -6275,3 +6275,200 @@ a.schedule-row, a.results-year-champion-card { color:inherit; text-decoration:no
 .career-overview-table tbody td { color:#eee; font-weight:600; font-variant-numeric:tabular-nums; }
 .career-overview-footnote { margin:6px 0 0; font-size:10px; color:#999; }
 @media(max-width:600px) { .career-overview-table th, .career-overview-table td { padding:6px; } }
+
+/* Switch navigation before the desktop links, sponsor, and search stop fitting. */
+@media (min-width: 641px) and (max-width: 1500px) {
+  .navbar {
+    position: relative;
+    z-index: 40;
+    background: #111;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .navbar-inner {
+    height: auto;
+    padding: 0;
+    display: block !important;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none !important;
+  }
+
+  .affiliate-ad {
+    width: fit-content;
+    margin: 10px auto;
+  }
+
+  .nav-mobile-shell {
+    display: flex !important;
+    flex-direction: column;
+    background: #111;
+    min-width: 0;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-mobile-topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    min-width: 0;
+  }
+
+  .nav-mobile-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .nav-mobile-logo .nav-logo-image {
+    height: 32px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .nav-mobile-menu-button {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 8px;
+    background: #2b2b2b;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .nav-mobile-dropdown {
+    display: grid;
+    gap: 0;
+    margin: 12px 12px 0;
+    border: 1px solid #2f2f2f;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #151515;
+
+  }
+
+  .nav-mobile-dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    padding: 13px 14px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 0.98rem;
+    font-weight: 600;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-mobile-dropdown-link:first-child {
+    border-top: none;
+  }
+
+  .nav-mobile-dropdown-link .nav-new-badge {
+    margin-left: 2px;
+    transform: translateY(-6px);
+  }
+
+  .nav-mobile-search-row .unified-search {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .nav-mobile-search-row {
+    display: block;
+    width: auto;
+    margin: 12px 12px 12px;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .nav-mobile-dropdown + .nav-mobile-search-row {
+    margin-top: 12px;
+  }
+
+  .nav-mobile-search-row .unified-search input {
+    width: 100%;
+    max-width: 100%;
+    height: 42px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #181818;
+  }
+
+}
+
+@media (min-width: 641px) and (max-width: 1500px) {
+  .navbar-inner {
+    display: flex !important;
+    gap: 16px;
+    padding: 10px 20px;
+  }
+
+  .nav-mobile-shell {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 10px 20px;
+    flex: 1;
+  }
+
+  .nav-mobile-topbar {
+    padding: 0;
+    border: 0;
+    gap: 20px;
+  }
+
+  .nav-mobile-search-row,
+  .nav-mobile-dropdown + .nav-mobile-search-row {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .nav-mobile-dropdown {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+  }
+
+  .affiliate-ad {
+    margin: 0;
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-mobile-shell {
+    flex-basis: 100%;
+  }
+
+  .affiliate-ad {
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1500px) and (max-height: 500px) {
+  .unified-search-dropdown {
+    max-height: 55dvh;
+    overflow-y: auto;
+  }
+}
