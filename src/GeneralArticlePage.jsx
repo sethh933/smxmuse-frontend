@@ -11,7 +11,6 @@ import "./styles/generalArticle.css";
 const storageKey = "smxmuseGeneralArticlePrototypeV1";
 const newBlock = (type) => ({ id: crypto.randomUUID(), type, heading: "", text: "", csv: "", columns: [], rows: [], caption: "", sortColumn: 0, sortDirection: "asc" });
 function initialDraft() {
-  try { const saved = JSON.parse(localStorage.getItem(storageKey)); if (saved?.version === 1 && Array.isArray(saved.blocks)) return saved; } catch { /* Start a fresh draft when storage is unavailable. */ }
   return { version: 1, title: "", summary: "", date: new Date().toLocaleDateString("en-CA"), tags: "", instagramUrl: "", blocks: [newBlock("text")], entities: { riders: [], tracks: [] } };
 }
 function instagramLink(value) {
@@ -20,8 +19,12 @@ function instagramLink(value) {
 
 export default function GeneralArticlePage() {
   const { slug } = useParams();
+  return <GeneralArticleEditor key={slug || "new"} slug={slug} />;
+}
+
+function GeneralArticleEditor({ slug }) {
   const [draft, setDraft] = useState(initialDraft);
-  const [savedSlug, setSavedSlug] = useState(() => slug || initialDraft().serverSlug || "");
+  const [savedSlug, setSavedSlug] = useState(slug || "");
   const [busy, setBusy] = useState(false);
   const [loaded, setLoaded] = useState(!slug);
   const [preview, setPreview] = useState(false);
@@ -75,6 +78,17 @@ export default function GeneralArticlePage() {
     try { localStorage.setItem(storageKey, JSON.stringify(draft)); setStatus("Draft saved in this browser."); }
     catch { setStatus("Could not save in this browser. Keep this tab open and try a smaller table."); }
   }
+  function restoreLocalDraft() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey));
+      if (saved?.version !== 1 || !Array.isArray(saved.blocks) || typeof saved.title !== "string") {
+        setStatus("No saved local draft found in this browser."); return;
+      }
+      setDraft(saved); setSavedSlug(saved.serverSlug || "");
+      setErrors({}); setLinkStatus(""); setPreview(false);
+      setStatus("Local draft restored. This resumes the saved article.");
+    } catch { setStatus("Could not restore a local draft from this browser."); }
+  }
   function importTable(block, csv) {
     try {
       const data = parseArticleCsv(csv);
@@ -104,7 +118,7 @@ export default function GeneralArticlePage() {
     <header className="notes-admin-header"><Link to="/admin/news">← News admin</Link><p className="notes-kicker">General article</p><h1>More room for the story.</h1><p>Bring your post beyond the slide. Add context, explore the numbers, and link back to Instagram.</p></header>
     <div className="article-editor-toolbar"><div><button className={!preview ? "active" : ""} onClick={() => setPreview(false)}>Write</button><button className={preview ? "active" : ""} onClick={() => setPreview(true)}>Reader preview</button></div><button className="notes-admin-primary" onClick={save}>Save local draft</button></div>
     <div className="article-editor-toolbar">
-      <div><button onClick={exportDraft}>Export draft backup</button>
+      <div>{!slug && <button disabled={busy} onClick={restoreLocalDraft}>Restore local draft</button>}<button onClick={exportDraft}>Export draft backup</button>
       <label>Import draft backup<input type="file" accept=".json,application/json" onChange={async (event) => {
         const file = event.target.files?.[0]; if (!file) return;
         try { const imported = JSON.parse(await file.text());
@@ -114,7 +128,7 @@ export default function GeneralArticlePage() {
       }} /></label></div>
       <div><button disabled={busy || !adminToken || !loaded} onClick={() => saveRemote("draft")}>Save to site</button><button disabled={busy || !adminToken || !loaded} onClick={() => saveRemote("published")}>Publish</button></div>
     </div>
-    <p className="article-prototype-note">Save locally as a backup, or use your admin token to save and publish to the site.</p>
+    <p className="article-prototype-note">New articles start blank. Use Restore local draft to resume your last browser backup, or News admin to edit a post saved to the site.</p>
     {savedSlug && <Link to={`/admin/news/preview/${savedSlug}`}>View saved article</Link>}
     <p role="status" className="article-status">{status}</p>
     {preview ? <article className="article-reader">
