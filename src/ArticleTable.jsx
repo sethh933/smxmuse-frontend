@@ -4,6 +4,10 @@ import ArticleFormattedText from "./ArticleFormattedText";
 import { compareArticleCells } from "./articleCsv";
 import ArticleCountry from "./ArticleCountry";
 
+function columnClass(type) {
+  return type === "number" ? "article-number article-centered" : type === "country" ? "article-centered" : "";
+}
+
 export default function ArticleTable({ block, entities }) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState({ index: Number(block.sortColumn || 0), direction: block.sortDirection || "asc" });
@@ -20,9 +24,9 @@ export default function ArticleTable({ block, entities }) {
       <label>Rows<select value={size} onChange={(event) => { setSize(Number(event.target.value)); setPage(0); }}>{[25, 50, 100].map((value) => <option key={value}>{value}</option>)}</select></label>
     </div>
     <div className="article-table-scroll" tabIndex={0} role="region" aria-label={block.heading || "Article data table"}>
-      <table><thead><tr>{block.columns.map((column, index) => <th key={index} aria-sort={sort.index === index ? sort.direction === "asc" ? "ascending" : "descending" : "none"}>
+      <table><thead><tr>{block.columns.map((column, index) => <th key={index} className={columnClass(column.type)} aria-sort={sort.index === index ? sort.direction === "asc" ? "ascending" : "descending" : "none"}>
         <button type="button" onClick={() => { setSort({ index, direction: sort.index === index && sort.direction === "asc" ? "desc" : "asc" }); setPage(0); }}>{column.label} {sort.index === index ? sort.direction === "asc" ? "↑" : "↓" : "↕"}</button>
-      </th>)}</tr></thead><tbody>{rows.slice(currentPage * size, (currentPage + 1) * size).map((row, index) => <tr key={index}>{row.map((cell, column) => <td key={column} className={block.columns[column].type === "number" ? "article-number" : ""}>{block.columns[column].type === "rider" ? <LinkedNoteText text={cell} entities={{ riders: entities?.riders || [] }} /> : ["country", "countryName"].includes(block.columns[column].type) ? <ArticleCountry country={cell} showName={block.columns[column].type === "countryName"} /> : cell}</td>)}</tr>)}</tbody></table>
+      </th>)}</tr></thead><tbody>{rows.slice(currentPage * size, (currentPage + 1) * size).map((row, index) => <tr key={index}>{row.map((cell, column) => <td key={column} className={columnClass(block.columns[column].type)}>{block.columns[column].type === "rider" ? <LinkedNoteText text={cell} entities={{ riders: entities?.riders || [] }} /> : ["country", "countryName"].includes(block.columns[column].type) ? <ArticleCountry country={cell} showName={block.columns[column].type === "countryName"} /> : cell}</td>)}</tr>)}</tbody></table>
       {!rows.length && <p>No matching rows.</p>}
     </div>
     <div className="article-table-footer">

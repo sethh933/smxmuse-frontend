@@ -38,7 +38,9 @@
 .article-table-scroll tr:nth-child(even) td { background: #202020; }
 .article-table-scroll th:first-child, .article-table-scroll td:first-child { position: sticky; left: 0; }
 .article-table-scroll a, .article-reader a { color: #7dbaff; }
-.article-number { font-variant-numeric: tabular-nums; text-align: right; }
+.article-number { font-variant-numeric: tabular-nums; }
+.article-table-scroll .article-centered { text-align: center; }
+.article-table-scroll th.article-centered button { text-align: center; }
 .article-table-footer { margin-top: 14px; font-size: .9rem; color: #bbbbbb; }
 .article-pagination { align-items: center; flex-wrap: wrap; }
 .article-pagination > span { white-space: nowrap; }
