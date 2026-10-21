@@ -1,4 +1,4 @@
-import { ResponsiveContainer, ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { ResponsiveContainer, ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import ArticleTable from "./ArticleTable";
 import ArticleFormattedText from "./ArticleFormattedText";
 
@@ -18,20 +18,23 @@ export default function ArticleChart({ block, entities }) {
     {block.heading && <h2>{block.heading}</h2>}
     {series.length && data.length ? <>
       <p className="article-source">{block.yLabel || "Value"}{block.unit ? ` (${block.unit})` : ""}</p>
-      <div style={{ width: "100%", height: 360, minWidth: 0 }} role="img" aria-label={`${block.heading || "Chart"}. ${block.chartType === "bar" ? "Bar" : "Line"} chart; exact values are available in View data below.`}>
+      <div className="article-chart-plot" role="img" aria-label={`${block.heading || "Chart"}. ${block.chartType === "bar" ? "Bar" : "Line"} chart; exact values are available in View data below.`}>
         <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 800, height: 360 }}>
-          <ComposedChart data={data} margin={{ top: 12, right: 20, bottom: 25, left: 4 }} accessibilityLayer>
+          <ComposedChart data={data} margin={{ top: 16, right: 12, bottom: 8, left: 0 }} accessibilityLayer>
             <CartesianGrid stroke="#3a3a3a" strokeDasharray="3 3" vertical={false} />
             <XAxis dataKey={String(block.xColumn)} stroke="#bbb" tick={{ fontSize: 12 }} minTickGap={24} />
             <YAxis stroke="#bbb" tick={{ fontSize: 12 }} domain={[(min) => Math.min(0, min), (max) => Math.max(0, max)]} />
             <Tooltip contentStyle={{ background: "#202020", border: "1px solid #555", color: "#fff" }} labelStyle={{ color: "#fff" }} formatter={(value) => `${value}${block.unit ? ` ${block.unit}` : ""}`} />
-            <Legend />
             {series.map((index, i) => <Mark key={index} dataKey={String(index)} name={block.columns[index].label} stroke={chartSeriesColor(block.columns[index], i)} fill={chartSeriesColor(block.columns[index], i)} type="linear" strokeWidth={2.5} dot={data.length <= 40} connectNulls={false} isAnimationActive={false} />)}
             {trends.map((index) => <Line key={`trend-${index}`} dataKey={`trend-${index}`} name={`${block.columns[index].label} trend`} stroke={chartSeriesColor(block.columns[index], series.indexOf(index))} strokeDasharray="7 5" strokeWidth={2} dot={false} activeDot={false} type="linear" isAnimationActive={false} />)}
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-      <p className="article-source" style={{ textAlign: "center" }}>{block.xLabel || block.columns[block.xColumn]?.label}</p>
+      <p className="article-source article-chart-x-label">{block.xLabel || block.columns[block.xColumn]?.label}</p>
+      <ul className="article-chart-legend" aria-label="Chart legend">
+        {series.map((index, i) => <li key={index}><span className="article-chart-swatch" style={{ borderColor: chartSeriesColor(block.columns[index], i) }} aria-hidden="true" /><span>{block.columns[index].label}</span></li>)}
+        {trends.map((index) => <li key={`trend-${index}`}><span className="article-chart-swatch article-chart-swatch-trend" style={{ borderColor: chartSeriesColor(block.columns[index], series.indexOf(index)) }} aria-hidden="true" /><span>{block.columns[index].label} trend</span></li>)}
+      </ul>
     </> : <p>Import data and select a label column and at least one value column.</p>}
     {trends.length > 0 && <p className="article-source">Dashed lines show linear trends across equally spaced rows; blank values are excluded.</p>}
     {block.caption && <p className="article-source"><ArticleFormattedText text={block.caption} entities={entities} /></p>}

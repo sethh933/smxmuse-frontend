@@ -7,7 +7,7 @@ import { compareArticleCells } from "./articleCsv";
 import ArticleCountry from "./ArticleCountry";
 
 function columnClass(type) {
-  return type === "number" ? "article-number article-centered" : type === "country" ? "article-centered" : "";
+  return type === "number" ? "article-number article-centered" : type === "country" ? "article-centered" : type === "rider" ? "article-rider-cell" : "";
 }
 
 export default function ArticleTable({ block, entities }) {
