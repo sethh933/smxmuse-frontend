@@ -1,3 +1,4 @@
+import { chartSeriesColor } from "./articleChartSeries";
 import { useState } from "react";
 import { parseArticleCsv } from "./articleCsv";
 import ArticleChart from "./ArticleChart";
@@ -8,7 +9,7 @@ export default function ArticleChartEditor({ block, onChange, entities }) {
     try {
       const parsed = parseArticleCsv(csv);
       if (parsed.columns.length < 2) throw new Error("Include a label column and at least one numeric value column.");
-      const columns = parsed.columns.map((column) => ({ ...column, type: "text" }));
+      const columns = parsed.columns.map((column) => ({ ...column, type: "text", chartColor: block.columns.find((old) => old.label === column.label)?.chartColor, trendline: block.columns.find((old) => old.label === column.label)?.trendline || false }));
       const oldX = block.columns[block.xColumn]?.label;
       const xColumn = Math.max(0, columns.findIndex((column) => column.label === oldX));
       const numeric = columns.flatMap((_, i) => i !== xColumn && parsed.rows.some((row) => row[i].trim()) && parsed.rows.every((row) => !row[i].trim() || Number.isFinite(Number(row[i].replace(/,/g, "")))) ? [i] : []);
@@ -36,6 +37,11 @@ export default function ArticleChartEditor({ block, onChange, entities }) {
       <label>Units<input value={block.unit || ""} onChange={(event) => onChange({ unit: event.target.value })} placeholder="seconds" /></label>
     </div>
     {block.columns.length > 0 && <fieldset><legend>Value columns</legend>{block.columns.map((column, i) => i !== block.xColumn && column.type === "number" && <label key={i}><span><input type="checkbox" checked={(block.yColumns || []).includes(i)} onChange={(event) => onChange({ yColumns: event.target.checked ? [...(block.yColumns || []), i] : block.yColumns.filter((index) => index !== i) })} /> {column.label}</span></label>)}</fieldset>}
+    {(block.yColumns || []).filter((i) => i !== block.xColumn && block.columns[i]).map((i, position) => <div className="notes-admin-grid" key={i}>
+      <label>{block.columns[i].label} color<input type="color" value={chartSeriesColor(block.columns[i], position)} onChange={(event) => onChange({ columns: block.columns.map((column, index) => index === i ? { ...column, chartColor: event.target.value } : column) })} /></label>
+      <label><span><input type="checkbox" checked={Boolean(block.columns[i].trendline)} onChange={(event) => onChange({ columns: block.columns.map((column, index) => index === i ? { ...column, trendline: event.target.checked } : column) })} /> Add linear trendline for {block.columns[i].label}</span></label>
+    </div>)}
+    <p className="article-help">Trendlines use equally spaced row positions and skip blank values. At least two numeric values are required. They appear dashed in the series color.</p>
     <label>Source / chart note<input value={block.caption} onChange={(event) => onChange({ caption: event.target.value })} placeholder="Source, date range, or exclusions" /></label>
     <ArticleChart block={block} entities={entities} />
   </>;
