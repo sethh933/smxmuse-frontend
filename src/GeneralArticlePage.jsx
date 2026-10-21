@@ -1,3 +1,5 @@
+import ArticleChart from "./ArticleChart";
+import ArticleChartEditor from "./ArticleChartEditor";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Seo from "./SiteSeo";
@@ -10,7 +12,7 @@ import { apiUrl } from "./api";
 import "./styles/generalArticle.css";
 
 const storageKey = "smxmuseGeneralArticlePrototypeV1";
-const newBlock = (type) => ({ id: crypto.randomUUID(), type, heading: "", text: "", csv: "", columns: [], rows: [], caption: "", sortColumn: 0, sortDirection: "asc" });
+const newBlock = (type) => ({ id: crypto.randomUUID(), type, chartType: "line", xColumn: 0, yColumns: [], xLabel: "", yLabel: "", unit: "", heading: "", text: "", csv: "", columns: [], rows: [], caption: "", sortColumn: 0, sortDirection: "asc" });
 function initialDraft() {
   return { version: 1, title: "", summary: "", date: new Date().toLocaleDateString("en-CA"), tags: "", instagramUrl: "", blocks: [newBlock("text")], entities: { riders: [], tracks: [] } };
 }
@@ -135,7 +137,7 @@ function GeneralArticleEditor({ slug }) {
     {preview ? <article className="article-reader">
       <p className="notes-kicker">General article · {draft.date}</p><h1>{draft.title || "Your article title"}</h1>{draft.summary && <p className="article-deck"><ArticleFormattedText text={draft.summary} entities={draft.entities} /></p>}
       {draft.tags && <div className="notes-tag-row">{draft.tags.split(",").filter((tag) => tag.trim()).map((tag, index) => <span key={index}>{tag.trim()}</span>)}</div>}
-      {draft.blocks.map((block) => block.type === "table" ? block.columns.length > 0 && <ArticleTable key={`${block.id}-${block.sortColumn}-${block.sortDirection}`} block={block} entities={draft.entities} /> : <section key={block.id}>{block.heading && <h2><ArticleFormattedText text={block.heading} entities={draft.entities} /></h2>}{block.text.split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p className="article-paragraph" key={index}><ArticleFormattedText text={paragraph} entities={draft.entities} /></p>)}</section>)}
+      {draft.blocks.map((block) => block.type === "chart" ? <ArticleChart key={block.id} block={block} entities={draft.entities} /> : block.type === "table" ? block.columns.length > 0 && <ArticleTable key={`${block.id}-${block.sortColumn}-${block.sortDirection}`} block={block} entities={draft.entities} /> : <section key={block.id}>{block.heading && <h2><ArticleFormattedText text={block.heading} entities={draft.entities} /></h2>}{block.text.split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p className="article-paragraph" key={index}><ArticleFormattedText text={paragraph} entities={draft.entities} /></p>)}</section>)}
       {instagram && <a className="article-instagram" href={instagram} target="_blank" rel="noopener noreferrer">See the original post on Instagram ↗</a>}
     </article> : <>
       <section className="notes-admin-panel"><h2>The essentials</h2><label><span><input type="checkbox" checked={Boolean(draft.featured)} onChange={(event) => update({ featured: event.target.checked })} /> Feature on the News page</span></label><div className="notes-admin-grid notes-admin-grid-wide">
@@ -146,9 +148,9 @@ function GeneralArticleEditor({ slug }) {
       </div>{draft.instagramUrl && !instagram && <p role="alert">Use a full https://www.instagram.com/ link.</p>}<ArticleTextEditor label="Summary" rows={3} value={draft.summary} onChange={(summary) => update({ summary })} entities={draft.entities} placeholder="A short introduction for the News listing and the top of your article." /></section>
       <div className="article-section-label"><h2>Build your story</h2><span>{draft.blocks.length} blocks</span></div>
       {draft.blocks.map((block, index) => <section key={block.id} className="notes-admin-panel article-block">
-        <div className="article-block-toolbar"><strong>{String(index + 1).padStart(2, "0")} / {block.type === "table" ? "Data table" : "Text section"}</strong><div><button aria-label={`Move block ${index + 1} up`} disabled={!index} onClick={() => move(index, -1)}>↑</button><button aria-label={`Move block ${index + 1} down`} disabled={index === draft.blocks.length - 1} onClick={() => move(index, 1)}>↓</button><button onClick={() => update({ blocks: draft.blocks.filter((item) => item.id !== block.id) })}>Remove</button></div></div>
+        <div className="article-block-toolbar"><strong>{String(index + 1).padStart(2, "0")} / {block.type === "chart" ? "Chart" : block.type === "table" ? "Data table" : "Text section"}</strong><div><button aria-label={`Move block ${index + 1} up`} disabled={!index} onClick={() => move(index, -1)}>↑</button><button aria-label={`Move block ${index + 1} down`} disabled={index === draft.blocks.length - 1} onClick={() => move(index, 1)}>↓</button><button onClick={() => update({ blocks: draft.blocks.filter((item) => item.id !== block.id) })}>Remove</button></div></div>
         <label>Heading (optional)<input value={block.heading} onChange={(event) => updateBlock(block.id, { heading: event.target.value })} placeholder={block.type === "table" ? "What the numbers show" : "Set up the next part of your story"} /></label>
-        {block.type === "text" ? <ArticleTextEditor label="Body" value={block.text} onChange={(text) => updateBlock(block.id, { text })} entities={draft.entities} placeholder="Write freely. Separate paragraphs with a blank line." /> : <>
+        {block.type === "chart" ? <ArticleChartEditor block={block} entities={draft.entities} onChange={(values) => updateBlock(block.id, values)} /> : block.type === "text" ? <ArticleTextEditor label="Body" value={block.text} onChange={(text) => updateBlock(block.id, { text })} entities={draft.entities} placeholder="Write freely. Separate paragraphs with a blank line." /> : <>
           <label>Paste CSV or spreadsheet cells<textarea className="article-csv" rows={5} value={block.csv} onChange={(event) => updateBlock(block.id, { csv: event.target.value })} placeholder={'Rider,Starts,First year\nRider name,42,2015'} /></label>
           <div className="article-import-actions"><button onClick={() => importTable(block, block.csv)}>{block.columns.length ? "Replace table data" : "Import table"}</button><label>Or upload CSV<input type="file" accept=".csv,.tsv,text/csv,text/tab-separated-values" onChange={async (event) => { const file = event.target.files?.[0]; if (file) { try { importTable(block, await file.text()); } catch { setErrors((current) => ({ ...current, [block.id]: "Could not read that file." })); } event.target.value = ""; } }} /></label></div>
           <p className="article-help">First row = column headings. Quoted commas and spreadsheet paste are supported. Import again after editing the source.</p>
@@ -158,7 +160,7 @@ function GeneralArticleEditor({ slug }) {
           <label>Source / table note<input value={block.caption} onChange={(event) => updateBlock(block.id, { caption: event.target.value })} placeholder="Source, cutoff date, or what counts in this table" /></label><ArticleTable key={`${block.id}-${block.sortColumn}-${block.sortDirection}-${block.columns.map((column) => column.label).join("|")}`} block={block} entities={draft.entities} /></>}
         </>}
       </section>)}
-      <div className="article-add-block"><button onClick={() => update({ blocks: [...draft.blocks, newBlock("text")] })}>+ Text section</button><button onClick={() => update({ blocks: [...draft.blocks, newBlock("table")] })}>+ Data table</button></div>
+      <div className="article-add-block"><button onClick={() => update({ blocks: [...draft.blocks, newBlock("text")] })}>+ Text section</button><button onClick={() => update({ blocks: [...draft.blocks, newBlock("table")] })}>+ Data table</button><button onClick={() => update({ blocks: [...draft.blocks, newBlock("chart")] })}>+ Chart</button></div>
       <section className="notes-admin-panel"><h2>Automatic profile links</h2><p>Check the whole article at once: summary, every text section and heading, table notes, and rider columns. Check again after adding names.</p><div className="article-import-actions"><label>Admin token<input type="password" value={adminToken} onChange={(event) => setAdminToken(event.target.value)} placeholder="Required for rider lookup only" /></label><button disabled={resolving || !adminToken} onClick={checkLinks}>{resolving ? "Checking…" : "Check rider links"}</button></div><p role="status">{linkStatus}</p>{unmatched.length > 0 && <details><summary>{unmatched.length} table names without a confirmed exact match</summary><p>{unmatched.join(", ")}</p><p>These names need review; unmatched names remain plain text.</p></details>}</section>
     </>}
   </div>;
