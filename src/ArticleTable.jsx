@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { buildRacePath } from "./seo";
 import { useMemo, useState } from "react";
 import LinkedNoteText from "./LinkedNoteText";
 import ArticleFormattedText from "./ArticleFormattedText";
@@ -13,7 +15,9 @@ export default function ArticleTable({ block, entities }) {
   const [sort, setSort] = useState({ index: Number(block.sortColumn || 0), direction: block.sortDirection || "asc" });
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(25);
-  const rows = useMemo(() => block.rows.filter((row) => row.some((cell) => cell.toLowerCase().includes(query.toLowerCase())))
+  const raceIdIndex = block.columns.findIndex((column) => column.type === "raceId");
+  const visibleColumns = block.columns.map((column, index) => ({ ...column, index })).filter((column) => column.type !== "raceId");
+  const rows = useMemo(() => block.rows.filter((row) => row.some((cell, index) => block.columns[index].type !== "raceId" && cell.toLowerCase().includes(query.toLowerCase())))
     .sort((a, b) => compareArticleCells(a[sort.index], b[sort.index], block.columns[sort.index]?.type) * (sort.direction === "asc" ? 1 : -1)), [block, query, sort]);
   const lastPage = Math.max(0, Math.ceil(rows.length / size) - 1);
   const currentPage = Math.min(page, lastPage);
@@ -24,9 +28,9 @@ export default function ArticleTable({ block, entities }) {
       <label>Rows<select value={size} onChange={(event) => { setSize(Number(event.target.value)); setPage(0); }}>{[25, 50, 100].map((value) => <option key={value}>{value}</option>)}</select></label>
     </div>
     <div className="article-table-scroll" tabIndex={0} role="region" aria-label={block.heading || "Article data table"}>
-      <table><thead><tr>{block.columns.map((column, index) => <th key={index} className={columnClass(column.type)} aria-sort={sort.index === index ? sort.direction === "asc" ? "ascending" : "descending" : "none"}>
+      <table><thead><tr>{visibleColumns.map(({ index, ...column }) => <th key={index} className={columnClass(column.type)} aria-sort={sort.index === index ? sort.direction === "asc" ? "ascending" : "descending" : "none"}>
         <button type="button" onClick={() => { setSort({ index, direction: sort.index === index && sort.direction === "asc" ? "desc" : "asc" }); setPage(0); }}>{column.label} {sort.index === index ? sort.direction === "asc" ? "↑" : "↓" : "↕"}</button>
-      </th>)}</tr></thead><tbody>{rows.slice(currentPage * size, (currentPage + 1) * size).map((row, index) => <tr key={index}>{row.map((cell, column) => <td key={column} className={columnClass(block.columns[column].type)}>{block.columns[column].type === "rider" ? <LinkedNoteText text={cell} entities={{ riders: entities?.riders || [] }} /> : ["country", "countryName"].includes(block.columns[column].type) ? <ArticleCountry country={cell} showName={block.columns[column].type === "countryName"} /> : cell}</td>)}</tr>)}</tbody></table>
+      </th>)}</tr></thead><tbody>{rows.slice(currentPage * size, (currentPage + 1) * size).map((row, index) => <tr key={index}>{visibleColumns.map(({ index: column }) => { const cell = row[column]; const raceId = String(row[raceIdIndex] || "").trim(); return <td key={column} className={columnClass(block.columns[column].type)}>{["raceDate", "raceText"].includes(block.columns[column].type) && /^[1-9]\d*$/.test(raceId) ? <Link to={buildRacePath(raceId)}>{cell}</Link> : block.columns[column].type === "rider" ? <LinkedNoteText text={cell} entities={{ riders: entities?.riders || [] }} /> : ["country", "countryName"].includes(block.columns[column].type) ? <ArticleCountry country={cell} showName={block.columns[column].type === "countryName"} /> : cell}</td>; })}</tr>)}</tbody></table>
       {!rows.length && <p>No matching rows.</p>}
     </div>
     <div className="article-table-footer">

@@ -25,11 +25,15 @@ export function parseArticleCsv(input) {
   if (headers.some((header) => !header)) throw new Error("Each column needs a heading.");
   const bad = rows.findIndex((record) => record.length !== headers.length);
   if (bad !== -1) throw new Error(`Data row ${bad + 1} has ${rows[bad].length} cells; expected ${headers.length}.`);
-  return { columns: headers.map((label, index) => ({ label, type: /rider|competitor|name/i.test(label) ? "rider" : rows.every((record) => !record[index] || Number.isFinite(Number(record[index].replace(/,/g, "")))) ? "number" : "text" })), rows };
+  return { columns: headers.map((label, index) => ({ label, type: /^race[ _-]?id$/i.test(label) ? "raceId" : /rider|competitor|name/i.test(label) ? "rider" : rows.every((record) => !record[index] || Number.isFinite(Number(record[index].replace(/,/g, "")))) ? "number" : "text" })), rows };
 }
 
 export function compareArticleCells(a, b, type) {
   if (!a || !b) return a ? -1 : b ? 1 : 0;
+  if (type === "raceDate") {
+    const left = Date.parse(a), right = Date.parse(b);
+    if (Number.isFinite(left) && Number.isFinite(right)) return left - right;
+  }
   if (type === "number") {
     const left = Number(a.replace(/,/g, "")), right = Number(b.replace(/,/g, ""));
     if (Number.isFinite(left) && Number.isFinite(right)) return left - right;
