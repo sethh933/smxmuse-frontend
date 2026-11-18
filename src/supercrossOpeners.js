@@ -1,6 +1,7 @@
 const FIRST_DAY = Date.UTC(2026, 10, 18);
 const FIRST_SEASON = 1974;
 export const FINAL_OPENER_YEAR = 2026;
+export const OPENER_SERIES_DAYS = FINAL_OPENER_YEAR - FIRST_SEASON;
 export const NEXT_OPENER_DATE = "2027-01-09";
 const easternDate = new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/New_York",
@@ -22,6 +23,12 @@ export function getSeasonOpener(races) {
   return races
     .filter((race) => race.round === 1)
     .sort((a, b) => a.race_date.localeCompare(b.race_date) || a.race_id - b.race_id)[0];
+}
+
+export function getOpenerDayLabel(year) {
+  return year === FINAL_OPENER_YEAR
+    ? "Bonus day"
+    : `Day (${year - FIRST_SEASON + 1}/${OPENER_SERIES_DAYS})`;
 }
 
 export function getOpenerResults({ class450 = [], class250 = [] }) {

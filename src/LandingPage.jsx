@@ -10,6 +10,7 @@ import { articlePlainText } from "./articlePlainText";
 import {
   FINAL_OPENER_YEAR,
   NEXT_OPENER_DATE,
+  getOpenerDayLabel,
   getOpenerResults,
   getSeasonOpener,
   getSupercrossOpenerYear
@@ -407,8 +408,9 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults, openerYe
     <div className="landing-results-panel">
       <div className="landing-panel-header">
         <div>
-          <p className="landing-panel-label">
+          <p className="landing-panel-label landing-results-label">
             {openerYear ? "52 Days of Supercross Openers" : "Most recent race"}
+            {openerYear && <span className="landing-opener-day">{getOpenerDayLabel(openerYear)}</span>}
           </p>
           <h3>
             {loadingLatest
@@ -733,7 +735,7 @@ export default function LandingPage() {
           {!displayedOpenerYear || (isFinalOpener && published)
             ? <RecentRaceResults />
             : isFinalOpener && !checked
-              ? <LatestResultsPanel loadingLatest latestResults={[]} />
+              ? <LatestResultsPanel loadingLatest latestResults={[]} openerYear={displayedOpenerYear} />
               : <SupercrossOpenerResults key={displayedOpenerYear} year={displayedOpenerYear} />}
         </div>
 
