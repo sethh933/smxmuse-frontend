@@ -7,6 +7,13 @@ import { BrandMark, CountryFlag } from "./ResultIdentity";
 import { formatCalendarDate, getCalendarYear, parseCalendarDate } from "./dateUtils";
 import { getPublishedPosts, getPostTypeLabel } from "./contentPosts";
 import { articlePlainText } from "./articlePlainText";
+import {
+  FINAL_OPENER_YEAR,
+  NEXT_OPENER_DATE,
+  getOpenerResults,
+  getSeasonOpener,
+  getSupercrossOpenerYear
+} from "./supercrossOpeners";
 import "./styles/landingNews.css";
 
 function HomepageNews() {
@@ -126,12 +133,74 @@ function writeSessionCache(key, value) {
   }
 }
 
-async function fetchJson(path) {
-  const response = await fetch(apiUrl(path));
+async function fetchJson(path, signal, cache) {
+  const response = await fetch(apiUrl(path), { signal, cache });
   if (!response.ok) {
     throw new Error(`${path} returned ${response.status}`);
   }
   return response.json();
+}
+
+const OPENER_PUBLISHED_KEY = `smxmuse:sx-results-published:${NEXT_OPENER_DATE}`;
+
+function readOpenerPublication() {
+  try {
+    return window.localStorage.getItem(OPENER_PUBLISHED_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function useOpenerPublication(enabled) {
+  const [published, setPublished] = useState(readOpenerPublication);
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    if (!enabled || published) return;
+
+    const controller = new AbortController();
+    let timer;
+
+    async function checkResults() {
+      try {
+        const races = await fetchJson(
+          `/api/races?sport_id=1&year=${FINAL_OPENER_YEAR + 1}`, controller.signal, "no-store"
+        );
+        const race = races.find((entry) => entry.round === 1 && entry.race_date === NEXT_OPENER_DATE);
+        if (race) {
+          const results = await fetchJson(
+            `/api/race/main-event?raceid=${race.race_id}`, controller.signal, "no-store"
+          );
+          if ([...(results.class450 ?? []), ...(results.class250 ?? [])].some((row) => row.result > 0)) {
+            if (controller.signal.aborted) return;
+            writeSessionCache(LANDING_CACHE_KEYS.latestRace, null);
+            setPublished(true);
+            try {
+              window.localStorage.setItem(OPENER_PUBLISHED_KEY, "true");
+            } catch {
+              // Publication still takes effect when browser storage is unavailable.
+            }
+            return;
+          }
+        }
+      } catch (error) {
+        if (!controller.signal.aborted) console.error("Failed to check the new Supercross opener", error);
+      }
+
+      if (!controller.signal.aborted) {
+        setChecked(true);
+        timer = window.setTimeout(checkResults, 15_000);
+      }
+    }
+
+    checkResults();
+    return () => {
+      controller.abort();
+      window.clearTimeout(timer);
+    };
+  }, [enabled, published]);
+
+  return { checked, published };
 }
 
 function getCountryCode(country) {
@@ -327,7 +396,7 @@ function RiderOfTheDayPanel({ riderOfTheDay }) {
   );
 }
 
-function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
+function LatestResultsPanel({ loadingLatest, latestRace, latestResults, openerYear }) {
   const latestRaceDisplayName = latestRace
     ? latestRace.sport === "sx" && latestRace.city
       ? latestRace.city
@@ -338,13 +407,15 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
     <div className="landing-results-panel">
       <div className="landing-panel-header">
         <div>
-          <p className="landing-panel-label">Most recent race</p>
+          <p className="landing-panel-label">
+            {openerYear ? "52 Days of Supercross Openers" : "Most recent race"}
+          </p>
           <h3>
             {loadingLatest
-              ? "Loading latest race..."
+              ? openerYear ? `Loading the ${openerYear} opener…` : "Loading latest race..."
               : latestRace
-              ? `${latestRaceDisplayName} ${latestRace.sportLabel}`
-              : "Latest race unavailable"}
+              ? `${openerYear ? `${openerYear} ` : ""}${latestRaceDisplayName} ${latestRace.sportLabel}`
+              : openerYear ? `${openerYear} opener unavailable` : "Latest race unavailable"}
           </h3>
         </div>
 
@@ -376,7 +447,7 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
         {latestResults.map((group) => (
           <div key={group.classId} className="landing-result-card">
             <div className="landing-result-card-header">
-              <h4>Top 5 in {CLASS_LABELS[group.classId] ?? group.classId}</h4>
+              <h4>Top {group.limit ?? 5} in {CLASS_LABELS[group.classId] ?? group.classId}</h4>
               <span>{latestRace?.sport === "sx" ? "Main Event" : "Overall"}</span>
             </div>
             <ResultList rows={group.rows} sport={latestRace?.sport} />
@@ -385,11 +456,52 @@ function LatestResultsPanel({ loadingLatest, latestRace, latestResults }) {
 
         {!loadingLatest && latestResults.length === 0 && (
           <div className="landing-empty-state">
-            Latest race results are not available right now.
+            {openerYear
+              ? "Season opener results are unavailable right now."
+              : "Latest race results are not available right now."}
           </div>
         )}
       </div>
     </div>
+  );
+}
+
+function SupercrossOpenerResults({ year }) {
+  const [opener, setOpener] = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function loadOpener() {
+      try {
+        const races = await fetchJson(`/api/races?sport_id=1&year=${year}`, controller.signal);
+        const race = getSeasonOpener(races);
+        if (!race) throw new Error(`No Supercross opener found for ${year}`);
+
+        const mainData = await fetchJson(`/api/race/main-event?raceid=${race.race_id}`, controller.signal);
+        setOpener({
+          race: { ...race, sport: "sx", sportLabel: SPORT_META.sx.label },
+          results: getOpenerResults(mainData)
+        });
+      } catch (error) {
+        if (!controller.signal.aborted) {
+          console.error("Failed to load Supercross opener", error);
+          setOpener({ race: null, results: [] });
+        }
+      }
+    }
+
+    loadOpener();
+    return () => controller.abort();
+  }, [year]);
+
+  return (
+    <LatestResultsPanel
+      loadingLatest={!opener}
+      latestRace={opener?.race}
+      latestResults={opener?.results ?? []}
+      openerYear={year}
+    />
   );
 }
 
@@ -420,35 +532,23 @@ function ArchiveIntro({ className = "" }) {
   );
 }
 
-export default function LandingPage() {
-  const cachedLatest = readSessionCache(LANDING_CACHE_KEYS.latestRace);
-  const cachedRiderOfTheDay = readSessionCache(LANDING_CACHE_KEYS.riderOfTheDay);
-  const preferFreshLatest = IS_HOMEPAGE_DOCUMENT_RELOAD && !hasMountedLandingPage;
+function RecentRaceResults() {
+  const [cachedLatest] = useState(() => readSessionCache(LANDING_CACHE_KEYS.latestRace));
+  const [preferFreshLatest] = useState(
+    () => IS_HOMEPAGE_DOCUMENT_RELOAD && !hasMountedLandingPage
+  );
   const [latestRace, setLatestRace] = useState(
     preferFreshLatest ? null : cachedLatest?.race ?? null
   );
   const [latestResults, setLatestResults] = useState(
     preferFreshLatest ? [] : cachedLatest?.results ?? []
   );
-  const [riderOfTheDay, setRiderOfTheDay] = useState(cachedRiderOfTheDay);
   const [loadingLatest, setLoadingLatest] = useState(preferFreshLatest || !cachedLatest);
 
   useEffect(() => {
     let isMounted = true;
     let latestCacheFallbackTimer = null;
     hasMountedLandingPage = true;
-
-    async function loadRiderOfTheDay() {
-      try {
-        const data = await fetchJson("/api/riders/rider-of-the-day");
-        if (isMounted) {
-          setRiderOfTheDay(data);
-          writeSessionCache(LANDING_CACHE_KEYS.riderOfTheDay, data);
-        }
-      } catch (error) {
-        console.error("Failed to load rider of the day", error);
-      }
-    }
 
     async function loadLatestRace() {
       if (preferFreshLatest && cachedLatest) {
@@ -560,7 +660,6 @@ export default function LandingPage() {
       }
     }
 
-    loadRiderOfTheDay();
     loadLatestRace();
 
     return () => {
@@ -569,6 +668,56 @@ export default function LandingPage() {
         window.clearTimeout(latestCacheFallbackTimer);
       }
     };
+  }, [cachedLatest, preferFreshLatest]);
+
+  return (
+    <LatestResultsPanel
+      loadingLatest={loadingLatest}
+      latestRace={latestRace}
+      latestResults={latestResults}
+    />
+  );
+}
+
+function getOpenerPreviewYear() {
+  if (!import.meta.env.DEV || typeof window === "undefined") return null;
+
+  const year = Number(new URLSearchParams(window.location.search).get("previewOpener"));
+  return Number.isInteger(year) && year >= 1974 && year <= FINAL_OPENER_YEAR ? year : null;
+}
+
+export default function LandingPage() {
+  const [openerYear, setOpenerYear] = useState(getSupercrossOpenerYear);
+  const previewYear = getOpenerPreviewYear();
+  const displayedOpenerYear = previewYear ?? openerYear;
+  const isFinalOpener = !previewYear && openerYear === FINAL_OPENER_YEAR;
+  const { checked, published } = useOpenerPublication(isFinalOpener);
+  const [riderOfTheDay, setRiderOfTheDay] = useState(
+    () => readSessionCache(LANDING_CACHE_KEYS.riderOfTheDay)
+  );
+
+  useEffect(() => {
+    const updateOpenerYear = () => setOpenerYear(getSupercrossOpenerYear());
+    updateOpenerYear();
+    const timer = window.setInterval(updateOpenerYear, 15_000);
+    document.addEventListener("visibilitychange", updateOpenerYear);
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", updateOpenerYear);
+    };
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchJson("/api/riders/rider-of-the-day", controller.signal)
+      .then((data) => {
+        setRiderOfTheDay(data);
+        writeSessionCache(LANDING_CACHE_KEYS.riderOfTheDay, data);
+      })
+      .catch((error) => {
+        if (!controller.signal.aborted) console.error("Failed to load rider of the day", error);
+      });
+    return () => controller.abort();
   }, []);
 
   return (
@@ -581,11 +730,11 @@ export default function LandingPage() {
       <section className="landing-desktop-layout landing-news-layout">
         <HomepageNews />
         <div className="landing-narrow-results">
-          <LatestResultsPanel
-            loadingLatest={loadingLatest}
-            latestRace={latestRace}
-            latestResults={latestResults}
-          />
+          {!displayedOpenerYear || (isFinalOpener && published)
+            ? <RecentRaceResults />
+            : isFinalOpener && !checked
+              ? <LatestResultsPanel loadingLatest latestResults={[]} />
+              : <SupercrossOpenerResults key={displayedOpenerYear} year={displayedOpenerYear} />}
         </div>
 
         <div className="landing-hero-grid-slot">
